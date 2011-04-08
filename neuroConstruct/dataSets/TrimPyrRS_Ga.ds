@@ -1,0 +1,15 @@
+// This is a file storing the contents of a neuroConstruct Data Set, along with some other information to facilitate management/display of the Data Set
+
+//@reference=Time of last spike - GENESIS asymmetric 
+//@description=Time of last spike - GENESIS asymmetric 
+//@graphFormat=Lines
+//@graphColour=java.awt.Color[r=0,g=0,b=0]
+//@xUnits=
+//@yUnits=ms
+//@xLegend=Number
+//@yLegend=Time
+359, 670.638
+715, 676.296
+1419, 677.792
+3537, 680.088
+7051, 680.214

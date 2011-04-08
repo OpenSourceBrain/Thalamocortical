@@ -1,0 +1,14 @@
+// This is a file storing the contents of a neuroConstruct Data Set, along with some other information to facilitate management/display of the Data Set
+
+//@reference=Time of last spike - GENESIS symmetric compartments
+//@description=Time of last spike - GENESIS symmetric compartments
+//@graphFormat=Lines
+//@graphColour=java.awt.Color[r=0,g=0,b=0]
+//@xUnits=
+//@yUnits=ms
+//@xLegend=Number
+//@yLegend=Time
+359,  681.38
+715,682.16
+1772,680.92
+3537, 680.97

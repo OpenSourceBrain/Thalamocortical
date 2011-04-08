@@ -1,0 +1,17 @@
+// This is a file storing the contents of a neuroConstruct Data Set, along with some other information to facilitate management/display of the Data Set
+
+//@reference=Time of last spike - NEURON 
+//@description=Time of last spike - NEURON 
+//@graphFormat=Lines
+//@graphColour=java.awt.Color[r=0,g=0,b=0]
+//@xUnits=
+//@yUnits=ms
+//@xLegend=Number
+//@yLegend=Time
+359, 681.57
+715,681.06
+1772,681.57
+3537, 681.18
+7051,680.85
+17602, 680.98
+35179, 681.08

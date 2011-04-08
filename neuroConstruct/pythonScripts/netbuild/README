@@ -1,0 +1,19 @@
+
+Files for testing large scale simulations of Traub 2005 network model.
+
+Alpha code!!!
+
+Subject to change without notification!!
+
+These files will probably be moved to the parent folder when stable.
+
+
+    Quick instructions:
+
+Run makeSyn.sh to generate the Syn_AMPA_... etc. folders in the ../../cellMechanism folder
+If you're running Windows, convert this file to makeSyn.bat by running "python makeSynsBat.py" first
+
+If you've made any changes to the network in the netConnList file, update the neuroConstruct project using "python genNetConns.py",
+but the checked in project should already be consistent with this list.
+
+Use "nC.sh -python GenNetworkParallel.py" to generate the network for different scalings and send it to your chosen cluster/etc.
