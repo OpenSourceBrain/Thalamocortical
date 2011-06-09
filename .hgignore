@@ -12,3 +12,7 @@ generatedPSICS
 simulations
 *.bak
 *py.class
+Syn_NMDA*
+Syn_AMPA*
+Syn_GABAA*
+Syn_Elect*
