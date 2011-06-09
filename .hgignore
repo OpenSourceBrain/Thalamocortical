@@ -11,3 +11,4 @@ generatedMOOSE
 generatedPSICS
 simulations
 *.bak
+*py.class
