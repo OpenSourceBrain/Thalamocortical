@@ -118,19 +118,20 @@ def testAll(argv=None):
                                       numConcurrentSims = numConcurrentSims,
                                       verbose = verbose)
 
-    simManager.runMultipleSims(simConfigs =           simConfigs,
-                               simDt =                simDt,
-                               simulators =           simulators,
-                               runInBackground =      runInBackground,
-                               varTimestepNeuron =    varTimestepNeuron,
-                               varTimestepTolerance = varTimestepTolerance,
-			       mpiConfig =                mpiConfig,
-			       suggestedRemoteRunTime =   suggestedRemoteRunTime)
+    simManager.runMultipleSims(simConfigs =              simConfigs,
+                               simDt =                   simDt,
+                               simulators =              simulators,
+                               runInBackground =         runInBackground,
+                               varTimestepNeuron =       varTimestepNeuron,
+                               varTimestepTolerance =    varTimestepTolerance,
+                               mpiConfig =               mpiConfig,
+                               suggestedRemoteRunTime =  suggestedRemoteRunTime)
 
     simManager.reloadSims(plotVoltageOnly =   plotVoltageOnly,
+                          plotSims =          plotSims,
                           analyseSims =       analyseSims)
                           
-    report= "Report: \n"
+    report= ""
 
     if "Default Simulation Configuration" in simConfigs:
       
