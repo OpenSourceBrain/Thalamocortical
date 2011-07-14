@@ -31,8 +31,8 @@ projFile = File("../Thalamocortical.ncx")
 ###########  Main settings  ###########
 
 simConfig=              "CunninghamEtAl04_small"
-simDuration =           250 # ms
-simDt =                 0.005 # ms
+simDuration =           1000 # ms
+simDt =                 0.05 # ms
 neuroConstructSeed =    12345
 simulatorSeed =         12345
 #simulators =             ["NEURON", "GENESIS"]
@@ -41,13 +41,15 @@ simulatorSeed =         12345
 #simulators =             ["GENESIS"]
 simulators =             ["NEURON"]
 #simulators =             ["MOOSE"]
-simRefPrefix =          "Fin_"
+simRefPrefix =          "Fract_"
 defaultSynapticDelay =  0.1
 #mpiConf =               MpiSettings.CLUSTER_4PROC
 #mpiConf =               MpiSettings.LEGION_8PROC
 #mpiConf =               MpiSettings.LEGION_16PROC
 mpiConf =               MpiSettings.LOCAL_SERIAL
 mpiConf =               MpiSettings.MATLEM_8PROC
+mpiConf =               MpiSettings.MATLEM_32PROC
+mpiConf =               MpiSettings.MATLEM_64PROC
 #mpiConf =               MpiSettings.LEGION_1PROC
 #mpiConf =               MpiSettings.LEGION_16PROC
 #mpiConf =               MpiSettings.LEGION_256PROC
@@ -61,12 +63,22 @@ numRS =                 3
 numLTS =                0 
 numBask =               0
 numAxAx =               0
-'''
+
 numFRB =                6
 numRS =                 20
 numLTS =                10
 numBask =               10
 numAxAx =               10
+'''
+
+numPyr =                1152
+fractFRB =              0.05
+SimulationsInfo.addExtraSimProperty("fractFRB", str(fractFRB))
+numFRB =                int(fractFRB*numPyr)
+numRS =                 numPyr - numFRB
+numLTS =                96
+numBask =               96
+numAxAx =               96
 
 # Maximum electronic length of compartments (adjusts nseg etc.)
 maxElecLenFRB =         -1  # 0.01 will give ~700, -1 will leave as is
@@ -85,6 +97,9 @@ synScaling =            1
 varTimestepNeuron =     False
 verbose =               True
 runInBackground=        False
+
+saveAsHdf5 =            True
+#saveAsHdf5 =            False
 
 suggestedRemoteRunTime = 1430
 
@@ -238,6 +253,7 @@ if simulators.count("NEURON")>0:
                             simulatorSeed,
                             verbose=verbose,
                             runInBackground=runInBackground,
+                            saveAsHdf5 = saveAsHdf5,
                             varTimestep=varTimestepNeuron)
         
     sleep(2) # wait a while before running GENESIS...

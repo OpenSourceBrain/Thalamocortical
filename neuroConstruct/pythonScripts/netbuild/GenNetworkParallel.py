@@ -32,10 +32,10 @@ projFile = File("../../Thalamocortical.ncx")
 ###########  Main settings  ###########
 
 simConfig=              "TempSimConfig"
-simDuration =           300 # ms                                ##
+simDuration =           1000 # ms                                ##
 simDt =                 0.025 # ms
-neuroConstructSeed =    13433                                   ##
-simulatorSeed =         23234                                   ##
+neuroConstructSeed =    123443                                   ##
+simulatorSeed =         2322434                                   ##
 
 simulators =             ["NEURON"]
 
@@ -51,17 +51,19 @@ defaultSynapticDelay =  0.05
 #mpiConf =             MpiSettings.LEGION_16PROC               ##
 #mpiConf =               MpiSettings.LEGION_32PROC
 mpiConf =               MpiSettings.MATLEM_8PROC
-mpiConf =               MpiSettings.MATLEM_DIRECT
+mpiConf =               MpiSettings.MATLEM_64PROC
+mpiConf =               MpiSettings.MATLEM_128PROC
+#mpiConf =               MpiSettings.MATLEM_DIRECT
 #mpiConf =               MpiSettings.MATLEM_32PROC
 
 
-scaleCortex =             0.1                               ##
-scaleThalamus =           0                                     ##
+scaleCortex =             3                               ##
+scaleThalamus =           3                                     ##
 
 gabaScaling =             0.1                               ##
 l4ssAmpaScaling =         0.2                              ##
 
-deepBiasCurrent =         1                               ##
+##################################################################################################deepBiasCurrent =         1                               ##
 
 
 
@@ -138,6 +140,10 @@ while File( "%s/simulations/%s_N"%(project.getProjectMainDirectory().getCanonica
 project.simulationParameters.setReference(simRef)
 
 
+saveAsHdf5 =            True
+#saveAsHdf5 =            False
+
+
 ### Change num in each cell group
 
 numFRB = int(scaleCortex * numFRB)
@@ -203,7 +209,7 @@ for netConnName in simConfig.getNetConns():
 
 
 ### Change bias currents
-
+'''
 for inputName in simConfig.getInputs():
   
     stim = project.elecInputInfo.getStim(inputName)
@@ -215,7 +221,7 @@ for inputName in simConfig.getInputs():
 	  print "Changing offset current in %s to %f"%(stim.getCellGroup(), deepBiasCurrent)
 	  
 	  stim.setAmp(NumberGenerator(deepBiasCurrent))
-	  project.elecInputInfo.updateStim(stim)
+	  project.elecInputInfo.updateStim(stim)'''
        
 
 
@@ -296,6 +302,7 @@ if simulators.count("NEURON")>0:
                             simulatorSeed,
                             verbose=verbose,
                             runInBackground=runInBackground,
+                            saveAsHdf5 = saveAsHdf5,
                             varTimestep=varTimestepNeuron)
         
     sleep(2) # wait a while before running GENESIS...
