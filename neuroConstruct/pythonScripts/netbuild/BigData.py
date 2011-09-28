@@ -33,18 +33,14 @@ projFile = File("../../Thalamocortical.ncx")
 ###########  Main settings  ###########
 
 simConfig=              "TempSimConfig"
-simDuration =           100 # ms                                ##
+simDuration =           1000 # ms                                ##
 simDt =                 0.025 # ms
-neuroConstructSeed =    12443                                   ##
-simulatorSeed =         234434                                   ##
+neuroConstructSeed =    125443                                   ##
+simulatorSeed =         2344534                                   ##
 
 simulators =             ["NEURON"]
 
-
-########################   GG - good 336!
-
-
-simRefPrefix =          "LL_"                               ##
+simRefPrefix =          "D_"                               ##
 suggestedRemoteRunTime = 1620                                     ##
 
 defaultSynapticDelay =  0.05 
@@ -61,19 +57,15 @@ mpiConf =               MpiSettings.MATLEM_32PROC
 mpiConf =               MpiSettings.MATLEM_128PROC
 mpiConf =               MpiSettings.MATLEM_128PROC
 #mpiConf =             MpiSettings.MATLEM_16PROC
-mpiConf =               MpiSettings.MATLEM_64PROC
-mpiConf =               MpiSettings.MATLEM_8PROC
-mpiConf =              "MATTHAU_24"
-mpiConfigs =              [MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC,MpiSettings.MATLEM_32PROC, MpiSettings.MATLEM_48PROC, MpiSettings.MATLEM_64PROC, MpiSettings.MATLEM_96PROC, MpiSettings.MATLEM_128PROC, MpiSettings.MATLEM_160PROC, MpiSettings.MATLEM_192PROC]
-#mpiConfigs =              [MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC,MpiSettings.MATLEM_32PROC]
+mpiConf =               MpiSettings.MATLEM_200PROC
 
 saveAsHdf5 =            True
-saveAsHdf5 =            False
+#saveAsHdf5 =            False
 saveOnlySpikes =        True
-#saveOnlySpikes =        False
+saveOnlySpikes =        False
 
 
-scaleCortex =             1                            ##
+scaleCortex =             0.2                             ##
 scaleThalamus =           0                                    ##
 
 gabaScaling =             0.1                               ##
@@ -275,6 +267,15 @@ if maxElecLenIN > 0:
             inCell.getSegmentWithId(0).getSection().setNumberInternalDivisions(somaNseg)
 
 
+### Change parallel configuration
+
+mpiSettings = MpiSettings()
+simConfig.setMpiConf(mpiSettings.getMpiConfiguration(mpiConf))
+print "Parallel configuration: "+ str(simConfig.getMpiConf())
+
+if suggestedRemoteRunTime > 0:
+    project.neuronFileManager.setSuggestedRemoteRunTime(suggestedRemoteRunTime)
+    project.genesisFileManager.setSuggestedRemoteRunTime(suggestedRemoteRunTime)
 
 
 ### Change synaptic delay associated with each net conn
@@ -290,92 +291,77 @@ for netConnName in simConfig.getNetConns():
 SimulationsInfo.addExtraSimProperty("defaultSynapticDelay", str(defaultSynapticDelay))
 
 
+### Generate network structure in neuroConstruct
 
-for mpiConf in mpiConfigs:
-    ### Change parallel configuration
+pm.doGenerate(simConfig.getName(), neuroConstructSeed)
 
-    mpiSettings = MpiSettings()
-    simConfig.setMpiConf(mpiSettings.getMpiConfiguration(mpiConf))
-    print "Parallel configuration: "+ str(simConfig.getMpiConf())
-
-
-    simRefm = simRef+"_ML"+str(simConfig.getMpiConf().getTotalNumProcessors())
-
-    if suggestedRemoteRunTime > 0:
-        project.neuronFileManager.setSuggestedRemoteRunTime(suggestedRemoteRunTime)
-        project.genesisFileManager.setSuggestedRemoteRunTime(suggestedRemoteRunTime)
-
-    ### Generate network structure in neuroConstruct
-
-    pm.doGenerate(simConfig.getName(), neuroConstructSeed)
-
-    while pm.isGenerating():
-            print "Waiting for the project to be generated with Simulation Configuration: "+str(simConfig)
-            sleep(2)
+while pm.isGenerating():
+        print "Waiting for the project to be generated with Simulation Configuration: "+str(simConfig)
+        sleep(2)
 
 
-    print "Generated %i cells in %i cell groups" % (project.generatedCellPositions.getNumberInAllCellGroups(), project.generatedCellPositions.getNumberNonEmptyCellGroups())
-    print "Generated %i instances in %i network connections" % (project.generatedNetworkConnections.getNumAllSynConns(), project.generatedNetworkConnections.getNumNonEmptyNetConns())
-    print "Generated %i instances in %i elect inputs" % (project.generatedElecInputs.getNumberSingleInputs(), project.generatedElecInputs.getNonEmptyInputRefs().size())
+print "Generated %i cells in %i cell groups" % (project.generatedCellPositions.getNumberInAllCellGroups(), project.generatedCellPositions.getNumberNonEmptyCellGroups())
+print "Generated %i instances in %i network connections" % (project.generatedNetworkConnections.getNumAllSynConns(), project.generatedNetworkConnections.getNumNonEmptyNetConns())
+print "Generated %i instances in %i elect inputs" % (project.generatedElecInputs.getNumberSingleInputs(), project.generatedElecInputs.getNonEmptyInputRefs().size())
 
 
-    if simulators.count("NEURON")>0:
+if simulators.count("NEURON")>0:
 
-        simRefN = simRefm+"_N"
-        project.simulationParameters.setReference(simRefN)
+    simRefN = simRef+"_N"
+    project.simulationParameters.setReference(simRefN)
 
-        nc.generateAndRunNeuron(project,
-                                pm,
-                                simConfig,
-                                simRefN,
-                                simulatorSeed,
-                                verbose=verbose,
-                                runInBackground=runInBackground,
-                                saveAsHdf5 = saveAsHdf5,
-                                varTimestep=varTimestepNeuron,
-                                runMode = runMode)
+    nc.generateAndRunNeuron(project,
+                            pm,
+                            simConfig,
+                            simRefN,
+                            simulatorSeed,
+                            verbose=verbose,
+                            runInBackground=runInBackground,
+                            saveAsHdf5 = saveAsHdf5,
+                            varTimestep=varTimestepNeuron,
+                            runMode = runMode)
 
-        sleep(2) # wait a while before running GENESIS...
+    sleep(2) # wait a while before running GENESIS...
 
-    if simulators.count("GENESIS")>0:
+if simulators.count("GENESIS")>0:
 
-        simRefG = simRefm+"_G"
-        project.simulationParameters.setReference(simRefG)
+    simRefG = simRef+"_G"
+    project.simulationParameters.setReference(simRefG)
 
-        nc.generateAndRunGenesis(project,
-                                pm,
-                                simConfig,
-                                simRefG,
-                                simulatorSeed,
-                                verbose=verbose,
-                                runInBackground=runInBackground)
+    nc.generateAndRunGenesis(project,
+                            pm,
+                            simConfig,
+                            simRefG,
+                            simulatorSeed,
+                            verbose=verbose,
+                            runInBackground=runInBackground)
 
-        sleep(2) # wait a while before running MOOSE...
-
-
-    if simulators.count("MOOSE")>0:
-
-        simRefM = simRefm+"_M"
-        project.simulationParameters.setReference(simRefM)
-
-        nc.generateAndRunMoose(project,
-                                pm,
-                                simConfig,
-                                simRefM,
-                                simulatorSeed,
-                                verbose=verbose,
-                                runInBackground=runInBackground)
-
-        sleep(2) # wait a while before running GENESIS...
+    sleep(2) # wait a while before running MOOSE...
 
 
-    print "Finished running all sims, shutting down..."
+if simulators.count("MOOSE")>0:
+
+    simRefM = simRef+"_M"
+    project.simulationParameters.setReference(simRefM)
+
+    nc.generateAndRunMoose(project,
+                            pm,
+                            simConfig,
+                            simRefM,
+                            simulatorSeed,
+                            verbose=verbose,
+                            runInBackground=runInBackground)
+
+    sleep(2) # wait a while before running GENESIS...
 
 
-    stop = datetime.datetime.now()
-    print
-    print "Started: %s, finished: %s" % (start.strftime("%Y-%m-%d %H:%M"),stop.strftime("%Y-%m-%d %H:%M"))
-    print
+print "Finished running all sims, shutting down..."
+
+
+stop = datetime.datetime.now()
+print
+print "Started: %s, finished: %s" % (start.strftime("%Y-%m-%d %H:%M"),stop.strftime("%Y-%m-%d %H:%M"))
+print
 
 
 sleep(5)

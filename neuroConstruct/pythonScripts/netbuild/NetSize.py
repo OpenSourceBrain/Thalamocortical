@@ -33,18 +33,14 @@ projFile = File("../../Thalamocortical.ncx")
 ###########  Main settings  ###########
 
 simConfig=              "TempSimConfig"
-simDuration =           100 # ms                                ##
+simDuration =           20 # ms                                ##
 simDt =                 0.025 # ms
 neuroConstructSeed =    12443                                   ##
 simulatorSeed =         234434                                   ##
 
 simulators =             ["NEURON"]
 
-
-########################   GG - good 336!
-
-
-simRefPrefix =          "LL_"                               ##
+simRefPrefix =          "N_"                               ##
 suggestedRemoteRunTime = 1620                                     ##
 
 defaultSynapticDelay =  0.05 
@@ -64,8 +60,13 @@ mpiConf =               MpiSettings.MATLEM_128PROC
 mpiConf =               MpiSettings.MATLEM_64PROC
 mpiConf =               MpiSettings.MATLEM_8PROC
 mpiConf =              "MATTHAU_24"
-mpiConfigs =              [MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC,MpiSettings.MATLEM_32PROC, MpiSettings.MATLEM_48PROC, MpiSettings.MATLEM_64PROC, MpiSettings.MATLEM_96PROC, MpiSettings.MATLEM_128PROC, MpiSettings.MATLEM_160PROC, MpiSettings.MATLEM_192PROC]
-#mpiConfigs =              [MpiSettings.MATLEM_8PROC, MpiSettings.MATLEM_16PROC,MpiSettings.MATLEM_32PROC]
+mpiConfigs =              [MpiSettings.LOCAL_SERIAL]
+
+
+numb = int(argv[1])
+mpiConfigs =              ["MATTHAU_%i"%numb]
+mpiConfigs =              ["LEMMON_%i"%numb]
+#mpiConf =               MpiSettings.MATLEM_32PROC
 
 saveAsHdf5 =            True
 saveAsHdf5 =            False
@@ -73,7 +74,8 @@ saveOnlySpikes =        True
 #saveOnlySpikes =        False
 
 
-scaleCortex =             1                            ##
+scaleCortex =             numb/(3560-200.)    
+
 scaleThalamus =           0                                    ##
 
 gabaScaling =             0.1                               ##
@@ -98,7 +100,7 @@ somaNseg =              -1 # 12
 
 varTimestepNeuron =     False
 verbose =               True
-runInBackground=        True
+runInBackground=        False
 
 ############################################
 
@@ -175,12 +177,20 @@ numSupBask = int(scaleCortex * numSupBask)
 numSupAxAx = int(scaleCortex * numSupAxAx)
 numSupLTS = int(scaleCortex * numSupLTS)
 numL4SpinStell = int(scaleCortex * numL4SpinStell)
-numL5TuftIB = int(scaleCortex * numL5TuftIB)
 numL5TuftRS = int(scaleCortex * numL5TuftRS)
 numDeepBask = int(scaleCortex * numDeepBask)
 numDeepAxAx = int(scaleCortex * numDeepAxAx)
 numDeepLTS = int(scaleCortex * numDeepLTS)
 numL6NonTuftRS = int(scaleCortex * numL6NonTuftRS)
+
+targetNum = numb 
+
+numL5TuftIB = targetNum - numFRB - numRS -numSupBask -numSupAxAx -numSupLTS -numL4SpinStell -numL5TuftRS -numDeepBask -numDeepAxAx -numDeepLTS -numL6NonTuftRS
+
+
+
+
+print "numb per proc: %i, scaleCortex: %f, targetNum: %i, numFRB: %i, numL5TuftIB: %i "%(numb, scaleCortex, targetNum, numFRB,numL5TuftIB)
 
 numTCR = int(scaleThalamus * numTCR)
 numnRT = int(scaleThalamus * numnRT)
@@ -294,18 +304,6 @@ SimulationsInfo.addExtraSimProperty("defaultSynapticDelay", str(defaultSynapticD
 for mpiConf in mpiConfigs:
     ### Change parallel configuration
 
-    mpiSettings = MpiSettings()
-    simConfig.setMpiConf(mpiSettings.getMpiConfiguration(mpiConf))
-    print "Parallel configuration: "+ str(simConfig.getMpiConf())
-
-
-    simRefm = simRef+"_ML"+str(simConfig.getMpiConf().getTotalNumProcessors())
-
-    if suggestedRemoteRunTime > 0:
-        project.neuronFileManager.setSuggestedRemoteRunTime(suggestedRemoteRunTime)
-        project.genesisFileManager.setSuggestedRemoteRunTime(suggestedRemoteRunTime)
-
-    ### Generate network structure in neuroConstruct
 
     pm.doGenerate(simConfig.getName(), neuroConstructSeed)
 
@@ -318,56 +316,14 @@ for mpiConf in mpiConfigs:
     print "Generated %i instances in %i network connections" % (project.generatedNetworkConnections.getNumAllSynConns(), project.generatedNetworkConnections.getNumNonEmptyNetConns())
     print "Generated %i instances in %i elect inputs" % (project.generatedElecInputs.getNumberSingleInputs(), project.generatedElecInputs.getNonEmptyInputRefs().size())
 
-
-    if simulators.count("NEURON")>0:
-
-        simRefN = simRefm+"_N"
-        project.simulationParameters.setReference(simRefN)
-
-        nc.generateAndRunNeuron(project,
-                                pm,
-                                simConfig,
-                                simRefN,
-                                simulatorSeed,
-                                verbose=verbose,
-                                runInBackground=runInBackground,
-                                saveAsHdf5 = saveAsHdf5,
-                                varTimestep=varTimestepNeuron,
-                                runMode = runMode)
-
-        sleep(2) # wait a while before running GENESIS...
-
-    if simulators.count("GENESIS")>0:
-
-        simRefG = simRefm+"_G"
-        project.simulationParameters.setReference(simRefG)
-
-        nc.generateAndRunGenesis(project,
-                                pm,
-                                simConfig,
-                                simRefG,
-                                simulatorSeed,
-                                verbose=verbose,
-                                runInBackground=runInBackground)
-
-        sleep(2) # wait a while before running MOOSE...
-
-
-    if simulators.count("MOOSE")>0:
-
-        simRefM = simRefm+"_M"
-        project.simulationParameters.setReference(simRefM)
-
-        nc.generateAndRunMoose(project,
-                                pm,
-                                simConfig,
-                                simRefM,
-                                simulatorSeed,
-                                verbose=verbose,
-                                runInBackground=runInBackground)
-
-        sleep(2) # wait a while before running GENESIS...
-
+    '''
+    fileX = File( "%s/savedNetworks/Net_%s.nml"%(project.getProjectMainDirectory().getCanonicalPath(), targetNum))
+    print "Saving XML net to %s"%fileX.getCanonicalPath()
+    pm.saveNetworkStructureXML(project, fileX, 0, 0, simConfig.getName(), "Physiological Units")
+    '''
+    fileH = File( "%s/savedNetworks/Net_%s.h5"%(project.getProjectMainDirectory().getCanonicalPath(), targetNum))
+    print "Saving HDF5 net to %s"%fileH.getCanonicalPath()
+    pm.saveNetworkStructureHDF5(project, fileH, simConfig.getName(), "Physiological Units")
 
     print "Finished running all sims, shutting down..."
 

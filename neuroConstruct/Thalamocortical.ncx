@@ -361,7 +361,7 @@ Other simulation configurations are present for testing a lagre scale thalamocor
       <void property="parameterList">
        <void index="4">
         <void property="value">
-         <float>-300.0</float>
+         <float>-128.0</float>
         </void>
        </void>
        <void index="6">
@@ -377,12 +377,12 @@ Other simulation configurations are present for testing a lagre scale thalamocor
       <void property="parameterList">
        <void index="1">
         <void property="value">
-         <float>-300.0</float>
+         <float>-128.0</float>
         </void>
        </void>
        <void index="4">
         <void property="value">
-         <float>-1400.0</float>
+         <float>-418.0</float>
         </void>
        </void>
        <void index="6">
@@ -398,96 +398,96 @@ Other simulation configurations are present for testing a lagre scale thalamocor
       <void property="parameterList">
        <void index="1">
         <void property="value">
-         <float>-1400.0</float>
+         <float>-418.0</float>
+        </void>
+       </void>
+       <void index="4">
+        <void property="value">
+         <float>-588.0</float>
+        </void>
+       </void>
+       <void index="6">
+        <void property="value">
+         <float>250.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
+      <void property="parameterList">
+       <void index="1">
+        <void property="value">
+         <float>-588.0</float>
+        </void>
+       </void>
+       <void index="4">
+        <void property="value">
+         <float>-890.0</float>
+        </void>
+       </void>
+       <void index="6">
+        <void property="value">
+         <float>250.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
+      <void property="parameterList">
+       <void index="1">
+        <void property="value">
+         <float>-890.0</float>
+        </void>
+       </void>
+       <void index="4">
+        <void property="value">
+         <float>-1154.0</float>
+        </void>
+       </void>
+       <void index="6">
+        <void property="value">
+         <float>250.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
+      <void property="parameterList">
+       <void index="1">
+        <void property="value">
+         <float>-588.0</float>
+        </void>
+       </void>
+       <void index="4">
+        <void property="value">
+         <float>-1154.0</float>
+        </void>
+       </void>
+       <void index="6">
+        <void property="value">
+         <float>250.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
+      <void property="parameterList">
+       <void index="1">
+        <void property="value">
+         <float>-1500.0</float>
         </void>
        </void>
        <void index="4">
         <void property="value">
          <float>-1700.0</float>
-        </void>
-       </void>
-       <void index="6">
-        <void property="value">
-         <float>250.0</float>
-        </void>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
-       <void index="1">
-        <void property="value">
-         <float>-1700.0</float>
-        </void>
-       </void>
-       <void index="4">
-        <void property="value">
-         <float>-2100.0</float>
-        </void>
-       </void>
-       <void index="6">
-        <void property="value">
-         <float>250.0</float>
-        </void>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
-       <void index="1">
-        <void property="value">
-         <float>-2100.0</float>
-        </void>
-       </void>
-       <void index="4">
-        <void property="value">
-         <float>-2900.0</float>
-        </void>
-       </void>
-       <void index="6">
-        <void property="value">
-         <float>250.0</float>
-        </void>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
-       <void index="1">
-        <void property="value">
-         <float>-1700.0</float>
-        </void>
-       </void>
-       <void index="4">
-        <void property="value">
-         <float>-2900.0</float>
-        </void>
-       </void>
-       <void index="6">
-        <void property="value">
-         <float>250.0</float>
-        </void>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
-       <void index="1">
-        <void property="value">
-         <float>-3200.0</float>
-        </void>
-       </void>
-       <void index="4">
-        <void property="value">
-         <float>-3400.0</float>
         </void>
        </void>
        <void index="6">
@@ -3977,9 +3977,9 @@ Other simulation configurations are present for testing a lagre scale thalamocor
  <object class="ucl.physiol.neuroconstruct.utils.Display3DProperties">
   <void property="backgroundColour3D">
    <object class="java.awt.Color">
-    <int>0</int>
-    <int>0</int>
-    <int>0</int>
+    <int>255</int>
+    <int>255</int>
+    <int>255</int>
     <int>255</int>
    </object>
   </void>
@@ -3995,7 +3995,7 @@ Other simulation configurations are present for testing a lagre scale thalamocor
    <string>Soma solid, neurite lines</string>
   </void>
   <void property="minRadius">
-   <float>2.0</float>
+   <float>1.0</float>
   </void>
   <void property="resolution3DElements">
    <int>10</int>
@@ -4013,6 +4013,12 @@ Other simulation configurations are present for testing a lagre scale thalamocor
  <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings">
   <void property="copySimFiles">
    <boolean>true</boolean>
+  </void>
+  <void property="dataSaveFormat">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>ucl.physiol.neuroconstruct.neuron.NeuronSettings$DataSaveFormat</class>
+    <string>HDF5_NC</string>
+   </object>
   </void>
   <void property="generateComments">
    <boolean>false</boolean>
@@ -4251,11 +4257,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
   </void>
@@ -4278,7 +4284,7 @@ end
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>C3D_87</string>
+   <string>C3D_92</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -9530,7 +9536,7 @@ end
       </void>
      </void>
      <void property="simDuration">
-      <float>1000.0</float>
+      <float>50.0</float>
      </void>
     </object>
    </void>
