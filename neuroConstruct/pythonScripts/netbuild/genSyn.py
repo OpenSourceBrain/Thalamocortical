@@ -100,7 +100,11 @@ genesisFilename= "ChannelML_v1.8.1_GENESIStab.xsl"
 xslLocation = "../../../../templates/xmlTemplates/Schemata/v1.8.1/Level2/"
 
 if not os.path.exists(xslLocation):
-    xslLocation = os.getenv("HOME")+"/neuroConstruct/templates/xmlTemplates/Schemata/v1.8.1/Level2/"
+    pre = os.getenv("HOME")
+    if pre is None:
+        pre = "c:"   # Assume Windows...
+
+    xslLocation = pre+"/neuroConstruct/templates/xmlTemplates/Schemata/v1.8.1/Level2/"
 
 props = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+ \
 "<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">"+\
