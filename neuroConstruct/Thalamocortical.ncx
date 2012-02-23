@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.6.0_20" class="java.beans.XMLDecoder">
+<java version="1.6.0_23" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -25,7 +25,7 @@ The simulation configuration CunninghamEtAl04_small generates a 56 cell Layer 2/
 Other simulation configurations are present for testing a lagre scale thalamocortical network version of the model, but are not yet stable.</string>
   </void>
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.5.1</string>
+   <string>neuroConstruct v1.5.3</string>
   </void>
   <void property="projectName">
    <string>Thalamocortical</string>
@@ -4014,12 +4014,6 @@ Other simulation configurations are present for testing a lagre scale thalamocor
   <void property="copySimFiles">
    <boolean>true</boolean>
   </void>
-  <void property="dataSaveFormat">
-   <object class="java.lang.Enum" method="valueOf">
-    <class>ucl.physiol.neuroconstruct.neuron.NeuronSettings$DataSaveFormat</class>
-    <string>HDF5_NC</string>
-   </object>
-  </void>
   <void property="generateComments">
    <boolean>false</boolean>
   </void>
@@ -4257,11 +4251,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
   </void>
