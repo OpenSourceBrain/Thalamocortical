@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-
+'''
+This is a Python script to generate a number of HTML pages displaying F-I curves of cells in this project. Work in progress
+Author Yates Buckley 
+'''
 import sys
 import os
 import time
