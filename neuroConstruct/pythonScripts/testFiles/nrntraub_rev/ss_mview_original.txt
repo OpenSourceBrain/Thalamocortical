@@ -1,0 +1,458 @@
+59 sections; 59 segments
+
+* 1 real cells (1 encapsulated in 1 distinct objects of 1 classes)
+    * 1 spinstell
+        * spinstell[0] root spinstell[0].comp[1]
+            59 sections; 59 segments
+            * 1 distinct values of nseg
+                Longest dx is 50 at spinstell[0].comp[54] with nseg=1
+                nseg consistent under assumption of dx=50 and nseg=2*int(L/dx/2)+1
+                Greatest dlambda is 0.328597 at spinstell[0].comp[45] with nseg=1
+                nseg consistent under assumption of dlambda=0.3
+            * 18 inserted mechanisms
+                * Ra
+                    * 2 Ra
+                        6 Ra = 100
+                        53 Ra = 250
+                * capacitance
+                    * 2 cm
+                        7 cm = 0.9
+                        52 cm = 1.8
+                * pas
+                    * 3 g_pas
+                        spinstell[0].comp[1].g_pas = 2e-05
+                        52 g_pas = 4e-05
+                        6 g_pas = 0.001
+                    e_pas = -65
+                ena = 50
+                ek = -100
+                * ar
+                    * 2 gbar_ar
+                        spinstell[0].comp[1].gbar_ar = 0.00025
+                        52 gbar_ar = 0.0005
+                    erev_ar = -40
+                    m0_ar = 0
+                ca_ion
+                * cad
+                    phi_cad = 260000
+                    * 2 beta_cad
+                        spinstell[0].comp[1].beta_cad = 0.02
+                        52 beta_cad = 0.05
+                * cal
+                    * 3 gbar_cal
+                        spinstell[0].comp[1].gbar_cal = 0.0005
+                        40 gbar_cal = 0.001
+                        12 gbar_cal = 0.006
+                * cat_a
+                    * 2 gbar_cat_a
+                        spinstell[0].comp[1].gbar_cat_a = 0.0001
+                        52 gbar_cat_a = 0.0002
+                * k2
+                    * 2 gbar_k2
+                        7 gbar_k2 = 0.0001
+                        52 gbar_k2 = 0.0002
+                * ka
+                    * 4 gbar_ka
+                        6 gbar_ka = 0.002
+                        48 gbar_ka = 0.004
+                        spinstell[0].comp[1].gbar_ka = 0.03
+                        4 gbar_ka = 0.06
+                * kahp_slower
+                    * 2 gbar_kahp_slower
+                        spinstell[0].comp[1].gbar_kahp_slower = 0.0001
+                        52 gbar_kahp_slower = 0.0002
+                * kc_fast
+                    * 2 gbar_kc_fast
+                        spinstell[0].comp[1].gbar_kc_fast = 0.01
+                        24 gbar_kc_fast = 0.02
+                * kdr_fs
+                    * 3 gbar_kdr_fs
+                        spinstell[0].comp[1].gbar_kdr_fs = 0.1
+                        12 gbar_kdr_fs = 0.15
+                        6 gbar_kdr_fs = 0.4
+                * km
+                    * 2 gbar_km
+                        spinstell[0].comp[1].gbar_km = 0.00375
+                        52 gbar_km = 0.0075
+                * naf2
+                    fastNa_shift_naf2 = -2.5
+                    a_naf2 = 0
+                    b_naf2 = 0
+                    c_naf2 = 0
+                    d_naf2 = 0
+                    * 3 gbar_naf2
+                        40 gbar_naf2 = 0.01
+                        13 gbar_naf2 = 0.15
+                        6 gbar_naf2 = 0.4
+                * napf_spinstell
+                    fastNa_shift_napf_spinstell = -2.5
+                    a_napf_spinstell = 0
+                    b_napf_spinstell = 0
+                    c_napf_spinstell = 0
+                    d_napf_spinstell = 0
+                    * 2 gbar_napf_spinstell
+                        40 gbar_napf_spinstell = 1e-05
+                        13 gbar_napf_spinstell = 0.00015
+            * 15 subsets with constant parameters
+                * ModelViewParmSubset[0] (59 sections)
+                    e_pas = -65
+                    ena = 50
+                    ek = -100
+                    fastNa_shift_naf2 = -2.5
+                    a_naf2 = 0
+                    b_naf2 = 0
+                    c_naf2 = 0
+                    d_naf2 = 0
+                * ModelViewParmSubset[1] (53 sections)
+                    Ra = 250
+                    erev_ar = -40
+                    m0_ar = 0
+                    phi_cad = 260000
+                    fastNa_shift_napf_spinstell = -2.5
+                    a_napf_spinstell = 0
+                    b_napf_spinstell = 0
+                    c_napf_spinstell = 0
+                    d_napf_spinstell = 0
+                ModelViewParmSubset[2] (25 sections)
+                ModelViewParmSubset[3] (19 sections)
+                * ModelViewParmSubset[4] (6 sections)
+                    Ra = 100
+                    g_pas = 0.001
+                    gbar_ka = 0.002
+                    gbar_kdr_fs = 0.4
+                    gbar_naf2 = 0.4
+                * ModelViewParmSubset[5] (7 sections)
+                    cm = 0.9
+                    gbar_k2 = 0.0001
+                * ModelViewParmSubset[6] (52 sections)
+                    cm = 1.8
+                    g_pas = 4e-05
+                    gbar_ar = 0.0005
+                    beta_cad = 0.05
+                    gbar_cat_a = 0.0002
+                    gbar_k2 = 0.0002
+                    gbar_kahp_slower = 0.0002
+                    gbar_km = 0.0075
+                * ModelViewParmSubset[7] (40 sections)
+                    gbar_cal = 0.001
+                * ModelViewParmSubset[8] (12 sections)
+                    gbar_cal = 0.006
+                * ModelViewParmSubset[9] (48 sections)
+                    gbar_ka = 0.004
+                * ModelViewParmSubset[10] (4 sections)
+                    gbar_ka = 0.06
+                * ModelViewParmSubset[11] (24 sections)
+                    gbar_kc_fast = 0.02
+                * ModelViewParmSubset[12] (12 sections)
+                    gbar_kdr_fs = 0.15
+                * ModelViewParmSubset[13] (40 sections)
+                    gbar_naf2 = 0.01
+                    gbar_napf_spinstell = 1e-05
+                * ModelViewParmSubset[14] (13 sections)
+                    gbar_naf2 = 0.15
+                    gbar_napf_spinstell = 0.00015
+            * spinstell[0].comp[1] {
+                    g_pas = 2e-05
+                    gbar_ar = 0.00025
+                    beta_cad = 0.02
+                    gbar_cal = 0.0005
+                    gbar_cat_a = 0.0001
+                    gbar_ka = 0.03
+                    gbar_kahp_slower = 0.0001
+                    gbar_kc_fast = 0.01
+                    gbar_kdr_fs = 0.1
+                    gbar_km = 0.00375
+                }
+            0 Point Processes
+        * spinstell
+            59 sections; 59 segments
+            * 1 distinct values of nseg
+                Longest dx is 50 at spinstell[0].comp[54] with nseg=1
+                nseg consistent under assumption of dx=50 and nseg=2*int(L/dx/2)+1
+                Greatest dlambda is 0.328597 at spinstell[0].comp[45] with nseg=1
+                nseg consistent under assumption of dlambda=0.3
+            * 18 inserted mechanisms
+                * Ra
+                    * 2 Ra
+                        6 Ra = 100
+                        53 Ra = 250
+                * capacitance
+                    * 2 cm
+                        7 cm = 0.9
+                        52 cm = 1.8
+                * pas
+                    * 3 g_pas
+                        spinstell[0].comp[1].g_pas = 2e-05
+                        52 g_pas = 4e-05
+                        6 g_pas = 0.001
+                    e_pas = -65
+                ena = 50
+                ek = -100
+                * ar
+                    * 2 gbar_ar
+                        spinstell[0].comp[1].gbar_ar = 0.00025
+                        52 gbar_ar = 0.0005
+                    erev_ar = -40
+                    m0_ar = 0
+                ca_ion
+                * cad
+                    phi_cad = 260000
+                    * 2 beta_cad
+                        spinstell[0].comp[1].beta_cad = 0.02
+                        52 beta_cad = 0.05
+                * cal
+                    * 3 gbar_cal
+                        spinstell[0].comp[1].gbar_cal = 0.0005
+                        40 gbar_cal = 0.001
+                        12 gbar_cal = 0.006
+                * cat_a
+                    * 2 gbar_cat_a
+                        spinstell[0].comp[1].gbar_cat_a = 0.0001
+                        52 gbar_cat_a = 0.0002
+                * k2
+                    * 2 gbar_k2
+                        7 gbar_k2 = 0.0001
+                        52 gbar_k2 = 0.0002
+                * ka
+                    * 4 gbar_ka
+                        6 gbar_ka = 0.002
+                        48 gbar_ka = 0.004
+                        spinstell[0].comp[1].gbar_ka = 0.03
+                        4 gbar_ka = 0.06
+                * kahp_slower
+                    * 2 gbar_kahp_slower
+                        spinstell[0].comp[1].gbar_kahp_slower = 0.0001
+                        52 gbar_kahp_slower = 0.0002
+                * kc_fast
+                    * 2 gbar_kc_fast
+                        spinstell[0].comp[1].gbar_kc_fast = 0.01
+                        24 gbar_kc_fast = 0.02
+                * kdr_fs
+                    * 3 gbar_kdr_fs
+                        spinstell[0].comp[1].gbar_kdr_fs = 0.1
+                        12 gbar_kdr_fs = 0.15
+                        6 gbar_kdr_fs = 0.4
+                * km
+                    * 2 gbar_km
+                        spinstell[0].comp[1].gbar_km = 0.00375
+                        52 gbar_km = 0.0075
+                * naf2
+                    fastNa_shift_naf2 = -2.5
+                    a_naf2 = 0
+                    b_naf2 = 0
+                    c_naf2 = 0
+                    d_naf2 = 0
+                    * 3 gbar_naf2
+                        40 gbar_naf2 = 0.01
+                        13 gbar_naf2 = 0.15
+                        6 gbar_naf2 = 0.4
+                * napf_spinstell
+                    fastNa_shift_napf_spinstell = -2.5
+                    a_napf_spinstell = 0
+                    b_napf_spinstell = 0
+                    c_napf_spinstell = 0
+                    d_napf_spinstell = 0
+                    * 2 gbar_napf_spinstell
+                        40 gbar_napf_spinstell = 1e-05
+                        13 gbar_napf_spinstell = 0.00015
+            * 15 subsets with constant parameters
+                * ModelViewParmSubset[15] (59 sections)
+                    e_pas = -65
+                    ena = 50
+                    ek = -100
+                    fastNa_shift_naf2 = -2.5
+                    a_naf2 = 0
+                    b_naf2 = 0
+                    c_naf2 = 0
+                    d_naf2 = 0
+                * ModelViewParmSubset[16] (53 sections)
+                    Ra = 250
+                    erev_ar = -40
+                    m0_ar = 0
+                    phi_cad = 260000
+                    fastNa_shift_napf_spinstell = -2.5
+                    a_napf_spinstell = 0
+                    b_napf_spinstell = 0
+                    c_napf_spinstell = 0
+                    d_napf_spinstell = 0
+                ModelViewParmSubset[17] (25 sections)
+                ModelViewParmSubset[18] (19 sections)
+                * ModelViewParmSubset[19] (6 sections)
+                    Ra = 100
+                    g_pas = 0.001
+                    gbar_ka = 0.002
+                    gbar_kdr_fs = 0.4
+                    gbar_naf2 = 0.4
+                * ModelViewParmSubset[20] (7 sections)
+                    cm = 0.9
+                    gbar_k2 = 0.0001
+                * ModelViewParmSubset[21] (52 sections)
+                    cm = 1.8
+                    g_pas = 4e-05
+                    gbar_ar = 0.0005
+                    beta_cad = 0.05
+                    gbar_cat_a = 0.0002
+                    gbar_k2 = 0.0002
+                    gbar_kahp_slower = 0.0002
+                    gbar_km = 0.0075
+                * ModelViewParmSubset[22] (40 sections)
+                    gbar_cal = 0.001
+                * ModelViewParmSubset[23] (12 sections)
+                    gbar_cal = 0.006
+                * ModelViewParmSubset[24] (48 sections)
+                    gbar_ka = 0.004
+                * ModelViewParmSubset[25] (4 sections)
+                    gbar_ka = 0.06
+                * ModelViewParmSubset[26] (24 sections)
+                    gbar_kc_fast = 0.02
+                * ModelViewParmSubset[27] (12 sections)
+                    gbar_kdr_fs = 0.15
+                * ModelViewParmSubset[28] (40 sections)
+                    gbar_naf2 = 0.01
+                    gbar_napf_spinstell = 1e-05
+                * ModelViewParmSubset[29] (13 sections)
+                    gbar_naf2 = 0.15
+                    gbar_napf_spinstell = 0.00015
+            * spinstell[0].comp[1] {
+                    g_pas = 2e-05
+                    gbar_ar = 0.00025
+                    beta_cad = 0.02
+                    gbar_cal = 0.0005
+                    gbar_cat_a = 0.0001
+                    gbar_ka = 0.03
+                    gbar_kahp_slower = 0.0001
+                    gbar_kc_fast = 0.01
+                    gbar_kdr_fs = 0.1
+                    gbar_km = 0.00375
+                }
+            0 Point Processes
+0 artificial cells
+0 NetCon objects
+0 LinearMechanism objects
+
+* Density Mechanisms
+    * Mechanisms in use
+        Ra
+        capacitance
+        pas
+        na_ion
+        k_ion
+        ar
+        ca_ion
+        cad
+        cal
+        cat_a
+        k2
+        ka
+        kahp_slower
+        kc_fast
+        kdr_fs
+        km
+        naf2
+        napf_spinstell
+    * Homogeneous Parameters
+        e_pas = -65
+        ena = 50
+        ek = -100
+        erev_ar = -40
+        m0_ar = 0
+        phi_cad = 260000
+        fastNa_shift_naf2 = -2.5
+        a_naf2 = 0
+        b_naf2 = 0
+        c_naf2 = 0
+        d_naf2 = 0
+        fastNa_shift_napf_spinstell = -2.5
+        a_napf_spinstell = 0
+        b_napf_spinstell = 0
+        c_napf_spinstell = 0
+        d_napf_spinstell = 0
+    * Heterogeneous Parameters
+        * 2 Ra
+            6 Ra = 100
+            53 Ra = 250
+        * 2 cm
+            7 cm = 0.9
+            52 cm = 1.8
+        * 3 g_pas
+            spinstell[0].comp[1].g_pas = 2e-05
+            52 g_pas = 4e-05
+            6 g_pas = 0.001
+        * 2 gbar_ar
+            spinstell[0].comp[1].gbar_ar = 0.00025
+            52 gbar_ar = 0.0005
+        * 2 beta_cad
+            spinstell[0].comp[1].beta_cad = 0.02
+            52 beta_cad = 0.05
+        * 3 gbar_cal
+            spinstell[0].comp[1].gbar_cal = 0.0005
+            40 gbar_cal = 0.001
+            12 gbar_cal = 0.006
+        * 2 gbar_cat_a
+            spinstell[0].comp[1].gbar_cat_a = 0.0001
+            52 gbar_cat_a = 0.0002
+        * 2 gbar_k2
+            7 gbar_k2 = 0.0001
+            52 gbar_k2 = 0.0002
+        * 4 gbar_ka
+            6 gbar_ka = 0.002
+            48 gbar_ka = 0.004
+            spinstell[0].comp[1].gbar_ka = 0.03
+            4 gbar_ka = 0.06
+        * 2 gbar_kahp_slower
+            spinstell[0].comp[1].gbar_kahp_slower = 0.0001
+            52 gbar_kahp_slower = 0.0002
+        * 2 gbar_kc_fast
+            spinstell[0].comp[1].gbar_kc_fast = 0.01
+            24 gbar_kc_fast = 0.02
+        * 3 gbar_kdr_fs
+            spinstell[0].comp[1].gbar_kdr_fs = 0.1
+            12 gbar_kdr_fs = 0.15
+            6 gbar_kdr_fs = 0.4
+        * 2 gbar_km
+            spinstell[0].comp[1].gbar_km = 0.00375
+            52 gbar_km = 0.0075
+        * 3 gbar_naf2
+            40 gbar_naf2 = 0.01
+            13 gbar_naf2 = 0.15
+            6 gbar_naf2 = 0.4
+        * 2 gbar_napf_spinstell
+            40 gbar_napf_spinstell = 1e-05
+            13 gbar_napf_spinstell = 0.00015
+    * Global parameters for density mechanisms
+        * na_ion
+            nai0_na_ion = 10
+            nao0_na_ion = 140
+        * k_ion
+            ki0_k_ion = 54.4
+            ko0_k_ion = 2.5
+        * ar
+            usetable_ar = 1
+        * ca_ion
+            cai0_ca_ion = 5e-05
+            cao0_ca_ion = 2
+        * cad
+            ceiling_cad = 1e+06
+        * cal
+            usetable_cal = 1
+        * cat_a
+            usetable_cat_a = 1
+        * k2
+            usetable_k2 = 1
+        * ka
+            usetable_ka = 1
+        * kc_fast
+            usetable_kc_fast = 1
+        * kdr_fs
+            usetable_kdr_fs = 1
+        * km
+            usetable_km = 1
+        * naf2
+            usetable_naf2 = 0
+        * napf_spinstell
+            usetable_napf_spinstell = 0
+    KSChan definitions for density mechanisms
+* 0 point processes
+    0 Point Processes
+    Global parameters for Point Processes
+    KSChan definitions for Point Processes

@@ -1,0 +1,49 @@
+// load_file("myplot.hoc")
+// FORCE LOAD
+// load_file(1,"myplot.hoc")
+// load_file(1,"mycall.hoc")
+
+// runmycell()
+
+objref dend_lvls
+dend_lvls = new Vector(0)
+dend_lvls.append(2,3,4,5,6,7,8,9) // dendrites
+
+objref all_lvls
+all_lvls = new Vector(0)
+all_lvls.append(0,1,2,3,4,5,6,7,8,9)
+
+objref n_pas
+n_pas = new Vector(0)
+n_pas.append(13)
+// conductance_delta(dend_lvls, n_pas, 2)
+
+objref n_cm
+n_cm = new Vector(0)
+n_cm.append(14)
+// conductance_delta(dend_lvls, n_cm, 2)
+
+objref my_mechs
+my_mechs = new Vector(0)
+my_mechs.append(1,2,3,4,5,6,7,8,9,10,11,12) // all actual mechs
+// conductance_delta(dend_lvls, my_mechs, 0.0)
+// turning off mechs does not appear to work.. could be pas or some other aspect
+
+objref my_ks
+my_ks = new Vector(0)
+my_ks.append(5,6,7,8,9,10)
+// conductance_delta(all_lvls, my_ks, 1.1)
+// K channels seem to be overly active
+
+objref fast_ks
+fast_ks = new Vector(0)
+fast_ks.append(8)
+// conductance_delta(all_lvls, fast_ks, 1.1)
+// K fast seems to appear, a depolarisation after the spike.. small bump
+
+// run()
+
+// conductance_delta_parm(all_lvls, 13, 1.7) - ? reduces trend upward
+// maybe AR (1) also should be reduced?
+// conductance_delta_parm(all_lvls, 1, 0.5)
+// 
