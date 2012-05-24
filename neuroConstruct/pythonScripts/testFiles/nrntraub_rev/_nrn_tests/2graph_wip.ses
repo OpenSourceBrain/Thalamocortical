@@ -1,0 +1,25 @@
+{load_file("nrngui.hoc")}
+objectvar save_window_, rvp_
+objectvar scene_vector_[4]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{pwman_place(0,0,0)}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,400,-100,100)
+scene_vector_[2] = save_window_
+{save_window_.view(0, -120, 400, 160, 82, 108, 534, 334)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+save_window_.addexpr("v", 1, 1, 0.8, 0.9, 2)
+}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,400,-1,1)
+scene_vector_[3] = save_window_
+{save_window_.view(0, -2.5, 400, 5, 82, 474, 534, 334)}
+graphList[1].append(save_window_)
+save_window_.save_name("graphList[1].")
+}
+objectvar scene_vector_[1]
+{doNotify()}

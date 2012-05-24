@@ -1,0 +1,18 @@
+INDEPENDENT
+    This declares the independent variable used in the simulation. In our model, as in nearly all models, this is time, t. 
+UNITS
+    This block describes the units we will be using in the model description. 
+PARAMETER
+    These are variables that are set by the user and not changed by the model. For example, in our simulation, we need to set the the values for the threshold, synaptic delay and magnitude of the post-synaptic conductance change. 
+STATE
+    These are the unknown variables in the equation we are solving, and are usually solved for in the BREAKPOINT block (see below). APTrig does not use this type of variable. 
+ASSIGNED
+    These are variables that are computed directly in the assignment statements in the procedures we use to solve our equation. In APTrig, we keep track of several assigned variables, including the number of AP triggers (n), whether or not an AP is firing (firing) or in the synaptic delay phase (trigger), the time the trigger started (time), and the pointer to the post-synaptic stimulus (pstim). 
+INITIAL
+    This block initializes the variables we use in the model. We can also call procedures to initialize the variables. 
+BREAKPOINT
+    This block is used to specify the blocks that contain the model equations. The SOLVE statement specifies the block where the model equations are specified and the method use to solve them. For APTrig, the procedure check is specified, and during the simulation, it is called at each time step to solve for the unknown and assigned variables. 
+KINETIC
+    This block describes a series of chemical reactions with rate constants. For TrigSyn, the post-synaptic alpha conductance change is described as a set of chemical reactions. 
+NEURON
+    This special block specifies the type of the model, specifies any ions or currents that are used, and tells NEURON which variables can be accessed by the user and their type. For our models, we declare them as POINT_PROCESSes and declare most of the variables as range variables. In APTrig, we need a special POINTER variable, pstim, since we must access a variable, stim in our other point process, TrigSyn. Below we show how to initialize the pointer variable. See the NMODL manual for a complete description of the statements allowed in the NEURON block. 

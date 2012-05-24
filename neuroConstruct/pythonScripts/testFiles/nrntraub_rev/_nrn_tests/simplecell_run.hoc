@@ -1,0 +1,73 @@
+load_file("nrngui.hoc")
+load_file("simplecell.hoc")
+load_file("2graph.ses")
+
+// ncells = 3
+// objectvar cell, precells[ncells]
+// cell = new Cell(3)
+// for i = 0, ncells-1 {
+//     precells[i] = new Cell(2)
+// }
+// objectvar stim[ncells]
+// for i = 0, ncells-1 precells[i].soma {
+//     stim[i] = new IClamp(0.5)
+//     stim[i].dur = 0.1
+//     stim[i].amp = 500
+// }
+
+objectvar cell
+cell = new Cell(5)
+
+access cell.soma
+
+objref stim1, stim2
+stim1 = new IClamp(.5)
+stim2 = new IClamp(.5)
+stim1.del = 20  
+stim2.del = 0
+stim1.amp = 6
+stim2.amp = -0.015
+stim1.dur = 200  
+stim2.dur = 400 // 1e9
+
+tstop = 400
+
+
+objref myg
+myg = new Graph(0)
+// myg = Graph[0]
+define_shape()
+myg.erase_all
+
+// strdef vstr
+// sprint(vstr, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
+// myg.addvar(vstr, 2, 1) // color, brush
+
+// use custom mechanism ri_rngvar to copy the ri values to a range mechanism
+forall insert rngvar  // Ted recommended finitalize() but not needed due to geometry already specd
+forall for (x,0) ri_rngvar(x) = ri(x) // skip the 0 areas at 0 and 1
+		
+
+
+objref g0, g1
+g0 = Graph[0]
+g1 = Graph[1]
+
+// g1.addexpr("cell.dend[0].i_pas(0.5)+cell.dend[0].ik(0.5)+cell.dend[0].ina(0.5)+cell.dend[0].i_ar+cell.dend[0].ica",6,1)
+
+g1.addexpr("cell.dend[0].i_pas(0.5)",1,1)
+g1.addexpr("cell.dend[0].i_cap(0.5)",2,1)
+g1.addexpr("(cell.dend[0].v(0.01)-cell.dend[0].v(0.00))/cell.dend[0].ri_rngvar(0.01)",3,1)
+g1.addexpr("cell.dend[0].v(0.01)",4,1)
+g1.addexpr("cell.dend[0].v(0.00)",5,1)
+g1.addexpr("cell.dend[0].ri_rngvar(0.01)",6,1)
+g1.addexpr("cell.dend[0].ri_rngvar(0.01)",6,1)
+// g1.addexpr("(cell.dend[1].v(0.01)-cell.dend[1].v(0.00))/cell.dend[1].ri_rngvar(0.01)",4,1)
+
+
+// if you try you get interesting discontinuity
+// for (x) { print ri_rngvar(x)," ",x }
+
+
+
+

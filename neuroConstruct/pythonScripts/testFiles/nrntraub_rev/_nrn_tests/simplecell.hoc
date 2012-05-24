@@ -1,0 +1,36 @@
+begintemplate Cell
+public soma, axon, dend
+
+create soma, axon, dend[1]
+
+proc init() {
+    ndend = $1
+		print "inited with ndend:",$1
+    create soma, axon, dend[ndend]
+		
+    soma {
+				nseg = 1
+				diam = 100
+				L = 100
+				Ra = 100
+				insert hh
+    }
+    axon {
+				nseg = 50
+				diam = 10
+				L = 5000
+				Ra = 100
+				insert hh
+    }
+    for i = 0, ndend-1 dend[i] {
+				nseg = 5
+				diam = 25
+				L = 500
+				Ra = 100
+				insert pas
+    }
+		
+    connect axon(1), soma(0)
+    for i = 0, ndend-1 connect dend[i](0), soma(1)
+}
+endtemplate Cell

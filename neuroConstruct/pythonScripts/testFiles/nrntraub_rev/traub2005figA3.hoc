@@ -1,0 +1,119 @@
+// this file assumes that ../nrntraub is available with source from modelDB
+// <add link>
+
+load_file("nrngui.hoc")
+load_file("mview.hoc")
+load_file("../nrntraub/hoc/traubcon.hoc")
+load_file("../nrntraub/fortmap.hoc")
+load_file("../nrntraub/cell_templates.hoc")
+
+
+objref myplotinfo_
+myplotinfo_ = new List()
+strdef mytstr1
+for i=1,3 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
+figA3_a	 -81.5  -0.01  0.167
+figA3_b	 -81.5  -0.01  0.250
+figA3_c	 -81.5  -0.01  0.333 
+
+
+
+// from ../nrntraub/onecell.hoc
+// til the shift bug in the mod files are fixed (table depends on range variable)
+usetable_naf2 = 0
+usetable_naf = 0
+usetable_napf_spinstell = 0
+usetable_napf_tcr = 0
+
+// initial vars
+objref cell, nil, stim1, stim2
+cell = nil
+a1 = 0  
+a2 = 0  
+v0 = 0
+//
+
+
+// from ses file to create graph window
+objectvar save_window_, rvp_
+objectvar scene_vector_[3]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{pwman_place(0,0,0)}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,650,-90,40)
+scene_vector_[2] = save_window_
+max_x_coord=500
+{save_window_.view(0, -80, max_x_coord, 120, 1, 75, 860, 699)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+}
+objectvar scene_vector_[1]
+{doNotify()}
+// end ses file
+
+
+
+proc exact() {
+	normal_ = ($1 == 0)
+	exact_ = ($1 != 0)
+	runcell(cellnum)
+}
+
+proc runcell_simple() {local i, t1,a1,t2,a2  localobj vvec, tvec, f, g
+		cell = nil
+		execute("cell = new spinstell()")	
+		// access cell.comp[1]
+		// define_shape()
+		// if (exact_) { traubexact(cell, tci) }
+}
+
+
+
+objref mvvec, mtvec, myg
+proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
+	strdef vstr, lstr
+	a1 = 0  a2 = 0  v0 = 0
+	i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf", vstr, &v0, &a1, &a2)
+	print "plotting parms :", vstr, " v0:",v0," stim1:",a1, " stim2:", a2
+	sprint(lstr,"iclamp=%lf",a2)
+	
+	access cell.comp[1]
+	define_shape()
+	myg = Graph[0]
+	myg.erase_all
+	//	myg.size(0,400,-100,100)
+	myg.label(0.797674, 0.855508, lstr, 2, 1, 0, 0, 1)
+	myg.exec_menu("Keep Lines")
+		
+	stim1 = nil
+	stim2 = nil
+	stim1 = new IClamp(.5)
+	stim2 = new IClamp(.5)
+	stim1.del = 50  stim2.del = 0
+	stim1.amp = a2   stim2.amp = a1
+	stim1.dur = 400  stim2.dur = 500 // 1e9
+	
+	tstop = 500
+
+	sprint(vstr, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
+	myg.addvar(vstr, 2, 1) // color, brush
+	
+	run()
+}
+
+objref fih0_
+fih0_ = new FInitializeHandler(0, "finit0()")
+proc finit0() { local ix, idx1 localobj lcell
+		// in the neuron project this was inited to -65?
+		forsec cell.all { v = v0 }
+}
+
+runcell_simple()
+make_figure(0)
+
+// make_figure(1)
+// make_figure(2)
+
+

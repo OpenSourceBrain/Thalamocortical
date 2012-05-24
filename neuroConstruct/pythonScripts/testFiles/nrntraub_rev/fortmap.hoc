@@ -14,7 +14,7 @@ suppyrFRB_template.hoc: rank = 1  suppyrFRB   -70 -81
 supbask_template.hoc:   rank = 2  supbask     -65 -75
 supaxax_template.hoc:   rank = 3  supaxax     -65 -75
 supLTS_template.hoc:    rank = 4  supLTS      -65 -75
-spinstell_template.hoc: rank = 5  spinstell   -65 -75
+spinstell_template.hoc: rank = 5  spinstell   -81.5 -75
 tuftIB_template.hoc:    rank = 6  tuftIB      -70 -75
 tuftRS_template.hoc:    rank = 7  tuftRS      -70 -75
 nontuftRS_template.hoc: rank = 8  nontuftRS   -70 -75
@@ -22,7 +22,7 @@ deepbask_template.hoc:  rank = 9  deepbask    -65 -75
 deepaxax_template.hoc:  rank = 10 deepaxax    -65 -75
 deepLTS_template.hoc:   rank = 11 deepLTS     -65 -75
 TCR_template.hoc:       rank = 12 TCR         -70 -81
-spinstell_template_n.hoc: rank = 13  spinstell_n   -65 -75
+spinstell_template_n.hoc: rank = 13  spinstell_n   -81.5 -75
 
 
 // originally were values 

@@ -1,0 +1,34 @@
+
+The files in this foler are designed to be used in conjuction with other files:
+
+1) the NEURON implementation of the 2005 Traub model available at
+http://senselab.med.yale.edu/ModelDb/showmodel.asp?model=82894
+
+2) the above installation needs to be unpacked in a folder ../nrntraub/ parallel to this folder
+
+3) the following symlinks are assumed:
+./batchdata@ -> /tmp/batchdata  // this is a folder output for simulations
+./dat@ -> ../nrntraub/dat       // this folder is useful to store data from reference measured data
+./umac@ -> ../nrntraub/umac     // this folder is created when you compile the MOD files in the ../nrntraub/ folder
+
+
+//// documentation for individual files:
+
+nrngui traub2005figA3.hoc   // run this to recreate the published figures for L4SS in figure A3
+
+
+
+
+A lot of testing neuron code is part of myonecell.hoc and myplot.hoc, more documentation, cleanup needed.
+
+
+
+
+plotDat.py  // plotting utility that works with wildcards (plotDat.py  file*.dat)
+
+
+spiny.sh    // utility file to compare models during editing to ensure they have not changed
+reformat.pl // utility to reformat settings to tabular output
+
+
+
