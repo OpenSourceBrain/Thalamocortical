@@ -1,6 +1,7 @@
 load_file("hoc/spikecount.hoc")
 
 // for recording data
+objref null
 objref rd_sfunc
 rd_sfunc = new StringFunctions()
 objref rd_rec_t, rd_rec_v
@@ -23,6 +24,12 @@ objref rd_spikecount, rd_spikecount_x
 rd_spikecount = new Vector(0)
 rd_spikecount_x = new Vector(0)
 
+objref rd_restv, rd_deriv, rd_derivfn, rd_restv_x
+rd_restv = new Vector(0)
+rd_deriv = new Vector(0)
+rd_restv_x = new Vector(0)
+
+
 strdef rd_gname
 objref strobj
 strobj = new StringFunctions()
@@ -42,7 +49,7 @@ proc record_data_disk_vt() { localobj savt, savv
 		if (strobj.len(rd_gname) > 0) {
 				sprint(rd_tstra1, "batchdata/batchdata_t_%s_%s.dat", rd_gname, rd_tstamp)
 		} else {
-				sprint(rd_tstra1, "batchdata/batchdata_t_%s_%s.dat", rd_tstamp)
+				sprint(rd_tstra1, "batchdata/batchdata_t_%s.dat", rd_tstamp)
 		}
 		savt = new File()
 		savt.wopen(rd_tstra1)
@@ -83,13 +90,21 @@ proc record_data_disk_xy() { localobj savt, savv
 		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
 		rd_sfunc.left(rd_tstamp,18)
 
-		sprint(rd_tstra1, "batchdata/batchdata_x_%s.dat", rd_tstamp)
+		if (strobj.len(rd_gname) > 0) {
+				sprint(rd_tstra1, "batchdata/batchdata_x_%s_%s.dat", rd_gname, rd_tstamp)
+		} else {
+				sprint(rd_tstra1, "batchdata/batchdata_x_%s.dat", rd_tstamp)
+		}
 		savt = new File()
 		savt.wopen(rd_tstra1)
 		$o1.printf(savt)
 		savt.close()
 		
-		sprint(rd_tstra2, "batchdata/batchdata_y_%s.dat", rd_tstamp)
+		if (strobj.len(rd_gname) > 0) {
+				sprint(rd_tstra2, "batchdata/batchdata_y_%s_%s.dat", rd_gname, rd_tstamp)
+		} else {
+				sprint(rd_tstra2, "batchdata/batchdata_y_%s.dat", rd_tstamp)
+		}
 		savv = new File()
 		savv.wopen(rd_tstra2)
 		$o2.printf(savv)
@@ -105,16 +120,32 @@ proc record_data_spike() {
 		rd_spikecount_x.append($2)
 }
 
+proc record_data_restv() {
+		// --- need to amend to not store when its junk ---
+		// gather restpotential data each iteration and derivative
+		rd_derivfn = new Vector(0)		
+		rd_derivfn.deriv(rd_rec_v, 0.1, 2)
+		rd_deriv.append(rd_derivfn.x[$1]) // this isn't time, but index
+		rd_restv.append(rd_rec_v.x[$1])   // this isn't time, but index
+		rd_restv_x.append($2)
+}
+
 proc record_data_disk_summary() {
 		// store collected data
 		
-		// if length of spikes array > 0 store it
-		if (rd_spikecount.size() > 1) {
+		if (rd_spikecount.size() > 1) {     // if length of spikes array > 0 store it
 				rd_pdat_.o[2].s="Spike Count"
 				record_data_disk_xy(rd_spikecount_x,rd_spikecount)	
 		}
 		
-		// if length of measureN array > 0 store it
+		if (rd_restv.size() > 1) {          // if length of measureN array > 0 store it
+				rd_pdat_.o[2].s="Steady State (mV) (if no spikes!)"
+				record_data_disk_xy(rd_restv_x,rd_restv)
+		}
+		
+		// clear data for next simulation
+		rd_spikecount = null
+		rd_spikecount_x = null
 }
 
 

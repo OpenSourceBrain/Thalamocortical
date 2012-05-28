@@ -6,28 +6,28 @@ objref qrinfo_
 qrinfo_ = new List()
 strdef mytstr1
 for i=1,22 {getstr(mytstr1) qrinfo_.append(new String(mytstr1))}
-Potassium_Reversal_Potential_(ek)             scale_mV
-Sodium_Reversal_Potential_(ena)               scale_mV
-Anomalous_Rectifier_Reversal_Potential_(ear)  scale_mV
-Passive_Reversal_Potential_(ek)               scale_mV
-Sodium_Fast2_(naf2)                           scale_mS/cm2
-Potassium_Delayed_Rectifier_Fast_(kdf_fs)     scale_mS/cm2
-Potassium_Type_A_(ka)                         scale_mS/cm2
-Potassium_Type_K2_(k2)                        scale_mS/cm2
-Fast_Sodium_Transient_(napf_spinstell)        scale_mS/cm2
-Potassium_Fast_(kc_fast)                      scale_mS/cm2
-Potassium_Type_M_(km)                         scale_mS/cm2
-Potassium_Slow_AHP_(kahp_slower)              scale_mS/cm2
-Calcium_Long_Type_L_(cal)                     scale_mS/cm2
-Calcium_Transient_Type_T_(cat_a)              scale_mS/cm2
-Anomalous_Rectifier_(ar)                      scale_mS/cm2
-Passive_(pas)                                 scale_mS/cm2
-Capacitance_(cm)                              scale_mF/cm2
-Beta_Ca_Decay_(beta_cad)                      scale_1/ms
-Internal_Axial_Resistivity_(Ra)               scale_Ohm-Cm
-Fast_Sodium_Shift_(fastNa_shift_naf2)         scale_mV?
-Fast_Sodium_Shift_SS_(fastNa_shift_napf_ss)   scale_mV?
-Calcium_PhiCad_(phy_cad)                      scale_Mol?
+Potassium_Reversal_Potential_(ek)             Scale_of_ek_mV
+Sodium_Reversal_Potential_(ena)               Scale_of_ena_mV
+Anomalous_Rectifier_Reversal_Potential_(ear)  Scale_of_ear_mV
+Passive_Reversal_Potential_(epas)             Scale_of_epas_mV
+Sodium_Fast2_(naf2)                           Scale_of_naf2_mS/cm2
+Potassium_Delayed_Rectifier_Fast_(kdf_fs)     Scale_of_kdrfs_mS/cm2
+Potassium_Type_A_(ka)                         Scale_of_ka_mS/cm2
+Potassium_Type_K2_(k2)                        Scale_of_k2_mS/cm2
+Fast_Sodium_Transient_(napf_spinstell)        Scale_of_napf_mS/cm2
+Potassium_Fast_(kc_fast)                      Scale_of_kcfast_mS/cm2
+Potassium_Type_M_(km)                         Scale_of_km_mS/cm2
+Potassium_Slow_AHP_(kahp_slower)              Scale_of_kahp_mS/cm2
+Calcium_Long_Type_L_(cal)                     Scale_of_cal_mS/cm2
+Calcium_Transient_Type_T_(cat_a)              Scale_of_cat_mS/cm2
+Anomalous_Rectifier_(ar)                      Scale_of_ar_mS/cm2
+Passive_(pas)                                 Scale_of_pas_mS/cm2
+Capacitance_(cm)                              Scale_of_cm_mF/cm2
+Beta_Ca_Decay_(beta_cad)                      Scale_of_bcad_1/ms
+Internal_Axial_Resistivity_(Ra)               Scale_of_Ra_Ohm-Cm
+Fast_Sodium_Shift_(fastNa_shift_naf2)         Scale_of_shiftnaf2_mV?
+Fast_Sodium_Shift_SS_(fastNa_shift_napf_ss)   Scale_of_shiftnapf_mV?
+Calcium_PhiCad_(phy_cad)                      Scale_of_cad_Mol?
 
 
 proc cell_utils_spinstell_setup_mechanisms() {

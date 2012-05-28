@@ -12,14 +12,29 @@ load_file("hoc/spikecount.hoc")
 objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
-for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-scan1	 -81.5  -1000  -1000   0   10  5  cell_utils_set_qbeg(1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-scan2	 -81.5  -1000  -1000   0   10  6  cell_utils_set_qbeg(1,1,1,1,1,10^-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,10.^5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-scan3	 -81.5  -1000  -1000   0   10  7  cell_utils_set_qbeg(1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
-scan4	 -81.5  -1000  -1000   1   10  5  cell_utils_set_qbeg(1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-scan5	 -81.5  -1000  -1000   1   10  6  cell_utils_set_qbeg(1,1,1,1,1,10^-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-scan6	 -81.5  -1000  -1000   1   10  7  cell_utils_set_qbeg(1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-
+for i=1,22 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
+scan1	 -81.5  -1000  -1000   0   10  1  cell_utils_set_qbeg(10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan2	 -81.5  -1000  -1000   0   10  2  cell_utils_set_qbeg(1,10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan3	 -81.5  -1000  -1000   0   10  3  cell_utils_set_qbeg(1,1,10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan4	 -81.5  -1000  -1000   0   10  4  cell_utils_set_qbeg(1,1,1,10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan5	 -81.5  -1000  -1000   0   10  5  cell_utils_set_qbeg(1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan6	 -81.5  -1000  -1000   0   10  6  cell_utils_set_qbeg(1,1,1,1,1,10^-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,10.^5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan7	 -81.5  -1000  -1000   0   10  7  cell_utils_set_qbeg(1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
+scan8	 -81.5  -1000  -1000   0   10  8  cell_utils_set_qbeg(1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
+scan9	 -81.5  -1000  -1000   0   10  9  cell_utils_set_qbeg(1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1,1,1,1,1,1,1) 
+scan10 -81.5  -1000  -1000   0   10  10 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1,1,1,1,1,1) 
+scan11 -81.5  -1000  -1000   0   10  11 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1,1,1,1,1) 
+scan12 -81.5  -1000  -1000   0   10  12 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1,1,1,1) 
+scan13 -81.5  -1000  -1000   0   10  13 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1,1,1) 
+scan14 -81.5  -1000  -1000   0   10  14 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1,1) 
+scan15 -81.5  -1000  -1000   0   10  15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1,1) 
+scan16 -81.5  -1000  -1000   0   10  16 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1,1) 
+scan17 -81.5  -1000  -1000   0   10  17 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1,1) 
+scan18 -81.5  -1000  -1000   0   10  18 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1,1) 
+scan19 -81.5  -1000  -1000   0   10  19 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1,1) 
+scan20 -81.5  -1000  -1000   0   10  20 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1,1) 
+scan21 -81.5  -1000  -1000   0   10  21 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1) 
+scan22 -81.5  -1000  -1000   0   10  22 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4) 
 
 
 
@@ -170,8 +185,10 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				
 				run()
 				
-				xv=qr.x[mech_ref-1]      // we specify a main mechanism as reference for xval
+				xv=qr.x[mech_ref-1]      // we specify a main mechanism scale factor as reference for xval
 				record_data_spike(10,xv) // 10Mv for spike, xvalue
+				
+				record_data_restv(1000,xv)
 				
 				rd_gname = vstr
 				record_data_disk_vt()
@@ -192,12 +209,17 @@ proc finit0() { local ix, idx1 localobj lcell
 }
 
 
+
 // make_figure(0) // name should be more run batch? 
 print "make_figure(n)"
 print " 0-2 for normal" 
 print " 3-5 for traubexact"
 
-
+proc batch_() {
+		for k=$1, $2 {
+				make_figure(k)
+		}
+}
 
 // set the start and end vectors
 // set the mode for advance linear or exponential
