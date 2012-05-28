@@ -14,7 +14,7 @@ http://senselab.med.yale.edu/ModelDb/showmodel.asp?model=82894
 
 //// documentation for individual files:
 
-nrngui traub2005figA3.hoc   // run this to recreate the published figures for L4SS in figure A3
+nrngui gph_traub2005figA3.hoc   // run this to recreate the published figures for L4SS in figure A3
 
 
 

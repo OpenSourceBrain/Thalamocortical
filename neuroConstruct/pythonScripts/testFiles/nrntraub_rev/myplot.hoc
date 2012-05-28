@@ -397,7 +397,7 @@ proc conductance_set_levels_sum() { local amech, chg, extra1, extra2  localobj l
 		//		possible way to extend with extra dim
 		//		strdef cmdstr1
 		//		cmdstr1 = $s12
-		//    later execute(cmdstr1) conditionally
+		//    later execute(cmdstr1) condgitionally
 		level_values = new Vector(0)
 		level_values.append($6+chg, $7+chg, $8+chg, $9+chg, $10+chg, $11+chg, $12+chg, $13+chg, $14+chg, $15+chg)
 		for i=0, level_values.size()-1 {

@@ -27,8 +27,6 @@ showFlag = 0
 overlayFlag = 0
 alphaFlag = 0
 dtFlag = 0
-dtfileFlag = 0
-dtfileParams = []
 windowFlag = 0
 windowParams = []
 xlabelFlag = 0
@@ -65,16 +63,13 @@ for arg in sys.argv:
     if (arg == "-glabel"):
         glabelFlag = 1
         glabelParams = arg_parms[1].replace("_"," ")
-    if (arg == "-dtfile"):
-        dtfileFlag = 1
-        dtfileParams = arg_parms[1]
     if (arg == "-debug"):
         DEBUG = True
         debugFlag = 1
     if (arg == "-help"):
         helpFlag = 1
-    if (arg == "-show"):
-        showFlag = 1
+    if (arg == "-noshow"):
+        showFlag = 0
     if (arg == "-alpha"):
         alphaFlag = 1
     if (arg == "-overlay"):
@@ -88,11 +83,10 @@ if (helpFlag == 1):
     print "Call this script as follows: -- need to update -- \n\
     ./plotDat.py [options] <file1> <file2> <file3> ...  \n\
     -debug to debug and not do anything\n\
-    -show to show \n\
+    -noshow to run silently \n\
     -alpha to draw background transparent \n\
     -overlay to draw multiple files on one graph as overlay \n\
     -help for this text \n\
-    -dtfile:filename\n\
     -win:<minx,miny,maxx,maxy> to control output range \n\
     -xlabel:'<text_on_xlabel>'\n\
     -ylabel:'<text_on_ylabel>'\n\
@@ -130,24 +124,10 @@ for filidx in range(0,len(targetList)):
         data_y = []
         data_x = []
         t = 0
-        if (dtfileFlag and os.path.exists(dtfileParams)):
-            file_x = open(dtfileParams,'rU')
-            debugPrint("Reading X vals from file:"+dtfileParams)
-            for line in file_x:
-                if not line.strip().startswith('#') or not line.strip():
-                    try:
-                        data = float(line)
-                        data_x.append(data)
-                    except:
-                        debugPrint("skipping line (bad format):"+str(line))
-                        continue
-            file_x.close()
-
+        if (dtFlag):
+            dt = float(dtParams)
         else:
-            if (dtFlag):
-                dt = float(dtParams)
-            else:
-                dt = 1
+            dt = 1
         file_y = open(targetFile,'rU')
         debugPrint("Reading file:"+targetFile)
         for line in file_y:
@@ -155,16 +135,17 @@ for filidx in range(0,len(targetList)):
                 try:
                     data = float(line)
                     data_y.append(data)
-                    if (not dtfileFlag):
-                        data_x.append(t)
-                        t=t+dt
+                    data_x.append(t)
+                    t=t+dt
                 except:
-                    debugPrint("skipping line (bad format):"+str(line))
+                    debugPrint("problem with value!:"+str(line))
                     continue
+    
                 
         file_y.close()                    
         debugPrint("imported last data dat_y:"+str(data)+" records: "+str(t))
         # !! need to check for size differences in dimension
+
 
         if (overlayFlag == 0):
             fig = plt.figure(facecolor='#FFFFFF', edgecolor='#FFFFFF')
@@ -184,11 +165,9 @@ for filidx in range(0,len(targetList)):
             #ax.plot(data_x, data_y, color='#000000', linestyle='None', solid_joinstyle ='round', solid_capstyle ='round',  marker=',', markerfacecolor='None', markeredgecolor='#000000' )
             ax.plot(data_x, data_y, color='#000000', linestyle='-', marker=',', markerfacecolor='None', markeredgecolor='#000000' )
             if (glabelFlag):
-                ttl1 = title(glabelParams)
+                title(glabelParams)
             else:
                 title('Plot of file: '+targetFile)
-            ttl1xy = ttl1.get_position()
-            ttl1.set_position([ttl1xy[0],ttl1xy[1]+0.03])
             ax.set_ylabel(ylabelParams, fontsize=14)
             ax.set_xlabel(xlabelParams, fontsize=14)
             ax.xaxis.set_ticks_position('bottom')

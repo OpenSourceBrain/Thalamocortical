@@ -1,0 +1,209 @@
+// this file assumes that ../nrntraub is available with source from modelDB
+// <add link>
+
+load_file("nrngui.hoc")
+load_file("mview.hoc")
+load_file("../nrntraub/hoc/traubcon.hoc")
+load_file("../nrntraub/fortmap.hoc")
+load_file("../nrntraub/cell_templates.hoc")
+load_file("cells/spinstell_template_n.hoc")
+load_file("hoc/spikecount.hoc")
+
+objref myplotinfo_
+myplotinfo_ = new List()
+strdef mytstr1
+for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
+scan1	 -81.5  -1000  -1000   0   10  5  cell_utils_set_qbeg(1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan2	 -81.5  -1000  -1000   0   10  6  cell_utils_set_qbeg(1,1,1,1,1,10^-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,10.^5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan3	 -81.5  -1000  -1000   0   10  7  cell_utils_set_qbeg(1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
+scan4	 -81.5  -1000  -1000   1   10  5  cell_utils_set_qbeg(1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan5	 -81.5  -1000  -1000   1   10  6  cell_utils_set_qbeg(1,1,1,1,1,10^-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+scan6	 -81.5  -1000  -1000   1   10  7  cell_utils_set_qbeg(1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+
+
+
+
+
+
+// from ../nrntraub/onecell.hoc
+// til the shift bug in the mod files are fixed (table depends on range variable)
+usetable_naf2 = 0
+usetable_naf = 0
+usetable_napf_spinstell = 0
+usetable_napf_tcr = 0
+
+// initial vars
+objref cell, nil, stim1, stim2
+cell = nil
+a1 = 0  
+a2 = 0
+v0 = 0
+
+
+
+// from ses file to create graph window
+objectvar save_window_, rvp_
+objectvar scene_vector_[3]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{pwman_place(0,0,0)}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,650,-90,40)
+scene_vector_[2] = save_window_
+min_x_coord=0
+max_x_coord=500
+min_y_coord=-80
+max_y_coord=120
+{save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+}
+objectvar scene_vector_[1]
+{doNotify()}
+// end ses file
+
+
+
+proc runcell_simple() {local i, t1,a1,t2,a2  localobj vvec, tvec, f, g
+		cell = nil
+		execute("cell = new spinstell()")	
+}
+
+proc runcell_bare() {local i, t1,a1,t2,a2  localobj vvec, tvec, f, g
+		cell = nil
+		execute("cell = new spinstell_n()")	
+}
+
+
+//
+// files that need inlcuding later as they depend on some key variables
+// 
+load_file("hoc/cell_utils.hoc")
+load_file("hoc/record_data.hoc")
+
+
+objref mvvec, mtvec, myg
+proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
+		strdef vstr, lstr, vstr1
+		strdef sstr, estr
+		strdef mechname, mechunits
+		xv = 0
+		a1 = 0  a2 = 0  v0 = 0  exact_ = 0  numsims = 0  mech_ref = 0
+		i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %d %d %d %s %s", vstr, &v0, &a1, &a2, &exact_,&numsims, &mech_ref, sstr, estr)
+		print "plotting parms :", vstr, " v0:",v0," stim1:",a1, " stim2:", a2, "exact:", exact_, " numsims: ",numsims," mech_ref: ",mech_ref
+		print "start vector setting:", sstr
+		print "end vector setting:", estr
+		
+		// this should go in a fn in cell_utils
+		i = sscanf(qrinfo_.object(mech_ref).s, "%s %s", mechname, mechunits)
+		print " mech: ", mechname, " units: ",mechunits
+		
+		runcell_bare()
+		execute(sstr)
+		execute(estr)
+		
+		access cell.comp[1]
+		define_shape()
+		myg = Graph[0]
+		myg.erase_all
+		//	myg.size(0,400,-100,100)
+		// myg.exec_menu("Keep Lines")
+		
+		// run traubexact if needed
+		if (exact_) { 
+				print "setting traubexact"
+				traubexact(cell, tci) 
+				// from ../nrntraub/hoc/traubcon.hoc
+				// $o1 is the cell, $o2 is the connection matrix
+				// assume the names of sections range from
+				// $o1.comp[1] to $o1.comp[$o2.nrow-1]
+				// the connection matrix
+				
+				// the traub connection rule is that a childs 0 end is connected
+				// to the .5 location of the parent and the resistance is defined
+				// by the connection matrix (uS) with one exception. Sometimes
+				// pairs or triples of children are also connected to each other
+				// and these children are moved to the 1 end of the parent and
+				// the delta network is replaced by the equivalent wye network.
+		}
+		
+		if (a1 != -1000 || a2 != -1000) {
+				stim1 = nil
+				stim2 = nil
+				stim1 = new IClamp(.5)
+				stim2 = new IClamp(.5)
+				stim1.del = 50  stim2.del = 0
+				stim1.amp = a2   stim2.amp = a1
+				stim1.dur = 400  stim2.dur = 500 // 1e9
+				sprint(lstr,"iclamp=%lf,_tbexact=%d",a2,exact_)
+		}	else {
+				sprint(lstr,"no_IClamp,_tbexact=%d",exact_)
+		}
+		
+		tstop = 500
+		myg.label(0.797674, 0.855508, lstr, 2, 1, 0, 0, 1)
+		
+		sprint(vstr1, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
+		myg.addvar(vstr1, 1+($1>2), 1) // color, brush
+		
+		rd_pdat_.o[0].x[0]=min_x_coord
+		rd_pdat_.o[0].x[1]=min_y_coord
+		rd_pdat_.o[0].x[2]=max_x_coord
+		rd_pdat_.o[0].x[3]=max_y_coord
+		rd_pdat_.o[1].s="ms"
+		rd_pdat_.o[2].s="mV"
+		rd_pdat_.o[3].s=lstr
+		
+		// for each mechanism
+		// for each power of 2 (- to +)
+		// create a plot with the right label
+		// create a filename so a movie can be made for each mechanism
+		for bati=0, numsims-1 {
+				record_data_vt()
+				
+				// qr.x[04] = 2^(bati-5)
+				// cell_utils_update_qr_lin(bati, numsims-1)
+				cell_utils_update_qr_exp(bati, numsims-1)
+				
+				cell_utils_spinstell_setup_mechanisms()
+				
+				run()
+				
+				xv=qr.x[mech_ref-1]      // we specify a main mechanism as reference for xval
+				record_data_spike(10,xv) // 10Mv for spike, xvalue
+				
+				rd_gname = vstr
+				record_data_disk_vt()
+		}
+		
+		// should capture the actual range
+		sprint(lstr,"Variation of %s, over a Range",mechname)
+		rd_pdat_.o[1].s=mechunits
+		rd_pdat_.o[3].s=lstr
+		record_data_disk_summary()
+}
+
+objref fih0_
+fih0_ = new FInitializeHandler(0, "finit0()")
+proc finit0() { local ix, idx1 localobj lcell
+		// in the neuron project this was inited to -65?
+		forsec cell.all { v = v0 }
+}
+
+
+// make_figure(0) // name should be more run batch? 
+print "make_figure(n)"
+print " 0-2 for normal" 
+print " 3-5 for traubexact"
+
+
+
+// set the start and end vectors
+// set the mode for advance linear or exponential
+// set the number of steps
+// run simulation
+// collect stats per simulation:
+// + spike count
+// + steady state v
+

@@ -1,0 +1,13 @@
+// This function is used to measure spikes, i.e. the number of times the 
+// voltage is above a predefined threshold
+// written by Terrence Brannon, last modified by Yiota Poirazi, July 2001, poirazi@LNC.usc.edu
+
+objref spikecount_vec, spikecount_hold
+func spikecount() { 
+
+   spikecount_vec=new Vector()
+   spikecount_vec.spikebin($o1,$2)
+
+   return(spikecount_vec.sum())
+  
+}

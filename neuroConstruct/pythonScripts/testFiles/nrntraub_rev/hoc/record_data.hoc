@@ -1,0 +1,132 @@
+load_file("hoc/spikecount.hoc")
+
+// for recording data
+objref rd_sfunc
+rd_sfunc = new StringFunctions()
+objref rd_rec_t, rd_rec_v
+objref rd_tgto1
+strdef rd_tstamp, rd_tstra1, rd_tstra2
+rd_rec_t = new Vector(0)
+rd_rec_v = new Vector(0)
+objref rd_pdat_
+rd_pdat_ = new List()
+rd_pdat_.append(new Vector())
+rd_pdat_.append(new String())
+rd_pdat_.append(new String())
+rd_pdat_.append(new String())
+rd_pdat_.o[0].append(1) // rd_pdat_.o[0].x[0]
+rd_pdat_.o[0].append(2)
+rd_pdat_.o[0].append(3)
+rd_pdat_.o[0].append(4)
+
+objref rd_spikecount, rd_spikecount_x
+rd_spikecount = new Vector(0)
+rd_spikecount_x = new Vector(0)
+
+strdef rd_gname
+objref strobj
+strobj = new StringFunctions()
+
+proc record_data_vt() { 
+		access cell.comp[1]
+		rd_rec_t.record(&t)		
+		// sprint(vstr, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
+		// execute(vsr)
+		rd_rec_v.record(&v(0.5))
+}
+
+proc record_data_disk_vt() { localobj savt, savv
+		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
+		rd_sfunc.left(rd_tstamp,18)
+		
+		if (strobj.len(rd_gname) > 0) {
+				sprint(rd_tstra1, "batchdata/batchdata_t_%s_%s.dat", rd_gname, rd_tstamp)
+		} else {
+				sprint(rd_tstra1, "batchdata/batchdata_t_%s_%s.dat", rd_tstamp)
+		}
+		savt = new File()
+		savt.wopen(rd_tstra1)
+		rd_rec_t.printf(savt)
+		savt.close()
+		
+		if (strobj.len(rd_gname) > 0) {
+				sprint(rd_tstra2, "batchdata/batchdata_v_%s_%s.dat", rd_gname, rd_tstamp)
+		} else {
+				sprint(rd_tstra2, "batchdata/batchdata_v_%s.dat", rd_tstamp)
+		}
+		savv = new File()
+		savv.wopen(rd_tstra2)
+		rd_rec_v.printf(savv)
+		savv.close()
+		
+		record_data_process()
+}
+
+proc record_data_process() {
+		strdef rd_cmd
+		sprint(rd_cmd,"./plotDat.py -dt:'0.025' -win:'%d,%d,%d,%d' -xlabel:'%s' -ylabel:'%s' -glabel:'%s' -alpha %s",rd_pdat_.o[0].x[0],rd_pdat_.o[0].x[1],		rd_pdat_.o[0].x[2]+rd_pdat_.o[0].x[0],   rd_pdat_.o[0].x[3]+rd_pdat_.o[0].x[1],rd_pdat_.o[1].s,rd_pdat_.o[2].s,rd_pdat_.o[3].s,rd_tstra2)
+		// weird neuron ranges for windows are not the same for matplotlib
+		system(rd_cmd)
+		print rd_cmd 
+}
+
+proc record_data_process_xy() {
+		strdef rd_cmd
+		print "plotDat needs fixing to allow for -dtfile:filename"
+		sprint(rd_cmd,"./plotDat.py -dtfile:%s -xlabel:'%s' -ylabel:'%s' -glabel:'%s' -alpha %s",rd_tstra1,rd_pdat_.o[1].s,rd_pdat_.o[2].s,rd_pdat_.o[3].s,rd_tstra2)
+		// weird neuron ranges for windows are not the same for matplotlib
+		system(rd_cmd)
+		print rd_cmd 
+}
+
+proc record_data_disk_xy() { localobj savt, savv
+		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
+		rd_sfunc.left(rd_tstamp,18)
+
+		sprint(rd_tstra1, "batchdata/batchdata_x_%s.dat", rd_tstamp)
+		savt = new File()
+		savt.wopen(rd_tstra1)
+		$o1.printf(savt)
+		savt.close()
+		
+		sprint(rd_tstra2, "batchdata/batchdata_y_%s.dat", rd_tstamp)
+		savv = new File()
+		savv.wopen(rd_tstra2)
+		$o2.printf(savv)
+		savv.close()
+		
+		record_data_process_xy()
+}
+
+
+proc record_data_spike() {
+		// gather data for each iteration
+		rd_spikecount.append(spikecount(rd_rec_v,$1))
+		rd_spikecount_x.append($2)
+}
+
+proc record_data_disk_summary() {
+		// store collected data
+		
+		// if length of spikes array > 0 store it
+		if (rd_spikecount.size() > 1) {
+				rd_pdat_.o[2].s="Spike Count"
+				record_data_disk_xy(rd_spikecount_x,rd_spikecount)	
+		}
+		
+		// if length of measureN array > 0 store it
+}
+
+
+
+
+// strdef mytstr1
+// for i=1,1 {getstr(mytstr1) plot_params_.append(new String(mytstr1))}
+// 0  -80  500  120  xlabel_text  ylabel_text  graph_text
+// rd_x1 = 0 rd_y1 = 0 rd_x2 = 0 rd_y2 = 0
+// strdef rd_xlab, rd_ylab, rd_glab
+// i = sscanf(plot_params_.object(0).s, "%d %d %d %d %s %s %s", &rd_x1, &rd_y1, &rd_x2, &rd_y2, rd_xlab, rd_ylab, rd_glab)
+// print "record data indo x1,yx,x2,y2: ",rd_x1," ",rd_y1," ",rd_x2," ",rd_y2," xlb:",rd_xlab," ylb: ",rd_ylab," glb: ",rd_glab
+// for j=0, plot_params_.count()-1 {
+// 		print plot_params_.o[j]
+// }

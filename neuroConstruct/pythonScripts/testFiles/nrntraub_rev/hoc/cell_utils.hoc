@@ -1,0 +1,407 @@
+
+objref qr, qbeg, qend
+qr = new Vector(0)
+qr.append(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+objref qrinfo_
+qrinfo_ = new List()
+strdef mytstr1
+for i=1,22 {getstr(mytstr1) qrinfo_.append(new String(mytstr1))}
+Potassium_Reversal_Potential_(ek)             scale_mV
+Sodium_Reversal_Potential_(ena)               scale_mV
+Anomalous_Rectifier_Reversal_Potential_(ear)  scale_mV
+Passive_Reversal_Potential_(ek)               scale_mV
+Sodium_Fast2_(naf2)                           scale_mS/cm2
+Potassium_Delayed_Rectifier_Fast_(kdf_fs)     scale_mS/cm2
+Potassium_Type_A_(ka)                         scale_mS/cm2
+Potassium_Type_K2_(k2)                        scale_mS/cm2
+Fast_Sodium_Transient_(napf_spinstell)        scale_mS/cm2
+Potassium_Fast_(kc_fast)                      scale_mS/cm2
+Potassium_Type_M_(km)                         scale_mS/cm2
+Potassium_Slow_AHP_(kahp_slower)              scale_mS/cm2
+Calcium_Long_Type_L_(cal)                     scale_mS/cm2
+Calcium_Transient_Type_T_(cat_a)              scale_mS/cm2
+Anomalous_Rectifier_(ar)                      scale_mS/cm2
+Passive_(pas)                                 scale_mS/cm2
+Capacitance_(cm)                              scale_mF/cm2
+Beta_Ca_Decay_(beta_cad)                      scale_1/ms
+Internal_Axial_Resistivity_(Ra)               scale_Ohm-Cm
+Fast_Sodium_Shift_(fastNa_shift_naf2)         scale_mV?
+Fast_Sodium_Shift_SS_(fastNa_shift_napf_ss)   scale_mV?
+Calcium_PhiCad_(phy_cad)                      scale_Mol?
+
+
+proc cell_utils_spinstell_setup_mechanisms() {
+		_ek = -100*qr.x[0]
+		_ena = 50*qr.x[1]
+		_ear = -40*qr.x[2]
+		_epas = -65*qr.x[3]
+		// -----------------------  mech chg                extra1 extra2  lvl-0  lvl-1 2x( lvl-2   lvl-3  lvl-4  lvl-5  lvl-6  lvl-7  lvl-8  lvl-9 )
+		conductance_set_levels(cell, 11, qr.x[04], -2.50*qr.x[19],  _ena,  0.400, 0.150,    0.150,  0.150, 0.010, 0.010, 0.010, 0.010, 0.010, 0.010) // "naf2","fastNa_shift_naf2","ena"
+		conductance_set_levels(cell, 9,  qr.x[05],             -0,   _ek,  0.400, 0.100,    0.150,  0.150,    -1,    -1,    -1,    -1,    -1,    -1) // "kdr_fs","","ek"
+		conductance_set_levels(cell, 6,  qr.x[06],             -0,   _ek,  0.002, 0.030,    0.060,  0.004, 0.004, 0.004, 0.004, 0.004, 0.004, 0.004) // "ka","","ek"
+		conductance_set_levels(cell, 5,  qr.x[07],             -0,   _ek, 0.0001,0.0001,    0.0002,0.0002,0.0002,0.0002,0.0002,0.0002,0.0002,0.0002) // "k2","","ek"
+		//conductance_set_levels(cell, 12, qr.x[08], -2.50,  _ena,  -1,1.5E-4,       1.5E-4,1.5E-4,1.0E-5,1.0E-5,1.0E-5,1.0E-5,1.0E-5,1.0E-5) // "napf_spinstell","fastNa_shift_napf_spinstell","ena"
+		conductance_set_levels(cell, 12, qr.x[08], -2.50*qr.x[20],  _ena,   4E-4,1.5E-4,    1.5E-4,1.5E-4,1.0E-5,1.0E-5,1.0E-5,1.0E-5,1.0E-5,1.0E-5) // "napf_spinstell","fastNa_shift_napf_spinstell","ena"
+		conductance_set_levels(cell, 8,  qr.x[09],             -0,   _ek,     -1,  0.01,    0.020,  0.020, 0.020,    -1,    -1,    -1,    -1,    -1) // "kc_fast","","ek"
+		conductance_set_levels(cell, 10, qr.x[10],             -0,   _ek,    -1,3.75E-3,    7.5E-3,7.5E-3,7.5E-3,7.5E-3,7.5E-3,7.5E-3,7.5E-3,7.5E-3) // "km","","ek"
+		conductance_set_levels(cell, 7,  qr.x[11],             -0,   _ek,     -1,0.0001,    0.0002,0.0002,0.0002,0.0002,0.0002,0.0002,0.0002,0.0002) // "kahp_slower","","ek"
+		conductance_set_levels(cell, 3,  qr.x[12],             -0,    -0,     -1,0.0005,    0.001,  0.001, 0.001, 0.001, 0.001, 0.006, 0.006, 0.006) // "cal","",""
+		conductance_set_levels(cell, 4,  qr.x[13],             -0,    -0,     -1,0.0001,    0.0002,0.0002,0.0002,0.0002,0.0002,0.0002,0.0002,0.0002) // "cat_a","",""
+		conductance_set_levels(cell, 1,  qr.x[14],            0.0,  _ear,     -1,2.5E-4,    0.0005,0.0005,0.0005,0.0005,0.0005,0.0005,0.0005,0.0005) // "ar","m0_ar","erev_ar"
+		conductance_set_levels(cell, 13, qr.x[15],             -0, _epas,  0.001,2.0E-5,    4.0E-5,4.0E-5,4.0E-5,4.0E-5,4.0E-5,4.0E-5,4.0E-5,4.0E-5) // "pas","e_pas",""
+		conductance_set_levels(cell, 14, qr.x[16],   -0,    -0,    0.9,   0.9,       1.8,   1.8,   1.8,   1.8,   1.8,   1.8,   1.8,   1.8) // "cm","",""
+		
+		// ----------------------- mech chg                 extra1 extra2  lvl-0  lvl-1   ( lvl-2   lvl-3  lvl-4  lvl-5  lvl-6  lvl-7  lvl-8  lvl-9 )
+		conductance_set_levels(cell, 2,  qr.x[17],260000*qr.x[21],    -0,     -1,  0.02,      0.05,  0.05,  0.05,  0.05,  0.05,  0.05,  0.05,  0.05) // "beta_cad","","phi_cad"
+		conductance_set_levels(cell, 15, qr.x[18],             -0,    -0,    100,   250,       250,   250,   250,   250,   250,   250,   250,   250) // "Ra","",""
+}
+
+proc cell_utils_set_qbeg() {
+		qbeg = new Vector(0)
+		qbeg.append($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22)
+}
+
+proc cell_utils_set_qend() {
+		qend = new Vector(0)
+		qend.append($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22)
+}
+
+proc cell_utils_update_qr_lin() {
+		// parameters passed indicate current step $1, and total steps $2
+		strdef qr_log
+		printf("qr:")
+		for i=0, qr.size()-1 {
+				qr.x[i] = qbeg.x[i]+(qend.x[i]-qbeg.x[i])*$1/$2
+				printf("%g,",qr.x[i])
+		}
+		printf("iteration %d of %d\n",$1,$2)
+}
+
+proc cell_utils_update_qr_exp() {
+		// parameters passed indicate current step $1, and total steps $2
+		strdef qr_log
+		printf("qr:")
+		for i=0, qr.size()-1 {
+				if ($1 == 0) {
+						qr.x[i] = qbeg.x[i]
+				} else {
+						qr.x[i] = qbeg.x[i]+exp(log(qend.x[i]-qbeg.x[i])*$1/$2)
+				}
+				printf("%g,",qr.x[i])
+		}
+		printf("iteration %d of %d\n",$1,$2)
+}
+
+
+proc conductance_set_levels() { local amech, chg, extra1, extra2  localobj level_values
+		amech = $2
+		chg = $3
+		extra1 = $4
+		extra2 = $5
+		//		possible way to extend with extra dim
+		//		strdef cmdstr1
+		//		cmdstr1 = $s12
+		//    later execute(cmdstr1) conditionally
+		level_values = new Vector(0)
+		level_values.append($6*chg, $7*chg, $8*chg, $9*chg, $10*chg, $11*chg, $12*chg, $13*chg, $14*chg, $15*chg)
+		for i=0, level_values.size()-1 {
+				// print "changing level:", i
+				forsec $o1.level[i] {
+						// loop over mechanisms
+						// print "-section:", secname()
+						if ( level_values.x[i] > 0 ) {	// using negative gbar to indicate no mechanism present
+								// NOTE: ek, etc.. is not set on no mechanism segments
+								// --
+								if (amech == 1 ) { insert ar
+										gbar_ar = level_values.x[i] 
+										m0_ar = extra1
+										erev_ar = extra2
+										// m0_ar = 0
+										// erev_ar = -40
+								} 
+								if (amech == 2 ) { insert cad
+										beta_cad = level_values.x[i] 
+										phi_cad = extra1
+										// phi_cad = 260000
+								} 
+								if (amech == 3 ) { insert cal
+										gbar_cal = level_values.x[i] 
+								} 
+								if (amech == 4 ) { insert cat_a
+								gbar_cat_a = level_values.x[i] } 
+								if (amech == 5 ) { insert k2
+										gbar_k2 = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 6 ) { insert ka
+										gbar_ka = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 7 ) { insert kahp_slower										
+										gbar_kahp_slower = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 8 ) { insert kc_fast	
+										gbar_kc_fast = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 9 ) { insert kdr_fs
+										gbar_kdr_fs = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 10 ) { insert km
+										gbar_km = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 11 ) { insert naf2
+										gbar_naf2 = level_values.x[i]
+										fastNa_shift_naf2 = extra1
+										ena = extra2
+										// fastNa_shift_naf2 = -2.5
+										// ena = 50
+								} 
+								if (amech == 12 ) { insert napf_spinstell
+										gbar_napf_spinstell = level_values.x[i]
+										extra1=-2.5
+										ena = extra2
+										// fastNa_shift_napf_spinstell = -2.5
+										// ena = 50
+								} 
+								// non standard naming
+								if (amech == 13 ) { 
+										e_pas = extra2
+										g_pas = level_values.x[i] 
+								}
+								if (amech == 14 ) { 
+										cm = level_values.x[i] 
+								}
+								if (amech == 15 ) { 
+										Ra = level_values.x[i] 
+								}
+								if (amech == 16 ) { // other settings
+									//	vca = 125.      // - hardcoded in the mod files
+									//	e_gaba_a = -75  // - ? can't find connection/use
+								}
+						}
+				}
+		}
+		// change conductance
+}
+
+// ---- conductance set levels sum
+proc conductance_set_levels_sum() { local amech, chg, extra1, extra2  localobj level_values
+		amech = $2
+		chg = $3
+		extra1 = $4
+		extra2 = $5
+		//		possible way to extend with extra dim
+		//		strdef cmdstr1
+		//		cmdstr1 = $s12
+		//    later execute(cmdstr1) conditionally
+		level_values = new Vector(0)
+		level_values.append($6+chg, $7+chg, $8+chg, $9+chg, $10+chg, $11+chg, $12+chg, $13+chg, $14+chg, $15+chg)
+		for i=0, level_values.size()-1 {
+				// print "changing level:", i
+				forsec $o1.level[i] {
+						// loop over mechanisms
+						// print "-section:", secname()
+						if ( level_values.x[i] > 0 ) {	// using negative gbar to indicate no mechanism present
+								// NOTE: ek, etc.. is not set on no mechanism segments
+								// --
+								if (amech == 1 ) { insert ar
+										gbar_ar = level_values.x[i] 
+										m0_ar = extra1
+										erev_ar = extra2
+										// m0_ar = 0
+										// erev_ar = -40
+								} 
+								if (amech == 2 ) { insert cad
+										beta_cad = level_values.x[i] 
+										phi_cad = extra1
+										// phi_cad = 260000
+								} 
+								if (amech == 3 ) { insert cal
+										gbar_cal = level_values.x[i] 
+								} 
+								if (amech == 4 ) { insert cat_a
+								gbar_cat_a = level_values.x[i] } 
+								if (amech == 5 ) { insert k2
+										gbar_k2 = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 6 ) { insert ka
+										gbar_ka = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 7 ) { insert kahp_slower										
+										gbar_kahp_slower = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 8 ) { insert kc_fast	
+										gbar_kc_fast = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 9 ) { insert kdr_fs
+										gbar_kdr_fs = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 10 ) { insert km
+										gbar_km = level_values.x[i] 
+										ek = extra2
+										// ek = -100
+								} 
+								if (amech == 11 ) { insert naf2
+										gbar_naf2 = level_values.x[i]
+										fastNa_shift_naf2 = extra1
+										ena = extra2
+										// fastNa_shift_naf2 = -2.5
+										// ena = 50
+								} 
+								if (amech == 12 ) { insert napf_spinstell
+										gbar_napf_spinstell = level_values.x[i]
+										extra1=-2.5
+										ena = extra2
+										// fastNa_shift_napf_spinstell = -2.5
+										// ena = 50
+								} 
+								// non standard naming
+								if (amech == 13 ) { 
+										e_pas = extra2
+										g_pas = level_values.x[i] 
+								}
+								if (amech == 14 ) { 
+										cm = level_values.x[i] 
+								}
+								if (amech == 15 ) { 
+										Ra = level_values.x[i] 
+								}
+								if (amech == 16 ) { // other settings
+									//	vca = 125.      // - hardcoded in the mod files
+									//	e_gaba_a = -75  // - ? can't find connection/use
+								}
+						}
+				}
+		}
+		// change conductance
+}
+
+
+
+objref rec_t, rec_v
+objref data_fil
+objref savv, savt, savs, savi
+
+objref ripas,ricap,rik,rina,riar,rica
+
+proc batch_search() { local i
+		strdef tstra1, tstra2, tstra3, tstra4
+		
+		highindex = 1
+		lowindex = mcell_ran4_init()
+		
+		rec_t = new Vector(0)
+		rec_v = new Vector(0)
+		
+		ripas = new Vector(0)
+		ricap = new Vector(0)	
+		rik = new Vector(0)		
+		rina = new Vector(0)		
+		riar = new Vector(0)		
+		rica = new Vector(0)
+		
+		for bati=0, $1 {
+				print "running ",bati
+				rec_t.record(&t)
+				rec_v.record(&cell.comp[2].v(0.5))
+				
+				ripas.record(&cell.comp[2].i_pas(0.5))
+				ricap.record(&cell.comp[2].i_cap)
+				rik.record(&cell.comp[2].ik(0.5))
+				rina.record(&cell.comp[2].ina(0.5))
+				riar.record(&cell.comp[2].i_ar)
+				rica.record(&cell.comp[2].ica)
+				// iterate select candidate etc..
+				
+				for i=0, qr.size()-1 {
+						rndn = mcell_ran4(&highindex)
+						if (rndn >2/3) {
+								// increase
+								qr.x[i] = qr.x[i]*1.001
+						} else if (rndn >1/3) {
+								// do nothing
+						} else {
+								// decrease
+								qr.x[i] = qr.x[i]*0.999				
+						}
+				}
+				
+				spinstell_setup_mechanisms()
+						
+				
+				run()
+				
+				sprint(tstra1, "batchdata/batchdata_t_%d.dat", bati+10000)
+				savt = new File()
+				savt.wopen(tstra1)
+				rec_t.printf(savt)
+				savt.close()
+				
+				sprint(tstra2, "batchdata/batchdata_v_%d.dat", bati+10000)
+				savv = new File()
+				savv.wopen(tstra2)
+				rec_v.printf(savv)
+				savv.close()
+				
+				sprint(tstra3, "batchdata/batchdata_s_%d.dat", bati+10000)
+				savs = new File()
+				savs.wopen(tstra3)
+				qr.printf(savs)
+				savs.close()				
+				
+				//---
+				sprint(tstra4, "batchdata/batchdata_ipas_%d.dat", bati+10000) // c
+				savi = new File()
+				savi.wopen(tstra4)
+				ripas.printf(savi) // c
+				savi.close()				
+				sprint(tstra4, "batchdata/batchdata_icap_%d.dat", bati+10000) // c
+				savi = new File()
+				savi.wopen(tstra4)
+				ricap.printf(savi) // c
+				savi.close()				
+				sprint(tstra4, "batchdata/batchdata_ik_%d.dat", bati+10000) // c
+				savi = new File()
+				savi.wopen(tstra4)
+				rik.printf(savi) // c
+				savi.close()				
+				sprint(tstra4, "batchdata/batchdata_ina_%d.dat", bati+10000) // c
+				savi = new File()
+				savi.wopen(tstra4)
+				rina.printf(savi) // c
+				savi.close()				
+				sprint(tstra4, "batchdata/batchdata_iar_%d.dat", bati+10000) // c
+				savi = new File()
+				savi.wopen(tstra4)
+				riar.printf(savi) // c
+				savi.close()				
+				sprint(tstra4, "batchdata/batchdata_ica_%d.dat", bati+10000) // c
+				savi = new File()
+				savi.wopen(tstra4)
+				rica.printf(savi) // c
+				savi.close()				
+				
+		}
+		
+}
+
