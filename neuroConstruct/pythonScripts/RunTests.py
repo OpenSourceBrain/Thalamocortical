@@ -55,7 +55,7 @@ simConfigs.append("Default Simulation Configuration")
 #          match between NEURON, MOOSE & GENESIS
 #
 #simConfigs.append("Cell1-supppyrRS-FigA1RS")
-#simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
+simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
 #simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell5-supLTS-FigA2b")
@@ -78,8 +78,8 @@ simulators =            ["NEURON", "GENESIS_PHYS",  "MOOSE_PHYS", "MOOSE_SI"]  #
 #simulators =            ["NEURON"]
 
 
-#maxElecLens =           [0.01]  # 0.01 will give ~700 in FRB & RS
-maxElecLens =            [-1]  # -1 means don't recompartmentalise use settings in proj
+maxElecLens =           [0.01]  # 0.01 will give ~700 in FRB & RS
+#maxElecLens =            [-1]  # -1 means don't recompartmentalise use settings in proj
 #maxElecLens =           [0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001]
 
 numConcurrentSims =     3
