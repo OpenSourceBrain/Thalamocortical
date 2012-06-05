@@ -7,17 +7,21 @@ load_file("../nrntraub/hoc/traubcon.hoc")
 load_file("../nrntraub/fortmap.hoc")
 load_file("../nrntraub/cell_templates.hoc")
 
+strdef of_name
+of_name="gph_traub2005figA3"
+load_file("hoc/outfolder.hoc")
+
 
 objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
 for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-figA3_a	 -81.5  -0.01  0.167  0
-figA3_b	 -81.5  -0.01  0.250  0
-figA3_c	 -81.5  -0.01  0.333  0
-figA3_a	 -81.5  -0.01  0.167  1
-figA3_b	 -81.5  -0.01  0.250  1
-figA3_c	 -81.5  -0.01  0.333  1
+figA3_a	 -81.5  -0.15  0.167  0
+figA3_b	 -81.5  -0.15  0.250  0
+figA3_c	 -81.5  -0.15  0.333  0
+figA3_a	 -81.5  -0.15  0.167  1
+figA3_b	 -81.5  -0.15  0.250  1
+figA3_c	 -81.5  -0.15  0.333  1
 
 
 
@@ -49,7 +53,7 @@ save_window_ = new Graph(0)
 save_window_.size(0,650,-90,40)
 scene_vector_[2] = save_window_
 min_x_coord=0
-max_x_coord=500
+max_x_coord=700
 min_y_coord=-80
 max_y_coord=120
 {save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
@@ -112,15 +116,15 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 			stim2 = nil
 			stim1 = new IClamp(.5)
 			stim2 = new IClamp(.5)
-			stim1.del = 50  stim2.del = 0
+			stim1.del = 200  stim2.del = 0
 			stim1.amp = a2   stim2.amp = a1
-			stim1.dur = 400  stim2.dur = 500 // 1e9
-			sprint(lstr,"iclamp=%lf,_tbexact=%d",a2,exact_)
+			stim1.dur = 400  stim2.dur = 200 // 1e9
+			sprint(lstr,"i=%lf,_tbexact=%d",a2,exact_)
 	}	else {
-			sprint(lstr,"no_IClamp,_tbexact=%d",exact_)
+			sprint(lstr,"no_i,_tbexact=%d",exact_)
 	}
 	
-	tstop = 500
+	tstop = max_x_coord-min_x_coord
 	myg.label(0.797674, 0.855508, lstr, 2, 1, 0, 0, 1)
 
 	sprint(vstr, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
@@ -148,10 +152,16 @@ proc finit0() { local ix, idx1 localobj lcell
 		forsec cell.all { v = v0 }
 }
 
-make_figure(0)
-print "make_figure(n)"
+//make_figure(0)
+print "this script automatically creates all graphs on startup"
+print "individual graphs can be run with make_figure(n)"
 print " 0-2 for normal" 
 print " 3-5 for traubexact"
 
+proc batch_() {
+    for k=$1, $2 {
+        make_figure(k)
+    }
+}
 
-
+batch_(0,5)

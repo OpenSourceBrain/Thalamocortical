@@ -7,17 +7,23 @@ load_file("../nrntraub/hoc/traubcon.hoc")
 load_file("../nrntraub/fortmap.hoc")
 load_file("../nrntraub/cell_templates.hoc")
 
+strdef of_name
+of_name="gph_rest"
+load_file("hoc/outfolder.hoc")
+
 
 objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
-for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
+for i=1,8 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
 rest1	 -81.5  -1000  -1000   0
 rest2	 -76.5  -1000  -1000   0
 rest3	 -71.5  -1000  -1000   0
-rest4	 -81.5  -1000  -1000   1
-rest5	 -76.5  -1000  -1000   1
-rest6	 -71.5  -1000  -1000   1
+rest4	 -66.5  -1000  -1000   0
+rest5	 -81.5  -1000  -1000   1
+rest6	 -76.5  -1000  -1000   1
+rest7	 -71.5  -1000  -1000   1
+rest8	 -66.5  -1000  -1000   1
 
 
 
@@ -115,9 +121,9 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 			stim1.del = 50  stim2.del = 0
 			stim1.amp = a2   stim2.amp = a1
 			stim1.dur = 400  stim2.dur = 500 // 1e9
-			sprint(lstr,"iclamp=%lf,_tbexact=%d",a2,exact_)
+			sprint(lstr,"i=%lf,_tbexact=%d",a2,exact_)
 	}	else {
-			sprint(lstr,"no_IClamp,_tbexact=%d",exact_)
+			sprint(lstr,"no_i,_tbexact=%d",exact_)
 	}
 	
 	tstop = 500
@@ -148,10 +154,18 @@ proc finit0() { local ix, idx1 localobj lcell
 		forsec cell.all { v = v0 }
 }
 
-make_figure(0)
-print "make_figure(n)"
-print " 0-2 for normal" 
-print " 3-5 for traubexact"
+print "this script automatically creates all graphs on startup"
+print "individual graphs can be run with make_figure(n)"
+print "make_figure(n) runs the model with differetn initial voltage"
+print " 0-3 for normal" 
+print " 4-5 for traubexact"
 
+proc batch_() {
+    for k=$1, $2 {
+        make_figure(k)
+    }
+}
+
+batch_(0,3)
 
 

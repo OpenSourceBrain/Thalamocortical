@@ -15,6 +15,7 @@ import subprocess
 import datetime
 import re
 
+import numpy as np
 import matplotlib.pyplot as plt
 from pylab import *
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -27,6 +28,9 @@ showFlag = 0
 overlayFlag = 0
 alphaFlag = 0
 dtFlag = 0
+dtParams = 0
+colorFlag = 0
+colorParams = 0
 dtfileFlag = 0
 dtfileParams = []
 windowFlag = 0
@@ -36,6 +40,8 @@ ylabelFlag = 0
 glabelFlag = 0
 targetList = []
 arg_parms = []
+onlylegendFlag = 0
+onlylegendParams = []
 
 xlabelParams = "X-Label Title (units)"
 ylabelParams = "Y-Label Title (units)"
@@ -53,6 +59,19 @@ for arg in sys.argv:
     if (arg == "-dt"):
         dtFlag = 1
         dtParams = arg_parms[1]
+    if (arg == "-color"):
+        colorFlag = 1
+        colorParams = int(arg_parms[1])
+    if (arg == "-onlylegend"):
+        # -onlylegend:1,2,3,4,5,i_1,i_2,i_3,i_4,i_5
+        print "creating a legend for a null plot..."
+        onlylegendFlag = 1
+        onlylegendParams = arg_parms[1].split(",")
+        # p1 = Rectangle((0, 0), 1, 1, fc="r")
+        # p2 = Rectangle((0, 0), 1, 1, fc="g")
+        # p3 = Rectangle((0, 0), 1, 1, fc="b")
+        # p4 = Rectangle((0, 0), 1, 1, fc="y")
+        # legend([p1, p2, p3, p4], ["test 1", "test 2", "test 3", "test 4"])
     if (arg == "-win"):
         windowFlag = 1
         windowParams = arg_parms[1].split(",",4)
@@ -115,11 +134,63 @@ def debugPrint(prStr):
 
 plotNum = 0
 
-plotcolors=['#000000','#550000','#005500','#000055', \
-            '#555555','#880000','#008800','#000088', \
-            '#888888','#990000','#009900','#000099', \
+#Black or  000000	 Gray or   808080	 Silver or C0C0C0	 White or   FFFFFF
+#Navy or   000080	 Blue or   0000FF	 Teal or   008080	 Aqua or    00FFFF
+#Purple or 800080	 Maroon or 800000	 Red or    FF0000	 Fuschia or FF00FF
+#Green or  008000	 Lime or   00FF00	 Olive or  808000	 Yellow or  FFFF00
+
+plotcolors=['#000000','#EE9090','#90EE90','#9090EE', \
+            '#000080','#0000FF','#008080','#00FFFF', \
+            '#800080','#800000','#FF0000','#FF00FF', \
+            '#008000','#00FF00','#808000','#FFFF00' \
 ]
 
+
+if (onlylegendFlag):
+    # onlylegendParams = arg_parms[1].split(",")
+    # p1 = Rectangle((0, 0), 1, 1, fc="r")
+    # p2 = Rectangle((0, 0), 1, 1, fc="g")
+    # p3 = Rectangle((0, 0), 1, 1, fc="b")
+    # p4 = Rectangle((0, 0), 1, 1, fc="y")
+    # legend([p1, p2, p3, p4], ["test 1", "test 2", "test 3", "test 4"])
+    fig = plt.figure(facecolor='#FFFFFF', edgecolor='#FFFFFF')
+    ax = fig.add_subplot(111, autoscale_on=True, frame_on=True)
+    if (alphaFlag):
+        #fig = plt.figure()
+        fig.patch.set_alpha(0.0)
+        #ax = fig.add_subplot(111)
+        ax.patch.set_alpha(0.0)
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
+    # for loop over colors
+    # legendColors = onlylegendParams (first half of list, all converted to integer)
+    # legendText = onlylegendParams (second half of list, all as string)
+    legendColors =[]
+    legendText =[]
+    for colidx in range(0,len(onlylegendParams)):
+        if ( onlylegendParams[colidx].isdigit() ):
+            legendColors.append(int(onlylegendParams[colidx]))
+        else:
+            legendText.append(onlylegendParams[colidx])
+    pArr = []
+    data_x = np.arange(0.0, 100.0, 1)
+    data_y = np.arange(0.0, 100.0, 1)
+    for alab in legendColors:
+        # p = Rectangle((0, 0), 1, 1, fc="r")
+        # l = Line2D(ax, data_x, data_y , color=plotcolors[alab % len(plotcolors)], ls='-', lw=2)
+        l = Rectangle((0, 0), 1, 1, fc=plotcolors[alab % len(plotcolors)])
+        pArr.append(l)
+        #pArr.append(  ax.plot(data_x, data_y, color=plotcolors[colorParams % len(plotcolors)], linestyle='-', marker='', markerfacecolor='None', markeredgecolor='#000000' )  )
+    legend(pArr, legendText)
+    canvas = FigureCanvas(fig)
+    targetFile = targetList[0]
+    graphicsFilename = targetFile
+    graphicsFilename = graphicsFilename.replace('.txt','')
+    #canvas.print_eps(graphicsFilename+'.svg')
+    canvas.print_eps(graphicsFilename+'.eps')
+    #canvas.print_pdf(graphicsFilename+'.pdf')
+    canvas.print_png(graphicsFilename+'.png')
+    plt.close(fig)
 
 # for each file sent as argument create a plot
 for filidx in range(0,len(targetList)):
@@ -142,7 +213,6 @@ for filidx in range(0,len(targetList)):
                         debugPrint("skipping line (bad format):"+str(line))
                         continue
             file_x.close()
-
         else:
             if (dtFlag):
                 dt = float(dtParams)
@@ -163,26 +233,29 @@ for filidx in range(0,len(targetList)):
                     continue
                 
         file_y.close()                    
-        debugPrint("imported last data dat_y:"+str(data)+" records: "+str(t))
+        debugPrint("imported last data dat_y:"+str(data)+" records/time: "+str(t))
         # !! need to check for size differences in dimension
 
         if (overlayFlag == 0):
             fig = plt.figure(facecolor='#FFFFFF', edgecolor='#FFFFFF')
             if (windowFlag):
                 ax = fig.add_subplot(111, autoscale_on=False, frame_on=True)
-                ax.axis([int(windowParams[0]),int(windowParams[2]), int(windowParams[1]),int(windowParams[3])])
+                ax.axis([float(windowParams[0]),float(windowParams[2]), float(windowParams[1]),float(windowParams[3])])
             else:
                 ax = fig.add_subplot(111, autoscale_on=True, frame_on=True)
-            #fig = plt.figure()
-            fig.patch.set_alpha(0.0)
-            #ax = fig.add_subplot(111)
-            ax.patch.set_alpha(0.0)
-            # should have a flag for alpha?            
+            if (alphaFlag):
+                #fig = plt.figure()
+                fig.patch.set_alpha(0.0)
+                #ax = fig.add_subplot(111)
+                ax.patch.set_alpha(0.0)
             ax.spines['top'].set_color('none')
             ax.spines['right'].set_color('none')
             #    ax.plot(data_x, data_y, color='#000000', linestyle='None', solid_joinstyle ='round', solid_capstyle ='round',  marker='o', markerfacecolor='None', markeredgecolor='#000000' )
             #ax.plot(data_x, data_y, color='#000000', linestyle='None', solid_joinstyle ='round', solid_capstyle ='round',  marker=',', markerfacecolor='None', markeredgecolor='#000000' )
-            ax.plot(data_x, data_y, color='#000000', linestyle='-', marker=',', markerfacecolor='None', markeredgecolor='#000000' )
+            #  todo: could catch if count of data_x and data_y is different
+            print "plotting:",(plotcolors[colorParams % len(plotcolors)])
+            ax.plot(data_x, data_y, color=plotcolors[colorParams % len(plotcolors)], linestyle='-', marker='', markerfacecolor='None', markeredgecolor='#000000' )
+            #ax.plot(data_x, data_y, color='#FF0000', linestyle='-', marker='', markerfacecolor='None', markeredgecolor='#000000' )
             if (glabelFlag):
                 ttl1 = title(glabelParams)
             else:
@@ -197,7 +270,8 @@ for filidx in range(0,len(targetList)):
             canvas = FigureCanvas(fig)
             graphicsFilename = targetFile
             graphicsFilename = graphicsFilename.replace('.txt','')
-            #canvas.print_eps(graphicsFilename+'.eps')
+            #canvas.print_eps(graphicsFilename+'.svg')
+            canvas.print_eps(graphicsFilename+'.eps')
             #canvas.print_pdf(graphicsFilename+'.pdf')
             canvas.print_png(graphicsFilename+'.png')
             plt.close(fig)
@@ -216,7 +290,7 @@ for filidx in range(0,len(targetList)):
                 ax.yaxis.set_ticks_position('left')
             #    ax.plot(data_x, data_y, color='#000000', linestyle='None', solid_joinstyle ='round', solid_capstyle ='round',  marker='o', markerfacecolor='None', markeredgecolor='#000000' )
             #ax.plot(data_x, data_y, color='#000000', linestyle='None', solid_joinstyle ='round', solid_capstyle ='round',  marker=',', markerfacecolor='None', markeredgecolor='#000000' )
-            debugPrint("plotting data_x data_y")
+            debugPrint("plotting data_x data_y as overlay")
             ax.plot(data_x, data_y, color=plotcolors[plotNum % len(plotcolors)], linestyle='-', marker=',', markerfacecolor='None', markeredgecolor='#000000' )
             plotNum += 1
             

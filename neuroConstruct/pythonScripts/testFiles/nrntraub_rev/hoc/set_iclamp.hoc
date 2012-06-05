@@ -1,0 +1,22 @@
+// would clean up iclamp in all files..
+// possible improvement
+
+if (a1 != -1000) {
+		stim1 = nil
+		stim1 = new IClamp(.5)
+		stim1.del = 50
+		stim1.amp = a2
+		stim1.dur = 400
+}
+if (a2 != -1000) {
+		stim2 = nil
+		stim2 = new IClamp(.5)
+		stim2.del = 0
+		stim2.amp = a2
+		stim2.dur = 500 // 1e9
+		sprint(lstr,"i=%lf,_tbexact=%d",a2,exact_)
+}	
+if (a1 == -1000 && a2 == -1000) {
+		sprint(lstr,"no_i,_tbexact=%d",exact_)
+}
+	

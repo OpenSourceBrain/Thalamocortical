@@ -1,77 +1,199 @@
-load_file("hoc/spikecount.hoc")
+load_file("spikecount.hoc")
 
 // for recording data
 objref null
 objref rd_sfunc
 rd_sfunc = new StringFunctions()
-objref rd_rec_t, rd_rec_v
+objref rd_rec_t, rd_rec_v, rd_rec_v_op, rd_rec_v_res
 objref rd_tgto1
-strdef rd_tstamp, rd_tstra1, rd_tstra2
+strdef rd_tstamp, rd_tstra1, rd_tstra2, rd_tstra3
 rd_rec_t = new Vector(0)
 rd_rec_v = new Vector(0)
+rd_rec_v_op = new Vector(0)
+rd_rec_v_res = new Vector(0)
 objref rd_pdat_
 rd_pdat_ = new List()
 rd_pdat_.append(new Vector())
-rd_pdat_.append(new String())
-rd_pdat_.append(new String())
-rd_pdat_.append(new String())
-rd_pdat_.o[0].append(1) // rd_pdat_.o[0].x[0]
-rd_pdat_.o[0].append(2)
-rd_pdat_.o[0].append(3)
-rd_pdat_.o[0].append(4)
+rd_pdat_.append(new String()) // x-label
+rd_pdat_.append(new String()) // y-label
+rd_pdat_.append(new String()) // chart description
+// access these like this: rd_pdat_.o[0].x[0]
+rd_pdat_.o[0].append(1) // min_x_coord
+rd_pdat_.o[0].append(2) // min_y_coord
+rd_pdat_.o[0].append(3) // max_x_coord
+rd_pdat_.o[0].append(4) // max_y_coord
+rd_pdat_.o[0].append(5) // color
+// initialize color setting
+rd_pdat_.o[0].x[4]=0
 
 objref rd_spikecount, rd_spikecount_x
 rd_spikecount = new Vector(0)
 rd_spikecount_x = new Vector(0)
 
-objref rd_restv, rd_deriv, rd_derivfn, rd_restv_x
+objref rd_restv, rd_deriv, rd_derivfn, rd_restv_x, rd_valx, rd_valy
 rd_restv = new Vector(0)
 rd_deriv = new Vector(0)
 rd_restv_x = new Vector(0)
+rd_valx = new Vector(0)
+rd_valy = new Vector(0)
 
-
-strdef rd_gname
+strdef rd_gname, rd_sptr
 objref strobj
 strobj = new StringFunctions()
 
 proc record_data_vt() { 
-		access cell.comp[1]
 		rd_rec_t.record(&t)		
 		// sprint(vstr, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
 		// execute(vsr)
 		rd_rec_v.record(&v(0.5))
 }
 
+objref rd_i_, rd_it
+rd_it = new Vector()
+rd_i_ = new List()
+for j=0, 13 {
+		rd_i_.append(new Vector())
+}
+for j=0, 13 {
+		rd_i_.append(new String())
+}
+
+proc record_data_it() {
+		rd_it.record(&t)
+		
+		rd_i_.o[0].record(&i_pas(0.5)) // g1.addexpr("cell.comp[2].i_pas(0.5)",1,1)
+		rd_i_.o[0+14].s = "i_pas"
+		rd_i_.o[1].record(&i_cap(0.5)) // g1.addexpr("cell.comp[2].i_cap",2,1)
+		rd_i_.o[1+14].s = "i_cap"
+		rd_i_.o[2].record(&ik(0.5)) // g1.addexpr("cell.comp[2].ik(0.5)",3,1)
+		rd_i_.o[2+14].s = "ik"
+		rd_i_.o[3].record(&ina(0.5)) // g1.addexpr("-cell.comp[2].ina(0.5)",4,1)
+		rd_i_.o[3+14].s = "ina"
+		rd_i_.o[4].record(&i_ar(0.5)) // g1.addexpr("cell.comp[2].i_ar",5,1)
+		rd_i_.o[4+14].s = "i_ar"
+		rd_i_.o[5].record(&ica(0.5)) // g1.addexpr("cell.comp[2].ica",6,1)
+		rd_i_.o[5+14].s = "ica"
+		
+		rd_i_.o[6].record(&ik_k2(0.5)) // g1.addexpr("cell.comp[2].ik_k2(0.5)",1,1) // ?
+		rd_i_.o[6+14].s = "ik_k2"
+		rd_i_.o[7].record(&ik_ka(0.5)) // g1.addexpr("cell.comp[2].ik_ka(0.5)",2,1) // ?
+		rd_i_.o[7+14].s = "ik_ka"
+		rd_i_.o[8].record(&ik_kahp_slower(0.5)) // g1.addexpr("cell.comp[2].ik_kahp_slower(0.5)",3,1) //
+		rd_i_.o[8+14].s = "ik_kahp"
+		rd_i_.o[9].record(&ik_kc_fast(0.5)) // g1.addexpr("cell.comp[2].ik_kc_fast(0.5)",4,1) // ?	
+		rd_i_.o[9+14].s = "ik_kc_fast"
+		rd_i_.o[10].record(&ik_kdr_fs(0.5)) // g1.addexpr("cell.comp[2].ik_kdr_fs(0.5)",5,1) // ?		
+		rd_i_.o[10+14].s = "ik_kdr_fs"
+		rd_i_.o[11].record(&ik_km(0.5)) // g1.addexpr("cell.comp[2].ik_km(0.5)",6,1) // ?       
+		rd_i_.o[11+14].s = "ik_km"
+		
+		rd_i_.o[12].record(&ina_naf2(0.5)) // g1.addexpr("cell.comp[2].ina_naf2(0.5)",2,1) // ?
+		rd_i_.o[12+14].s = "ina_naf2"
+		rd_i_.o[13].record(&ina_napf_spinstell(0.5)) // g1.addexpr("cell.comp[2].ina_napf_spinstell(0.5)",3,1) // ?
+		rd_i_.o[13+14].s = "ina_napf_spinstell"
+		// g1.addexpr("cell.comp[2].ina(0.5)",1,1) // ?		
+}
+
 proc record_data_disk_vt() { localobj savt, savv
 		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
 		rd_sfunc.left(rd_tstamp,18)
 		
-		if (strobj.len(rd_gname) > 0) {
-				sprint(rd_tstra1, "batchdata/batchdata_t_%s_%s.dat", rd_gname, rd_tstamp)
-		} else {
-				sprint(rd_tstra1, "batchdata/batchdata_t_%s.dat", rd_tstamp)
-		}
-		savt = new File()
-		savt.wopen(rd_tstra1)
-		rd_rec_t.printf(savt)
-		savt.close()
-		
-		if (strobj.len(rd_gname) > 0) {
-				sprint(rd_tstra2, "batchdata/batchdata_v_%s_%s.dat", rd_gname, rd_tstamp)
-		} else {
-				sprint(rd_tstra2, "batchdata/batchdata_v_%s.dat", rd_tstamp)
-		}
-		savv = new File()
-		savv.wopen(rd_tstra2)
-		rd_rec_v.printf(savv)
-		savv.close()
+		record_data_file("t",rd_gname,rd_rec_t)
+		record_data_file("v",rd_gname,rd_rec_v)
 		
 		record_data_process()
 }
 
-proc record_data_process() {
+proc record_data_disk_vt_op() { localobj savt, savv
+		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
+		rd_sfunc.left(rd_tstamp,18)
+		
+		record_data_file("t",rd_gname,rd_rec_t)
+		record_data_file("v_op",rd_gname,rd_rec_v_op)
+		
+		record_data_process_op()
+}
+
+proc record_data_disk_it() { localobj savt, savv
+		strdef	sloc1
+		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
+		rd_sfunc.left(rd_tstamp,18)
+		
+		if (strobj.len(rd_gname) == 0) {
+				rd_gname = "fx"
+		}
+		// wanted to separate into main currents and secondary
+		// need to refactor as well
+		for i=0,13 {
+				sprint(sloc1,"%s",rd_i_.o[i+14].s)
+				//				
+				record_data_file(sloc1,rd_gname,rd_i_.o[i])
+				rd_pdat_.o[0].x[4]=i // set a different color
+				// create a plot: filename, ylabel, glabel, color
+				record_data_process()
+		}
+		strdef strlegend, strlegend1
+		for i=0,13 {
+				sprint(strlegend1,"%d,%s,",i,rd_i_.o[i+14].s)
+				sprint(strlegend,"%s%s",strlegend,strlegend1)
+		}
+		record_data_legend(strlegend,"it")
+		
+}
+
+proc record_data_file() { localobj savt
+		// ---- needs cleaning some ugly ----
+		// save file: filename, mechname, vector
+		// (make a procedure of the below)
+		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
+		rd_sfunc.left(rd_tstamp,18)
+		
+		// $s1=ik  $s2=name  $o3=the vector? unsure if it will work
+		if (strcmp($s1, "t") == 0) {
+				sprint(rd_tstra1, "batchdata/%s/bd_%s_%s_%s.dat", of_, $s1, $s2, rd_tstamp)
+				print " rd_tstra1 ",rd_tstra1
+				savt = new File()
+				savt.wopen(rd_tstra1)
+		} else if (strcmp($s1, "v") == 0) {
+				sprint(rd_tstra2, "batchdata/%s/bd_%s_%s_%s.dat", of_, $s1, $s2, rd_tstamp)
+				print " rd_tstra2 ",rd_tstra2
+				savt = new File()
+				savt.wopen(rd_tstra2)
+		} else if (strcmp($s1, "v_op") == 0) {
+				sprint(rd_tstra3, "batchdata/%s/bd_%s_%s_%s.dat", of_, $s1, $s2, rd_tstamp)
+				print " rd_tstra3 ",rd_tstra3
+				savt = new File()
+				savt.wopen(rd_tstra3)
+		} else {
+				sprint(rd_tstra2, "batchdata/%s/bd_%s_%s_%s.dat", of_, $s1, $s2, rd_tstamp)
+				print " rd_tstra2 ",rd_tstra2
+				savt = new File()
+				savt.wopen(rd_tstra2)
+		}
+		$o3.printf(savt)
+		savt.close()
+}
+
+proc record_data_legend() {
+		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
+		rd_sfunc.left(rd_tstamp,18)
 		strdef rd_cmd
-		sprint(rd_cmd,"./plotDat.py -dt:'0.025' -win:'%d,%d,%d,%d' -xlabel:'%s' -ylabel:'%s' -glabel:'%s' -alpha %s",rd_pdat_.o[0].x[0],rd_pdat_.o[0].x[1],		rd_pdat_.o[0].x[2]+rd_pdat_.o[0].x[0],   rd_pdat_.o[0].x[3]+rd_pdat_.o[0].x[1],rd_pdat_.o[1].s,rd_pdat_.o[2].s,rd_pdat_.o[3].s,rd_tstra2)
+		sprint(rd_cmd,"./plotDat.py -onlylegend:%s batchdata/%s/bd_%s_%s.dat",$s1,of_,$s2,rd_tstamp)
+		system(rd_cmd)
+		print rd_cmd 
+}
+
+proc record_data_process() {
+ 		strdef rd_cmd
+		sprint(rd_cmd,"./plotDat.py -dt:'0.025' -color:%d -win:'%lf,%lf,%lf,%lf' -xlabel:'%s' -ylabel:'%s' -glabel:'%s' -alpha %s",rd_pdat_.o[0].x[4],  rd_pdat_.o[0].x[0],rd_pdat_.o[0].x[1],		rd_pdat_.o[0].x[2]+rd_pdat_.o[0].x[0],   rd_pdat_.o[0].x[3]+rd_pdat_.o[0].x[1],rd_pdat_.o[1].s,rd_pdat_.o[2].s,rd_pdat_.o[3].s,rd_tstra2)
+		// weird neuron ranges for windows are not the same for matplotlib
+		system(rd_cmd)
+		print rd_cmd 
+}
+
+proc record_data_process_op() {
+ 		strdef rd_cmd
+		sprint(rd_cmd,"./plotDat.py -dt:'0.025' -color:%d -win:'%lf,%lf,%lf,%lf' -xlabel:'%s' -ylabel:'%s' -glabel:'%s' -alpha %s",rd_pdat_.o[0].x[4],rd_pdat_.o[0].x[0],rd_pdat_.o[0].x[1],		rd_pdat_.o[0].x[2]+rd_pdat_.o[0].x[0],   rd_pdat_.o[0].x[3]+rd_pdat_.o[0].x[1],rd_pdat_.o[1].s,rd_pdat_.o[2].s,rd_pdat_.o[3].s,rd_tstra3)
 		// weird neuron ranges for windows are not the same for matplotlib
 		system(rd_cmd)
 		print rd_cmd 
@@ -79,11 +201,11 @@ proc record_data_process() {
 
 proc record_data_process_xy() {
 		strdef rd_cmd
-		print "plotDat needs fixing to allow for -dtfile:filename"
-		sprint(rd_cmd,"./plotDat.py -dtfile:%s -xlabel:'%s' -ylabel:'%s' -glabel:'%s' -alpha %s",rd_tstra1,rd_pdat_.o[1].s,rd_pdat_.o[2].s,rd_pdat_.o[3].s,rd_tstra2)
+		print "note should be able to autoscale if win parameters are bad or null"
+		sprint(rd_cmd,"./plotDat.py -dtfile:%s  -color:%d -win:'%lf,%lf,%lf,%lf' -xlabel:'%s' -ylabel:'%s' -glabel:'%s' -alpha %s",rd_tstra1,rd_pdat_.o[0].x[4],rd_pdat_.o[0].x[0],rd_pdat_.o[0].x[1],		rd_pdat_.o[0].x[2]+rd_pdat_.o[0].x[0],   rd_pdat_.o[0].x[3]+rd_pdat_.o[0].x[1],  rd_pdat_.o[1].s,rd_pdat_.o[2].s,rd_pdat_.o[3].s,rd_tstra2)
 		// weird neuron ranges for windows are not the same for matplotlib
-		system(rd_cmd)
 		print rd_cmd 
+		system(rd_cmd)
 }
 
 proc record_data_disk_xy() { localobj savt, savv
@@ -91,9 +213,9 @@ proc record_data_disk_xy() { localobj savt, savv
 		rd_sfunc.left(rd_tstamp,18)
 
 		if (strobj.len(rd_gname) > 0) {
-				sprint(rd_tstra1, "batchdata/batchdata_x_%s_%s.dat", rd_gname, rd_tstamp)
+				sprint(rd_tstra1, "batchdata/%s/bd_x_%s_%s.dat", of_, rd_gname, rd_tstamp)
 		} else {
-				sprint(rd_tstra1, "batchdata/batchdata_x_%s.dat", rd_tstamp)
+				sprint(rd_tstra1, "batchdata/%s/bd_x_%s.dat", of_, rd_tstamp)
 		}
 		savt = new File()
 		savt.wopen(rd_tstra1)
@@ -101,9 +223,9 @@ proc record_data_disk_xy() { localobj savt, savv
 		savt.close()
 		
 		if (strobj.len(rd_gname) > 0) {
-				sprint(rd_tstra2, "batchdata/batchdata_y_%s_%s.dat", rd_gname, rd_tstamp)
+				sprint(rd_tstra2, "batchdata/%s/bd_y_%s_%s.dat", of_, rd_gname, rd_tstamp)
 		} else {
-				sprint(rd_tstra2, "batchdata/batchdata_y_%s.dat", rd_tstamp)
+				sprint(rd_tstra2, "batchdata/%s/bd_y_%s.dat", of_, rd_tstamp)
 		}
 		savv = new File()
 		savv.wopen(rd_tstra2)
@@ -131,23 +253,65 @@ proc record_data_restv() {
 }
 
 proc record_data_disk_summary() {
+		strdef rd_tmpstr
 		// store collected data
 		
 		if (rd_spikecount.size() > 1) {     // if length of spikes array > 0 store it
 				rd_pdat_.o[2].s="Spike Count"
+				rd_tmpstr=rd_gname
+				sprint(rd_sptr,"sc_%s",rd_gname)
+				rd_gname=rd_sptr
 				record_data_disk_xy(rd_spikecount_x,rd_spikecount)	
+				rd_gname=rd_tmpstr
 		}
 		
 		if (rd_restv.size() > 1) {          // if length of measureN array > 0 store it
 				rd_pdat_.o[2].s="Steady State (mV) (if no spikes!)"
+				rd_tmpstr=rd_gname
+				sprint(rd_sptr,"ss_%s",rd_gname)
+				rd_gname=rd_sptr
 				record_data_disk_xy(rd_restv_x,rd_restv)
+				rd_gname=rd_tmpstr
+				
+				// graph deriv of point at rest as well
+				rd_pdat_.o[2].s="1st Deriv Steady State (mV) (if no spikes!)"
+				rd_tmpstr=rd_gname
+				sprint(rd_sptr,"dss_%s",rd_gname)
+				rd_gname=rd_sptr
+				record_data_disk_xy(rd_restv_x,rd_deriv)
+				rd_gname=rd_tmpstr
 		}
 		
 		// clear data for next simulation
 		rd_spikecount = null
 		rd_spikecount_x = null
+		rd_spikecount = new Vector(0)
+		rd_spikecount_x = new Vector(0)
+		rd_deriv = null
+		rd_restv = null
+		rd_restv_x = null
+		rd_deriv = new Vector(0)
+		rd_restv = new Vector(0)
+		rd_restv_x = new Vector(0)
 }
 
+proc record_data_val() {
+		rd_valx.append($1) // this is generic
+		rd_valy.append($2) // this is generic data
+}
+
+proc record_data_disk_summary_val() {
+		rd_tmpstr=rd_gname
+		sprint(rd_sptr,"sc_%s",rd_gname)
+		rd_gname=rd_sptr
+		record_data_disk_xy(rd_valx,rd_valy)
+		rd_gname=rd_tmpstr
+		
+		rd_valx = null
+		rd_valy = null
+		rd_valx = new Vector(0)
+		rd_valy = new Vector(0)
+}
 
 
 

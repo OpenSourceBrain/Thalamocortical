@@ -1,0 +1,21 @@
+// folder to store output is filename + system timestamp
+strdef of_, of_cmd, of_tstamp_
+objref of_strobj
+of_strobj = new StringFunctions()
+system("date '+%Y-%m-%d_%H%M-%S'", of_tstamp_)
+of_strobj.left(of_tstamp_,18)
+if (name_declared("of_name")) {
+		sprint(of_,"%s_%s",of_name,of_tstamp_)
+		sprint(of_cmd,"mkdir ../batchdata/%s_%s",of_name,of_tstamp_)
+} else {
+		sprint(of_,"%s",of_tstamp)
+		sprint(of_cmd,"mkdir ../batchdata/%s",of_tstamp)
+}
+// just create folder assume its new
+print "assuming new output creating folder ",of_cmd
+system(of_cmd)
+system("pwd")
+
+// end
+
+
