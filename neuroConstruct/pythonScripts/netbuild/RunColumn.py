@@ -14,6 +14,7 @@
 
 from sys import *
 from time import *
+import os
 
 from java.io import File
 
@@ -23,7 +24,7 @@ from ucl.physiol.neuroconstruct.hpc.mpi import MpiSettings
 from ucl.physiol.neuroconstruct.simulation import SimulationsInfo
 from ucl.physiol.neuroconstruct.cell.utils import CellTopologyHelper
 
-path.append(environ["NC_HOME"]+"/pythonNeuroML/nCUtils")
+path.append(os.environ["NC_HOME"]+"/pythonNeuroML/nCUtils")
 import ncutils as nc
 
 projFile = File("../../Thalamocortical.ncx")
