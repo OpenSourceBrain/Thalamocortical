@@ -8,7 +8,7 @@ load_file("../nrntraub/fortmap.hoc")
 load_file("../nrntraub/cell_templates.hoc")
 
 strdef of_name
-of_name="gph_subthreshold"
+of_name="gph_tau_low_i"
 load_file("hoc/outfolder.hoc")
 
 objref myplotinfo_

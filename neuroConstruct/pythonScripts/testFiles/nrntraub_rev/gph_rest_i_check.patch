@@ -1,0 +1,29 @@
+# what seemed to be unusual current traces for resting state led me to check 
+# my code for gph_rest_i.hoc versus the main traub2005 vector version
+# the diff below can be applied to recreate the settings I got
+#
+# apply this patch
+# nrngui onecell.hoc
+# load the session file gph_rest_i_check.ses
+# 
+# run the model to confirm same
+
+fnordedbrainz:nrntraub yates$ diff onecell.bak onecell.hoc 
+99,105c99,105
+< 	stim1 = nil
+< 	stim2 = nil
+< 	stim1 = new IClamp(.5)
+< 	stim2 = new IClamp(.5)
+< 	stim1.del = t1  stim2.del = t2
+< 	stim1.amp = .3  stim2.amp = 0
+< 	stim1.dur = 50  stim2.dur = 1e9
+---
+> 	// stim1 = nil
+> 	// stim2 = nil
+> 	// stim1 = new IClamp(.5)
+> 	// stim2 = new IClamp(.5)
+> 	// stim1.del = t1  stim2.del = t2
+> 	// stim1.amp = .3  stim2.amp = 0
+> 	// stim1.dur = 50  stim2.dur = 1e9
+110a111
+> type_vinit.x[5]=-81.5

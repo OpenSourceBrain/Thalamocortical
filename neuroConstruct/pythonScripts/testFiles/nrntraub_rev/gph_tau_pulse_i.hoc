@@ -8,23 +8,21 @@ load_file("../nrntraub/fortmap.hoc")
 load_file("../nrntraub/cell_templates.hoc")
 
 strdef of_name
-of_name="gph_traub2005figA3_holdscan"
+of_name="gph_tau_pulse"
 load_file("hoc/outfolder.hoc")
-
 
 objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
 for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-figA3_a	  -81.5  -0.60   0.167    0     12  1  0
-figA3_b	  -81.5  -0.60   0.250    0     12  1  0
-figA3_c	  -81.5  -0.60   0.333    0     12  1  0
-figA3_a	  -81.5  -0.60   0.167    0     12  1  1
-figA3_b	  -81.5  -0.60   0.250    0     12  1  1
-figA3_c	  -81.5  -0.60   0.333    0     12  1  1
+rest1	   -68.4    -1.000  -0.200    1     10       1   0
+rest2	   -68.4    -0.800   0.040    1     50       1   1
+rest3	   -68.4    -0.800   0.040    1     20       1   0
+rest4	   -68.4    -0.800   0.040    1     20       1   1
+rest5	   -68.4    -0.800   0.040    1     20       3   0
+rest6	   -68.4    -0.800   0.040    1     20       3   1
 
-// rest6	-81.5  -0.15a  -0.200   0.100     20       3        1
-// name      v0      a1      a2   a1end  steps  compartment exact/no
+// name    v0      a2     a2end   stimlen steps  compartment exact/no
 
 // threshold is neear this: rest5	 -81.5  -000.1  0.1125   0  rem: IClamp is in nA
 
@@ -56,15 +54,15 @@ save_window_.size(0,650,-90,40)
 scene_vector_[2] = save_window_
 min_x_coord=0
 max_x_coord=700
-min_y_coord=-100
-max_y_coord=140
+min_y_coord=-80
+max_y_coord=30
 {save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
 graphList[0].append(save_window_)
 save_window_.save_name("graphList[0].")
 }
 objectvar scene_vector_[1]
 {doNotify()}
-// end ses file
+// End ses file
 
 
 
@@ -83,10 +81,10 @@ load_file("hoc/record_data.hoc")
 objref mvvec, mtvec, myg
 proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		strdef vstr, lstr, vstr1
-		a1 = 0  a2 = 0  a1endval = 0  a1delta = 0   v0 = 0  numsims = 0  compnum = 0  exact_ = 0
-		i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %lf %d %d %d", vstr, &v0, &a1, &a2, &a1endval, &numsims, &compnum, &exact_)
-		print "plotting parms :", vstr, " v0:",v0," stim1:",a1, " stim2:", a2, " stim2end:", a1endval,  " numsims:", numsims, "compartment", compnum,  "exact:", exact_
-		a1delta = a1endval - a1
+		a1 = 0  a2 = 0  a2endval = 0  a2delta = 0   v0 = 0  numsims = 0  compnum = 0  exact_ = 0  stimlen = 0
+		i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %d %d %d %d", vstr, &v0, &a2, &a2endval, &stimlen, &numsims, &compnum, &exact_)
+		print "plotting parms :", vstr, " v0:",v0, " stim2:", a2, " stim2end:", a2endval," stimlen:",stimlen, " numsims:", numsims, "compartment", compnum,  "exact:", exact_
+		a2delta = a2endval - a2
 		
 		runcell_simple()
 		access cell.comp[compnum]
@@ -116,19 +114,17 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		
 		if (a1 != -1000 || a2 != -1000) {
 				stim1 = nil
-				stim2 = nil
 				stim1 = new IClamp(.5)
-				stim2 = new IClamp(.5)
-				stim1.del = 200    stim2.del = 0
-				// need to compesnate stim1.amp with hold current that is still present				
-				stim1.amp = a2     stim2.amp = a1
-				stim1.dur = 400    stim2.dur = 200 // 1e9
+				stim1.del = 200
+				stim1.amp = a2 
+				stim1.dur = stimlen
 				sprint(lstr,"i=%lf,_tbexact=%d",a2,exact_)
 		}	else {
 				sprint(lstr,"no_i,_tbexact=%d",exact_)
 		}
 		
-		tstop = max_x_coord-min_x_coord
+	  tstop = max_x_coord-min_x_coord
+		
 		myg.label(0.797674, 0.855508, lstr, 2, 1, 0, 0, 1)
 		
 		sprint(vstr1, "cell.comp[%d].v(.5)", compnum) //  cell.presyn_comp = 57
@@ -141,34 +137,93 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		rd_pdat_.o[1].s="ms"
 		rd_pdat_.o[2].s="mV"
 		rd_pdat_.o[3].s=lstr
-		// set filename pattern
-		rd_gname = vstr		
 		
 		// set what to record
 		record_data_vt()
 		
 		for bati=0, numsims {
 				// update iclamp
-				stim2.amp=a1+bati*a1delta/(numsims)
-				sprint(lstr,"holding current=%lf,_tbexact=%d",stim2.amp,exact_)
+				stim1.amp=a2+bati*a2delta/(numsims)
+				sprint(lstr,"i=%lf,_tbexact=%d",stim1.amp,exact_)
 				rd_pdat_.o[3].s=lstr
-				rd_pdat_.o[0].x[5]=0 // set an autoscale flag off
-		
+				
 				run()
 				
 				// store files to disk
 				access cell.comp[compnum]
+				rd_gname = vstr
+				
+				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=min_y_coord
+				rd_pdat_.o[0].x[2]=max_x_coord
+				rd_pdat_.o[0].x[3]=max_y_coord
+				rd_pdat_.o[1].s="ms"
+				rd_pdat_.o[2].s="mV"
+				rd_pdat_.o[3].s=lstr
+				
 				record_data_disk_vt()
-				xv=stim2.amp
-				// (stim1.del-10)/dt -- specify which sample
-				record_data_restv((stim1.del-2)/dt,xv)
-				// rd_gname = vstr
+				
+				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=-0.2
+				rd_pdat_.o[0].x[2]=max_x_coord
+				rd_pdat_.o[0].x[3]=1.4
+				rd_pdat_.o[1].s="ms"
+				rd_pdat_.o[2].s="%"
+				rd_pdat_.o[3].s=lstr
+				
+				if (stim1.amp > 0) {  // this case is not handled!
+						print "sorry positive stim1.amp is not supported!"
+				} else {
+						// look after spike time + small offset +
+						tbeg1 = stim1.del/dt
+						tend1 = (tstop - stim1.del)/dt
+						print " tbeg1:",tbeg1," tend1:",tend1
+						// max in range is value eventually we tend to.. (check for rebounds)
+						// find steady state level (at end of trace?)
+						maxval = rd_rec_v.max(tend1-10,tend1)
+						minval = rd_rec_v.min(tbeg1,tend1)
+						
+						// count from 2nd derivative 0 to 1+1/e
+						zero1=rd_rec_v.x[tbeg1]
+						
+						rd_rec_v_res = rd_rec_v.c(tbeg1, tend1)
+						// find the 2/3 of max height
+						stopval1 =  (1-1/exp(1))*(minval-zero1)+zero1
+						tauidx = rd_rec_v_res.indwhere("<", stopval1)
+						print "minval:",minval," zero1:",zero1," stopval1:",stopval1," tauidx:",tauidx
+						
+						// store a normalised version of the exponential
+						rd_pdat_.o[0].x[5]=1 // autoscale
+						rd_rec_v_op = rd_rec_v.c(tbeg1,tend1)
+						rd_rec_v_op.sub(zero1)
+						rd_rec_v_op.div(minval-zero1)
+						record_data_disk_vt_op()
+						
+						record_data_val(stim1.amp,tauidx*dt)
+						
+						rd_pdat_.o[0].x[5]=0 // autoscale off
+						record_data_restv(tauidx+tbeg1,stim1.amp)
+				}
+				
 		}
-		rd_pdat_.o[0].x[5]=1 // set an autoscale flag on
-		// should capture the actual range
-		sprint(lstr,"Resting Potential Subthreshold %s"," ")
-		rd_pdat_.o[1].s="Current Injection (nA)"
+		
+		sprint(lstr,"Estimating Tau (Dt to 1-1/e of max) %s"," ")
+		rd_pdat_.o[0].x[5]=1 // autoscale
+		rd_pdat_.o[1].s="stim. in nA"
+		rd_pdat_.o[2].s="tau est. in ms"
 		rd_pdat_.o[3].s=lstr
+		
+		// should capture the actual range
+		//		rd_pdat_.o[1].s="Current Injection (nA)"
+		//		rd_pdat_.o[3].s=lstr
+		record_data_disk_summary_val()
+		
+		sprint(lstr,"V-Max Exponential %s"," ")
+		rd_pdat_.o[0].x[5]=1 // autoscale
+		rd_pdat_.o[1].s="stim. in nA"
+		rd_pdat_.o[2].s="V at peak in mV"
+		rd_pdat_.o[3].s=lstr
+		
 		record_data_disk_summary()
 }
 
@@ -179,14 +234,12 @@ proc finit0() { local ix, idx1 localobj lcell
 		forsec cell.all { v = v0 }
 }
 
-
-// make_figure(0)
+print "this script automatically creates all graphs on startup"
+print "individual graphs can be run with make_figure(n)"
 print "make_figure(n)"
-print "runs a batch of graphs with different initial holding current "
-print "n = 0-2 represents 3 different figures in publication exact mode off"
-print "n = 3-5 represents 3 different figures in publication exact mode on"
+print " 0 for a batch of normal" 
+print " 1 for a batch of traubexact"
 
-print ""
-print "automatically creating the base case.."
 make_figure(0)
+
 

@@ -202,9 +202,6 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				access cell.comp[1]
 				record_data_vt()
 				
-				// add a copy of the current qr to the list of positions in time
-				// cell_utils_append_qr()
-				
 				// update qr random small difference
 				cell_utils_update_qr_exp(bati, numsims-1)
 				
@@ -227,9 +224,8 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				
 				// find a measure of distance (spike delta_t) + etc..
 				// what file? what data? sort of record_data_first_spike_distance()
-				
-				// store distance from spike as indexed to current position (index)
-				// this map is how we find our way back home
+				spikedelta = record_data_first_spike_distance()
+				print "need to finish the above function!"
 				
 				// the further away we've wandered the more likely we should go back
 				// exp increasing probability tuned to be 1 at X ms
@@ -237,8 +233,11 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				// if we are ok go on.. but if we need to reset
 				// then we look back on our distance array and find the index of the qr we should retrieve
 				
-				// we should store the qr and distance to disk
-				// we should find a nice viz of this
+				// add a copy of the current qr to the list of positions in time
+				seqdeltaidx = seqdeltaidx+1 // reset when we need to restart
+				lastgoodidx = 0 // update to location (global index) as long as its a safe place
+				cell_utils_append_qr(bati,spikedelta,seqdeltaidx,lastgoodidx) // cu_qrt_x[0]
+
 		}
 		
 		// should capture the actual range
