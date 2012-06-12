@@ -1,9 +1,10 @@
 # use glob syntax.
 syntax: glob
 
+umac
 *.pyc
-*i686
-*x86_64
+i686
+x86_64
 generatedNEURON
 generatedGENESIS
 generatedNeuroML
@@ -17,4 +18,7 @@ Syn_AMPA*
 Syn_GABAA*
 Syn_Elect*
 neuroConstruct/pythonScripts/testFiles/nrntraub
+neuroConstruct/pythonScripts/testFiles/nrntraub_rev/batchdata
+neuroConstruct/pythonScripts/testFiles/nrntraub_rev/dat
+
 .DS_Store
