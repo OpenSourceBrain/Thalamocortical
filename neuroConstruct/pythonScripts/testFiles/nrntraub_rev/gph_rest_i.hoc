@@ -169,7 +169,7 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		rd_pdat_.o[0].x[3]=max_y_coord
 		rd_pdat_.o[1].s="ms"
 		rd_pdat_.o[2].s="mV"
-		Rd_pdat_.o[3].s=lstr
+		rd_pdat_.o[3].s=lstr
 		record_data_disk_vt()
 		
 		rd_pdat_.o[0].x[0]=min_x_coord

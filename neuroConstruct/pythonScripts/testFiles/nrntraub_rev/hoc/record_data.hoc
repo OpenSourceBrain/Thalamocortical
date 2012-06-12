@@ -98,7 +98,7 @@ proc record_data_it() {
 		rd_i_.o[10+14].s = "ik_kdr_fs"
 		rd_i_.o[11].record(&ik_km(0.5)) // g1.addexpr("cell.comp[2].ik_km(0.5)",6,1) // ?       
 		rd_i_.o[11+14].s = "ik_km"
-		
+		print "helo", cu_mode
 		if (cu_mode == 1) {
 				rd_i_.o[12].record(&ina_naf2(0.5)) // g1.addexpr("cell.comp[2].ina_naf2(0.5)",2,1) // ?
 				rd_i_.o[12+14].s = "ina_naf2"
