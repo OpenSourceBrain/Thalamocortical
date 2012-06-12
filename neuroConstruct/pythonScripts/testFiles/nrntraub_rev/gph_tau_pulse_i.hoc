@@ -15,12 +15,12 @@ objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
 for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-rest1	   -68.4    -0.800  -0.200    20     10       1   0
-rest2	   -68.4    -0.800  -0.200    20     10       1   1
-rest3	   -68.4    -0.800  -0.200    20     10       1   0
-rest4	   -68.4    -0.800  -0.200    20     10       1   1
-rest5	   -68.4    -0.800  -0.200    20     10       3   0
-rest6	   -68.4    -0.800  -0.200    20     10       3   1
+rest1	   -68.4    -0.300  -0.050    20     10       1   0
+rest2	   -68.4    -0.300  -0.100    20     10       1   1
+rest3	   -68.4    -0.300  -0.100    20     10       1   0
+rest4	   -68.4    -0.300  -0.100    20     10       1   1
+rest5	   -68.4    -0.300  -0.100    20     10       3   0
+rest6	   -68.4    -0.300  -0.100    20     10       3   1
 
 // name    v0      a2     a2end   stimlen steps  compartment exact/no
 
