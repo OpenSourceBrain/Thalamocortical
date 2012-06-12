@@ -9,13 +9,26 @@ http://senselab.med.yale.edu/ModelDb/showmodel.asp?model=82894
 3) the following symlinks are assumed:
 ./batchdata@ -> /tmp/batchdata  // this is a folder output for simulations
 ./dat@ -> ../nrntraub/dat       // this folder is useful to store data from reference measured data
-./umac@ -> ../nrntraub/umac     // this folder is created when you compile the MOD files in the ../nrntraub/ folder
+./umac@ -> ../nrntraub/umac     // this folder is created when you compile the MOD files in the ../nrntraub/ folder see the readme in ../nrntraub/
 
 
 //// documentation for individual files:
 
 nrngui gph_traub2005figA3.hoc   // run this to recreate the published figures for L4SS in figure A3
 
+
+** need to add documentation for each file starting in gph **
+gph_rest.hoc
+gph_rest_i.hoc
+gph_rest_i_check.patch
+gph_rest_i_check.ses
+gph_scan_firstspike.hoc
+gph_scan_parameters.hoc
+gph_scan_rest_i.hoc
+gph_tau_low_i.hoc
+gph_tau_pulse_i.hoc
+gph_traub2005figA3.hoc
+gph_traub2005figA3_holdscan.hoc
 
 
 

@@ -71,8 +71,14 @@ proc record_data_it() {
 		rd_i_.o[2+14].s = "ik"
 		rd_i_.o[3].record(&ina(0.5)) // g1.addexpr("-cell.comp[2].ina(0.5)",4,1)
 		rd_i_.o[3+14].s = "ina"
-		rd_i_.o[4].record(&i_ar(0.5)) // g1.addexpr("cell.comp[2].i_ar",5,1)
-		rd_i_.o[4+14].s = "i_ar"
+		if (cu_mode == 1) {
+				rd_i_.o[4].record(&i_ar(0.5)) // g1.addexpr("cell.comp[2].i_ar",5,1)
+				rd_i_.o[4+14].s = "i_ar"
+		}
+		if (cu_mode == 2) {
+				rd_i_.o[4].record(&i_arx(0.5)) // g1.addexpr("cell.comp[2].i_ar",5,1)
+				rd_i_.o[4+14].s = "i_arx"
+		}
 		rd_i_.o[5].record(&ica(0.5)) // g1.addexpr("cell.comp[2].ica",6,1)
 		rd_i_.o[5+14].s = "ica"
 		
@@ -89,8 +95,14 @@ proc record_data_it() {
 		rd_i_.o[11].record(&ik_km(0.5)) // g1.addexpr("cell.comp[2].ik_km(0.5)",6,1) // ?       
 		rd_i_.o[11+14].s = "ik_km"
 		
-		rd_i_.o[12].record(&ina_naf2(0.5)) // g1.addexpr("cell.comp[2].ina_naf2(0.5)",2,1) // ?
-		rd_i_.o[12+14].s = "ina_naf2"
+		if (cu_mode == 1) {
+				rd_i_.o[12].record(&ina_naf2(0.5)) // g1.addexpr("cell.comp[2].ina_naf2(0.5)",2,1) // ?
+				rd_i_.o[12+14].s = "ina_naf2"
+		}
+		if (cu_mode == 2) {
+				rd_i_.o[12].record(&ina_naf2x(0.5)) // g1.addexpr("cell.comp[2].ina_naf2(0.5)",2,1) // ?
+				rd_i_.o[12+14].s = "ina_naf2x"
+		}
 		rd_i_.o[13].record(&ina_napf_spinstell(0.5)) // g1.addexpr("cell.comp[2].ina_napf_spinstell(0.5)",3,1) // ?
 		rd_i_.o[13+14].s = "ina_napf_spinstell"
 		// g1.addexpr("cell.comp[2].ina(0.5)",1,1) // ?		

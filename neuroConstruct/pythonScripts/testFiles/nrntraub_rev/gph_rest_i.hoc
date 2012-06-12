@@ -14,19 +14,23 @@ load_file("hoc/outfolder.hoc")
 objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
-for i=1,12 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-rest1	 -81.5  -1000  -1000  500  0 
-rest2	 -76.5  -1000  -1000  500  0
-rest3	 -71.5  -1000  -1000  500  0
-rest4	 -81.5  -1000  -1000  500  1
-rest5	 -76.5  -1000  -1000  500  1
-rest6	 -71.5  -1000  -1000  500  1
-rest1l	 -81.5  -1000  -1000  1000  0
-rest2l	 -76.5  -1000  -1000  1000  0
-rest3l	 -71.5  -1000  -1000  1000  0
-rest4l	 -81.5  -1000  -1000  1000  1
-rest5l	 -76.5  -1000  -1000  1000  1
-rest6l	 -71.5  -1000  -1000  1000  1
+for i=1,16 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
+rest1	   -81.5  -1000  -1000   500  0 
+rest2	   -76.5  -1000  -1000   500  0
+rest3	   -71.5  -1000  -1000   500  0
+rest4	   -68.4  -1000  -1000   500  0
+rest5	   -81.5  -1000  -1000   500  1
+rest6	   -76.5  -1000  -1000   500  1
+rest7	   -71.5  -1000  -1000   500  1
+rest8	   -68.4  -1000  -1000   500  1
+rest1l	 -81.5  -1000  -1000  5000  0
+rest2l	 -76.5  -1000  -1000  5000  0
+rest3l	 -71.5  -1000  -1000  5000  0
+rest4l	 -68.4  -1000  -1000  5000  0
+rest5l	 -81.5  -1000  -1000  5000  1
+rest6l	 -76.5  -1000  -1000  5000  1
+rest7l	 -71.5  -1000  -1000  5000  1
+rest8l	 -68.4  -1000  -1000  5000  1
 
 
 
@@ -89,6 +93,7 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		a1 = 0  a2 = 0  v0 = 0  endtime = 0  exact_ = 0
 		i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %d", vstr, &v0, &a1, &a2, &endtime, &exact_)
 		print "plotting parms :", vstr, " v0:",v0," stim1:",a1, " stim2:", a2, " endtime:",endtime, "exact:", exact_
+		
 		max_x_coord=endtime
 		// need to resize window find first window in graph list Graph[0] and resize it
 		graphList[0].o[0].size(min_x_coord,max_x_coord,min_y_coord,max_y_coord)
@@ -148,9 +153,9 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		record_data_vt()
 		
 		rd_pdat_.o[0].x[0]=min_x_coord
-		rd_pdat_.o[0].x[1]=-0.0030
+		rd_pdat_.o[0].x[1]=-0.0040
 		rd_pdat_.o[0].x[2]=max_x_coord
-		rd_pdat_.o[0].x[3]= 0.0060
+		rd_pdat_.o[0].x[3]= 0.0080
 		rd_pdat_.o[1].s="ms"
 		rd_pdat_.o[2].s="nA"
 		rd_pdat_.o[3].s=lstr
@@ -164,13 +169,13 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		rd_pdat_.o[0].x[3]=max_y_coord
 		rd_pdat_.o[1].s="ms"
 		rd_pdat_.o[2].s="mV"
-		rd_pdat_.o[3].s=lstr
+		Rd_pdat_.o[3].s=lstr
 		record_data_disk_vt()
 		
 		rd_pdat_.o[0].x[0]=min_x_coord
-		rd_pdat_.o[0].x[1]=-0.0030
+		rd_pdat_.o[0].x[1]=-0.0040
 		rd_pdat_.o[0].x[2]=max_x_coord
-		rd_pdat_.o[0].x[3]= 0.0060
+		rd_pdat_.o[0].x[3]= 0.0080
 		rd_pdat_.o[1].s="ms"
 		rd_pdat_.o[2].s="nA"
 		rd_pdat_.o[3].s=lstr		
@@ -184,13 +189,17 @@ proc finit0() { local ix, idx1 localobj lcell
 		forsec cell.all { v = v0 }
 }
 
-print "this version stores all current traces!"
+print "this version stores all i current traces!"
 print "please restart between calls to make_figure to avoid confusing filenames"
 print "make_figure(n)"
-print " 0-2  for normal" 
-print " 3-5  for traubexact"
-print " 6-8  for longer normal traces"
-print " 9-11 for longer traubexact"
-
+print " 0-3  for normal"
+print " 4-7  for traubexact"
+print " 8-11  for longer normal traces"
+print " 12-15 for longer traubexact"
+print " "
+print " note:"
+print " for 0,4,8,12 V0 of -81.5 is used according to experimental results."
+print " for 3,7,11,15 V0 of -68.4 is used according to models' Vinfinity."
+print " The value V0=-68.4 comes to rest much faster"
 
 

@@ -1,0 +1,58 @@
+TITLE Potasium Type K2 current for RD Traub, J Neurophysiol 89:909-921, 2003
+
+COMMENT
+
+	Implemented by Maciej Lazarewicz 2003 (mlazarew@seas.upenn.edu)
+
+ENDCOMMENT
+
+INDEPENDENT { t FROM 0 TO 1 WITH 1 (ms) }
+
+UNITS { 
+	(mV) = (millivolt) 
+	(mA) = (milliamp) 
+} 
+NEURON { 
+	SUFFIX k2x
+	USEION k READ ek WRITE ik
+	RANGE gbar, ik
+}
+PARAMETER { 
+	gbar = 0.0 	(mho/cm2)
+	v (mV) ek 		(mV) 
+	xn = 0
+} 
+ASSIGNED { 
+	ik 		(mA/cm2) 
+	minf hinf 	(1)
+	mtau (ms) htau 	(ms) 
+} 
+STATE {
+	m h
+}
+BREAKPOINT { 
+	SOLVE states METHOD cnexp
+	ik = gbar * m * h * ( (v-xn) - ek ) 
+} 
+INITIAL { 
+	settables(v) 
+	m  = minf
+	m  = 0
+	h  = hinf
+} 
+DERIVATIVE states { 
+	settables(v)  
+	m' = ( minf - m ) / mtau 
+	h' = ( hinf - h ) / htau
+}
+
+UNITSOFF 
+
+PROCEDURE settables(v (mV)) { 
+	TABLE minf, hinf, mtau, htau  FROM -120 TO 40 WITH 641
+
+	minf  = 1 / ( 1 + exp( ( - (v-xn) - 10 ) / 17 ) )
+	mtau  = 4.95 + 0.5 / ( exp( ( (v-xn) - 81 ) / 25.6 ) + exp( ( - (v-xn) - 132 ) / 18 ) )
+	hinf  = 1 / ( 1 + exp( ( (v-xn) + 58 ) / 10.6 ) )
+	htau  = 60 + 0.5 / ( exp( ( (v-xn) - 1.33 ) / 200 ) + exp( ( - (v-xn) - 130 ) / 7.1 ) )
+}

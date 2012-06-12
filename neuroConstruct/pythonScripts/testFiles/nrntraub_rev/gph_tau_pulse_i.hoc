@@ -15,12 +15,12 @@ objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
 for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-rest1	   -68.4    -1.000  -0.200    1     10       1   0
-rest2	   -68.4    -0.800   0.040    1     50       1   1
-rest3	   -68.4    -0.800   0.040    1     20       1   0
-rest4	   -68.4    -0.800   0.040    1     20       1   1
-rest5	   -68.4    -0.800   0.040    1     20       3   0
-rest6	   -68.4    -0.800   0.040    1     20       3   1
+rest1	   -68.4    -0.800  -0.200    20     10       1   0
+rest2	   -68.4    -0.800  -0.200    20     10       1   1
+rest3	   -68.4    -0.800  -0.200    20     10       1   0
+rest4	   -68.4    -0.800  -0.200    20     10       1   1
+rest5	   -68.4    -0.800  -0.200    20     10       3   0
+rest6	   -68.4    -0.800  -0.200    20     10       3   1
 
 // name    v0      a2     a2end   stimlen steps  compartment exact/no
 
@@ -54,8 +54,8 @@ save_window_.size(0,650,-90,40)
 scene_vector_[2] = save_window_
 min_x_coord=0
 max_x_coord=700
-min_y_coord=-80
-max_y_coord=30
+min_y_coord=-120
+max_y_coord=60
 {save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
 graphList[0].append(save_window_)
 save_window_.save_name("graphList[0].")
@@ -85,6 +85,8 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %d %d %d %d", vstr, &v0, &a2, &a2endval, &stimlen, &numsims, &compnum, &exact_)
 		print "plotting parms :", vstr, " v0:",v0, " stim2:", a2, " stim2end:", a2endval," stimlen:",stimlen, " numsims:", numsims, "compartment", compnum,  "exact:", exact_
 		a2delta = a2endval - a2
+		
+		dt=0.025
 		
 		runcell_simple()
 		access cell.comp[compnum]
@@ -186,10 +188,12 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 						// count from 2nd derivative 0 to 1+1/e
 						zero1=rd_rec_v.x[tbeg1]
 						
-						rd_rec_v_res = rd_rec_v.c(tbeg1, tend1)
+						// find index for 
+						minidx = rd_rec_v.min_ind(tbeg1,tend1)
+						rd_rec_v_res = rd_rec_v.c(minidx, tend1)
 						// find the 2/3 of max height
-						stopval1 =  (1-1/exp(1))*(minval-zero1)+zero1
-						tauidx = rd_rec_v_res.indwhere("<", stopval1)
+						stopval1 =  (1-1/exp(1))*abs(minval-zero1)+minval
+						tauidx = rd_rec_v_res.indwhere(">", stopval1)
 						print "minval:",minval," zero1:",zero1," stopval1:",stopval1," tauidx:",tauidx
 						
 						// store a normalised version of the exponential

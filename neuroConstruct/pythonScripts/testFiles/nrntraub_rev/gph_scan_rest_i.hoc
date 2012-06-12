@@ -10,7 +10,7 @@ load_file("cells/spinstell_template_n.hoc")
 load_file("hoc/spikecount.hoc")
 
 strdef of_name
-of_name="gph_scan_parameters"
+of_name="gph_scan_rest_i"
 load_file("hoc/outfolder.hoc")
 
 
@@ -66,7 +66,7 @@ phy_cad -81.5  -0.001  0.111  0   20  22 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1
 epas	  -81.5  -0.001  0.111  0   5   4  cell_utils_set_qbeg(1,1,1,0.9,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.2,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)
 pasg	  -81.5  -0.001  0.111  0   20  16 cell_utils_set_qbeg(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,10.^3,1,1,1,1,1,1) 
 pas2	  -81.5  -0.001  0.111  0   20  16 cell_utils_set_qbeg(1,1,1,1.20,1,1,1,1,1,1,1,1,1,1,1,1.00,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.20,1,1,1,1,1,1,1,1,1,1,1,10^2,1,1,1,1,1,1) 
-tst		  -81.5  -1000  -1000  0   2  7  cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
+tst		  -81.5  -1000  -1000  0   1  7  cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
 
 
 
@@ -98,7 +98,7 @@ save_window_ = new Graph(0)
 save_window_.size(0,650,-90,40)
 scene_vector_[2] = save_window_
 min_x_coord=0
-max_x_coord=1000
+max_x_coord=5000
 min_y_coord=-80
 max_y_coord=120
 {save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
@@ -128,6 +128,7 @@ proc runcell_bare() {local i, t1,a1,t2,a2  localobj vvec, tvec, f, g
 load_file("hoc/cell_utils.hoc")
 load_file("hoc/record_data.hoc")
 
+cu_mode = 2 // use alternate mechanisms ending in x
 
 objref mvvec, mtvec, myg
 proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
@@ -209,8 +210,16 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		for bati=0, numsims-1 {
 				print "reminder to generalise to measuring other compp[]"
 				access cell.comp[1]
-				record_data_vt()
 				
+				
+				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=min_y_coord
+				rd_pdat_.o[0].x[2]=max_x_coord
+				rd_pdat_.o[0].x[3]=max_y_coord
+				rd_pdat_.o[1].s="ms"
+				rd_pdat_.o[2].s="mV"
+				record_data_vt()
+								
 				// qr.x[04] = 2^(bati-5)
 				// cell_utils_update_qr_lin(bati, numsims-1)
 				cell_utils_update_qr_exp(bati, numsims-1)
@@ -222,6 +231,15 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				
 				cell_utils_spinstell_setup_mechanisms()
 				
+				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=-0.0040
+				rd_pdat_.o[0].x[2]=max_x_coord
+				rd_pdat_.o[0].x[3]= 0.0080
+				rd_pdat_.o[1].s="ms"
+				rd_pdat_.o[2].s="nA"
+				rd_pdat_.o[3].s=lstr
+				record_data_it()
+				
 				run()
 				
 				xv=qr.x[mech_ref-1]      // we specify a main mechanism scale factor as reference for xval
@@ -229,8 +247,24 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				
 				record_data_restv(12000,xv)
 				
+				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=min_y_coord
+				rd_pdat_.o[0].x[2]=max_x_coord
+				rd_pdat_.o[0].x[3]=max_y_coord
+				rd_pdat_.o[1].s="ms"
+				rd_pdat_.o[2].s="mV"
 				rd_gname = vstr
 				record_data_disk_vt()
+				
+				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=-0.0040
+				rd_pdat_.o[0].x[2]=max_x_coord
+				rd_pdat_.o[0].x[3]= 0.0080
+				rd_pdat_.o[1].s="ms"
+				rd_pdat_.o[2].s="nA"
+				rd_pdat_.o[3].s=lstr		
+				record_data_disk_it()
+
 		}
 		
 		// should capture the actual range

@@ -1,10 +1,13 @@
 This is work in progress reviewing model translation from NEURON model
 
 
-Please download http://senselab.med.yale.edu/ModelDb/showmodel.asp?model=82894 NEURON model and symlink the folder to a folder here.
+Please download http://senselab.med.yale.edu/ModelDb/showmodel.asp?model=82894 NEURON model and unpack the folder here.
+Assume the folder is called:
 
-ln -s /modeldb/nrntraub .
+./nrntraub 
 
 
-The code which examines spiny stellate cell, extending some of the original files is accessed in the folder nrntraub_rev
+The code which examines spiny stellate cell, extending some of the original files is accessed in the folder:
+
+./nrntraub_rev
 

@@ -1,5 +1,7 @@
 strdef cu_mesg1
 
+cu_mode = 1 // set this for alternate mechanism sets
+
 objref cu_qrt_
 cu_qrt_ = new List()
 for j=0, 26 { 
@@ -68,7 +70,6 @@ proc cell_utils_spinstell_setup_mechanisms() {
 		conductance_set_levels(cell, 2,  qr.x[17],260000*qr.x[21],    -0,     -1,   0.02,      0.05,  0.05,  0.05,  0.05,  0.05,  0.05,  0.05,  0.05) // "beta_cad","","phi_cad"
 		conductance_set_levels(cell, 15, qr.x[18],             -0,    -0,    100,    250,       250,   250,   250,   250,   250,   250,   250,   250) // "Ra","",""
 }
-
 
 
 proc cell_utils_set_qbeg() {
@@ -145,10 +146,19 @@ proc conductance_set_levels() { local amech, chg, extra1, extra2  localobj level
 						if ( level_values.x[i] > 0 ) {	// using negative gbar to indicate no mechanism present
 								// NOTE: ek, etc.. is not set on no mechanism segments
 								// --
-								if (amech == 1 ) { insert ar
+								if (amech == 1 && cu_mode == 1 ) { insert ar
 										gbar_ar = level_values.x[i] 
 										m0_ar = extra1
 										erev_ar = extra2
+										// m0_ar = 0
+										// erev_ar = -40
+								} 
+								// alternate mechanism to investigate shifting rest
+								if (amech == 1 && cu_mode == 2) { insert arx
+										gbar_arx = level_values.x[i] 
+										m0_arx = extra1
+										erev_arx = extra2
+										xn_arx = -30
 										// m0_ar = 0
 										// erev_ar = -40
 								} 
@@ -161,17 +171,30 @@ proc conductance_set_levels() { local amech, chg, extra1, extra2  localobj level
 										gbar_cal = level_values.x[i] 
 								} 
 								if (amech == 4 ) { insert cat_a
-								gbar_cat_a = level_values.x[i] } 
+										gbar_cat_a = level_values.x[i] 
+								} 
 								if (amech == 5 ) { insert k2
 										gbar_k2 = level_values.x[i] 
 										ek = extra2
 										// ek = -100
 								} 
+			// if (amech == 5 && cu_mode == 2) { insert k2x
+			// 							gbar_k2x = level_values.x[i] 
+			// 							ek = extra2
+			// 							xn_k2x = 20
+			// 							// ek = -100
+			// } 
 								if (amech == 6 ) { insert ka
 										gbar_ka = level_values.x[i] 
 										ek = extra2
 										// ek = -100
 								} 
+			// if (amech == 6 && cu_mode == 2 ) { insert kax
+			// 							gbar_kax = level_values.x[i] 
+			// 							ek = extra2
+			// 							xn_kax = 20
+			// 							// ek = -100
+			// } 
 								if (amech == 7 ) { insert kahp_slower										
 										gbar_kahp_slower = level_values.x[i] 
 										ek = extra2
@@ -192,10 +215,18 @@ proc conductance_set_levels() { local amech, chg, extra1, extra2  localobj level
 										ek = extra2
 										// ek = -100
 								} 
-								if (amech == 11 ) { insert naf2
+								if (amech == 11 && cu_mode == 1) { insert naf2
 										gbar_naf2 = level_values.x[i]
 										fastNa_shift_naf2 = extra1
 										ena = extra2
+										// fastNa_shift_naf2 = -2.5
+										// ena = 50
+								} 
+								if (amech ==11 && cu_mode == 2) { insert naf2x
+										gbar_naf2x = level_values.x[i]
+										fastNa_shift_naf2x = extra1
+										ena = extra2
+										xn_naf2x = 0
 										// fastNa_shift_naf2 = -2.5
 										// ena = 50
 								} 
