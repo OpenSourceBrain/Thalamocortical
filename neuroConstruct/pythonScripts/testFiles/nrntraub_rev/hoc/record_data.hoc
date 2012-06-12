@@ -1,5 +1,9 @@
 load_file("spikecount.hoc")
 
+if (!name_declared("cu_mode")) {
+		cu_mode=1
+} 
+
 // for recording data
 objref null
 objref rd_sfunc
