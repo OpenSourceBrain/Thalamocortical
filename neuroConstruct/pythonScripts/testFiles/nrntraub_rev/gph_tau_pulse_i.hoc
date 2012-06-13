@@ -15,12 +15,12 @@ objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
 for i=1,6 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-rest1	   -68.4    -0.300  -0.050    20     10       1   0
-rest2	   -68.4    -0.300  -0.100    20     10       1   1
-rest3	   -68.4    -0.300  -0.100    20     10       1   0
-rest4	   -68.4    -0.300  -0.100    20     10       1   1
-rest5	   -68.4    -0.300  -0.100    20     10       3   0
-rest6	   -68.4    -0.300  -0.100    20     10       3   1
+rest1	   -68.4    -1.500  -0.500    1     10       1   0
+rest2	   -68.4    -0.300  -0.100    1     10       1   1
+rest3	   -68.4    -0.300  -0.100    1     10       1   0
+rest4	   -68.4    -0.300  -0.100    1     10       1   1
+rest5	   -68.4    -0.300  -0.100    1     10       3   0
+rest6	   -68.4    -0.300  -0.100    1     10       3   1
 
 // name    v0      a2     a2end   stimlen steps  compartment exact/no
 
@@ -177,16 +177,18 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 						print "sorry positive stim1.amp is not supported!"
 				} else {
 						// look after spike time + small offset +
-						tbeg1 = stim1.del/dt
+						skipspike = 80*0.025/dt
+						
+						tbeg1 = stim1.del/dt+skipspike
 						tend1 = (tstop - stim1.del)/dt
 						print " tbeg1:",tbeg1," tend1:",tend1
 						// max in range is value eventually we tend to.. (check for rebounds)
 						// find steady state level (at end of trace?)
-						maxval = rd_rec_v.max(tend1-10,tend1)
+						maxval = rd_rec_v.max(tend1-10*0.025/dt,tend1)
 						minval = rd_rec_v.min(tbeg1,tend1)
 						
 						// count from 2nd derivative 0 to 1+1/e
-						zero1=rd_rec_v.x[tbeg1]
+						zero1=rd_rec_v.x[tbeg1-skipspike]
 						
 						// find index for 
 						minidx = rd_rec_v.min_ind(tbeg1,tend1)

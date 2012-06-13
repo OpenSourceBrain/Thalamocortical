@@ -20,5 +20,5 @@ Syn_Elect*
 neuroConstruct/pythonScripts/testFiles/nrntraub
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/batchdata
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/dat
-
+neuroConstruct/pythonScripts/testFiles/nrntraub_rev/_nrn_tests
 .DS_Store

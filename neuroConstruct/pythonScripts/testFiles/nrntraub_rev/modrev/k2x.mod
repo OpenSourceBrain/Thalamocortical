@@ -20,7 +20,6 @@ NEURON {
 PARAMETER { 
 	gbar = 0.0 	(mho/cm2)
 	v (mV) ek 		(mV) 
-	xn = 0
 } 
 ASSIGNED { 
 	ik 		(mA/cm2) 
@@ -32,7 +31,7 @@ STATE {
 }
 BREAKPOINT { 
 	SOLVE states METHOD cnexp
-	ik = gbar * m * h * ( (v-xn) - ek ) 
+	ik = gbar * m * h * ( v - ek ) 
 } 
 INITIAL { 
 	settables(v) 
@@ -51,8 +50,8 @@ UNITSOFF
 PROCEDURE settables(v (mV)) { 
 	TABLE minf, hinf, mtau, htau  FROM -120 TO 40 WITH 641
 
-	minf  = 1 / ( 1 + exp( ( - (v-xn) - 10 ) / 17 ) )
-	mtau  = 4.95 + 0.5 / ( exp( ( (v-xn) - 81 ) / 25.6 ) + exp( ( - (v-xn) - 132 ) / 18 ) )
-	hinf  = 1 / ( 1 + exp( ( (v-xn) + 58 ) / 10.6 ) )
-	htau  = 60 + 0.5 / ( exp( ( (v-xn) - 1.33 ) / 200 ) + exp( ( - (v-xn) - 130 ) / 7.1 ) )
+	minf  = 1 / ( 1 + exp( ( - v - 10 ) / 17 ) )
+	mtau  = 4.95 + 0.5 / ( exp( ( v - 81 ) / 25.6 ) + exp( ( - v - 132 ) / 18 ) )
+	hinf  = 1 / ( 1 + exp( ( v + 58 ) / 10.6 ) )
+	htau  = 60 + 0.5 / ( exp( ( v - 1.33 ) / 200 ) + exp( ( - v - 130 ) / 7.1 ) )
 }

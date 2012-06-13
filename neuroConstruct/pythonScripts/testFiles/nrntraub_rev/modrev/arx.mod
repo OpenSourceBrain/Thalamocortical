@@ -22,7 +22,6 @@ PARAMETER {
 	v		(mV) 
 	erev = -35	(mV)  
 	m0 = 0.25
-	xn = 0
 } 
 ASSIGNED { 
 	i 		(mA/cm2) 
@@ -34,7 +33,7 @@ STATE {
 }
 BREAKPOINT { 
 	SOLVE states METHOD cnexp
-	i = gbar * m * ( (v-xn) - erev ) 
+	i = gbar * m * ( v - erev ) 
 } 
 INITIAL { 
 	settables(v) 
@@ -49,6 +48,6 @@ DERIVATIVE states {
 UNITSOFF 
 PROCEDURE settables(v(mV)) { 
 	TABLE minf, mtau FROM -120 TO 40 WITH 641
-	minf  = 1 / ( 1 + exp( ( (v-xn) + 75 ) / 5.5 ) )
-	mtau = 1 / ( exp( -14.6 - 0.086 * (v-xn) ) + exp( -1.87 + 0.07 * (v-xn) ) )
+	minf  = 1 / ( 1 + exp( ( v + 75 ) / 5.5 ) )
+	mtau = 1 / ( exp( -14.6 - 0.086 * v ) + exp( -1.87 + 0.07 * v ) )
 }

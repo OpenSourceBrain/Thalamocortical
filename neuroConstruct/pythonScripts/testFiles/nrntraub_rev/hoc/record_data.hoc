@@ -57,10 +57,10 @@ proc record_data_vt() {
 objref rd_i_, rd_it
 rd_it = new Vector()
 rd_i_ = new List()
-for j=0, 13 {
+for j=0, 14 {
 		rd_i_.append(new Vector())
 }
-for j=0, 13 {
+for j=0, 14 {
 		rd_i_.append(new String())
 }
 
@@ -68,47 +68,49 @@ proc record_data_it() {
 		rd_it.record(&t)
 		
 		rd_i_.o[0].record(&i_pas(0.5)) // g1.addexpr("cell.comp[2].i_pas(0.5)",1,1)
-		rd_i_.o[0+14].s = "i_pas"
+		rd_i_.o[0+15].s = "i_pas"
 		rd_i_.o[1].record(&i_cap(0.5)) // g1.addexpr("cell.comp[2].i_cap",2,1)
-		rd_i_.o[1+14].s = "i_cap"
+		rd_i_.o[1+15].s = "i_cap"
 		rd_i_.o[2].record(&ik(0.5)) // g1.addexpr("cell.comp[2].ik(0.5)",3,1)
-		rd_i_.o[2+14].s = "ik"
+		rd_i_.o[2+15].s = "ik"
 		rd_i_.o[3].record(&ina(0.5)) // g1.addexpr("-cell.comp[2].ina(0.5)",4,1)
-		rd_i_.o[3+14].s = "ina"
+		rd_i_.o[3+15].s = "ina"
 		if (cu_mode == 1) {
 				rd_i_.o[4].record(&i_ar(0.5)) // g1.addexpr("cell.comp[2].i_ar",5,1)
-				rd_i_.o[4+14].s = "i_ar"
+				rd_i_.o[4+15].s = "i_ar"
 		}
 		if (cu_mode == 2) {
 				rd_i_.o[4].record(&i_arx(0.5)) // g1.addexpr("cell.comp[2].i_ar",5,1)
-				rd_i_.o[4+14].s = "i_arx"
+				rd_i_.o[4+15].s = "i_arx"
 		}
 		rd_i_.o[5].record(&ica(0.5)) // g1.addexpr("cell.comp[2].ica",6,1)
-		rd_i_.o[5+14].s = "ica"
+		rd_i_.o[5+15].s = "ica"
 		
 		rd_i_.o[6].record(&ik_k2(0.5)) // g1.addexpr("cell.comp[2].ik_k2(0.5)",1,1) // ?
-		rd_i_.o[6+14].s = "ik_k2"
+		rd_i_.o[6+15].s = "ik_k2"
 		rd_i_.o[7].record(&ik_ka(0.5)) // g1.addexpr("cell.comp[2].ik_ka(0.5)",2,1) // ?
-		rd_i_.o[7+14].s = "ik_ka"
+		rd_i_.o[7+15].s = "ik_ka"
 		rd_i_.o[8].record(&ik_kahp_slower(0.5)) // g1.addexpr("cell.comp[2].ik_kahp_slower(0.5)",3,1) //
-		rd_i_.o[8+14].s = "ik_kahp"
+		rd_i_.o[8+15].s = "ik_kahp"
 		rd_i_.o[9].record(&ik_kc_fast(0.5)) // g1.addexpr("cell.comp[2].ik_kc_fast(0.5)",4,1) // ?	
-		rd_i_.o[9+14].s = "ik_kc_fast"
+		rd_i_.o[9+15].s = "ik_kc_fast"
 		rd_i_.o[10].record(&ik_kdr_fs(0.5)) // g1.addexpr("cell.comp[2].ik_kdr_fs(0.5)",5,1) // ?		
-		rd_i_.o[10+14].s = "ik_kdr_fs"
+		rd_i_.o[10+15].s = "ik_kdr_fs"
 		rd_i_.o[11].record(&ik_km(0.5)) // g1.addexpr("cell.comp[2].ik_km(0.5)",6,1) // ?       
-		rd_i_.o[11+14].s = "ik_km"
-		print "helo", cu_mode
+		rd_i_.o[11+15].s = "ik_km"
 		if (cu_mode == 1) {
 				rd_i_.o[12].record(&ina_naf2(0.5)) // g1.addexpr("cell.comp[2].ina_naf2(0.5)",2,1) // ?
-				rd_i_.o[12+14].s = "ina_naf2"
+				rd_i_.o[12+15].s = "ina_naf2"
 		}
 		if (cu_mode == 2) {
 				rd_i_.o[12].record(&ina_naf2x(0.5)) // g1.addexpr("cell.comp[2].ina_naf2(0.5)",2,1) // ?
-				rd_i_.o[12+14].s = "ina_naf2x"
+				rd_i_.o[12+15].s = "ina_naf2x"
 		}
 		rd_i_.o[13].record(&ina_napf_spinstell(0.5)) // g1.addexpr("cell.comp[2].ina_napf_spinstell(0.5)",3,1) // ?
-		rd_i_.o[13+14].s = "ina_napf_spinstell"
+		rd_i_.o[13+15].s = "ina_napf_spinstell"
+		
+		rd_i_.o[14].record(&cai(0.5)) // g1.addexpr("cell.comp[2].ina_napf_spinstell(0.5)",3,1) // ?
+		rd_i_.o[14+15].s = "cai"
 		// g1.addexpr("cell.comp[2].ina(0.5)",1,1) // ?		
 }
 
@@ -143,16 +145,22 @@ proc record_data_disk_it() { localobj savt, savv
 		// wanted to separate into main currents and secondary
 		// need to refactor as well
 		for i=0,13 {
-				sprint(sloc1,"%s",rd_i_.o[i+14].s)
+				sprint(sloc1,"%s",rd_i_.o[i+15].s)
 				//				
 				record_data_file(sloc1,rd_gname,rd_i_.o[i])
 				rd_pdat_.o[0].x[4]=i // set a different color
 				// create a plot: filename, ylabel, glabel, color
 				record_data_process()
 		}
+		// set autoscale for cai
+		sprint(sloc1,"%s",rd_i_.o[14+15].s)
+		record_data_file(sloc1,rd_gname,rd_i_.o[14])
+		rd_pdat_.o[0].x[5]=1
+		record_data_process()
+		// 
 		strdef strlegend, strlegend1
-		for i=0,13 {
-				sprint(strlegend1,"%d,%s,",i,rd_i_.o[i+14].s)
+		for i=0,14 {
+				sprint(strlegend1,"%d,%s,",i,rd_i_.o[i+15].s)
 				sprint(strlegend,"%s%s",strlegend,strlegend1)
 		}
 		record_data_legend(strlegend,"it")

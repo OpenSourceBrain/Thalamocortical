@@ -2,7 +2,7 @@ load_file("nrngui.hoc")
 load_file("simplecell.hoc")
 load_file("2graph.ses")
 
-// ncells = 3
+g// ncells = 3
 // objectvar cell, precells[ncells]
 // cell = new Cell(3)
 // for i = 0, ncells-1 {

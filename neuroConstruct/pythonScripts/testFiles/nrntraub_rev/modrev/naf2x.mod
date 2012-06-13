@@ -29,7 +29,6 @@ PARAMETER {
 	d = 0 (1)
 	gbar = 0.0 	   (mho/cm2)
 	v (mV) ena 		   (mV) 
-	xn = 0 
 } 
 ASSIGNED { 
 	ina 		   (mA/cm2) 
@@ -42,8 +41,8 @@ STATE {
 }
 BREAKPOINT { 
 	SOLVE states METHOD cnexp
-	ina = gbar * m * m * m * h * ( (v-xn) - ena ) 
-	df = (v-xn) - ena
+	ina = gbar * m * m * m * h * ( v - ena ) 
+	df = v - ena
 } 
 INITIAL { 
 	settables( v )
@@ -63,17 +62,17 @@ PROCEDURE settables(v1(mV)) {
 
 	TABLE minf, hinf, mtau, htau  FROM -120 TO 40 WITH 641
 
-	minf  = 1 / ( 1 + exp( ( - ( (v1-xn) + fastNa_shift ) - 38 ) / 10 ) )
-	if( ( (v1-xn) + fastNa_shift ) < -30.0 ) {
-		mtau = 0.0125 + 0.1525 * exp( ( ( (v1-xn) + fastNa_shift ) + 30 ) / 10 )
+	minf  = 1 / ( 1 + exp( ( - ( v1 + fastNa_shift ) - 38 ) / 10 ) )
+	if( ( v1 + fastNa_shift ) < -30.0 ) {
+		mtau = 0.0125 + 0.1525 * exp( ( ( v1 + fastNa_shift ) + 30 ) / 10 )
 	} else{
-		mtau = 0.02 + a + (0.145+ b) * exp( ( - ( (v1-xn) + fastNa_shift +d ) - 30 ) / (10+c) ) 
+		mtau = 0.02 + a + (0.145+ b) * exp( ( - ( v1 + fastNa_shift + d ) - 30 ) / (10+c) ) 
 	}
 
 	: hinf, and htau are shifted 3.5 mV comparing to the paper
 
-	hinf  = 1 / ( 1 + exp( ( ( (v1-xn) + fastNa_shift * 0 ) + 58.3 ) / 6.7 ) )
-	htau = 0.225 + 1.125 / ( 1 + exp( ( ( (v1-xn) + fastNa_shift * 0 ) + 37 ) / 15 ) )
+	hinf  = 1 / ( 1 + exp( ( ( v1 + fastNa_shift * 0 ) + 58.3 ) / 6.7 ) )
+	htau = 0.225 + 1.125 / ( 1 + exp( ( ( v1 + fastNa_shift * 0 ) + 37 ) / 15 ) )
 }
 
 UNITSON
