@@ -75,6 +75,9 @@ for arg in sys.argv:
     if (arg == "-win"):
         windowFlag = 1
         windowParams = arg_parms[1].split(",",4)
+    if (arg == "-winx"):
+        windowFlag = 2
+        windowParams = arg_parms[1].split(",",2)
     if (arg == "-xlabel"):
         xlabelFlag = 1
         xlabelParams = arg_parms[1].replace("_"," ")
@@ -229,7 +232,8 @@ for filidx in range(0,len(targetList)):
                         data_x.append(t)
                         t=t+dt
                 except:
-                    debugPrint("skipping line (bad format):"+str(line))
+                    if (not str(line).isspace()):
+                        debugPrint("skipping line (bad format):"+str(line))
                     continue
                 
         file_y.close()                    
@@ -238,9 +242,14 @@ for filidx in range(0,len(targetList)):
 
         if (overlayFlag == 0):
             fig = plt.figure(facecolor='#FFFFFF', edgecolor='#FFFFFF')
-            if (windowFlag):
+            if (windowFlag==1):
                 ax = fig.add_subplot(111, autoscale_on=False, frame_on=True)
                 ax.axis([float(windowParams[0]),float(windowParams[2]), float(windowParams[1]),float(windowParams[3])])
+            elif(windowFlag==2):
+                # x-scale entered, y-automatic
+                # ax = fig.add_subplot(111, autoscale_on=True, frame_on=True)
+                ax = fig.add_subplot(111)
+                ax.autoscale(enable=True,axis='y')
             else:
                 ax = fig.add_subplot(111, autoscale_on=True, frame_on=True)
             if (alphaFlag):

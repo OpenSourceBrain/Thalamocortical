@@ -1,0 +1,177 @@
+// this file assumes that ../nrntraub is available with source from modelDB
+// <add link>
+
+load_file("nrngui.hoc")
+load_file("mview.hoc")
+load_file("../nrntraub/hoc/traubcon.hoc")
+load_file("../nrntraub/fortmap.hoc")
+load_file("../nrntraub/cell_templates.hoc")
+
+strdef of_name
+of_name="gph_traub2005figA1"
+load_file("hoc/outfolder.hoc")
+
+
+objref myplotinfo_
+myplotinfo_ = new List()
+strdef mytstr1
+for i=1,4 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
+figA1_RS	 -70  -0.20  0.400  0
+figA1_RS	 -70  -0.20  0.750  0
+figA1_RS	 -70  -0.20  0.400  1
+figA1_RS	 -70  -0.20  0.750  1
+
+
+// Holding i
+// In most network simulations, FRB cells are held more depolarized than RS cells
+// (0.25- to 0.35-nA bias current for FRB cells, vs. 􏰅0.025 to 􏰅0.02 nA for layer 2/3 RS cells).
+//
+// Stimulated i
+// FIG. A1. RS and FRB firing behaviors in model layer 2/3 pyramidal neurons, 
+// in layer 2/3 putative pyramidal cells in rat auditory cortex in vitro, and in neurons 
+// in rat somatosensory cortex in vivo. 
+// Cells were injected with somatic depolarizing currents (0.4 and 0.75 nA for model,
+// 0.5 nA for in vitro experiment). Model and in vitro data from Cunningham et al. (2004). 
+// In vivo RS cell was from layer 6, and the in vivo FRB cell from layer 4.
+
+ 
+
+// from ../nrntraub/onecell.hoc
+// til the shift bug in the mod files are fixed (table depends on range variable)
+usetable_naf2 = 0
+usetable_naf = 0
+usetable_napf_spinstell = 0
+usetable_napf_tcr = 0
+
+// initial vars
+objref cell, nil, stim1, stim2
+cell = nil
+a1 = 0  
+a2 = 0  
+v0 = 0
+
+
+
+// from ses file to create graph window
+objectvar save_window_, rvp_
+objectvar scene_vector_[3]
+objectvar ocbox_, ocbox_list_, scene_, scene_list_
+{ocbox_list_ = new List()  scene_list_ = new List()}
+{pwman_place(0,0,0)}
+{
+save_window_ = new Graph(0)
+save_window_.size(0,650,-90,40)
+scene_vector_[2] = save_window_
+min_x_coord=0
+max_x_coord=700
+min_y_coord=-80
+max_y_coord=120
+{save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
+graphList[0].append(save_window_)
+save_window_.save_name("graphList[0].")
+}
+objectvar scene_vector_[1]
+{doNotify()}
+// end ses file
+
+
+
+proc runcell_simple() {local i, t1,a1,t2,a2  localobj vvec, tvec, f, g
+		cell = nil
+		execute("cell = new suppyrRS()")	
+}
+
+
+//
+// 
+// 
+load_file("hoc/record_data.hoc")
+
+
+objref mvvec, mtvec, myg
+proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
+	strdef vstr, lstr
+	a1 = 0  a2 = 0  v0 = 0  exact_ = 0
+	i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %d", vstr, &v0, &a1, &a2, &exact_)
+	print "plotting parms :", vstr, " v0:",v0," stim1:",a1, " stim2:", a2, " exact:", exact_
+	
+	runcell_simple()
+	access cell.comp[1]
+	define_shape()
+	myg = Graph[0]
+	myg.erase_all
+	//	myg.size(0,400,-100,100)
+	// myg.exec_menu("Keep Lines")
+		
+	// run traubexact if needed
+	if (exact_) { 
+			print "setting traubexact"
+			traubexact(cell, tci) 
+			// from ../nrntraub/hoc/traubcon.hoc
+			// $o1 is the cell, $o2 is the connection matrix
+			// assume the names of sections range from
+			// $o1.comp[1] to $o1.comp[$o2.nrow-1]
+			// the connection matrix
+			
+			// the traub connection rule is that a childs 0 end is connected
+			// to the .5 location of the parent and the resistance is defined
+			// by the connection matrix (uS) with one exception. Sometimes
+			// pairs or triples of children are also connected to each other
+			// and these children are moved to the 1 end of the parent and
+			// the delta network is replaced by the equivalent wye network.
+	}
+		
+	if (a1 != -1000 || a2 != -1000) {
+			stim1 = nil
+			stim2 = nil
+			stim1 = new IClamp(.5)
+			stim2 = new IClamp(.5)
+			stim1.del = 200  stim2.del = 0
+			stim1.amp = a2   stim2.amp = a1
+			stim1.dur = 400  stim2.dur = 200 // 1e9
+			sprint(lstr,"i=%lf,_tbexact=%d",a2,exact_)
+	}	else {
+			sprint(lstr,"no_i,_tbexact=%d",exact_)
+	}
+	
+	tstop = max_x_coord-min_x_coord
+	myg.label(0.797674, 0.855508, lstr, 2, 1, 0, 0, 1)
+
+	sprint(vstr, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
+	myg.addvar(vstr, 1+($1>2), 1) // color, brush
+	
+	rd_pdat_.o[0].x[0]=min_x_coord
+	rd_pdat_.o[0].x[1]=min_y_coord
+	rd_pdat_.o[0].x[2]=max_x_coord
+	rd_pdat_.o[0].x[3]=max_y_coord
+	rd_pdat_.o[1].s="ms"
+	rd_pdat_.o[2].s="mV"
+	rd_pdat_.o[3].s=lstr
+	record_data_vt()
+	
+	run()
+	
+	record_data_disk_vt()
+	
+}
+
+objref fih0_
+fih0_ = new FInitializeHandler(0, "finit0()")
+proc finit0() { local ix, idx1 localobj lcell
+		// in the neuron project this was inited to -65?
+		forsec cell.all { v = v0 }
+}
+
+//make_figure(0)
+print "this script automatically creates all graphs on startup"
+print "individual graphs can be run with make_figure(n)"
+print " 0-2 for normal" 
+print " 3-5 for traubexact"
+
+proc batch_() {
+    for k=$1, $2 {
+        make_figure(k)
+    }
+}
+
+batch_(0,3)
