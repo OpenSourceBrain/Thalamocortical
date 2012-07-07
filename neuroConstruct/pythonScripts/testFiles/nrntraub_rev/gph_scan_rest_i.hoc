@@ -14,16 +14,17 @@ of_name="gph_scan_rest_i"
 load_file("hoc/outfolder.hoc")
 
 
+
 objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
 for i=1,49 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-fig0	  -81.5  -1000  -1000   0   20  1  cell_utils_set_qbeg(0.5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-fig1	  -81.5  -1000  -1000   0   20  2  cell_utils_set_qbeg(1,10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,5.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-fig2	  -81.5  -1000  -1000   0   20  3  cell_utils_set_qbeg(1,1,10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,5.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-fig3	  -81.5  -1000  -1000   0   20  4  cell_utils_set_qbeg(1,1,1,0.5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-fig4	  -81.5  -1000  -1000   0   20  5  cell_utils_set_qbeg(1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,2.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
-fig5	  -81.5  -1000  -1000   0   20  6  cell_utils_set_qbeg(1,1,1,1,1,10^-6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,10.^6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+mnpl1		-81.4  -1000  -1000   0   1   1  cell_utils_set_qbeg(1,1,1,1.3,1,1,1,1,1,0.3,1,1,1,1,0.1,18,1.000,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1.3,1,1,1,1,1,0.3,1,1,1,1,0.1,18,1.000,1,1,1,1,1,1)
+mnpl1a	-81.4  -0.001  0.5    0   1   1  cell_utils_set_qbeg(1,1,1,1.3,1,1,1,1,1,0.3,1,1,1,1,0.1,18,1.000,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1.3,1,1,1,1,1,0.3,1,1,1,1,0.1,18,1.000,1,1,1,1,1,1)
+mnpl2		-81.4  -1000  -1000   0   1   1  cell_utils_set_qbeg(1,1,1,1.07462,1.03514,1,1.01158,1.02329,1.02329,1,10.,0.30903,1,1.02329,0.01,0.288403,1,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1.07462,1.03514,1,1.01158,1.02329,1.02329,1,10.,0.30903,1,1.02329,0.01,0.288403,1,1,1,1,1,1,1)
+mnpl2a	-81.4  -0.001  0.5    0   1   1  cell_utils_set_qbeg(1,1,1,1.07462,1.03514,1,1.01158,1.02329,1.02329,1,10.,0.30903,1,1.02329,0.01,0.288403,1,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1.07462,1.03514,1,1.01158,1.02329,1.02329,1,10.,0.30903,1,1.02329,0.01,0.288403,1,1,1,1,1,1,1)
+mnpl3	  -81.5  -1000  -1000   0   1   1  cell_utils_set_qbeg(1,1,1,1,0.758578,0.1,0.841395,37.1535,9.54993,0.338844,10,0.912011,1,165.959,0.0346737,0.870964,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1,0.758578,0.1,0.841395,37.1535,9.54993,0.338844,10,0.912011,1,165.959,0.0346737,0.870964,1,1,1,1,1,1)
+mnpl3a  -81.5  -0.001  0.5    0   1   1  cell_utils_set_qbeg(1,1,1,1,0.758578,0.1,0.841395,37.1535,9.54993,0.338844,10,0.912011,1,165.959,0.0346737,0.870964,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1,0.758578,0.1,0.841395,37.1535,9.54993,0.338844,10,0.912011,1,165.959,0.0346737,0.870964,1,1,1,1,1,1)
 fig6	  -81.5  -1000  -1000   0   20  7  cell_utils_set_qbeg(1,1,1,1,1,1,10^-3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
 fig7	  -81.5  -1000  -1000   0   20  8  cell_utils_set_qbeg(1,1,1,1,1,1,1,10^-5,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,10.^3,1,1,1,1,1,1,1,1,1,1,1,1,1,1) 
 fig8	  -81.5  -1000  -1000   0   20  9  cell_utils_set_qbeg(1,1,1,1,1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,10.^2,1,1,1,1,1,1,1,1,1,1,1,1,1) 
@@ -63,10 +64,10 @@ Ra		  -81.5  -0.001  0.111  0   20  19 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1
 naf2_sh -81.5  -0.001  0.111  0   20  20 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-5,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^2,1,1) 
 napf_ss -81.5  -0.001  0.111  0   20  21 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-4,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^4,1) 
 phy_cad -81.5  -0.001  0.111  0   20  22 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-6)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^6) 
-epas	  -81.5  -0.001  0.111  0   5   4  cell_utils_set_qbeg(1,1,1,0.9,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.2,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)
 pasg	  -81.5  -0.001  0.111  0   20  16 cell_utils_set_qbeg(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,10.^3,1,1,1,1,1,1) 
-pas2	  -81.5  -0.001  0.111  0   20  16 cell_utils_set_qbeg(1,1,1,1.20,1,1,1,1,1,1,1,1,1,1,1,1.00,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.20,1,1,1,1,1,1,1,1,1,1,1,10^2,1,1,1,1,1,1) 
-noAR		-68.4  -1000  -1000  0    1   15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.000,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.000,1,1,1,1,1,1,1)
+lrsti	  -68.5  -0.001  0.111  0   5   15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,2.0,1,1,0.2,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,8.0,1,1,0.05,1,1,1,1,1,1,1)
+lrst	  -68.5  -1000  -1000   0   5   15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,2.0,1,1,0.2,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,8.0,1,1,0.05,1,1,1,1,1,1,1)
+noAR		-68.4  -1000  -1000   0   1   15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.000,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.000,1,1,1,1,1,1,1)
 
 
 
@@ -98,7 +99,7 @@ save_window_ = new Graph(0)
 save_window_.size(0,650,-90,40)
 scene_vector_[2] = save_window_
 min_x_coord=0
-max_x_coord=5000
+max_x_coord=500
 min_y_coord=-80
 max_y_coord=120
 {save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
@@ -180,9 +181,9 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				stim2 = nil
 				stim1 = new IClamp(.5)
 				stim2 = new IClamp(.5)
-				stim1.del = 50  stim2.del = 0
-				stim1.amp = a2   stim2.amp = a1
-				stim1.dur = 400  stim2.dur = 500 // 1e9
+				stim1.del = max_x_coord/3  stim2.del = 0
+				stim1.amp = a2             stim2.amp = a1
+				stim1.dur = max_x_coord/3  stim2.dur = max_x_coord // 1e9
 				sprint(lstr,"i=%lf,_tbexact=%d",a2,exact_)
 		}	else {
 				sprint(lstr,"no_i,_tbexact=%d",exact_)
@@ -245,7 +246,7 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 				xv=qr.x[mech_ref-1]      // we specify a main mechanism scale factor as reference for xval
 				record_data_spike(10,xv) // 10Mv for spike, xvalue
 				
-				record_data_restv(12000,xv)
+				record_data_restv((max_x_coord-10)/dt,xv)
 				
 				rd_pdat_.o[0].x[0]=min_x_coord
 				rd_pdat_.o[0].x[1]=min_y_coord
@@ -295,7 +296,13 @@ proc batch_() {
 				make_figure(k)
 		}
 }
-make_figure(48)
+// make_figure(48) - for NO AR plot
+// make_figure(46)
+// make_figure(0)
+// make_figure(1)
+// make_figure(2)
+// make_figure(4)
+make_figure(5)
 
 // set the start and end vectors
 // set the mode for advance linear or exponential

@@ -116,7 +116,7 @@ proc cell_utils_update_qr_exp() { local logdiff
 						logdiff = exp(log(qbeg.x[i])+(log(qend.x[i])-log(qbeg.x[i]))*$1/$2)
 						qr.x[i] = logdiff
 						if (qend.x[i] != qbeg.x[i]) {
-								// printf("(%d %g,%g %d,%d -> %g),",i,qend.x[i],qbeg.x[i],$1,$2,logdiff)
+							  // printf("(%d %g,%g %d,%d -> %g),",i,qend.x[i],qbeg.x[i],$1,$2,logdiff)
 								sprint(cu_mesg1,"%s (%d %g,%g %d,%d -> %g),",cu_mesg1,i,qend.x[i],qbeg.x[i],$1,$2,logdiff)
 								print cu_mesg1
 						}
@@ -125,7 +125,6 @@ proc cell_utils_update_qr_exp() { local logdiff
 		}
 		printf("iteration %d of %d\n",$1,$2)
 }
-
 
 proc conductance_set_levels() { local amech, chg, extra1, extra2  localobj level_values
 		amech = $2
@@ -467,6 +466,29 @@ proc batch_search() { local i
 				
 		}
 		
+}
+
+
+
+proc conductance_all_off() {
+		// if mechanism
+		// set its conductance extremely low
+		if (ismembrane("ar")) { gbar_ar=1e-12 }
+		if (ismembrane("arx")) { gbar_arx=1e-12 }
+		if (ismembrane("cad")) { beta_cad=0  phi_cad=0 }
+		if (ismembrane("cal")) { gbar_cal=1e-12 }
+		if (ismembrane("cat_a")) { gbar_cat_a=1e-12 }
+		if (ismembrane("k2")) { gbar_k2=1e-12 }
+		if (ismembrane("ka")) { gbar_ka=1e-12 }
+		if (ismembrane("kahp_slower")) { gbar_kahp_slower=1e-12 }
+		if (ismembrane("kc_fast")) { gbar_kc_fast=1e-12 }
+		if (ismembrane("kdr_fs")) { gbar_kdr_fs=1e-12 }
+		if (ismembrane("km")) { gbar_km=1e-12 }
+		if (ismembrane("naf2")) { gbar_naf2=1e-12 }
+		if (ismembrane("naf2x")) { gbar_naf2x=1e-12 }		
+		if (ismembrane("napf_spinstell")) { gbar_napf_spinstell=1e-12 }
+		insert pas
+		g_pas=1e-12
 }
 
 

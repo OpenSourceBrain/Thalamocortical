@@ -72,6 +72,15 @@ rd_vc_.append(new Vector())
 rd_vc_.append(new String())
 rd_vc_.append(new String())
 
+// To investigate Ca mechanism
+objref rd_ca_, rd_cat
+rd_cat = new Vector() // time
+rd_ca_ = new List()
+rd_ca_.append(new Vector())
+rd_ca_.append(new String())
+objref rd_restca, rd_restca_x
+rd_restca = new Vector()
+rd_restca_x = new Vector()
 
 proc record_data_vt() { 
 		rd_rec_t.record(&t)		
@@ -128,6 +137,13 @@ proc record_data_it() {
 		rd_i_.o[14].record(&cai(0.5)) // g1.addexpr("cell.comp[2].ina_napf_spinstell(0.5)",3,1) // ?
 		rd_i_.o[14+15].s = "cai"
 		// g1.addexpr("cell.comp[2].ina(0.5)",1,1) // ?		
+}
+
+proc record_data_ca() {
+		rd_cat.record(&t)
+		// more ca details to be added later.. 
+		rd_ca_.o[0].record(&cai(0.5))
+		rd_ca_.o[1].s = "cai"
 }
 
 proc record_data_vclamp() {
@@ -210,6 +226,21 @@ proc record_data_disk_vclamp() {
 		sprint(sloc1,"%s",rd_vc_.o[3].s)
 		record_data_file(sloc1,rd_gname,rd_vc_.o[1])
 		record_data_process()
+}
+
+proc record_data_disk_ca() {
+		system("date '+%Y-%m-%d_%H%M-%S'", rd_tstamp)
+		rd_sfunc.left(rd_tstamp,18)
+		
+		if (strobj.len(rd_gname) == 0) {
+				rd_gname = "rca"
+		}
+		
+		rd_pdat_.o[2].s="mM"
+		sprint(sloc1,"%s",rd_ca_.o[1].s)
+		record_data_file(sloc1,rd_gname,rd_ca_.o[0])
+		record_data_process()
+		
 }
 
 proc record_data_file() { localobj savt
@@ -377,6 +408,25 @@ proc record_data_disk_vclamp_summary() {
 		rd_restv.resize(0)
 		rd_resti.resize(0)
 		rd_restv_x.resize(0)		
+}
+
+// for calcium dynamics
+
+proc record_data_restca() {
+		rd_restca.append(rd_ca_.o[0].mean(($1-60)/dt,($1-10)/dt))
+		rd_restca_x.append($2)
+}
+
+proc record_data_disk_ca_summary() {
+		strdef rd_tmpstr
+		
+		sprint(rd_sptr,"ca_%s",rd_gname)
+		rd_gname=rd_sptr
+		record_data_disk_xy(rd_restca_x,rd_restca)
+				
+		// clear data for next simulation
+		rd_restca.resize(0)
+		rd_restca_x.resize(0)		
 }
 
 proc record_data_disk_summary() {

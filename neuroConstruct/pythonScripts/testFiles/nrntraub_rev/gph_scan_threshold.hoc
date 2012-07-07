@@ -10,18 +10,17 @@ load_file("cells/spinstell_template_n.hoc")
 load_file("hoc/spikecount.hoc")
 
 strdef of_name
-of_name="gph_scan_vclamp"
+of_name="gph_scan_rest_threshold"
 load_file("hoc/outfolder.hoc")
-
 
 
 objref myplotinfo_
 myplotinfo_ = new List()
 strdef mytstr1
 for i=1,49 {getstr(mytstr1) myplotinfo_.append(new String(mytstr1))}
-mnpl2		-81.4  -1000  -1000   0   10  1  cell_utils_set_qbeg(1,1,1,1.07462,1.03514,1,1.01158,1.02329,1.02329,1,10.,0.30903,1,1.02329,0.01,0.288403,1,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1.07462,1.03514,1,1.01158,1.02329,1.02329,1,10.,0.30903,1,1.02329,0.01,0.288403,1,1,1,1,1,1,1)
-mnpl3	  -81.5  -1000  -1000   0   10  1  cell_utils_set_qbeg(1,1,1,1,0.758578,0.1,0.841395,37.1535,9.54993,0.338844,10,0.912011,1,165.959,0.0346737,0.870964,1,1,1,1,1,1) cell_utils_set_qend(1,1,1,1,0.758578,0.1,0.841395,37.1535,9.54993,0.338844,10,0.912011,1,165.959,0.0346737,0.870964,1,1,1,1,1,1)
-ar1		  -81.5  -1000  -1000   0   20  15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-2,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^-2,1,1,1,1,1,1,1) 
+fig0	  -81.5  -1000  -1000   0   20  1  cell_utils_set_qbeg(0.5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(10.^1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+fig1	  -81.5  -1000  -1000   0   20  2  cell_utils_set_qbeg(1,10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,5.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+fig2	  -81.5  -1000  -1000   0   20  3  cell_utils_set_qbeg(1,1,10^-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,5.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 fig3	  -81.5  -1000  -1000   0   20  4  cell_utils_set_qbeg(1,1,1,0.5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 fig4	  -81.5  -1000  -1000   0   20  5  cell_utils_set_qbeg(1,1,1,1,10^-4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,2.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 fig5	  -81.5  -1000  -1000   0   20  6  cell_utils_set_qbeg(1,1,1,1,1,10^-6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,10.^6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
@@ -66,8 +65,8 @@ napf_ss -81.5  -0.001  0.111  0   20  21 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1
 phy_cad -81.5  -0.001  0.111  0   20  22 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10^-6)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10.^6) 
 epas	  -81.5  -0.001  0.111  0   5   4  cell_utils_set_qbeg(1,1,1,0.9,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.2,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)
 pasg	  -81.5  -0.001  0.111  0   20  16 cell_utils_set_qbeg(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.0,1,1,1,1,1,1,1,1,1,1,1,10.^3,1,1,1,1,1,1) 
-allon		-68.4  -1000  -1000  0    40   1 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1,1)
-noAR		-68.4  -1000  -1000  0    40  15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.000,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.000,1,1,1,1,1,1,1)
+pas2	  -81.5  -0.001  0.111  0   20  16 cell_utils_set_qbeg(1,1,1,1.20,1,1,1,1,1,1,1,1,1,1,1,1.00,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1.20,1,1,1,1,1,1,1,1,1,1,1,10^2,1,1,1,1,1,1) 
+noAR		-68.4  -0.0001  0.111  0   30  15 cell_utils_set_qbeg(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1,1)  cell_utils_set_qend(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1.000,1,1,1,1,1,1,1)
 
 
 
@@ -99,9 +98,9 @@ save_window_ = new Graph(0)
 save_window_.size(0,650,-90,40)
 scene_vector_[2] = save_window_
 min_x_coord=0
-max_x_coord=1000
-min_y_coord=-120
-max_y_coord=140
+max_x_coord=3000
+min_y_coord=-80
+max_y_coord=120
 {save_window_.view(min_x_coord, min_y_coord, max_x_coord, max_y_coord, 1, 75, 860, 699)}
 graphList[0].append(save_window_)
 save_window_.save_name("graphList[0].")
@@ -129,16 +128,6 @@ proc runcell_bare() {local i, t1,a1,t2,a2  localobj vvec, tvec, f, g
 load_file("hoc/cell_utils.hoc")
 load_file("hoc/record_data.hoc")
 
-// Adding static VClamp configuration to be cleaned later
-// V-clamp electrodeIC
-objref pointvclamp
-objref pointvclampi
-pointvclampstart=0
-pointvclampend=0
-pointvclampinc=0
-// ----
-
-
 cu_mode = 1 // use alternate mechanisms ending in x
 
 objref mvvec, mtvec, myg
@@ -148,7 +137,7 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		strdef mechname, mechunits, mechshortname
 		xv = 0
 		a1 = 0  a2 = 0  v0 = 0  exact_ = 0  numsims = 0  mech_ref = 0
-		i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %d %d %d %s %s", vstr, &v0, &a1, &a2, &exact_, &numsims, &mech_ref, sstr, estr)
+		i = sscanf(myplotinfo_.object($1).s, "%s %lf %lf %lf %d %d %d %s %s", vstr, &v0, &a1, &a2, &exact_,&numsims, &mech_ref, sstr, estr)
 		print "plotting parms :", vstr, " v0:",v0," stim1:",a1, " stim2:", a2, "exact:", exact_, " numsims: ",numsims," mech_ref: ",mech_ref
 		print "start vector setting:", sstr
 		print "end vector setting:", estr
@@ -162,28 +151,6 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		execute(estr)
 		
 		access cell.comp[1]
-		
-		// VClamp init
-		cell.comp[1] pointvclamp = new SEClamp(0.5)
-		pointvclampi = new Vector()
-		pointvclampi.record(&pointvclamp.i)	// Record voltage clamp electrode current
-		pointvclamp.dur1=3/5*max_x_coord
-		pointvclamp.dur2=1/5*max_x_coord
-		pointvclamp.dur3=0      // unsure?
-		pointvclamp.amp1=v0
-		pointvclamp.amp2=-120   // variable 
-		pointvclamp.amp3=v0
-		pointvclampstart=min_y_coord
-		pointvclampend=-40
-		pointvclamp.rs=1*10^-7 // or 10^-3 or less
-		// need to set SEClamp low increase x10 or x0.1?
-		//
-		// when you use VClamp, the effective series resistance is given by
-		// rstim/gain. Default gain for VClamp is 1e5, and rstim is 1 megohm, so effective series
-		// resistance is 10 ohms. Compare that with the default rs of SEClamp (1 megohm)
-		
-		// VClamp end
-		
 		define_shape()
 		myg = Graph[0]
 		myg.erase_all
@@ -209,14 +176,17 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		}
 		
 		if (a1 != -1000 || a2 != -1000) {
-				stim1 = nil			stim1 = new IClamp(.5)				stim1.del = 50  stim1.amp = a2				stim1.dur = 400  
-				stim2 = nil			stim2 = new IClamp(.5)				stim2.del = 0	  stim2.amp = a1				stim2.dur = 500 // 1e9
+				stim1 = nil
+				stim2 = nil
+				stim1 = new IClamp(.5)
+				stim2 = new IClamp(.5)
+				stim1.del = max_x_coord/3  stim2.del = 0
+				stim1.amp = a1             stim2.amp = a1
+				stim1.dur = max_x_coord/3  stim2.dur = max_x_coord/3 // 1e9
 				sprint(lstr,"i=%lf,_tbexact=%d",a2,exact_)
 		}	else {
 				sprint(lstr,"no_i,_tbexact=%d",exact_)
 		}
-		
-		
 		
 		tstop = max_x_coord // add to settings above
 		
@@ -225,60 +195,85 @@ proc make_figure() { local idx1, deltat, maxt  localobj vf, tf, g
 		sprint(vstr1, "cell.comp[%d].v(.5)", 1) //  cell.presyn_comp = 57
 		myg.addvar(vstr1, 1+($1>2), 1) // color, brush
 		
+		rd_pdat_.o[0].x[0]=min_x_coord
+		rd_pdat_.o[0].x[1]=min_y_coord
+		rd_pdat_.o[0].x[2]=max_x_coord
+		rd_pdat_.o[0].x[3]=max_y_coord
+		rd_pdat_.o[1].s="ms"
+		rd_pdat_.o[2].s="mV"
+		rd_pdat_.o[3].s=lstr
 		
+		// for each mechanism
+		// for each power of 2 (- to +)
+		// create a plot with the right label
+		// create a filename so a movie can be made for each mechanism
 		for bati=0, numsims-1 {
 				access cell.comp[1]
 				
+				rd_pdat_.o[0].x[5]=0
+				
+				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=min_y_coord
+				rd_pdat_.o[0].x[2]=max_x_coord
+				rd_pdat_.o[0].x[3]=max_y_coord
+				rd_pdat_.o[1].s="ms"
+				rd_pdat_.o[2].s="mV"
+				record_data_vt()
+				
+				// qr.x[04] = 2^(bati-5)
 				// cell_utils_update_qr_lin(bati, numsims-1)
 				cell_utils_update_qr_exp(bati, numsims-1)
-				pointvclamp.amp2 = bati*(pointvclampend-pointvclampstart)/(numsims)+pointvclampstart
+				stim1.amp = (a2-a1)*bati/numsims+a1
+				sprint(lstr,"i=%lf,_tbexact=%d",stim1.amp,exact_)
 				
-				// describe parameters for this simulation
-				sprint(lstr,"vclamp=%lf,scale_%lf_(%s),tbexact=%d",pointvclamp.amp2,qr.x[mech_ref-1],mechshortname,exact_)
-				print lstr
+				// could capture max/min values
+				sprint(lstr1,"%s,_scale_%lf_(%s)",lstr,qr.x[mech_ref-1],mechshortname)
+				print lstr1
+				rd_pdat_.o[3].s=lstr1
 				
 				cell_utils_spinstell_setup_mechanisms()
 				
-				// record_data_vt() // for debugging traces
-								
-				record_data_vclamp(pointvclamp)
+				// rd_pdat_.o[0].x[0]=min_x_coord
+				// rd_pdat_.o[0].x[1]=-0.0040
+				// rd_pdat_.o[0].x[2]=max_x_coord
+				// rd_pdat_.o[0].x[3]= 0.0080
+				// rd_pdat_.o[1].s="ms"
+				// rd_pdat_.o[2].s="nA"
+				// rd_pdat_.o[3].s=lstr
+				// record_data_it()
 				
 				run()
 				
-				// xv=qr.x[mech_ref-1]      // we specify a main mechanism scale factor as reference for xval
-				xv=pointvclamp.amp2
-				record_data_restvclamp(pointvclamp.dur1+pointvclamp.dur2,xv) // (pointvclamp.dur1+pointvclamp.dur2-10)/dt
+				xv=qr.x[mech_ref-1]      // we specify a main mechanism scale factor as reference for xval
+				record_data_spike(10,xv) // 10Mv for spike, xvalue
 				
-				// print "(pointvclamp.dur1+pointvclamp.dur2-10)/dt :",(pointvclamp.dur1+pointvclamp.dur2-10)/dt," its value:",rd_rec_v.x[(pointvclamp.dur1+pointvclamp.dur2-10)/dt]
+				record_data_restv((max_x_coord*2/3-10)/dt,xv) // rest at a time when i-inj active
 				
-				// rd_pdat_.o[0].x[0]=min_x_coord
-				// rd_pdat_.o[0].x[1]=min_y_coord
-				// rd_pdat_.o[0].x[2]=max_x_coord
-				// rd_pdat_.o[0].x[3]=max_y_coord
-				// rd_pdat_.o[0].x[5]=0 // not automatic
-				// rd_pdat_.o[1].s="ms"
-				// rd_pdat_.o[2].s="mV"
-				// rd_pdat_.o[3].s=lstr
-				// rd_gname = vstr
-				// record_data_disk_vt()
-				
-				// record_data here
 				rd_pdat_.o[0].x[0]=min_x_coord
+				rd_pdat_.o[0].x[1]=min_y_coord
 				rd_pdat_.o[0].x[2]=max_x_coord
-				rd_pdat_.o[0].x[5]=2 // automatic only in y-scale
+				rd_pdat_.o[0].x[3]=max_y_coord
 				rd_pdat_.o[1].s="ms"
 				rd_pdat_.o[2].s="mV"
-				rd_pdat_.o[3].s=lstr
-				record_data_disk_vclamp()
+				rd_gname=vstr
+				record_data_disk_vt()
 				
+				// rd_pdat_.o[0].x[0]=min_x_coord
+				// rd_pdat_.o[0].x[1]=-0.0040
+				// rd_pdat_.o[0].x[2]=max_x_coord
+				// rd_pdat_.o[0].x[3]= 0.0080
+				// rd_pdat_.o[1].s="ms"
+				// rd_pdat_.o[2].s="nA"
+				// rd_pdat_.o[3].s=lstr		
+				// record_data_disk_it()
+
 		}
 		
-		rd_pdat_.o[0].x[5]=1 // automatic
-		rd_pdat_.o[1].s="VClamp hold potential (mV)"
-		rd_pdat_.o[2].s="relative VClamp current (nA)"
-		sprint(lstr,"I-V relation of relative current to VClamp level")
+		// should capture the actual range
+		sprint(lstr,"Variation of %s, over a Range",mechname)
+		rd_pdat_.o[1].s=mechunits
 		rd_pdat_.o[3].s=lstr
-		record_data_disk_vclamp_summary()
+		record_data_disk_summary()
 }
 
 objref fih0_
@@ -302,10 +297,7 @@ proc batch_() {
 				make_figure(k)
 		}
 }
-// make_figure(47)
-// make_figure(0)
-// make_figure(1)
-make_figure(2)
+make_figure(48)
 
 // set the start and end vectors
 // set the mode for advance linear or exponential
