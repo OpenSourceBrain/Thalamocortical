@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channelml xmlns="http://morphml.org/channelml/schema" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:meta="http://morphml.org/metadata/schema"
+    xsi:schemaLocation="http://morphml.org/channelml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd"
+    units="Physiological Units">
+    
+    <meta:notes>ChannelML file containing a single Channel description</meta:notes>
+
+    <channel_type name="pas" density="yes">
+        
+        <status value="stable"/>
+
+        <meta:notes>Simple passive leak conductance</meta:notes>
+
+        <current_voltage_relation cond_law = "ohmic" ion = "non_specific" default_gmax = "0.3" default_erev = "-66.6"/>        <!--  gmax units: mS/cm2 -->
+
+
+    </channel_type>
+ 
+</channelml>
