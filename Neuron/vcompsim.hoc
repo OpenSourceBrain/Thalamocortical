@@ -1,0 +1,50 @@
+
+objref vmat, vtrajeclist
+proc vcompsim() { local i, j, numcomp  localobj vv, vn, vf, f, s
+	s = new String()
+	vtrajeclist = new List()
+	vn = vtrajeclist
+
+	f = new File()
+	numcomp=0 forsec cell.all numcomp += 1
+	vmat = new Matrix(10*100-1, numcomp+1)
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/state/%s.dat", s.s)
+	f.ropen(s.s)
+	vmat.scanf(f, vmat.nrow, vmat.ncol)
+
+	vf = vmat
+	i = 1
+	tsyn = new Vector()
+	cell.comp[1] {tsyn.record(&t)}
+	for i=1, vf.ncol-1 cell.comp[i] {
+		vv = new Vector()
+		vv.record(&v(.5))
+		vn.append(vv)
+	}
+	stdinit()
+	continuerun(100)
+	seev(2)
+}
+proc seev() {localobj gf, gn, s
+   s = new String()
+   gg.erase_all()
+   seewhich = $1
+   gf = vmat
+   gn = vtrajeclist
+   if (seewhich > gn.count) {seewhich = gn.count-1}
+   if (seewhich < 1) { seewhich = 1 }
+   cell.comp[seewhich] { sprint(s.s,"%s.v(.5)", secname()) }
+   gg.label(.5,.8,s.s,2,1,0,0,1)
+   gf.getcol(seewhich).line(gg, gf.getcol(0), 2, 1)
+   gn.object(seewhich-1).line(gg, tsyn) 
+}	
+
+proc mkseev() {
+	xpanel("compare compartment voltages")
+	xvalue("which", "seewhich", 1, "seev(seewhich)")
+	xpanel()
+}
+
+
+

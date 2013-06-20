@@ -1,0 +1,47 @@
+thread_per_piece_ = 0
+proc thread_per_piece() {local n  localobj sl
+//printf("%d nthread=%d\n", pc.id, gidvec.size)
+	sl = new SectionList()
+	sl.allroots()
+	n = 0 forsec sl { n += 1 }
+	if (n <= 10) {
+		pc.nthread(n, 0)
+	}else{
+		thread_per_piece_ = 1
+	}
+}
+
+proc balanalfile() {local i, j, cxtotal, cx, ct, tid, gid \
+    localobj lb, cxpiece, srl, f, cell
+	i = pc.allreduce(thread_per_piece_, 1)
+	if (i > 0 && pc.id == 0) {
+		printf("%d hosts with too many pieces for 1 piece per thread\n", i)
+	}
+	lb = new LoadBalance()
+	cxtotal = lb.cpu_complexity()
+	cxpiece = lb.pieces_cx(srl)
+
+	f = new File()
+	if (pc.id == 0) {
+		f.wopen($s1)
+		f.printf("%d\n", pc.nhost)
+		f.close()
+	}
+	for j=0, pc.nhost-1 {
+		if (pc.id == j) {
+			f.aopen($s1)
+			f.printf("%d\n", cxpiece.size)
+			for i=0, cxpiece.size - 1 {
+				srl.object(i).sec tid = pc.sec_in_thread
+				if (tid != i) {
+execerror("bad gidvec to thread relation", "")
+				}
+				cx = cxpiece.x[i]
+				ct = pc.thread_ctime(tid)
+				f.printf(" %d %g %g\n", i, cx, ct)
+			}
+			f.close()
+		}
+		pc.barrier
+	}
+}

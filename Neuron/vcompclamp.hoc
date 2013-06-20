@@ -1,0 +1,79 @@
+
+objref vmat, fvmat, voutlist, vinlist, fvoutlist, tout, tin
+proc vcompclamp() { local i, j, numcomp  localobj vv, f, s, clist, c, rsav, cdvdt
+	s = new String()
+	voutlist = new List()
+	vinlist = new List()
+	fvoutlist = new List()
+	clist = new List()
+
+	f = new File()
+	numcomp=0 forsec cell.all numcomp += 1
+	vmat = new Matrix(100*100-1, numcomp+1)
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/state/v_%s.dat", s.s)
+	f.ropen(s.s)
+	vmat.scanf(f, vmat.nrow, vmat.ncol)
+
+	fvmat = new Matrix(100*100-1, numcomp+1)
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/state/fv_%s.dat", s.s)
+	f.ropen(s.s)
+	fvmat.scanf(f, vmat.nrow, vmat.ncol)
+
+	i = 1
+	tout = new Vector()
+	cell.comp[1] {tout.record(&t)}
+	tin = vmat.getcol(0)
+	rsav = new Vector()
+	for i=1, vmat.ncol-1 cell.comp[i] {
+		rsav.append(Ra)
+		Ra = 1e9
+		c = new SEClamp(.5)
+		c.dur1 = 1e9
+		c.rs = .01
+		clist.append(c)
+
+		vv = new Vector()
+		vv.record(&c.i)
+		fvoutlist.append(vv)
+
+		vv = new Vector()
+		vv.record(&v(.5))
+		voutlist.append(vv)
+
+		vv = vmat.getcol(i)
+		vv.play(&c.amp1, tin, 1)
+		vinlist.append(vv)
+	}
+	stdinit()
+	continuerun(100)
+	for i=1, vmat.ncol-1 cell.comp[i] {
+		cdvdt = voutlist.object(i-1).c.deriv(dt,2)
+		fvoutlist.object(i-1).div(cm*area(.5)/100).add(cdvdt)
+	}
+	for i=1, vmat.ncol-1 cell.comp[i] {
+		Ra = rsav.x[i-1] // but no longer is traub_exact
+	}
+	seefv(2)
+}
+proc seefv() {localobj s
+   s = new String()
+   gg.erase_all()
+   seewhich = $1
+   if (seewhich > fvoutlist.count) {seewhich = fvoutlist.count}
+   if (seewhich < 1) { seewhich = 1 }
+   cell.comp[seewhich] { sprint(s.s,"%s(.5) clamp current", secname()) }
+   gg.label(.5,.8,s.s,2,1,0,0,1)
+   fvmat.getcol(seewhich).line(gg, tin, 2, 1)
+   fvoutlist.object(seewhich-1).line(gg, tout) 
+}	
+
+proc mkseefv() {
+	xpanel("compare compartment currents")
+	xvalue("which", "seewhich", 1, "seefv(seewhich)")
+	xpanel()
+}
+
+
+

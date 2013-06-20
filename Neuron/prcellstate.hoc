@@ -1,0 +1,85 @@
+load_file("stdlib.hoc")
+if (!name_declared("pc")) { execute1("objref pc") }
+if (!name_declared("pcitr")) {execute1("iterator pcitr() {}")}
+strdef csf_name_, mtname_, msname_, varval_
+
+proc prcellstate() {local i, gid   localobj c, csf
+	if (numarg() > 1) if (!pc.gid_exists($2)) return
+	sprint(csf_name_, "cs%d.%d.%d", $1, pc.id, pc.nhost)
+	csf = new File()
+	csf.wopen(csf_name_)
+	for pcitr(&j, &gid, 1) {
+		if (numarg() > 1) if (gid != $2) continue
+		c = pc.gid2obj(gid)
+		prcellstate_(c, csf, gid)
+	}
+	csf.close
+}
+
+proc prcellstate_() {local i, j, k, x, size localobj mt, ms, syn
+	i = 0
+	mt = new MechanismType(0)
+	forsec $o1.all {
+		for (x, 0) {
+			$o2.printf("%d %d %.17g %s.v(%g)\n", $3, i, v(x), secname(), x)
+			i += 1
+			$o2.printf("%d %d %.17g area(%g)\n", $3, i, area(x), x)
+			i += 1
+			$o2.printf("%d %d %.17g ri(%g)\n", $3, i, ri(x), x)
+			i += 1
+		}
+		for j=1, mt.count-1 {
+			mt.select(j)
+		mt.selected(mtname_)
+			if (ismembrane(mtname_)) {
+				ms = new MechanismStandard(mtname_,0)
+				for k=0, ms.count-1 {
+					size = ms.name(msname_, k)
+				for (x,0) {
+sprint(varval_, "hoc_ac_ = %s(%g)", msname_, x)
+					execute(varval_)
+$o2.printf("%d %d %.17g %s(%g)\n", $3, i, hoc_ac_, msname_, x)
+						i += 1
+					}
+				}
+			}
+		}
+	}
+	for j=0, $o1.synlist.count-1 {
+		syn = $o1.synlist.object(j)
+		classname(syn, mtname_)
+		ms = new MechanismStandard(mtname_,0)
+		ms.in(syn)
+		for k=0, ms.count-1 {
+			ms.name(msname_, k)
+$o2.printf("%d %d %.17g %s.%s\n", $3, i, ms.get(msname_), syn, msname_)
+			i += 1
+		}
+	}
+}
+
+proc rdcellstate() {local i, g, j, val1, val2, diff, most localobj f1, f2, l1, l2, lmost
+	most = 0
+	lmost = new String()
+	l1 = new String() l2 = new String()
+	f1 = new File() f1.ropen($s1)
+	f2 = new File() f2.ropen($s2)
+	for (i=0; !f1.eof; i += 1) {
+		f1.gets(l1.s)  f2.gets(l2.s)
+		sscanf(l1.s, "%d %d %lf", &g, &j, &val1)
+		sscanf(l2.s, "%d %d %lf", &g, &j, &val2)
+		if (val1 != val2) {
+			diff = abs(val1-val2)/(abs(val1) + abs(val2))
+			printf("%g %s\n", diff, l1.s)
+			if (most < diff) {
+				most = diff
+				lmost.s = l1.s	
+			}
+		}
+	}
+	if (most > 0) {
+		printf("most %g %s\n", most, lmost.s)
+	}
+	f1.close
+	f2.close
+}

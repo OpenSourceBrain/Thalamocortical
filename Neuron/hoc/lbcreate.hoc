@@ -1,0 +1,86 @@
+proc load_balanced_create() {local host, gid, usx, sx, si, sb, c, cc, ptree \
+  localobj cell, sr
+	host = load_balance_.host.x[$1]
+	gid = load_balance_.gid.x[$1]
+	sx = load_balance_.splitx.x[$1]
+	usx = load_balance_.unsplitx.x[$1]
+	si = load_balance_.spliti.x[$1]
+	sb = load_balance_.splitb.x[$1]
+
+	execute($s2)
+	cell = cells.object(cells.count-1)
+
+	if (sx < 0) { // entirely on this cpu
+		pc.set_gid2node(gid, pc.id)
+		gidvec.append(gid)
+	}else{
+		c = load_balance_.cell_complexity(cell)
+		load_balance_.compute_roots()
+		sr = ldbal_reconnect(si, abs(sb))
+// following tests must be carried out with point process complexities in mcomplex.dat = 0
+//sr.sec printf("%d a split %s %g %g    %g %g   %d %d %d %d\n", pc.id, secname(), usx, c, sx, usx - sx, host, gid, si, sb)
+		ptree = 0 if (sb < 0) { ptree = 1 }
+		ldbal_split(sr, host, gid, ptree, cell)
+//c = load_balance_.cell_complexity(cell)
+//if (host == pc.id) { cc = sx } else { cc = usx - sx }
+//ptree = 0 if (!pc.gid_exists(gid)) ptree = 1
+//printf("%d split %s %d %d %g %g\n", pc.id, cell, gid, ptree, c, cc)
+	}
+}
+
+//reconnect so a split at the returned
+// SectionRef corresponds to the complexity desired
+// ptree = 1 means the parent tree will go on the host
+obfunc ldbal_reconnect() {local i  localobj sp, bs, sr, sc
+	ip = load_balance_.parent_vec_.x[$1]
+	if (ip  == -1) {
+		execerror("cannot split at original root", "")
+	}
+	sp = load_balance_.secref(ip)
+	// the branch set (in the proper order)
+	bs = load_balance_.parent_vec_.indvwhere("==", ip)
+	// disconnect all the children
+	// assume all children effectively connected at their 0 end to the trueparent
+	// at the 1 end
+	for i=0, bs.size-1 {
+		sr = load_balance_.secref(bs.x[i])
+		sr.sec { disconnect() }
+	}
+	if ($2 <= bs.size) { // is it an individual?
+		// then all get connected to the trueparent and return
+		// the individual
+		for i=0, bs.size-1 {
+			sr = load_balance_.secref(bs.x[i])
+			sp.sec connect sr.sec (0), 1
+		}
+		sc = load_balance_.secref(bs.x[$2-1])
+	}else{ // it is a sum
+		sc = load_balance_.secref(bs.x[0])
+		sp.sec connect sc.sec (0), 1
+		n = $2 - bs.size // 1 means 0+1
+		for i=1, n { // connect to the 0 child
+			sr = load_balance_.secref(bs.x[i])
+			sc.sec connect sr.sec (0), 0
+		}
+		for i=n+1, bs.size-1 { // connect to the trueparent
+			sr = load_balance_.secref(bs.x[i])
+			sp.sec connect sr.sec (0), 1
+		}
+	}
+	return sc
+}
+
+proc ldbal_split() {
+	if ($4 == 0) {
+		$o1.sec pnm.splitcell($2, $2+1)
+	}else{
+		$o1.sec pnm.splitcell($2+1, $2)
+	}
+	if (section_exists("comp", $o5.presyn_comp ,$o5)) {
+		pc.set_gid2node($3, pc.id)
+		gidvec.append($3)
+	}else{
+		pc.set_gid2node($3 + splitbit, pc.id)
+		gidvec.append($3 + splitbit)
+	}
+}

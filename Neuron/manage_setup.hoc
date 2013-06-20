@@ -1,0 +1,102 @@
+
+use_load_balance = (load_balance_phase == 3 || load_balance_phase == 5 || load_balance_phase == 7)
+
+{load_file("nrngui.hoc")}
+{localloadfile("fortmap.hoc")}
+{localloadfile("hoc/parlib.hoc")}
+if (fakerank >= 0) pnm.myid += fakerank
+if (fakenhost >= 0) pnm.nhost = fakenhost
+// til the shift bug in the mod files are fixed (table depends on range variable)
+if (1) {
+usetable_naf2 = 0
+usetable_naf = 0
+usetable_naf_tcr = 0
+usetable_napf = 0
+usetable_napf_spinstell = 0
+usetable_napf_tcr = 0
+}
+
+calculate_mechanism_complexity(load_balance_phase == 1)
+if (load_balance_phase == 1) { pc.runworker() pc.done() quit() }
+
+if (load_balance_phase == 3) {
+	read_load_balance_info("splitbal")
+}else if (load_balance_phase == 5) {
+	read_wholecell_info(wholecell_prefix)
+}else if (load_balance_phase == 7) {
+	read_multisplit_info(multisplit_prefix)
+}
+
+{localloadfile("finit.hoc")}
+
+serial = 0 // override serial set in parlib.hoc
+pmesg = 1 && (pc.id == 0)
+small_model = 0 // 0 for full model, set to 1 for 40 cells each type
+if (use_load_balance) { use_traubexact = 0 } // cannot use with load balance
+{localloadfile("hoc/traubcon.hoc")}
+
+{localloadfile("cell_templates.hoc")}
+{localloadfile("net/network_specification_interface.hoc")}
+if (!serial) {localloadfile("hoc/parlib2.hoc")}
+{localloadfile("net/serial_or_par_wrapper.hoc")}
+{localloadfile("net/groucho.hoc")}
+
+proc cxrun() {localobj f
+	f = new File()
+	for pnm.serialize() {
+		f.aopen("cxrun.dat")
+		f.printf("%d %g\n", pnm.myid, tdat_.x[5])		
+		printf("%d %g\n", pnm.myid, tdat_.x[5])		
+		f.close
+	}
+	execerror("stop", "")
+}
+
+if (load_balance_phase == 2) {
+	print_single_split_load_balance_info("splitbal.dat")
+	pc.runworker() pc.done() quit()
+}else if (load_balance_phase == 4) {
+	print_wholecell_info(wholecell_prefix)
+	pc.runworker() pc.done() quit()
+}else if (load_balance_phase == 6) {
+	print_multisplit_info(multisplit_prefix, multisplit_nhost)
+	//execerror("stop", "")
+	pc.runworker() pc.done() quit()
+}else{
+	print_load_balance_info(0)
+	if (fakerank >= 0) {cxrun() pc.runworker() pc.done() quit()}
+}
+
+want_all_spikes()
+mkhist(50)
+
+objref fihprog_
+if (pc.id == 0 && pc.nhost < 20) fihprog_ = new FInitializeHandler("progress()")
+proc progress() {
+	print "t=",t
+	cvode.event(t+1, "progress()")
+}
+
+if (nthread > 1 && pc.nhost == 1) { pc.nthread(nthread, 1) }
+
+if (use_traubexact) {
+	localloadfile("hoc/traubcon_net.hoc")
+	if (pc.id == 0) {
+		print "before setting traub exact connection coefficients, setuptime = ", startsw() - setuptime
+	}
+	define_shape() // force all internal structures to be valid
+	reset_connection_coefficients()
+}
+
+proc methods() {
+	pc.spike_compress(spike_compress, spike_compress != 0, multisend)
+	cvode.queue_mode(spike_compress != 0, selfevents)
+	cvode.cache_efficient(cacheeffic)
+}
+methods()
+
+if (load_balance_phase == 7) { pc.multisplit() }
+
+setuptime = startsw() - setuptime
+if (pc.id == 0) {print "SetupTime: ", setuptime}
+

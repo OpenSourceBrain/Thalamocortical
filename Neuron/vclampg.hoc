@@ -1,0 +1,132 @@
+objref gnamelist
+gnamelist = new List()
+gnamelist.append(new String("gna"))
+gnamelist.append(new String("gk"))
+gnamelist.append(new String("gca"))
+gnamelist.append(new String("gca_high"))
+gnamelist.append(new String("gar"))
+gnamelist.append(new String("total"))
+
+objref vmat, gmat[gnamelist.count], voutlist, vinlist
+objref goutlist[gnamelist.count], tout, tin
+
+proc vclampg() { local i, j, y, numcomp  localobj vv, f, s, clist, c, rsav, cdvdt
+	s = new String()
+	voutlist = new List()
+	vinlist = new List()
+	for i=0, gnamelist.count-1 {
+		goutlist[i] = new List()
+	}
+	clist = new List()
+
+	f = new File()
+	numcomp=0 forsec cell.all numcomp += 1
+	vmat = new Matrix(100*tf-1, numcomp+1)
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/state/v_%s.dat", s.s)
+	f.ropen(s.s)
+	vmat.scanf(f, vmat.nrow, vmat.ncol)
+
+	for i=0, gnamelist.count-2 {
+		gmat[i] = new Matrix(100*tf-1, numcomp+1)
+		classname(cell, s.s)
+		sprint(s.s, "../p2c/state/%s_%s.dat", gnamelist.object(i).s, s.s)
+		f.ropen(s.s)
+		gmat[i].scanf(f, vmat.nrow, vmat.ncol)
+	}
+	gmat[5] = new Matrix(100*tf-1, numcomp+1)
+	gmat[5].setcol(0,gmat[0].getcol(0))
+
+	i = 1
+	tout = new Vector()
+	cell.comp[1] {tout.record(&t)}
+	tin = vmat.getcol(0)
+	rsav = new Vector()
+	for i=1, vmat.ncol-1 cell.comp[i] {
+		rsav.append(Ra)
+		insert cal  insert ar  insert cat_a
+		Ra = 1e9
+		c = new SEClamp(.5)
+		c.dur1 = 1e9
+		c.rs = .01
+		clist.append(c)
+
+		for j=0, gnamelist.count-2 {
+			vv = new Vector()
+			if (j == 0) vv.record(&ina(.5))
+			if (j == 1) vv.record(&ik(.5))
+			if (j == 2) vv.record(&i_cat_a(.5))
+			if (j == 3) vv.record(&ica_cal(.5))
+			if (j == 4) vv.record(&i_ar(.5))
+			goutlist[j].append(vv)
+		}
+
+		vv = new Vector()
+		vv.record(&v(.5))
+		voutlist.append(vv)
+
+		vv = vmat.getcol(i)
+		vv.play(&c.amp1, tin, 1)
+		vinlist.append(vv)
+	}
+	stdinit()
+	continuerun(tf)
+	for i=1, vmat.ncol-1 cell.comp[i] {
+		for j=0, gnamelist.count-2 {
+			if (j == 0) y = ena(.5)
+			if (j == 1) y = ek(.5)
+			if (j == 2) y = 125
+			if (j == 3) y = 125
+			if (j == 4) y = erev_ar(.5)
+			if (j == 2) {
+goutlist[2].object(i-1).add(goutlist[3].object(i-1))
+			}
+			vv = vinlist.object(i-1).c.sub(y)
+			gmat[j].setcol(i, gmat[j].getcol(i).mul(vv))
+			goutlist[j].object(i-1).mul(area(.5)/100)
+		}
+	}
+	for j=1, gmat[0].ncol-1 {
+		goutlist[5].append(new Vector(goutlist[0].object(j-1).size))
+		for case(&i, 0, 1, 2, 4) {
+			gmat[5].setcol(j, gmat[5].getcol(j).add(gmat[i].getcol(j)))
+			goutlist[5].object(j-1).add(goutlist[i].object(j-1))
+		}
+	}
+	for i=1, vmat.ncol-1 cell.comp[i] {
+		Ra = rsav.x[i-1] // but no longer is traub_exact
+	}
+	seefv(2, 0)
+}
+proc seefv() {localobj s
+   s = new String()
+   gg.erase_all()
+   seetype = $2
+   if (seetype > 5) { seetype = 5 }
+   if (seetype < 0) { seetype = 0 }
+   seewhich = $1
+   if (seewhich > voutlist.count) {seewhich = voutlist.count}
+   if (seewhich < 1) { seewhich = 1 }
+   cell.comp[seewhich] { sprint(s.s,"%s(.5) %s", secname(), gnamelist.object(seetype).s) }
+   gg.label(.5,.8,s.s,2,1,0,0,1)
+   gmat[seetype].getcol(seewhich).line(gg, tin, 2, 1)
+   goutlist[seetype].object(seewhich-1).line(gg, tout) 
+}	
+
+proc mkseefv() {
+	xpanel("compare compartment currents")
+	xvalue("type na=0 k=1", "seetype", 1, "seefv(seewhich, seetype)")
+	xvalue("which", "seewhich", 1, "seefv(seewhich, seetype)")
+	xpanel()
+}
+
+func maxdiff() {local i localobj gf, gn, r
+	gf = gmat[$1]
+	gn = goutlist[$1]
+	r = new Vector(gn.count)
+	for i=0,r.size-1 {
+		r.x[i] = gn.object(i).c.interpolate(tin, tout).sub(gf.getcol(i+1)).sumsq
+	}
+	print r.max
+	return r.max_ind
+}
