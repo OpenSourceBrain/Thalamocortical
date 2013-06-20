@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -l nodes=14,walltime=42:30:00
+## -l nodes=node13:ppn=2:+node14:ppn=2+node15:ppn=2+node16:ppn=2+node17:ppn=2+node18:ppn=2+node19:ppn=2,walltime=42:30:00
+#PBS -N job
+##PBS -j oe
+#PBS -o groucho.out
+#PBS -e groucho.err
+
+#cd into the directory where I typed qsub
+cd /home/traub/groucho
+
+
+# for lam mpi
+ lamboot $PBS_NODEFILE
+
+mpirun -np 14 ./groucho
