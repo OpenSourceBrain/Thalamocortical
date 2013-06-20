@@ -1,0 +1,25 @@
+
+#FLAGS1 = -O3 -c -w -xW -save
+#FLAGS1 = -C -g -d1 -c -w -xW -save
+
+
+	ifc  -O3 -save  -c -w -xW integrate_suppyrRS.f
+	ifc  -C -g -d1 -c -w -xW integrate_suppyrRS.f
+	ifc  -O3 -save  -c -w -xW integrate_suppyrFRB.f
+	ifc  -C -g -d1  -c -w -xW -save integrate_suppyrFRB.f
+	ifc  -O3 -save  -c -w -xW integrate_supbask.f
+	ifc  -O3 -save  -c -w -xW integrate_supaxax.f
+	ifc  -O3 -save  -c -w -xW integrate_deepbask.f
+	ifc  -O3 -save  -c -w -xW integrate_deepaxax.f
+	ifc  -O3 -save  -c -w -xW integrate_supLTS.f
+	ifc  -O3 -save  -c -w -xW integrate_deepLTS.f
+        ifc  -O3 -save  -c -w -xW integrate_tcr.f
+ 	ifc  -O3 -save  -c -w -xW integrate_nRT.f
+ 	ifc  -O3 -save  -c -w -xW integrate_spinstell.f
+	ifc  -O3 -save  -c -w -xW integrate_nontuftRS.f
+	ifc  -O3 -save  -c -w -xW integrate_tuftRS.f
+	ifc  -C -g -d1  -c -w -xW integrate_tuftRS.f
+ 	ifc  -O3 -save  -c -w -xW integrate_tuftIB.f
+	ifc  -C -g -d1  -c -w -xW integrate_tuftIB.f
+
+	
