@@ -92,7 +92,7 @@ def testAll(argv=None):
 
     assert(project.proj3Dproperties.getDisplayOption() == Display3DProperties.DISPLAY_SOMA_SOLID_NEURITE_LINE)
 
-    assert(project.simulationParameters.getDt()-0.025<=1e-6)
+    assert(abs(project.simulationParameters.getDt()-0.025)<=1e-9)
 
     assert(not project.neuronSettings.isVarTimeStep())
 
