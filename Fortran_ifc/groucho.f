@@ -2499,7 +2499,7 @@ c between nodes.
      &  outctr_nRT       (num_nRT)
 
 
-       REAL*8 gettime, time1, time2, time, timtot, gettime
+       REAL*8 gettime, time1, time2, time, timtot
        REAL*8 presyntime, delta, dexparg, dexparg1, dexparg2
        INTEGER thisno, display /0/, O
         integer suppyrRS_base/-1/, suppyrFRB_base/999/,
@@ -2516,7 +2516,7 @@ c START EXECUTION PHASE
           call mpi_init (info)
           call mpi_comm_rank(mpi_comm_world, thisno, info)
           call mpi_comm_size(mpi_comm_world, nodes , info)
-          time1 = gettime()
+c         time1 = gettime()
 
          do i = 1, 5000
            do j = 1, num_suppyrRS
@@ -2565,7 +2565,7 @@ c START EXECUTION PHASE
 
 !         timtot =  750.d0
 !          timtot = 1600.d0
-        timtot = 0.5d0        ! projected to take 1 minute
+        timtot = 1600d0        ! projected to take 1 minute
 !          timtot = 10.d0
 
 c Setup tables for calculating exponentials
@@ -12672,7 +12672,7 @@ c with threshold = 0, means axonal spike must be overshooting.
 c END guts of main program
 
 2000    CONTINUE
-        time2 = gettime()
+c        time2 = gettime()
          if (thisno.eq.0) then
         write(6,3434) time2 - time1
          endif
