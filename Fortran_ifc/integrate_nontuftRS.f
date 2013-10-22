@@ -146,7 +146,7 @@ c below are for calculating the partial derivatives
      x dfmcal_dv(numcomp),
      x dfmar_dmar(numcomp),dfmar_dv(numcomp),
      x dfmkahp_dchi(numcomp),
-     x dfmkahp_dmkahp(numcomp), dt2, time
+     x dfmkahp_dmkahp(numcomp), dt2
 
        REAL*8 OPEN(numcomp),gamma(numcomp),gamma_prime(numcomp)
 c gamma is function of chi used in calculating KC conductance

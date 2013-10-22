@@ -102,10 +102,10 @@ c below are for calculating the partial derivatives
      x dfmcat_dmcat(numcomp),dfmcat_dv(numcomp),dfhcat_dhcat(numcomp),
      x dfhcat_dv(numcomp),dfmcal_dmcal(numcomp),dfmcal_dv(numcomp),
      x dfmar_dmar(numcomp),dfmar_dv(numcomp),dfmkahp_dchi(numcomp),
-     x dfmkahp_dmkahp(numcomp), dt2, outrcd(20), time
+     x dfmkahp_dmkahp(numcomp), dt2, outrcd(20)
 
-         REAL*8 dt,mg,vL,vk,vna,var,vca,vgaba_a,Z,Z1,Z2
-         INTEGER O, K1, NEIGH(numcomp,5), NNUM(numcomp)
+         REAL*8 vL,vk,vna,var,vca,vgaba_a,Z,Z1,Z2
+         INTEGER  K1, NEIGH(numcomp,5), NNUM(numcomp)
          INTEGER level(numcomp)
        REAL*8 OPEN(numcomp),gamma(numcomp),gamma_prime(numcomp)
 c gamma is function of chi used in calculating KC conductance
@@ -168,6 +168,8 @@ c ? initialize membrane state variables?
        mkahp = 0.d0
        mcat = 0.d0
        mcal = 0.d0
+	   mar = 0.d0
+
 
       hnaf = alphah_naf(k1)/(alphah_naf(k1)+betah_naf(k1))
       hka = alphah_ka(k1)/(alphah_ka(k1)+betah_ka(k1))

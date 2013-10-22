@@ -127,7 +127,7 @@ c below are for calculating the partial derivatives
      x dfmkahp_dchi(numcomp),
      x dfmkahp_dmkahp(numcomp), dt2, outrcd(20)
 
-         INTEGER K0, K1
+         INTEGER K0
        REAL*8 OPEN(numcomp),gamma(numcomp),gamma_prime(numcomp)
 c gamma is function of chi used in calculating KC conductance
        REAL*8 alpham_ahp(numcomp), alpham_ahp_prime(numcomp)
