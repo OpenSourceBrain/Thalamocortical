@@ -1,0 +1,23 @@
+// for debugging, print connections. assumes debug lines on in the synapses
+proc printcon() {local rank, i, gid, j  localobj cell, syn, s, f
+	s = new String("con.tmp")
+	f = new File()
+	if (pc.id == 0) {
+		f.wopen(s.s)
+		f.close
+	}
+	for rank = 0, pc.nhost-1 {
+		if (rank == pc.id) {
+			f.aopen(s.s)
+			for pcitr(&i, &gid, 1) {
+				cell = pc.gid2cell(gid)
+				for j=0, cell.synlist.count -1 {
+					syn = cell.synlist.object(j)
+f.printf("%d %d %d\n", syn.srcgid, syn.targid, syn.comp)
+				}
+			}
+			f.close
+		}
+		pc.barrier
+	}
+}

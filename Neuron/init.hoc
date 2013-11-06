@@ -1,0 +1,95 @@
+setuptime = startsw()
+{xopen("hoc/defvar.hoc")}
+
+// load balancing implies several runs.
+// 0) load balancing just plain off (but will read mcomplex.dat if exists)
+// 1) create a mcomplex.dat file (only one cpu needed)
+// 2) create single split balance.dat file (any number of cpus can be used)
+//  manually: run the balcomp program to create balance.ncpu files
+// 3) run with single split load balancing on (ncpu corresponding to files from balcomp)
+// add more for whole cell and multisplit load balancing
+// 4) create whole cell load balance file
+// 5) run with whole cell load balance file
+// 6) create multisplit load balance information file
+// 7) run using multisplit load balance
+default_var("load_balance_phase", 0)
+
+default_var("one_tenth_ncell", 1)
+default_var("use_gap", 0)
+default_var("use_ectopic", 1)
+default_var("use_inject", 1)
+default_var("awake", 1)
+default_var("default_delay", 0.5)
+default_var("ranseedbase", 1)
+default_var("use_traubexact", 0) // will be reset to 0 if load balance
+default_var("wholecell_prefix", "cxwhole")
+default_var("multisplit_prefix", "cx")
+default_var("multisplit_nhost", 256)
+default_var("msoptfactor", 0.8)
+default_var("nthread", 1)
+default_var("savestatetest", 0)
+
+default_var("spike_compress", 5)
+default_var("cacheeffic", 1)  // for multisplit it is always 1
+default_var("multisend", 0)
+default_var("selfevents", 0)
+
+default_var("fakerank", -1)
+default_var("fakenhost", -1)
+
+gfac_AMPA = 1
+gfac_NMDA = 1
+gfac_GABAA = 1
+
+use_p2c_net_connections = 0 // not 0, requires p2c emitted  map and compmap files
+
+{localloadfile("manage_setup.hoc")}
+
+steps_per_ms = 40
+dt = .025
+secondorder = 2
+default_var("mytstop", 1000)
+tstop = mytstop
+
+
+//{load_file("balanal.hoc")}
+//if (pc.nhost >= 128) {thread_per_piece()}
+
+if (0) { pc.runworker()  pc.done() quit() }
+
+//{finitialize(-65) cvode_local(1) cvode.atol(1e-4)} // the finitialze avoids /0 in BREAKPOINT
+
+prun()
+
+//if (pc.nhost >= 128) {balanalfile("balanal.dat")}
+
+endtime = startsw()
+
+if (pc.id == 0) { print "tstop = ", tstop }
+if (pc.id == 0) { print "RunTime: ", runtime }
+
+//{localloadfile("prcellstate.hoc")}
+proc pcs() {local spgid
+	spgid = thishost_gid($1)
+	if (spgid >= 0) prcellstate(load_balance_phase, spgid)
+	pc.runworker()  pc.done() quit()
+}
+//pcs(103)
+
+spike2file()
+
+if (pc.nhost > 5) {cvode_active(1)} // to count equations
+{pc.runworker()}
+
+print "Maximum integration interval: ", mindelay()
+getstat()
+prhist()
+print_spike_stat_info()
+
+{pc.done()}
+
+perf2file()
+endtime = startsw() - endtime
+print "endtime ", endtime
+
+if (!serial) { quit() }

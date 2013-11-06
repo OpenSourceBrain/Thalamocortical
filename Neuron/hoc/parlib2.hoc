@@ -1,0 +1,165 @@
+objref netstims, netstim_netcons, netstim_randoms, netstim_syns
+netstims = new List()
+netstim_syns = new List()
+netstim_netcons = new List()
+netstim_randoms = new List()
+netstim_random_seedoffset = ranseedbase + pnm.ncell // increment by number of Cells
+splitbit = 2^28
+
+func targetcomp_exists() {local spgid
+	if (load_balance_phase == 3 || load_balance_phase == 7) {
+		spgid = thishost_gid($1)
+		if (spgid < 0) { return -1 }
+		if (pc.gid_exists(spgid)) {
+			if (section_exists("comp", $2, pc.gid2obj(spgid))) {
+				return spgid
+			}
+		}
+	}else{
+		if (pc.gid_exists($1)) {
+			return $1
+		}
+	}
+	return -1
+}
+
+func target_exists() {local spgid
+	if (load_balance_phase == 3 || load_balance_phase == 7) {
+		spgid = thishost_gid($1)
+		if (spgid < 0) { return -1 }
+		if (pc.gid_exists(spgid)) {
+			return spgid
+		}
+	}else{
+		if (pc.gid_exists($1)) {
+			return $1
+		}
+	}
+	return -1
+}
+
+proc par_netstim_create() {local gid  localobj cell, syn, nc, ns, r
+	if (!use_ectopic) { return }
+	if ((gid = targetcomp_exists($1, $2)) >= 0) {
+		cell = pc.gid2obj(gid)
+		cell.comp[$2] {syn = new PulseSyn(.5)}
+		netstim_syns.append(syn)
+		syn.amp = $3
+		ns = new S_NetStim()
+		ns.pp.interval = $4
+		netstims.append(ns)
+		nc = new NetCon(ns.pp, syn)
+		netstim_netcons.append(nc)
+		nc.delay = 0
+		r = new Random()
+		r.negexp(1)
+//		r.Isaac64(netstim_random_seedoffset + netstim_base_)
+		r.MCellRan4(netstim_random_seedoffset + 1000*netstim_base_)
+		ns.pp.noiseFromRandom(r)
+		netstim_randoms.append(r)
+	}
+	netstim_base_ += 1
+}
+
+begintemplate gGap
+proc init() {
+	execerror("gGap not available. use gGapPar instead.", "")
+}
+endtemplate gGap
+
+objref par_gaps
+par_gaps = new List()
+gap_src_gid = 2
+
+objref rangap
+if (one_tenth_ncell) {
+	rangap = new Random()
+	rangap.MCellRan4(1)
+	rangap.uniform(0,1)
+	ranfrac=.1
+}
+
+proc par_gap_create() { local gid
+	if (!use_gap) { return }
+	if (object_id(rangap)) {
+		if (rangap.repick() > ranfrac) { return }
+	}
+	gap_src_gid += 2
+	if ((gid = targetcomp_exists($1, $2)) >= 0) {
+		par_gap_create1(gid, $2, gap_src_gid + 1, gap_src_gid, $5)
+	}
+	if ((gid = targetcomp_exists($3, $4)) >= 0) {
+		par_gap_create1(gid, $4, gap_src_gid, gap_src_gid + 1, $5)
+	}
+}
+proc par_gap_create1() {localobj c, g
+	c = pc.gid2obj($1)
+	c.comp[$2] {
+		g = new gGapPar(.5)
+		par_gaps.append(g)
+		pc.target_var(g, &g.vgap, $3)
+		pc.source_var(&v(.5), $4)
+		g.g = $5
+	}
+}
+
+icdel0_ = 0
+cdel0_ = 0
+
+func nc_append() {local targid, comp  localobj cell, syn, s
+	targid = target_exists($2)
+	if ($5 <= 0) {
+//		if (targid >= 0) {
+//			print pc.id, $1, $2, targid, $3, $4, $5, " ", pc.gid2obj(targid)
+//		}
+		if (icdel0_ == 0) if ((pc.gid_exists($1)!=0) != (targid != 0)) {
+if (pmesg) print "Notice: Requesting an interprocessor connection delay of 0"
+			icdel0_ = 1
+		}
+		if (cdel0_ == 0) {
+if (pmesg) print "Notice: Requesting a connection delay of 0. Setting those to 1ms."
+			cdel0_ = 1
+		}
+		$5 = 1
+	}
+	if ($5 < mindelay_) if (pc.gid_exists($1) == 0) if (targid >= 0) {
+		mindelay_ = $5
+	}
+
+	if (targid >= 0) {
+		cell = pc.gid2cell(targid)
+		syn = cell.synlist.object($3)
+		s = new String()
+		classname(syn, s.s)
+		if (strcmp(s.s, "GABAA") == 0) {
+			syn.e = vgaba.x[cell.type]
+		}
+		// for debugging :need to switch the debug lines in
+		// ampa.mod, traub_nmda.mod, and gabaa.mod
+	    if (0) {
+		syn.get_loc
+		comp = -1
+		sscanf(secname(), "%*[^0-9]%*d%*[^0-9]%d",&comp)
+		pop_section()
+		syn.srcgid = $1
+		syn.targid = $2
+		syn.synid = $3
+		syn.comp = comp
+	    }
+	}
+	if (targid >= 0) {
+		return pnm.nc_append($1, targid, $3, $4, $5)
+	}else{
+		return -1
+	}
+}
+
+proc set_const_curr_inj() {local i, gid  localobj c, clmp
+	if (!use_inject) { return }
+	for i = 1, $2 if ((gid = targetcomp_exists($1+i, 1)) >= 0) {
+		c = pc.gid2obj(gid)
+		c.comp[1] clmp = new IClamp_const(0.5)
+		clmp.amp = $o3.x[i]
+		iclamp_const_list.append(clmp)
+	}
+}

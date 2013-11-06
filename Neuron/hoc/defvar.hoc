@@ -1,0 +1,53 @@
+{load_file("stdlib.hoc")}
+proc default_var() {localobj s, pc
+	s = new String()
+	if (name_declared($s1) == 0) {
+		if (argtype(2) == 2) {
+			sprint(s.s, "~strdef %s", $s1)
+			execute(s.s)
+			sprint(s.s, "%s = \"%s\"", $s1, $s2)
+		}else{
+			hoc_ac_ = $2
+			sprint(s.s, "%s = hoc_ac_", $s1)
+		}
+		execute(s.s)
+	}
+	pc = new ParallelContext()
+	if (pc.id == 0) {
+		sprint(s.s, "print \"%s  \", %s", $s1, $s1)
+		execute(s.s)
+	}
+}
+
+
+// BlueGene has an occasional system error with respect to
+// incessantly changing directories with load_file
+// following should work as long as nothing loaded twice
+// and only used for files relative to the project
+strdef curdir
+curdir = "./"
+proc localloadfile() {localobj dir, f, sf, oldcd, path
+//	load_file($s1)
+//	return
+
+	oldcd = new String()
+	oldcd.s = curdir
+
+	sf = new StringFunctions()
+	dir = new String()
+	path = new String()
+	f = new String()
+	i = sf.head($s1, "/[^/]*$", dir.s)
+	f.s = $s1
+	if (i == -1) {
+		dir.s = ""
+	}else{
+		sprint(dir.s, "%s/", dir.s)
+		sf.right(f.s, i+1)
+	}
+	sprint(curdir, "%s%s", curdir, dir.s)
+	sprint(path.s, "%s%s", curdir, f.s)
+//printf("loading %s\n", path.s)
+	xopen(path.s)
+	curdir = oldcd.s
+}

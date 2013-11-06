@@ -1,0 +1,23 @@
+func gidexist() {local spgid
+    if (serial) {
+       return 1
+    }else if (load_balance_phase == 3 || load_balance_phase == 7) {
+	spgid = thishost_gid($1)
+	if (spgid < 0) { return 0 }
+	return pc.gid_exists(spgid)
+    }else{
+       return pc.gid_exists($1)
+    }
+}
+
+obfunc cellobj() {local spgid localobj nil
+    if (serial) {
+       return cells.object($1)
+    }else if (load_balance_phase == 3 || load_balance_phase == 7) {
+	spgid = thishost_gid($1)
+	if (spgid < 0) { return nil }
+	return pc.gid2cell(spgid)
+    }else{
+       return pc.gid2cell($1)
+    }
+}

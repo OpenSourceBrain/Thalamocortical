@@ -1,0 +1,349 @@
+setuptime = startsw()
+
+one_tenth_ncell = 1
+use_gap = 0
+use_ectopic = 0
+use_inject = 0
+default_delay=.05
+awake = 1
+use_load_balance = 0
+
+load_balance_phase = 0
+
+{load_file("nrngui.hoc")}
+{load_file("hoc/defvar.hoc")}
+{load_file("fortmap.hoc")}
+{load_file("hoc/parlib.hoc")}
+gidvec = new Vector()
+
+focus = 1
+
+iterator pcitr() {local i1, i2
+	$&1 = 0
+	$&2 = focus
+	iterator_statement
+}
+
+proc gid_distribute() {
+print "gid_distribute ", focus
+	pc.set_gid2node(focus, pc.id)
+}
+
+{load_file("finit.hoc")}
+ranseedbase = 1
+serial = 0 // override serial set in parlib.hoc
+pmesg = 1 && (pc.id == 0)
+small_model = 0 // 0 for full model, set to 1 for 40 cells each type
+use_traubexact = 1
+{load_file("hoc/traubcon.hoc")}
+
+// turn off/on all tables
+proc activate_tables() {
+	usetable_ar = $1
+	usetable_cal = $1
+	usetable_cat_a = $1
+	usetable_cat = $1
+	usetable_k2 = $1
+	usetable_ka = $1
+	usetable_ka_ib = $1
+	usetable_kc = $1
+	usetable_kc_fast = $1
+	usetable_kdr = $1
+	usetable_kdr_fs = $1
+	usetable_km = $1
+//	usetable_naf2 = $1
+//	usetable_naf = $1
+//	usetable_naf_tcr = $1
+	usetable_nap = $1
+//	usetable_napf = $1
+//	usetable_napf_spinstell = $1
+//	usetable_napf_tcr = $1
+}
+
+// til the shift bug in the mod files are fixed (table depends on range variable)
+if (1) {
+usetable_naf2 = 0
+usetable_naf = 0
+usetable_naf_tcr = 0
+usetable_napf = 0
+usetable_napf_spinstell = 0
+usetable_napf_tcr = 0
+}
+
+gfac_AMPA = 1
+gfac_NMDA = 0
+gfac_GABAA = 1
+
+{load_file("cell_templates.hoc")}
+use_p2c_net_connections = 1
+{load_file("net/network_specification_interface.hoc")}
+if (!serial) {load_file("hoc/parlib2.hoc")}
+{load_file("net/serial_or_par_wrapper.hoc")}
+
+objref fihprog_
+
+objref pattern_, tvec_, idvec_
+objref cell, typeflag
+load_file("clear.hoc")
+typeflag = new Vector(14)
+pattern_ = new PatternStim()
+
+proc pattern() {
+	clipboard_retrieve("out.spk")
+	tvec_ = hoc_obj_[1].c
+	idvec_ = hoc_obj_[0].c
+	pattern_.play(tvec_, idvec_)
+}
+
+proc fakeout() {local i, gid, th
+	if ($1 != 0) { th = 1e9 } else { th = 0 }
+	pattern_.fake_output = $1
+	for pcitr (&i, &gid) {
+		pnm.pc.threshold(gid, th)
+	}
+}		
+
+proc reload() {local i, st, dtsav  localobj ncl
+	dtsav=dt
+	st = startsw()
+	clear()
+	focus = $1
+	load_file(1, "net/groucho.hoc")
+	define_shape()
+	want_all_spikes()
+	mkhist(50)
+
+	if (pc.id == 0) fihprog_ = new FInitializeHandler("progress()")
+	if (use_traubexact) {
+		load_file("hoc/traubcon_net.hoc")
+		reset_connection_coefficients()
+	}
+	st = startsw() - st
+	cell = cells.object(0)
+	fakeout(1)
+	typeflag.fill(0) typeflag.x[cell.type] = 1
+	dt=dtsav
+	ncl = pnm.nclist
+	for i=0, ncl.count-1 if (ncl.object(i).delay == .05) ncl.object(i).delay=0
+	if (pc.id == 0) {print "reload time: ", st }
+}
+reload(focus)
+
+proc progress() {
+//	print "t=",t
+	cvode.event(t+1, "progress()")
+}
+
+
+cvode_active(1)
+
+setuptime = startsw() - setuptime
+if (pc.id == 0) {print "SetupTime: ", setuptime}
+
+steps_per_ms = 50
+dt = .01
+secondorder = 2
+if (serial) {
+	tstop = 10
+}else{
+	tstop = 10
+}
+
+load_file("gidcell.ses")
+
+tf = 100
+objref gm, synmat[3]
+proc rdat() {local numcomp  localobj s, f
+	s = new String()
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/data/GROUCHO110.%s", s.s)
+	print s.s
+//	gm = new Matrix(999,8)
+	gm = new Matrix(10*tf-1,2)
+	f = new File()
+	f.ropen(s.s)
+	gm.scanf(f, gm.nrow, gm.ncol)
+	gm.getcol(1).line(Graph[0], gm.getcol(0), 2, 1)
+    if (0) {
+	gm.getcol(5).line(Graph[1], gm.getcol(0), 2, 1)
+	gm.getcol(6).line(Graph[1], gm.getcol(0), 3, 1)
+	gm.getcol(7).line(Graph[1], gm.getcol(0), 4, 1)
+    }
+    if (1) {
+	f = new File()
+	numcomp=0 forsec cell.all numcomp += 1
+	synmat[2] = new Matrix(10*tf-1, numcomp+1)
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/data/gaba_%s.dat", s.s)
+	f.ropen(s.s)
+	synmat[2].scanf(f, synmat[2].nrow, synmat[2].ncol)
+
+	synmat[0] = new Matrix(10*tf-1, numcomp+1)
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/data/ampa_%s.dat", s.s)
+	f.ropen(s.s)
+	synmat[0].scanf(f, synmat[0].nrow, synmat[0].ncol)
+
+	synmat[1] = new Matrix(10*tf-1, numcomp+1)
+	classname(cell, s.s)
+	sprint(s.s, "../p2c/data/nmda_%s.dat", s.s)
+	f.ropen(s.s)
+	synmat[1].scanf(f, synmat[0].nrow, synmat[0].ncol)
+    }
+}
+rdat()
+pattern()
+
+proc another() {
+	reload($1)
+	Graph[0].erase
+	rdat()
+}
+
+//clipboard_retrieve("../p2c/data/ampa.dat")
+//hoc_obj_.line(Graph[1], hoc_obj_[1], 2, 1) 
+//clipboard_retrieve("../p2c/data/nmda.dat")
+//hoc_obj_.line(Graph[1], hoc_obj_[1], 2, 1) 
+
+objref gg
+gg = Graph[1]
+which = 1
+func am() {local g
+	g = 0
+	forsec cell.all if (ismembrane("ampa1_ion")) {
+		g += iampa1*area(0.5)/100
+	}
+	return g
+}
+func nm() {local g
+	g = 0
+	forsec cell.all if (ismembrane("nmda1_ion")) {
+		g += inmda1*area(0.5)/100
+	}
+	return g
+}
+func ga() {local g
+	g = 0
+	forsec cell.all if (ismembrane("gaba1_ion")) {
+		g += igaba1*area(0.5)/100
+	}
+	return g
+}
+
+func f() {local g
+//   cell.comp[which] if (ismembrane("ampa1_ion")) {
+//    g = iampa1*area(0.5)/100
+   cell.comp[which] if (ismembrane("gaba1_ion")) {
+    g = igaba1*area(0.5)/100
+   }
+   return g
+}
+
+proc pw() {
+   gg.erase()
+   which = $1
+   gm = $o2
+   gm.getcol(which).line(gg, gm.getcol(0), 2, 1)
+}
+
+/* some useful idioms
+objref a
+a = cell.synlist
+for i=0, a.count-1 if (a.o(i).comp == 3) print i, a.o(i), a.o(i).srcgid
+
+objref b
+b = pnm.nclist
+for i=0,b.count-1 if (b.o(i).syn.comp == 3) print i, b.o(i), b.o(i).syn
+
+for i=0,b.count-1 b.o(i).threshold = 1000
+*/
+
+proc mk_another_panel() {local i  localobj s1, s2, base
+	s1 = new String()
+	s2 = new String()
+	base = new Vector(14)
+	base.x[0] = 1
+	for i=0, 12 {
+		sprint(s1.s, "hoc_ac_ = num_%s", typename[i].s)
+		execute(s1.s)
+		base.x[i+1] = base.x[i] + hoc_ac_
+	}
+	xpanel("Make a different cell")
+	for i=0, 13 {
+		sprint(s2.s, "another(%d)", base.x[i])
+		sprint(s1.s, "%s %d", typename[i].s, base.x[i])
+		xcheckbox(s1.s, &typeflag.x[i], s2.s)
+	}
+	xpanel(0)
+}
+mk_another_panel()
+
+seewhich = 0
+seetype = 0 // ampa,nmda,gaba
+objref syntrajeclist[3], tsyn
+proc synsim() { local i, j  localobj vv, gn, gf, r, rr
+	for i=0,2 { syntrajeclist[i] = new List() }
+	gn = syntrajeclist[seetype]
+	gf = synmat[seetype]
+	i = 1
+	tsyn = new Vector()
+	cell.comp[1] {tsyn.record(&t)}
+	for i=1, gf.ncol-1 cell.comp[i] {
+		insert ampa1_ion
+		insert gaba1_ion
+		insert nmda1_ion
+		vv = new Vector()
+		vv.record(&iampa1(.5))
+		syntrajeclist[0].append(vv)
+		vv = new Vector()
+		vv.record(&inmda1(.5))
+		syntrajeclist[1].append(vv)
+		vv = new Vector()
+		vv.record(&igaba1(.5))
+		syntrajeclist[2].append(vv)
+	}
+	stdinit()
+	continuerun(100)
+	rr = new Vector()
+	for i=1, gf.ncol-1 cell.comp[i] for j=0, 2{
+		syntrajeclist[j].object(i-1).mul(area(0.5)/100)
+	}
+	for i=0, gn.count-1 {
+		r = gn.object(i).c.interpolate(gf.getcol(0), tsyn)
+		rr.append(r.sub(gf.getcol(i+1)).sumsq)
+	}
+	i = rr.max_ind
+	print i, rr.x[i]
+	see(i+1, seetype)
+}
+
+proc see() {localobj gn, gf, s
+   s = new String()
+   gg.erase_all()
+   seewhich = $1
+   seetype = $2
+   if (seetype > 2) {seetype = 2}
+   if (seetype < 0) {seetype = 0}
+   gf = synmat[seetype]
+   gn = syntrajeclist[seetype]
+   if (seewhich > gn.count) {seewhich = gn.count-1}
+   if (seewhich < 1) { seewhich = 1 }
+   if (seetype == 0) { s.s = "AMPA" }
+   if (seetype == 1) { s.s = "NMDA" }
+   if (seetype == 2) { s.s = "GABAA" }
+   cell.comp[seewhich] { sprint(s.s,"%s at %s",s.s, secname()) }
+   gg.label(.5,.8,s.s,2,1,0,0,1)
+   gf.getcol(seewhich).line(gg, gf.getcol(0), 2, 1)
+   gn.object(seewhich-1).line(gg, tsyn) 
+}
+
+
+proc mksee() {
+	xpanel("compare synapse conductance")
+	xvalue("AMPA=0 NMDA=1 GABAA=2", "seetype", 1, "see(seewhich, seetype)")
+	xvalue("which", "seewhich", 1, "see(seewhich, seetype)")
+	xpanel()
+}
+
+load_file("vclampg.hoc")
+

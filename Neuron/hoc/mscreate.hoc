@@ -1,0 +1,24 @@
+func multisplit_create() {local ic, gid, spgid \
+  localobj nc, cb, cell, srout
+	gid = $1
+	ic = binfo.gids.indwhere("==", gid)
+	if (ic == -1) { return 0 }
+	cb = binfo.bilist.object(binfo.cbindex.x[ic])
+	execute($s2)
+	cell = cells.object(cells.count - 1)
+	if (cb.subtrees.count == 0) { // whole cell
+		gidvec.append(gid)
+		pc.set_gid2node(gid, pc.id)
+		return 1
+	}
+
+	// inefficient, would like to defer but...
+	cell.connect2target(nil, nc)
+
+	// multisplit, get rid of all except proper piece
+	spgid = cb.multisplit(nc, binfo.msgid, pc, pnm.myid)
+	if (spgid >= 0) {
+		gidvec.append(spgid)
+	}
+	return 1
+}
