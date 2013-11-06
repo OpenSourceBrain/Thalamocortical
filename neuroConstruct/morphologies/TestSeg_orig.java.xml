@@ -61,36 +61,6 @@
   <void property="chanMechsVsGroups"> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>3.2E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>kc_fast_mod</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>3.0E-9</float> 
-     </void> 
-     <void property="name"> 
-      <string>pas</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="extraParameters"> 
       <void method="add"> 
        <object class="ucl.physiol.neuroconstruct.cell.MechParameter"> 
@@ -126,6 +96,21 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
+      <float>2.5E-9</float> 
+     </void> 
+     <void property="name"> 
+      <string>AR_mod</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
       <float>5.0E-9</float> 
      </void> 
      <void property="name"> 
@@ -141,10 +126,25 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>2.5E-9</float> 
+      <float>3.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>AR_mod</string> 
+      <string>pas</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>3.2E-8</float> 
+     </void> 
+     <void property="name"> 
+      <string>kc_fast_mod</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 

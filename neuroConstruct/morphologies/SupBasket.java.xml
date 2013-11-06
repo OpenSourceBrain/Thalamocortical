@@ -5675,51 +5675,6 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>4.0E-6</float> 
-     </void> 
-     <void property="name"> 
-      <string>naf2</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>ModelViewParmSubset_2</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>1.0E-9</float> 
-     </void> 
-     <void property="name"> 
-      <string>cal</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>ModelViewParmSubset_4</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>1.0E-8</float> 
-     </void> 
-     <void property="name"> 
-      <string>ka</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
       <float>-1.0</float> 
      </void> 
      <void property="extraParameters"> 
@@ -5729,7 +5684,7 @@
          <string>beta</string> 
         </void> 
         <void property="value"> 
-         <float>0.05</float> 
+         <float>0.02</float> 
         </void> 
        </object> 
       </void> 
@@ -5739,7 +5694,7 @@
          <string>phi</string> 
         </void> 
         <void property="value"> 
-         <float>520000.0</float> 
+         <float>260000.0</float> 
         </void> 
        </object> 
       </void> 
@@ -5750,7 +5705,31 @@
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>ModelViewParmSubset_3</string> 
+      <string>OneSecGrp_SectionRef_1</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="name"> 
+      <string>k2</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>all</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="name"> 
+      <string>km</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_1</string> 
      </void> 
     </object> 
    </void> 
@@ -5768,16 +5747,13 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>2.0E-9</float> 
-     </void> 
      <void property="name"> 
-      <string>cal</string> 
+      <string>kahp_slower</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>ModelViewParmSubset_5</string> 
+      <string>ModelViewParmSubset_1</string> 
      </void> 
     </object> 
    </void> 
@@ -5851,10 +5827,134 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
+      <float>-1.0</float> 
+     </void> 
+     <void property="extraParameters"> 
+      <void method="add"> 
+       <object class="ucl.physiol.neuroconstruct.cell.MechParameter"> 
+        <void property="name"> 
+         <string>beta</string> 
+        </void> 
+        <void property="value"> 
+         <float>0.05</float> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="ucl.physiol.neuroconstruct.cell.MechParameter"> 
+        <void property="name"> 
+         <string>phi</string> 
+        </void> 
+        <void property="value"> 
+         <float>520000.0</float> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="name"> 
+      <string>cad</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_3</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>1.0E-7</float> 
+     </void> 
+     <void property="name"> 
+      <string>kdr_fs</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_5</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="name"> 
+      <string>cat</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_1</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
       <float>4.0E-10</float> 
      </void> 
      <void property="name"> 
       <string>pas</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_1</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>4.0E-6</float> 
+     </void> 
+     <void property="name"> 
+      <string>kdr_fs</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_2</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>1.0E-7</float> 
+     </void> 
+     <void property="name"> 
+      <string>naf2</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_5</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>1.0E-9</float> 
+     </void> 
+     <void property="name"> 
+      <string>cal</string> 
+     </void> 
+    </object> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>ModelViewParmSubset_4</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>2.5E-7</float> 
+     </void> 
+     <void property="name"> 
+      <string>kc_fast</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -5887,36 +5987,6 @@
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>2.5E-7</float> 
-     </void> 
-     <void property="name"> 
-      <string>kc_fast</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>ModelViewParmSubset_1</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>1.0E-7</float> 
-     </void> 
-     <void property="name"> 
-      <string>naf2</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>ModelViewParmSubset_5</string> 
      </void> 
     </object> 
    </void> 
@@ -5956,50 +6026,11 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="name"> 
-      <string>k2</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>all</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="name"> 
-      <string>km</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>ModelViewParmSubset_1</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.0E-7</float> 
+      <float>1.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>kdr_fs</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>ModelViewParmSubset_5</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="density"> 
-      <float>4.0E-6</float> 
-     </void> 
-     <void property="name"> 
-      <string>kdr_fs</string> 
+      <string>pas</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -6011,27 +6042,15 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>6.0E-7</float> 
+      <float>1.0E-8</float> 
      </void> 
      <void property="name"> 
-      <string>naf2</string> 
+      <string>ka</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>ModelViewParmSubset_4</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
-     <void property="name"> 
-      <string>cat</string> 
-     </void> 
-    </object> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>ModelViewParmSubset_1</string> 
+      <string>all</string> 
      </void> 
     </object> 
    </void> 
@@ -6052,23 +6071,26 @@
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
+     <void property="density"> 
+      <float>6.0E-7</float> 
+     </void> 
      <void property="name"> 
-      <string>kahp_slower</string> 
+      <string>naf2</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>ModelViewParmSubset_1</string> 
+      <string>ModelViewParmSubset_4</string> 
      </void> 
     </object> 
    </void> 
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>1.0E-8</float> 
+      <float>4.0E-6</float> 
      </void> 
      <void property="name"> 
-      <string>pas</string> 
+      <string>naf2</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
@@ -6080,37 +6102,15 @@
    <void method="put"> 
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism"> 
      <void property="density"> 
-      <float>-1.0</float> 
-     </void> 
-     <void property="extraParameters"> 
-      <void method="add"> 
-       <object class="ucl.physiol.neuroconstruct.cell.MechParameter"> 
-        <void property="name"> 
-         <string>beta</string> 
-        </void> 
-        <void property="value"> 
-         <float>0.02</float> 
-        </void> 
-       </object> 
-      </void> 
-      <void method="add"> 
-       <object class="ucl.physiol.neuroconstruct.cell.MechParameter"> 
-        <void property="name"> 
-         <string>phi</string> 
-        </void> 
-        <void property="value"> 
-         <float>260000.0</float> 
-        </void> 
-       </object> 
-      </void> 
+      <float>2.0E-9</float> 
      </void> 
      <void property="name"> 
-      <string>cad</string> 
+      <string>cal</string> 
      </void> 
     </object> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>OneSecGrp_SectionRef_1</string> 
+      <string>ModelViewParmSubset_5</string> 
      </void> 
     </object> 
    </void> 
@@ -6348,7 +6348,7 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>Syn_AMPA_SupPyr_SupFS</string> 
+    <string>Syn_AMPA_L4SS_IN</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>mid_tip_dends</string> 
@@ -6356,7 +6356,7 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>Syn_AMPA_L4SS_IN</string> 
+    <string>Syn_AMPA_SupPyr_SupFS</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>mid_tip_dends</string> 
@@ -6375,17 +6375,6 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>Syn_GABAA_SupBask_L4SS</string> 
-    <object class="java.util.Vector"> 
-     <void method="add"> 
-      <string>axon_group</string> 
-     </void> 
-     <void method="add"> 
-      <string>distal_axon</string> 
-     </void> 
-    </object> 
-   </void> 
-   <void method="put"> 
     <string>Inh_Bask_FS</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
@@ -6397,10 +6386,13 @@
     </object> 
    </void> 
    <void method="put"> 
-    <string>Syn_AMPA_TCR_SupFS</string> 
+    <string>Syn_GABAA_SupBask_L4SS</string> 
     <object class="java.util.Vector"> 
      <void method="add"> 
-      <string>prox_mid_dends</string> 
+      <string>axon_group</string> 
+     </void> 
+     <void method="add"> 
+      <string>distal_axon</string> 
      </void> 
     </object> 
    </void> 
@@ -6409,6 +6401,14 @@
     <object class="java.util.Vector"> 
      <void method="add"> 
       <string>mid_tip_dends</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="put"> 
+    <string>Syn_AMPA_TCR_SupFS</string> 
+    <object class="java.util.Vector"> 
+     <void method="add"> 
+      <string>prox_mid_dends</string> 
      </void> 
     </object> 
    </void> 

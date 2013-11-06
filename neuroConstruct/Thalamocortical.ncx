@@ -4064,6 +4064,10 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string> 
    </void> 
    <void method="put"> 
+    <float>-1.0</float> 
+    <string></string> 
+   </void> 
+   <void method="put"> 
     <float>1.0</float> 
     <string>
 
@@ -4081,10 +4085,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 
 </string> 
-   </void> 
-   <void method="put"> 
-    <float>-1.0</float> 
-    <string></string> 
    </void> 
    <void method="put"> 
     <float>2.0</float> 
@@ -4254,11 +4254,11 @@ end
 </string> 
    </void> 
    <void method="put"> 
-    <int>-1</int> 
+    <int>1</int> 
     <string></string> 
    </void> 
    <void method="put"> 
-    <int>1</int> 
+    <int>-1</int> 
     <string></string> 
    </void> 
   </void> 
@@ -4281,7 +4281,7 @@ end
    <float>1.0E-5</float> 
   </void> 
   <void property="reference"> 
-   <string>C3D_120</string> 
+   <string>C3D_128</string> 
   </void> 
   <void property="saveCopyGenSimFiles"> 
    <boolean>true</boolean> 
@@ -6664,6 +6664,39 @@ end
      </void> 
     </object> 
    </void> 
+   <void method="add"> 
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings"> 
+     <void property="cellGroup"> 
+      <string>CG3D_TCR</string> 
+     </void> 
+     <void property="rate"> 
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator"> 
+       <void property="fixedNum"> 
+        <float>0.05</float> 
+       </void> 
+       <void property="numberType"> 
+        <int>11</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="reference"> 
+      <string>Input_20</string> 
+     </void> 
+     <void property="segChooser"> 
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments"> 
+       <void property="group"> 
+        <string>dendrite_group</string> 
+       </void> 
+       <void property="numberOfSegments"> 
+        <int>100</int> 
+       </void> 
+      </object> 
+     </void> 
+     <void property="synapseType"> 
+      <string>Syn_AMPA_L6NT_TCR</string> 
+     </void> 
+    </object> 
+   </void> 
   </void> 
  </object> 
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo"> 
@@ -8320,21 +8353,21 @@ end
          </void> 
          <void method="put"> 
           <object id="MpiSettings$KnownSimulators1" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
-           <string>MOOSE</string> 
-          </object> 
-          <string>/share/apps/neuro/moose/moose</string> 
-         </void> 
-         <void method="put"> 
-          <object id="MpiSettings$KnownSimulators2" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
            <string>PY_NEURON</string> 
           </object> 
           <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string> 
          </void> 
          <void method="put"> 
-          <object id="MpiSettings$KnownSimulators3" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
+          <object id="MpiSettings$KnownSimulators2" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
            <string>NEURON</string> 
           </object> 
           <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string> 
+         </void> 
+         <void method="put"> 
+          <object id="MpiSettings$KnownSimulators3" class="ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators" method="valueOf"> 
+           <string>MOOSE</string> 
+          </object> 
+          <string>/share/apps/neuro/moose/moose</string> 
          </void> 
         </void> 
         <void property="hostname"> 
@@ -9004,43 +9037,10 @@ end
     <object class="ucl.physiol.neuroconstruct.project.SimConfig"> 
      <void property="cellGroups"> 
       <void method="add"> 
-       <string>CG3D_DeepAxAx</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_DeepBask</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_DeepLTS</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_L23PyrFRB</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_L23PyrRS</string> 
-      </void> 
-      <void method="add"> 
        <string>CG3D_L4SpinStell</string> 
       </void> 
       <void method="add"> 
-       <string>CG3D_L5TuftIB</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_L5TuftRS</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_L6NonTuftRS</string> 
-      </void> 
-      <void method="add"> 
        <string>CG3D_nRT</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_SupAxAx</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_SupBask</string> 
-      </void> 
-      <void method="add"> 
-       <string>CG3D_SupLTS</string> 
       </void> 
       <void method="add"> 
        <string>CG3D_TCR</string> 
@@ -9092,6 +9092,9 @@ end
       <void method="add"> 
        <string>EctopicStimTCR</string> 
       </void> 
+      <void method="add"> 
+       <string>Input_20</string> 
+      </void> 
      </void> 
      <void id="MpiConfiguration1" property="mpiConf"> 
       <void property="hostList"> 
@@ -9118,15 +9121,23 @@ end
        <string>OPENMPI v2.*</string> 
       </void> 
       <void property="name"> 
-       <string>MatLem (2 x 8p)</string> 
+       <string>NSG Portal [trestles] (2 x 8p)</string> 
       </void> 
       <void property="queueInfo"> 
        <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo"> 
         <void property="account"> 
-         <string></string> 
+         <string>TG-IBN140002</string> 
+        </void> 
+        <void property="compileNmodlOnLogin"> 
+         <boolean>true</boolean> 
+        </void> 
+        <void property="launcherScript"> 
+         <string>time</string> 
         </void> 
         <void property="queueType"> 
-         <object idref="QueueInfo$QueueType0"/> 
+         <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo$QueueType" method="valueOf"> 
+          <string>PBS</string> 
+         </object> 
         </void> 
         <void property="wallTimeMins"> 
          <int>6</int> 
@@ -9137,30 +9148,18 @@ end
        <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin"> 
         <void property="executables"> 
          <void method="put"> 
-          <object idref="MpiSettings$KnownSimulators0"/> 
-          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string> 
-         </void> 
-         <void method="put"> 
-          <object idref="MpiSettings$KnownSimulators1"/> 
-          <string>/share/apps/neuro/moose/moose</string> 
-         </void> 
-         <void method="put"> 
           <object idref="MpiSettings$KnownSimulators2"/> 
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string> 
-         </void> 
-         <void method="put"> 
-          <object idref="MpiSettings$KnownSimulators3"/> 
-          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string> 
+          <string>/projects/ps-nsg/home/nsguser/applications/neuron7.3/nrn-7.3/x86_64/bin/nrniv</string> 
          </void> 
         </void> 
         <void property="hostname"> 
-         <string>128.16.14.177</string> 
+         <string>trestles-login.sdsc.edu</string> 
         </void> 
         <void property="userName"> 
-         <string>ucgbpgl</string> 
+         <string>pgleeson</string> 
         </void> 
         <void property="workDir"> 
-         <string>/home/ucgbpgl/nCsims</string> 
+         <string>/home/pgleeson</string> 
         </void> 
        </object> 
       </void> 
@@ -9653,7 +9652,7 @@ end
       </void> 
      </void> 
      <void property="simDuration"> 
-      <float>500.0</float> 
+      <float>1000.0</float> 
      </void> 
     </object> 
    </void> 
@@ -9723,6 +9722,74 @@ end
       <void method="add"> 
        <string>TestEctopic</string> 
       </void> 
+     </void> 
+     <void id="MpiConfiguration2" property="mpiConf"> 
+      <void property="hostList"> 
+       <void index="0"> 
+        <void property="hostname"> 
+         <string>node0</string> 
+        </void> 
+        <void property="numProcessors"> 
+         <int>8</int> 
+        </void> 
+       </void> 
+      </void> 
+      <void property="mpiVersion"> 
+       <string>OPENMPI v2.*</string> 
+      </void> 
+      <void property="name"> 
+       <string>MatLem (1 x 8p)</string> 
+      </void> 
+      <void property="queueInfo"> 
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo"> 
+        <void property="account"> 
+         <string></string> 
+        </void> 
+        <void property="queueType"> 
+         <object idref="QueueInfo$QueueType0"/> 
+        </void> 
+        <void property="wallTimeMins"> 
+         <int>6</int> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="remoteLogin"> 
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin"> 
+        <void property="executables"> 
+         <void method="put"> 
+          <object idref="MpiSettings$KnownSimulators0"/> 
+          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string> 
+         </void> 
+         <void method="put"> 
+          <object idref="MpiSettings$KnownSimulators1"/> 
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string> 
+         </void> 
+         <void method="put"> 
+          <object idref="MpiSettings$KnownSimulators2"/> 
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string> 
+         </void> 
+         <void method="put"> 
+          <object idref="MpiSettings$KnownSimulators3"/> 
+          <string>/share/apps/neuro/moose/moose</string> 
+         </void> 
+        </void> 
+        <void property="hostname"> 
+         <string>128.16.14.177</string> 
+        </void> 
+        <void property="userName"> 
+         <string>ucgbpgl</string> 
+        </void> 
+        <void property="workDir"> 
+         <string>/home/ucgbpgl/nCsims</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="useScp"> 
+       <boolean>true</boolean> 
+      </void> 
+     </void> 
+     <void property="mpiConf"> 
+      <object idref="MpiConfiguration2"/> 
      </void> 
      <void property="name"> 
       <string>TempSC</string> 
