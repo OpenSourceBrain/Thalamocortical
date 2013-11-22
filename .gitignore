@@ -1,3 +1,4 @@
+Fortran*/*.o
 *.*~
 *.svg
 umac
