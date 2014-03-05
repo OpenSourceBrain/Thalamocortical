@@ -2,6 +2,7 @@
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <fixedFactorConcentrationModel id="cad" restingConc="0mol_per_cm3" decayConstant="ms" ion="ca" phi="???"/>
+    <!--  NOT YET TESTED!! -->
+    <fixedFactorConcentrationModel id="cad" restingConc="0mol_per_cm3" decayConstant="ms" ion="ca" rho="2600000mol_per_m_per_A_per_s"/>
 
 </neuroml>
