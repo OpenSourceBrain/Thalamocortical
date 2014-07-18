@@ -1,0 +1,19 @@
+# Framework for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+# Still in development, subject to change without notice!!
+
+language: python
+python: 2.7
+
+env:
+    - OMV_ENGINE=jNeuroML_validate
+    - OMV_ENGINE=jNeuroML_validatev1
+
+install: 
+    - pip install git+https://github.com/OpenSourceBrain/osb-model-validation@test_new_backends
+
+script:
+    - omv all
+    
+    
+    
+
