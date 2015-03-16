@@ -21,3 +21,6 @@ neuroConstruct/pythonScripts/testFiles/nrntraub_rev/batchdata
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/dat
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/_nrn_tests
 .DS_Store
+
+neuroConstruct/generatedNeuroML2/LEMS_Test*
+neuroConstruct/generatedNeuroML2/html
