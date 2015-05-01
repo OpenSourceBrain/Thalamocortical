@@ -2184,9 +2184,6 @@
 
             <intracellularProperties>
 
-                <species segmentGroup="ModelViewParmSubset_3" id="ca" ion="ca" concentrationModel="cad__beta0_05__phi520000"/>
-
-                <species segmentGroup="OneSecGrp_SectionRef_1" id="ca" ion="ca" concentrationModel="cad__beta0_02__phi260000"/>
 
                 <resistivity segmentGroup="ModelViewParmSubset_2" value="0.1 kohm_cm"/>
 
