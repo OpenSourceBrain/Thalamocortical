@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="iso-8859-1"?><neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="ka">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="km">
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <ionChannel id="ka" conductance="10pS" type="ionChannelHH" species="k">
+    <ionChannel id="km" conductance="10pS" type="ionChannelHH" species="k">
 
-        <notes>ChannelML file based on Traub et al. 2003</notes>
+        <notes>Potasium M type current (muscarinic receptor-suppressed). Based on NEURON port of model from Traub et al 2003</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                <rdf:Description rdf:about="ka">
+                <rdf:Description rdf:about="km">
                     
                     <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
                         <rdf:Bag>
@@ -41,41 +42,11 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
             </rdf:RDF>
         </annotation>
 
-        <gate id="m" type="gateHHtauInf" instances="4">
-            <timeCourse type="ka_m_tau_tau"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="8.5mV" midpoint="-60mV"/>
-        </gate>
-
-        <gate id="h" type="gateHHtauInf" instances="1">
-            <timeCourse type="ka_h_tau_tau"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="-6mV" midpoint="-78mV"/>
+        <gate id="m" type="gateHHrates" instances="1">
+            <forwardRate type="HHSigmoidRate" rate="0.02per_ms" scale="5mV" midpoint="-20mV"/>
+            <reverseRate type="HHExpRate" rate="0.01per_ms" scale="-18mV" midpoint="-43mV"/>
         </gate>
                             
     </ionChannel>
-
-    <ComponentType name="ka_m_tau_tau" extends="baseVoltageDepTime">
-        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
-        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-
-        <Dynamics>
-            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <DerivedVariable name="t" exposure="t" dimension="time" value="(0.185 + 0.5 / ((exp (( V + 35.8 )/19.7)) + (exp ((-V - 79.7)/12.7)))) * TIME_SCALE"/>
-        </Dynamics>
-
-    </ComponentType>
-
-    <ComponentType name="ka_h_tau_tau" extends="baseVoltageDepTime">
-        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
-        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-
-        <Dynamics>
-            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <ConditionalDerivedVariable name="t" exposure="t" dimension="time">
-                <Case condition="V  .lt. ( -63.0 )" value="( 0.5 / ((exp (( V + 46 )/5)) + (exp (( -V - 238 )/37.5))) ) * TIME_SCALE"/>
-                <Case value="( 9.5) * TIME_SCALE"/>
-            </ConditionalDerivedVariable>
-        </Dynamics>
-
-    </ComponentType>
 
 </neuroml>

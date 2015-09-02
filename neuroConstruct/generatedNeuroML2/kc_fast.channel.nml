@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="iso-8859-1"?><neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="k2">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="kc_fast">
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <ionChannel id="k2" conductance="10pS" type="ionChannelHH" species="k">
+    <ionChannel id="kc_fast" conductance="10pS" type="ionChannelHH" species="k">
 
-        <notes>ChannelML file based on Traub et al. 2003</notes>
+        <notes>Fast voltage and [Ca2+] dependent K conductance (BK channel). Based on NEURON port of FRB L2/3 model from Traub et al 2003. Same channel used in Traub et al 2005</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                <rdf:Description rdf:about="k2">
+                <rdf:Description rdf:about="kc_fast">
                     
                     <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
                         <rdf:Bag>
@@ -41,36 +42,43 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
             </rdf:RDF>
         </annotation>
 
-        <gate id="m" type="gateHHtauInf" instances="1">
-            <timeCourse type="k2_m_tau_tau"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="17mV" midpoint="-10mV"/>
-        </gate>
-
-        <gate id="h" type="gateHHtauInf" instances="1">
-            <timeCourse type="k2_h_tau_tau"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="-10.6mV" midpoint="-58mV"/>
+        <gate id="m" type="gateHHrates" instances="1">
+            <forwardRate type="kc_fast_m_alpha_rate"/>
+            <reverseRate type="kc_fast_m_beta_rate"/>
         </gate>
                             
     </ionChannel>
 
-    <ComponentType name="k2_m_tau_tau" extends="baseVoltageDepTime">
+    <ComponentType name="kc_fast_m_alpha_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+        <!--Note: this parameter (speedup_factor) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="speedup_factor" dimension="none" value="2"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <DerivedVariable name="t" exposure="t" dimension="time" value="(4.95 + 0.5 / ( (exp ( (V - 81) / 25.6)) + (exp ( (- V - 132) / 18 )))) * TIME_SCALE"/>
+            <ConditionalDerivedVariable name="r" exposure="r" dimension="per_time">
+                <Case condition="V  .lt. ( -10 )" value="( speedup_factor * (2 / 37.95) * ( exp ( ((V + 50 ) / 11) - (( V + 53.5) / 27) ) ) ) / TIME_SCALE"/>
+                <Case value="( speedup_factor * 2 * (exp ( ( (-1 * V) - 53.5 ) / 27 ))) / TIME_SCALE"/>
+            </ConditionalDerivedVariable>
         </Dynamics>
 
     </ComponentType>
 
-    <ComponentType name="k2_h_tau_tau" extends="baseVoltageDepTime">
+    <ComponentType name="kc_fast_m_beta_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+        <!--Note: this parameter (speedup_factor) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="speedup_factor" dimension="none" value="2"/>
+        <Requirement name="alpha" dimension="per_time"/>
+        <Requirement name="beta" dimension="per_time"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <DerivedVariable name="t" exposure="t" dimension="time" value="(60 + 0.5 / ((exp (( V - 1.33 )/200)) + (exp ((- V - 130)/ 7.1)))) * TIME_SCALE"/>
+            <DerivedVariable name="ALPHA" dimension="none" value="alpha * TIME_SCALE"/>
+            <DerivedVariable name="BETA" dimension="none" value="beta * TIME_SCALE"/>
+            <ConditionalDerivedVariable name="r" exposure="r" dimension="per_time">
+                <Case condition="V  .lt. ( -10 )" value="( speedup_factor * 2 * (exp ( ( (-1 * V) - 53.5 ) / 27 )) - ALPHA ) / TIME_SCALE"/>
+                <Case value="( speedup_factor * 0.0) / TIME_SCALE"/>
+            </ConditionalDerivedVariable>
         </Dynamics>
 
     </ComponentType>

@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta1.xsd" id="DeepBasket">
 
-    <include href="ar.nml"/>
-
-    <include href="cad.nml"/>
-
-    <include href="cal.nml"/>
-
-    <include href="cat.nml"/>
-
-    <include href="k2.nml"/>
-
-    <include href="ka.nml"/>
-
-    <include href="kahp_slower.nml"/>
-
-    <include href="kc_fast.nml"/>
-
-    <include href="kdr_fs.nml"/>
-
-    <include href="km.nml"/>
-
-    <include href="naf2.nml"/>
-
-    <include href="nap.nml"/>
-
-    <include href="pas.nml"/>
+    
 
     <cell id="DeepBasket">
 

@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="iso-8859-1"?><neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="cat">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="kc">
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <ionChannel id="cat" conductance="10pS" type="ionChannelHH" species="cat">
+    <ionChannel id="kc" conductance="10pS" type="ionChannelHH" species="k">
 
-        <notes>ChannelML file based on Traub et al. 2003</notes>
+        <notes>Fast voltage and [Ca2+] dependent K conductance (BK channel). Based on NEURON port of FRB L2/3 model from Traub et al 2003. Same channel used in Traub et al 2005</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                <rdf:Description rdf:about="cat">
+                <rdf:Description rdf:about="kc">
                     
                     <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
                         <rdf:Bag>
@@ -32,8 +33,8 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
                 
                     <bqbiol:isVersionOf xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
                         <rdf:Bag>
-                            <rdf:li>Calcium channels</rdf:li>
-                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table1"/>
+                            <rdf:li>K channels</rdf:li>
+                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3"/>
                         </rdf:Bag>
                     </bqbiol:isVersionOf>
 
@@ -41,38 +42,40 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
             </rdf:RDF>
         </annotation>
 
-        <gate id="m" type="gateHHtauInf" instances="2">
-            <timeCourse type="cat_m_tau_tau"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="6.2mV" midpoint="-56.0mV"/>
-        </gate>
-
-        <gate id="h" type="gateHHtauInf" instances="1">
-            <timeCourse type="cat_h_tau_tau"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="-4mV" midpoint="-80mV"/>
+        <gate id="m" type="gateHHrates" instances="1">
+            <forwardRate type="kc_m_alpha_rate"/>
+            <reverseRate type="kc_m_beta_rate"/>
         </gate>
                             
     </ionChannel>
 
-    <ComponentType name="cat_m_tau_tau" extends="baseVoltageDepTime">
+    <ComponentType name="kc_m_alpha_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <DerivedVariable name="t" exposure="t" dimension="time" value="(0.204 + 0.333 / ( (exp ((15.8 + V) / 18.2 )) + (exp ((- V - 131) / 16.7)) )) * TIME_SCALE"/>
+            <ConditionalDerivedVariable name="r" exposure="r" dimension="per_time">
+                <Case condition="V  .lt. ( -10 )" value="( (2 / 37.95) * ( exp ( ((V + 50 ) / 11) - (( V + 53.5) / 27) ) ) ) / TIME_SCALE"/>
+                <Case value="( 2 * (exp ( ( (-1 * V) - 53.5 ) / 27 ))) / TIME_SCALE"/>
+            </ConditionalDerivedVariable>
         </Dynamics>
 
     </ComponentType>
 
-    <ComponentType name="cat_h_tau_tau" extends="baseVoltageDepTime">
+    <ComponentType name="kc_m_beta_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+        <Requirement name="alpha" dimension="per_time"/>
+        <Requirement name="beta" dimension="per_time"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <ConditionalDerivedVariable name="t" exposure="t" dimension="time">
-                <Case condition="V  .lt. ( -81.0 )" value="( 0.333 * (exp (( V + 466 ) / 66.6)) ) * TIME_SCALE"/>
-                <Case value="( 9.32 + 0.333 * (exp (( - V - 21 ) / 10.5))) * TIME_SCALE"/>
+            <DerivedVariable name="ALPHA" dimension="none" value="alpha * TIME_SCALE"/>
+            <DerivedVariable name="BETA" dimension="none" value="beta * TIME_SCALE"/>
+            <ConditionalDerivedVariable name="r" exposure="r" dimension="per_time">
+                <Case condition="V  .lt. ( -10 )" value="( 2 * (exp ( ( (-1 * V) - 53.5 ) / 27 )) - ALPHA ) / TIME_SCALE"/>
+                <Case value="( 0.0) / TIME_SCALE"/>
             </ConditionalDerivedVariable>
         </Dynamics>
 

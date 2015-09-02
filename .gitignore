@@ -1,3 +1,4 @@
+/neuroConstruct/generatedNeuroML2/runsim.sh
 Fortran*/*.o
 *.*~
 *.svg
@@ -23,4 +24,5 @@ neuroConstruct/pythonScripts/testFiles/nrntraub_rev/_nrn_tests
 .DS_Store
 
 neuroConstruct/generatedNeuroML2/LEMS_Test*
+neuroConstruct/generatedNeuroML2/*.dat
 neuroConstruct/generatedNeuroML2/html

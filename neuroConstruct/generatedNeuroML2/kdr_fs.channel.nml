@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="iso-8859-1"?><neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="cal">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="kdr_fs">
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <ionChannel id="cal" conductance="10pS" type="ionChannelHH" species="ca">
+    <ionChannel id="kdr_fs" conductance="10pS" type="ionChannelHH" species="k">
 
-        <notes>ChannelML file based on Traub et al. 2003</notes>
+        <notes>Potasium delayed rectifier type conductance for fast-spiking (FS) interneurons for RD Traub et al 2005</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                <rdf:Description rdf:about="cal">
+                <rdf:Description rdf:about="kdr_fs">
                     
                     <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
                         <rdf:Bag>
@@ -32,8 +33,8 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
                 
                     <bqbiol:isVersionOf xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
                         <rdf:Bag>
-                            <rdf:li>Calcium channels</rdf:li>
-                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table1"/>
+                            <rdf:li>K channels</rdf:li>
+                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table3"/>
                         </rdf:Bag>
                     </bqbiol:isVersionOf>
 
@@ -41,11 +42,25 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
             </rdf:RDF>
         </annotation>
 
-        <gate id="m" type="gateHHrates" instances="2">
-            <forwardRate type="HHSigmoidRate" rate="1.6per_ms" scale="13.888889mV" midpoint="5mV"/>
-            <reverseRate type="HHExpLinearRate" rate="0.1per_ms" scale="-5mV" midpoint="-8.9mV"/>
+        <gate id="m" type="gateHHtauInf" instances="4">
+            <timeCourse type="kdr_fs_m_tau_tau"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="11.5mV" midpoint="-27mV"/>
         </gate>
                             
     </ionChannel>
+
+    <ComponentType name="kdr_fs_m_tau_tau" extends="baseVoltageDepTime">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <ConditionalDerivedVariable name="t" exposure="t" dimension="time">
+                <Case condition="V  .leq. ( -10 )" value="( 0.25 + 4.35 * (exp (( V + 10 )/10)) ) * TIME_SCALE"/>
+                <Case value="( 0.25 + 4.35 * (exp ((- V - 10)/ 10))) * TIME_SCALE"/>
+            </ConditionalDerivedVariable>
+        </Dynamics>
+
+    </ComponentType>
 
 </neuroml>

@@ -1,18 +1,19 @@
-<?xml version="1.0" encoding="iso-8859-1"?><neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="ar">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cal">
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <ionChannel id="ar" conductance="10pS" type="ionChannelHH" species="ar">
+    <ionChannel id="cal" conductance="10pS" type="ionChannelHH" species="ca">
 
-        <notes>ChannelML file based on Traub et al. 2003</notes>
+        <notes>High threshold, long lasting Calcium L-type current. Based on NEURON port of FRB L2/3 model from Traub et al 2003. Same channel used in Traub et al 2005</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                <rdf:Description rdf:about="ar">
+                <rdf:Description rdf:about="cal">
                     
                     <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
                         <rdf:Bag>
-                            <rdf:li>Roger D. Traub, Eberhard H. Buhl, Tengis Gloveli, and Miles A. Whittington
+                            <rdf:li>Roger D. Traub, Eberhard H. Buhl, Tengis Gloveli, and Miles A. Whittington                
 Fast Rhythmic Bursting Can Be Induced in Layer 2/3 Cortical Neurons by Enhancing Persistent Na+ Conductance or by Blocking BK Channels
 J Neurophysiol 89: 909-921, 2003</rdf:li>
                             <rdf:li rdf:resource="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=12574468"/>
@@ -29,29 +30,23 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
                         </rdf:Bag>
                     </bqmodel:isDescribedBy>
 
+                
+                    <bqbiol:isVersionOf xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+                        <rdf:Bag>
+                            <rdf:li>Calcium channels</rdf:li>
+                            <rdf:li rdf:resource="http://senselab.med.yale.edu/senselab/NeuronDB/channelGene2.htm#table1"/>
+                        </rdf:Bag>
+                    </bqbiol:isVersionOf>
+
                 </rdf:Description>
             </rdf:RDF>
         </annotation>
 
-        <gate id="m" type="gateHHtauInf" instances="1">
-            <timeCourse type="ar_m_tau_tau"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="-5.5mV" midpoint="-75mV"/>
+        <gate id="m" type="gateHHrates" instances="2">
+            <forwardRate type="HHSigmoidRate" rate="1.6per_ms" scale="13.888889mV" midpoint="5mV"/>
+            <reverseRate type="HHExpLinearRate" rate="0.1per_ms" scale="-5mV" midpoint="-8.9mV"/>
         </gate>
                             
     </ionChannel>
-
-    <ComponentType name="ar_m_tau_tau" extends="baseVoltageDepTime">
-        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
-        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <Constant name="m0" dimension="none" value="0">
-            <!--Note: this parameter should instead be defined only once within the ionChannel!-->
-        </Constant>
-
-        <Dynamics>
-            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <DerivedVariable name="t" exposure="t" dimension="time" value="(1 /((exp (-14.6 - (0.086 * V) )) + (exp (-1.87 + (0.07 * V))))) * TIME_SCALE"/>
-        </Dynamics>
-
-    </ComponentType>
 
 </neuroml>

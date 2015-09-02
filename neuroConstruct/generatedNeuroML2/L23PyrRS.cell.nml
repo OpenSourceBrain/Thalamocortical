@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="L23PyrRS">
 
-    <include href="ar.channel.nml"/>
-
-    <include href="ar__m00_25.channel.nml"/>
-
-    <include href="cad__beta0_01__phi26000.nml"/>
-
-    <include href="cad__beta0_05__phi52000.nml"/>
-
-    <include href="cal.channel.nml"/>
-
-    <include href="cat.channel.nml"/>
-
-    <include href="k2.channel.nml"/>
-
-    <include href="ka.channel.nml"/>
-
-    <include href="kahp.channel.nml"/>
-
-    <include href="kc.channel.nml"/>
-
-    <include href="kdr.channel.nml"/>
-
-    <include href="km.channel.nml"/>
-
-    <include href="naf.channel.nml"/>
-
-    <include href="naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
-
-    <include href="nap.channel.nml"/>
-
-    <include href="pas.channel.nml"/>
-
     <cell id="L23PyrRS">
 
         <notes>Cell: suppyrRS_0 exported from NEURON ModelView</notes>

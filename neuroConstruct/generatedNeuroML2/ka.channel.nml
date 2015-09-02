@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="iso-8859-1"?><neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="kahp_slower">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="ka">
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <ionChannel id="kahp_slower" conductance="10pS" type="ionChannelHH" species="k">
+    <ionChannel id="ka" conductance="10pS" type="ionChannelHH" species="k">
 
-        <notes>ChannelML file based on Traub et al. 2003</notes>
+        <notes>Potasium A-type conductance (transient, inactivating). Based on NEURON port of FRB L2/3 model from Traub et al 2003. Same channel used in Traub et al 2005</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                <rdf:Description rdf:about="kahp_slower">
+                <rdf:Description rdf:about="ka">
                     
                     <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
                         <rdf:Bag>
@@ -41,38 +42,39 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
             </rdf:RDF>
         </annotation>
 
-        <gate id="m" type="gateHHrates" instances="1">
-            <forwardRate type="kahp_slower_m_alpha_rate"/>
-            <reverseRate type="kahp_slower_m_beta_rate"/>
+        <gate id="m" type="gateHHtauInf" instances="4">
+            <timeCourse type="ka_m_tau_tau"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="8.5mV" midpoint="-60mV"/>
+        </gate>
+
+        <gate id="h" type="gateHHtauInf" instances="1">
+            <timeCourse type="ka_h_tau_tau"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="-6mV" midpoint="-78mV"/>
         </gate>
                             
     </ionChannel>
 
-    <ComponentType name="kahp_slower_m_alpha_rate" extends="baseVoltageConcDepRate">
+    <ComponentType name="ka_m_tau_tau" extends="baseVoltageDepTime">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <Constant name="CONC_SCALE" dimension="concentration" value="1 mol_per_cm3"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <DerivedVariable name="ca_conc" dimension="none" value="caConc / CONC_SCALE"/>
-            <ConditionalDerivedVariable name="r" exposure="r" dimension="per_time">
-                <Case condition="ca_conc  .lt. ( 0.0005 )" value="( ca_conc/0.05 ) / TIME_SCALE"/>
-                <Case value="( 0.01) / TIME_SCALE"/>
-            </ConditionalDerivedVariable>
+            <DerivedVariable name="t" exposure="t" dimension="time" value="(0.185 + 0.5 / ((exp (( V + 35.8 )/19.7)) + (exp ((-V - 79.7)/12.7)))) * TIME_SCALE"/>
         </Dynamics>
 
     </ComponentType>
 
-    <ComponentType name="kahp_slower_m_beta_rate" extends="baseVoltageConcDepRate">
+    <ComponentType name="ka_h_tau_tau" extends="baseVoltageDepTime">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <Constant name="CONC_SCALE" dimension="concentration" value="1 mol_per_cm3"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
-            <DerivedVariable name="ca_conc" dimension="none" value="caConc / CONC_SCALE"/>
-            <DerivedVariable name="r" exposure="r" dimension="per_time" value="(0.001) / TIME_SCALE"/>
+            <ConditionalDerivedVariable name="t" exposure="t" dimension="time">
+                <Case condition="V  .lt. ( -63.0 )" value="( 0.5 / ((exp (( V + 46 )/5)) + (exp (( -V - 238 )/37.5))) ) * TIME_SCALE"/>
+                <Case value="( 9.5) * TIME_SCALE"/>
+            </ConditionalDerivedVariable>
         </Dynamics>
 
     </ComponentType>
