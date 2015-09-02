@@ -3,3 +3,5 @@ This is a project implementing cells from the thalamocortical network model of T
 Based on the NEURON implementation from: http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=45539.
 
 See http://www.opensourcebrain.org/projects/thalamocortical for more details.
+
+[![Build Status](https://travis-ci.org/OpenSourceBrain/Thalamocortical.svg?branch=master)](https://travis-ci.org/OpenSourceBrain/Thalamocortical)
