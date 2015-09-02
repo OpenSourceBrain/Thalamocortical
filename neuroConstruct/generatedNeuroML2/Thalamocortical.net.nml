@@ -16,6 +16,9 @@ Network connection: LTS_LTS_sm contains 200 individual synaptic connections
 </notes>
 
 
+    <include href="L23PyrRS.cell.nml"/>
+    <include href="SupLTSInter.cell.nml"/>
+    
     <network id="network_Thalamocortical" type="networkWithTemperature" temperature="6.3 degC">
 
         

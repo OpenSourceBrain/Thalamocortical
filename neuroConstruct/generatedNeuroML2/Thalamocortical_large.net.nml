@@ -165,6 +165,23 @@ Network connection: NC3D_SupLTS_L4SpinStell contains 480 individual synaptic con
 </notes>
 
 
+    <include href="L23PyrRS.cell.nml"/>
+    <include href="SupLTSInter.cell.nml"/>
+    <include href="DeepAxAx.cell.nml"/>
+    <include href="DeepLTSInter.cell.nml"/>
+    <include href="L5TuftedPyrIB.cell.nml"/>
+    <include href="L6NonTuftedPyrRS.cell.nml"/>
+    <include href="SupBasket.cell.nml"/>
+    <include href="TCR.cell.nml"/>
+    <include href="DeepBasket.cell.nml"/>
+    <include href="L4SpinyStellate.cell.nml"/>
+    <include href="L5TuftedPyrRS.cell.nml"/>
+    <include href="SupAxAx.cell.nml"/>
+    <include href="L23PyrFRB_varInit.cell.nml"/>
+    <include href="nRT.cell.nml"/>
+     
+    
+    
 
     <pulseGenerator id="DepCurr_L6NT" delay="0.0s" duration="20.0s" amplitude="7.5E-11A"/>
 
