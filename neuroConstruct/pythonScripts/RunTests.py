@@ -74,6 +74,7 @@ simDt =                 0.01
 neuroConstructSeed =    12345
 simulatorSeed =         11111
 simulators =            ["NEURON", "GENESIS_PHYS",  "MOOSE_PHYS", "MOOSE_SI"]  #"GENESIS_SI",
+simulators =            ["NEURON", "GENESIS_PHYS"]  #"GENESIS_SI",
 #simulators =            ["GENESIS", "MOOSE"]
 #simulators =            ["NEURON"]
 
