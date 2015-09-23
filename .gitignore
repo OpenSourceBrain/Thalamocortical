@@ -1,4 +1,5 @@
-/neuroConstruct/generatedNeuroML2/runsim.sh
+/neuroConstruct/generatedNeuroML2/LEMS_Thalamocortical.xml
+
 Fortran*/*.o
 *.*~
 *.svg
@@ -26,3 +27,8 @@ neuroConstruct/pythonScripts/testFiles/nrntraub_rev/_nrn_tests
 neuroConstruct/generatedNeuroML2/LEMS_Test*
 neuroConstruct/generatedNeuroML2/*.dat
 neuroConstruct/generatedNeuroML2/html
+/neuroConstruct/generatedNeuroML2/runsim.sh
+/neuroConstruct/generatedNeuroML2/*.mod
+/neuroConstruct/generatedNeuroML2/*.hoc
+/neuroConstruct/generatedNeuroML2/*.props
+/neuroConstruct/generatedNeuroML2/*nrn.py

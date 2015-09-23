@@ -12,7 +12,7 @@ part of NeuroML or any standardised XML specification. -->
    <string>This is a project implementing cells from the thalamocortical network model of Traub et al 2005 in NeuroML. Based on the NEURON implementation from: http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=45539.  
 
 This model can be run on NEURON, GENESIS and MOOSE (though not yet PSICS as calcium dynamics aren&apos;t supported). It can also be used to generate a smaller version of the Layer 2/3 network model described in Cunningham et al 2004.
- 
+  
 The Default Simulation Configuration contains a single compartment cell model containing all of the 22 active channels (plus a passive conductance and a calcium pool) as used in the more detailed cell models. To run this simulation through the neuroConstruct interface, click on tab Generate, select Default Simulation Configuration, press Generate, go to tab Export -&gt; NEURON, press Create hoc simulation, and run the simulation (or do the equivalent at tab GENESIS; MOOSE can be generated at that tab too).
 
 The Simulation Configurations CellX-xxx-Figxx etc. attempt to reproduce the figures for cell behaviour in Appendix A of Traub et al 2005. The sim configs CellX-xxx-10ms etc. had been used for comparison to the cell behaviour in the NEURON download from ModelDB, but have not all been kept up to date. 
@@ -4307,10 +4307,6 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>1.0</float>
     <string>
 
@@ -4328,6 +4324,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 
 </string>
+   </void>
+   <void method="put">
+    <float>-1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4512,7 +4512,7 @@ end
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.025</float>
+   <float>0.005</float>
   </void>
   <void property="duration">
    <float>100.0</float>
@@ -4524,7 +4524,7 @@ end
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>C3D_135</string>
+   <string>C3D_145</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>

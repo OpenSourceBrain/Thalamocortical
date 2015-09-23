@@ -4,7 +4,7 @@
     <cells>
         <cell name="TestSeg_test2">
 
-            <meta:notes>A single segment/compartment cell, with almost all of the ChannelML mechanisms. Used for comparison with original mod file implementations. Note: when comparing the ChannelML files to the original mod files, DESELECT the Force correct ChannelML initialisation checkbox, as most of the mod file channel implementations are initialised incorrectly (i.e. m!=minf at t=0). This is probably due to those files attempting to replicate the original Fortran. When using this cell to compare NEURON and GENESIS ChannelML mappings, SELECT the Force correct ChannelML initialisation checkbox, as GENESIS initialises the channels correctly.</meta:notes>
+            <meta:notes>Test cell2</meta:notes>
 
             <mml:segments>
 
@@ -29,12 +29,6 @@
 
             <biophysics units="Physiological Units">
 
-                <bio:mechanism name="cal" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.5">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
                 <bio:mechanism name="k2" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.1">
                         <bio:group>all</bio:group>
@@ -49,18 +43,6 @@
 
                 <bio:mechanism name="ka_ib" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="15.0">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.033">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kc_fast" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="2.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -155,13 +137,6 @@
 
                 <bio:ion_props name="k">
                     <bio:parameter name="e" value="-95.0">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:ion_props>
-            
-
-                <bio:ion_props name="na">
-                    <bio:parameter name="e" value="50.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
