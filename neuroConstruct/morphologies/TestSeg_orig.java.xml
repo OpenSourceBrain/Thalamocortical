@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_25" class="java.beans.XMLDecoder">
+<java version="1.7.0_79" class="java.beans.XMLDecoder">
 
 <!-- Note that this XML is specific to the neuroConstruct Java cell object model and not any part of the NeuroML framework -->
 
- <object class="ucl.physiol.neuroconstruct.cell.Cell">
+ <object class="ucl.physiol.neuroconstruct.cell.Cell" id="Cell0">
   <void property="allSegments">
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.cell.Segment">
@@ -23,7 +23,7 @@
       <float>10.0</float>
      </void>
      <void property="section">
-      <object class="ucl.physiol.neuroconstruct.cell.Section">
+      <object class="ucl.physiol.neuroconstruct.cell.Section" id="Section0">
        <void property="groups">
         <void method="add">
          <string>soma_group</string>
@@ -77,21 +77,6 @@
    <void method="put">
     <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
      <void property="density">
-      <float>3.0E-9</float>
-     </void>
-     <void property="name">
-      <string>pas</string>
-     </void>
-    </object>
-    <object class="java.util.Vector">
-     <void method="add">
-      <string>all</string>
-     </void>
-    </object>
-   </void>
-   <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
-     <void property="density">
       <float>5.0E-9</float>
      </void>
      <void property="name">
@@ -120,7 +105,7 @@
     </object>
    </void>
    <void method="put">
-    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism" id="ChannelMechanism0">
      <void property="extraParameters">
       <void method="add">
        <object class="ucl.physiol.neuroconstruct.cell.MechParameter">
@@ -145,6 +130,21 @@
      </void>
      <void property="name">
       <string>cad_mod</string>
+     </void>
+    </object>
+    <object class="java.util.Vector">
+     <void method="add">
+      <string>all</string>
+     </void>
+    </object>
+   </void>
+   <void method="put">
+    <object class="ucl.physiol.neuroconstruct.cell.ChannelMechanism">
+     <void property="density">
+      <float>3.0E-9</float>
+     </void>
+     <void property="name">
+      <string>pas</string>
      </void>
     </object>
     <object class="java.util.Vector">

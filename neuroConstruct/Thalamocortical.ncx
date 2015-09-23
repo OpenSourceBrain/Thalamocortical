@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_25" class="java.beans.XMLDecoder">
+<java version="1.7.0_79" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -25,14 +25,14 @@ The simulation configuration CunninghamEtAl04_small generates a 56 cell Layer 2/
 Other simulation configurations are present for testing a lagre scale thalamocortical network version of the model, but are not yet stable.</string>
   </void>
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.7.0</string>
+   <string>neuroConstruct v1.7.1</string>
   </void>
   <void property="projectName">
    <string>Thalamocortical</string>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.RegionsInfo">
-  <void property="internalData">
+ <object class="ucl.physiol.neuroconstruct.project.RegionsInfo" id="RegionsInfo0">
+  <void id="Hashtable0" property="internalData">
    <void method="get">
     <string>Name</string>
     <void method="add">
@@ -168,8 +168,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
    <void method="get">
     <string>Description</string>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.RectangularBox">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.RectangularBox" id="RectangularBox0">
+      <void id="InternalParameterArray0" property="parameterList">
        <void id="InternalParameter0" index="3">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -201,8 +201,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion0">
+      <void id="InternalParameterArray1" property="parameterList">
        <void id="InternalParameter3" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -234,8 +234,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion1">
+      <void id="InternalParameterArray2" property="parameterList">
        <void id="InternalParameter6" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -267,8 +267,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion2">
+      <void id="InternalParameterArray3" property="parameterList">
        <void id="InternalParameter9" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -300,8 +300,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion3">
+      <void id="InternalParameterArray4" property="parameterList">
        <void id="InternalParameter12" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -333,8 +333,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion4">
+      <void id="InternalParameterArray5" property="parameterList">
        <void id="InternalParameter15" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -366,8 +366,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion5">
+      <void id="InternalParameterArray6" property="parameterList">
        <void id="InternalParameter18" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -399,8 +399,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion6">
+      <void id="InternalParameterArray7" property="parameterList">
        <void id="InternalParameter21" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -432,8 +432,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion7">
+      <void id="InternalParameterArray8" property="parameterList">
        <void id="InternalParameter24" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -465,8 +465,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion8">
+      <void id="InternalParameterArray9" property="parameterList">
        <void id="InternalParameter27" index="4">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -489,8 +489,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion9">
+      <void id="InternalParameterArray10" property="parameterList">
        <void id="InternalParameter29" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -522,8 +522,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion10">
+      <void id="InternalParameterArray11" property="parameterList">
        <void id="InternalParameter32" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -555,8 +555,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion11">
+      <void id="InternalParameterArray12" property="parameterList">
        <void id="InternalParameter35" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -588,8 +588,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion12">
+      <void id="InternalParameterArray13" property="parameterList">
        <void id="InternalParameter38" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -621,8 +621,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion13">
+      <void id="InternalParameterArray14" property="parameterList">
        <void id="InternalParameter41" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -654,8 +654,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion" id="CylindricalRegion14">
+      <void id="InternalParameterArray15" property="parameterList">
        <void id="InternalParameter44" index="1">
         <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
          <string>value</string>
@@ -689,8 +689,8 @@ Other simulation configurations are present for testing a lagre scale thalamocor
    </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.CellGroupsInfo">
-  <void property="internalData">
+ <object class="ucl.physiol.neuroconstruct.project.CellGroupsInfo" id="CellGroupsInfo0">
+  <void id="Hashtable1" property="internalData">
    <void method="get">
     <string>Cell Packing Adapter</string>
     <void method="add">
@@ -1615,7 +1615,7 @@ Other simulation configurations are present for testing a lagre scale thalamocor
    </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.SimPlotInfo">
+ <object class="ucl.physiol.neuroconstruct.project.SimPlotInfo" id="SimPlotInfo0">
   <void property="allSimPlots">
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimPlot">
@@ -4201,7 +4201,7 @@ Other simulation configurations are present for testing a lagre scale thalamocor
    <boolean>false</boolean>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings">
+ <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings" id="NeuronSettings0">
   <void property="copySimFiles">
    <boolean>true</boolean>
   </void>
@@ -4252,10 +4252,6 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>1.0</float>
     <string>
 
@@ -4273,6 +4269,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 
 </string>
+   </void>
+   <void method="put">
+    <float>-1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4295,7 +4295,7 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
    </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings">
+ <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings" id="GenesisSettings0">
   <void property="absRefractSpikegen">
    <float>0.5</float>
   </void>
@@ -4442,11 +4442,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
   </void>
@@ -4478,10 +4478,10 @@ end
    <int>2</int>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.ElecInputInfo">
+ <object class="ucl.physiol.neuroconstruct.project.ElecInputInfo" id="ElecInputInfo0">
   <void property="allStims">
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings0">
      <void property="amp">
       <void property="fixedNum">
        <float>0.08</float>
@@ -4505,7 +4505,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings1">
      <void property="amp">
       <void property="fixedNum">
        <float>0.08</float>
@@ -4529,7 +4529,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings2">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -4561,7 +4561,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings3">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.4</float>
@@ -4593,7 +4593,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings4">
      <void property="amp">
       <void property="fixedNum">
        <float>0.75</float>
@@ -4625,7 +4625,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings5">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -4657,7 +4657,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings6">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.6</float>
@@ -4689,7 +4689,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings7">
      <void property="amp">
       <void property="fixedNum">
        <float>0.4</float>
@@ -4721,7 +4721,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings8">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -4753,7 +4753,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings9">
      <void property="amp">
       <void property="fixedNum">
        <float>0.4</float>
@@ -4785,7 +4785,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings10">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -4817,7 +4817,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings11">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.1</float>
@@ -4849,7 +4849,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings12">
      <void property="amp">
       <void property="fixedNum">
        <float>0.4</float>
@@ -4881,7 +4881,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings13">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -4913,7 +4913,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings14">
      <void property="amp">
       <void property="fixedNum">
        <float>0.4</float>
@@ -4945,7 +4945,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings15">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -4977,7 +4977,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings16">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.05</float>
@@ -5009,7 +5009,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings17">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -5041,7 +5041,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings18">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -5073,7 +5073,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings19">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.4</float>
@@ -5105,7 +5105,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings20">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -5137,7 +5137,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings21">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.25</float>
@@ -5169,7 +5169,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings22">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -5201,7 +5201,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings23">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -5233,7 +5233,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings24">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -5265,7 +5265,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings25">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.1</float>
@@ -5297,7 +5297,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings26">
      <void property="amp">
       <void property="fixedNum">
        <float>0.4</float>
@@ -5329,7 +5329,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings27">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -5361,7 +5361,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings28">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.9</float>
@@ -5393,7 +5393,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings29">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.4</float>
@@ -5425,7 +5425,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings30">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.15</float>
@@ -5457,7 +5457,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings31">
      <void property="amp">
       <void property="fixedNum">
        <float>0.167</float>
@@ -5489,7 +5489,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings32">
      <void property="amp">
       <void property="fixedNum">
        <float>0.25</float>
@@ -5521,7 +5521,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings33">
      <void property="amp">
       <void property="fixedNum">
        <float>0.333</float>
@@ -5553,7 +5553,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings34">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.2</float>
@@ -5585,7 +5585,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings35">
      <void property="amp">
       <void property="fixedNum">
        <float>0.9</float>
@@ -5617,7 +5617,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings36">
      <void property="amp">
       <void property="fixedNum">
        <float>1.1</float>
@@ -5649,7 +5649,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings37">
      <void property="amp">
       <void property="fixedNum">
        <float>1.3</float>
@@ -5681,7 +5681,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings38">
      <void property="amp">
       <void property="fixedNum">
        <float>1.5</float>
@@ -5713,7 +5713,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings39">
      <void property="amp">
       <void property="fixedNum">
        <float>0.8</float>
@@ -5745,7 +5745,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings40">
      <void property="amp">
       <void property="fixedNum">
        <float>1.0</float>
@@ -5777,7 +5777,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings41">
      <void property="amp">
       <void property="fixedNum">
        <float>1.2</float>
@@ -5809,7 +5809,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings42">
      <void property="amp">
       <void property="fixedNum">
        <float>1.4</float>
@@ -5841,7 +5841,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings43">
      <void property="amp">
       <void property="fixedNum">
        <float>0.5</float>
@@ -5873,7 +5873,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings44">
      <void property="amp">
       <void property="fixedNum">
        <float>0.8</float>
@@ -5905,7 +5905,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings45">
      <void property="amp">
       <void property="fixedNum">
        <float>1.0</float>
@@ -5937,7 +5937,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings46">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.3</float>
@@ -5969,7 +5969,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings47">
      <void property="cellGroup">
       <string>CGTCR</string>
      </void>
@@ -5996,7 +5996,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings48">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -6028,7 +6028,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings49">
      <void property="amp">
       <void property="fixedNum">
        <float>0.6</float>
@@ -6060,7 +6060,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings50">
      <void property="amp">
       <void property="fixedNum">
        <float>0.0</float>
@@ -6092,7 +6092,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings51">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -6124,7 +6124,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings52">
      <void property="amp">
       <void property="fixedNum">
        <float>0.5</float>
@@ -6156,7 +6156,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings53">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.1</float>
@@ -6188,7 +6188,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings54">
      <void property="amp">
       <void property="fixedNum">
        <float>0.4</float>
@@ -6220,7 +6220,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings55">
      <void property="amp">
       <void property="fixedNum">
        <float>0.3</float>
@@ -6252,7 +6252,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings56">
      <void id="NumberGenerator56" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6297,7 +6297,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings57">
      <void id="NumberGenerator58" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6339,7 +6339,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings58">
      <void property="amp">
       <void property="fixedNum">
        <float>0.4</float>
@@ -6384,7 +6384,7 @@ end
      <void property="repeat">
       <boolean>true</boolean>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments0" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>147</int>
@@ -6394,7 +6394,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings59">
      <void property="amp">
       <void property="fixedNum">
        <float>-0.4</float>
@@ -6426,7 +6426,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings60">
      <void id="NumberGenerator63" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6468,7 +6468,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings61">
      <void id="NumberGenerator65" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6510,7 +6510,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings62">
      <void property="amp">
       <void property="fixedNum">
        <float>0.2</float>
@@ -6545,7 +6545,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings63">
      <void id="NumberGenerator68" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6590,7 +6590,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings64">
      <void id="NumberGenerator70" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6635,7 +6635,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings65">
      <void id="NumberGenerator72" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6680,7 +6680,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings66">
      <void id="NumberGenerator74" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6725,7 +6725,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings67">
      <void id="NumberGenerator76" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6770,7 +6770,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings68">
      <void id="NumberGenerator78" property="amp">
       <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
        <string>distributionType</string>
@@ -6815,15 +6815,15 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings" id="IClampSettings69">
      <void property="amp">
       <void property="fixedNum">
        <float>1.5</float>
       </void>
      </void>
      <void property="cellChooser">
-      <object class="ucl.physiol.neuroconstruct.project.cellchoice.PercentageOfCells">
-       <void property="parameterList">
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.PercentageOfCells" id="PercentageOfCells0">
+       <void id="InternalStringFloatParameterArray0" property="parameterList">
         <void id="InternalStringFloatParameter0" index="0">
          <void class="ucl.physiol.neuroconstruct.project.InternalParameter" method="getField">
           <string>value</string>
@@ -6862,7 +6862,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainExtSettings" id="RandomSpikeTrainExtSettings0">
      <void property="cellGroup">
       <string>CGtuftIB</string>
      </void>
@@ -6904,7 +6904,7 @@ end
      <void property="reference">
       <string>TestEctopic</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments1" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>119</int>
@@ -6917,7 +6917,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings" id="RandomSpikeTrainSettings0">
      <void property="cellGroup">
       <string>CG3D_L23PyrRS</string>
      </void>
@@ -6938,7 +6938,7 @@ end
      <void property="reference">
       <string>EctopicStimL23RS</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments2" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>143</int>
@@ -6951,7 +6951,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings" id="RandomSpikeTrainSettings1">
      <void property="cellGroup">
       <string>CG3D_L23PyrFRB</string>
      </void>
@@ -6972,7 +6972,7 @@ end
      <void property="reference">
       <string>EctopicStimL23FRB</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments3" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>143</int>
@@ -6985,7 +6985,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings" id="RandomSpikeTrainSettings2">
      <void property="cellGroup">
       <string>CG3D_L4SpinStell</string>
      </void>
@@ -7006,7 +7006,7 @@ end
      <void property="reference">
       <string>EctopicStimL4SS</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments4" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>113</int>
@@ -7019,7 +7019,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings" id="RandomSpikeTrainSettings3">
      <void property="cellGroup">
       <string>CG3D_L5TuftIB</string>
      </void>
@@ -7040,7 +7040,7 @@ end
      <void property="reference">
       <string>EctopicStimL5IB</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments5" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>119</int>
@@ -7053,7 +7053,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings" id="RandomSpikeTrainSettings4">
      <void property="cellGroup">
       <string>CG3D_L5TuftRS</string>
      </void>
@@ -7074,7 +7074,7 @@ end
      <void property="reference">
       <string>EctopicStimL5RS</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments6" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>119</int>
@@ -7087,7 +7087,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings" id="RandomSpikeTrainSettings5">
      <void property="cellGroup">
       <string>CG3D_L6NonTuftRS</string>
      </void>
@@ -7108,7 +7108,7 @@ end
      <void property="reference">
       <string>EctopicStimL6NT</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments7" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>95</int>
@@ -7121,7 +7121,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings" id="RandomSpikeTrainSettings6">
      <void property="cellGroup">
       <string>CG3D_TCR</string>
      </void>
@@ -7142,7 +7142,7 @@ end
      <void property="reference">
       <string>EctopicStimTCR</string>
      </void>
-     <void property="segChooser">
+     <void id="IndividualSegments8" property="segChooser">
       <void property="listOfSegmentIds">
        <void index="0">
         <int>269</int>
@@ -7267,10 +7267,10 @@ end
    </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
+ <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo" id="SimConfigInfo0">
   <void property="allSimConfigs">
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig0">
      <void property="cellGroups">
       <void method="add">
        <string>CG_CML</string>
@@ -7334,7 +7334,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig1">
      <void property="cellGroups">
       <void method="add">
        <string>CGsuppyrRS</string>
@@ -7374,7 +7374,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig2">
      <void property="cellGroups">
       <void method="add">
        <string>CGsuppyrRS</string>
@@ -7411,7 +7411,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig3">
      <void property="cellGroups">
       <void method="add">
        <string>CGsuppyrFRB</string>
@@ -7445,7 +7445,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig4">
      <void property="cellGroups">
       <void method="add">
        <string>CGsuppyrFRB</string>
@@ -7482,7 +7482,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig5">
      <void property="cellGroups">
       <void method="add">
        <string>CGsupbask</string>
@@ -7519,7 +7519,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig6">
      <void property="cellGroups">
       <void method="add">
        <string>CGsupbask</string>
@@ -7556,7 +7556,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig7">
      <void property="cellGroups">
       <void method="add">
        <string>CGsupaxax</string>
@@ -7587,7 +7587,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig8">
      <void property="cellGroups">
       <void method="add">
        <string>CGsupaxax</string>
@@ -7624,7 +7624,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig9">
      <void property="cellGroups">
       <void method="add">
        <string>CGsupLTS</string>
@@ -7658,7 +7658,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig10">
      <void property="cellGroups">
       <void method="add">
        <string>CGsupLTS</string>
@@ -7698,7 +7698,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig11">
      <void property="cellGroups">
       <void method="add">
        <string>CGspinstell</string>
@@ -7738,7 +7738,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig12">
      <void property="cellGroups">
       <void method="add">
        <string>CGspinstell</string>
@@ -7775,7 +7775,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig13">
      <void property="cellGroups">
       <void method="add">
        <string>CGspinstell</string>
@@ -7812,7 +7812,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig14">
      <void property="cellGroups">
       <void method="add">
        <string>CGspinstell</string>
@@ -7849,7 +7849,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig15">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftIB</string>
@@ -7883,7 +7883,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig16">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftIB</string>
@@ -7920,7 +7920,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig17">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftIB</string>
@@ -7954,7 +7954,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig18">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftIB</string>
@@ -7991,7 +7991,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig19">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftIB</string>
@@ -8028,7 +8028,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig20">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftRS</string>
@@ -8062,7 +8062,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig21">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftRS</string>
@@ -8099,7 +8099,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig22">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftRS</string>
@@ -8136,7 +8136,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig23">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftRS</string>
@@ -8173,7 +8173,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig24">
      <void property="cellGroups">
       <void method="add">
        <string>CGtuftRS</string>
@@ -8210,7 +8210,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig25">
      <void property="cellGroups">
       <void method="add">
        <string>CGnontuftRS</string>
@@ -8244,7 +8244,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig26">
      <void property="cellGroups">
       <void method="add">
        <string>CGnontuftRS</string>
@@ -8281,7 +8281,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig27">
      <void property="cellGroups">
       <void method="add">
        <string>CGnontuftRS</string>
@@ -8318,7 +8318,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig28">
      <void property="cellGroups">
       <void method="add">
        <string>CGnontuftRS</string>
@@ -8355,7 +8355,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig29">
      <void property="cellGroups">
       <void method="add">
        <string>CGdeepbask</string>
@@ -8386,7 +8386,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig30">
      <void property="cellGroups">
       <void method="add">
        <string>CGdeepaxax</string>
@@ -8417,7 +8417,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig31">
      <void property="cellGroups">
       <void method="add">
        <string>CGdeepLTS</string>
@@ -8448,7 +8448,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig32">
      <void property="cellGroups">
       <void method="add">
        <string>CGdeepLTS</string>
@@ -8482,7 +8482,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig33">
      <void property="cellGroups">
       <void method="add">
        <string>CGTCR</string>
@@ -8516,7 +8516,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig34">
      <void property="cellGroups">
       <void method="add">
        <string>CGTCR</string>
@@ -8553,7 +8553,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig35">
      <void property="cellGroups">
       <void method="add">
        <string>CGTCR</string>
@@ -8590,7 +8590,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig36">
      <void property="cellGroups">
       <void method="add">
        <string>CGTCR</string>
@@ -8627,7 +8627,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig37">
      <void property="cellGroups">
       <void method="add">
        <string>CGTCR</string>
@@ -8664,7 +8664,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig38">
      <void property="cellGroups">
       <void method="add">
        <string>CGnRT_min75init</string>
@@ -8695,7 +8695,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig39">
      <void property="cellGroups">
       <void method="add">
        <string>CGnRT</string>
@@ -8732,7 +8732,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig40">
      <void property="cellGroups">
       <void method="add">
        <string>CGnRT</string>
@@ -8766,7 +8766,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig41">
      <void property="cellGroups">
       <void method="add">
        <string>CGnRT</string>
@@ -8800,7 +8800,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig42">
      <void property="cellGroups">
       <void method="add">
        <string>CG3D_DeepAxAx</string>
@@ -9352,7 +9352,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig43">
      <void property="cellGroups">
       <void method="add">
        <string>CG_C04_AxAx_sm</string>
@@ -9514,7 +9514,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig44">
      <void property="cellGroups">
       <void method="add">
        <string>CG3D_L4SpinStell</string>
@@ -10063,7 +10063,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig45">
      <void property="cellGroups">
       <void method="add">
        <string>CGsuppyrFRB</string>
@@ -10103,7 +10103,7 @@ end
     </object>
    </void>
    <void method="add">
-    <object class="ucl.physiol.neuroconstruct.project.SimConfig">
+    <object class="ucl.physiol.neuroconstruct.project.SimConfig" id="SimConfig46">
      <void property="cellGroups">
       <void method="add">
        <string>CG3D_L23PyrFRB</string>
@@ -10182,8 +10182,8 @@ end
    </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.SimpleNetworkConnectionsInfo">
-  <void property="internalData">
+ <object class="ucl.physiol.neuroconstruct.project.SimpleNetworkConnectionsInfo" id="SimpleNetworkConnectionsInfo0">
+  <void id="Hashtable2" property="internalData">
    <void method="get">
     <string>Name</string>
     <void method="add">
@@ -23082,7 +23082,7 @@ end
    <void method="get">
     <string>Connectivity Conditions</string>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions0">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23133,7 +23133,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions1">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23153,7 +23153,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions2">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23173,7 +23173,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions3">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23193,7 +23193,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions4">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23213,7 +23213,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions5">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23248,7 +23248,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions6">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23263,7 +23263,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions7">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23278,7 +23278,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions8">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23293,7 +23293,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions9">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23335,7 +23335,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions10">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23350,7 +23350,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions11">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23365,7 +23365,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions12">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23380,7 +23380,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions13">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23395,7 +23395,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions14">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23410,7 +23410,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions15">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23425,7 +23425,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions16">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23440,7 +23440,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions17">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23455,7 +23455,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions18">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23484,7 +23484,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions19">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23513,7 +23513,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions20">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23528,7 +23528,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions21">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23543,7 +23543,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions22">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23558,7 +23558,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions23">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23573,7 +23573,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions24">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23588,7 +23588,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions25">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23623,7 +23623,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions26">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23658,7 +23658,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions27">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23694,7 +23694,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions28">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23737,7 +23737,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions29">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23759,7 +23759,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions30">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23781,7 +23781,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions31">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23803,7 +23803,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions32">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23825,7 +23825,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions33">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23847,7 +23847,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions34">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23869,7 +23869,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions35">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23891,7 +23891,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions36">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23913,7 +23913,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions37">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23935,7 +23935,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions38">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23957,7 +23957,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions39">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -23979,7 +23979,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions40">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24001,7 +24001,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions41">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24031,7 +24031,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions42">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24061,7 +24061,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions43">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24083,7 +24083,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions44">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24105,7 +24105,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions45">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24127,7 +24127,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions46">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24149,7 +24149,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions47">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24171,7 +24171,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions48">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24190,7 +24190,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions49">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24212,7 +24212,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions50">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24234,7 +24234,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions51">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24256,7 +24256,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions52">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24278,7 +24278,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions53">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24300,7 +24300,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions54">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24319,7 +24319,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions55">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24349,7 +24349,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions56">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24371,7 +24371,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions57">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24393,7 +24393,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions58">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24415,7 +24415,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions59">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24437,7 +24437,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions60">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24459,7 +24459,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions61">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24481,7 +24481,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions62">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24511,7 +24511,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions63">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24538,7 +24538,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions64">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24565,7 +24565,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions65">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24592,7 +24592,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions66">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24619,7 +24619,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions67">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24646,7 +24646,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions68">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24673,7 +24673,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions69">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24695,7 +24695,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions70">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24717,7 +24717,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions71">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24739,7 +24739,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions72">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24761,7 +24761,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions73">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24783,7 +24783,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions74">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24805,7 +24805,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions75">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24827,7 +24827,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions76">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24849,7 +24849,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions77">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24871,7 +24871,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions78">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24893,7 +24893,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions79">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24915,7 +24915,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions80">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24937,7 +24937,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions81">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24967,7 +24967,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions82">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -24989,7 +24989,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions83">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25011,7 +25011,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions84">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25033,7 +25033,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions85">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25055,7 +25055,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions86">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25077,7 +25077,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions87">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25099,7 +25099,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions88">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25121,7 +25121,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions89">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25143,7 +25143,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions90">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25165,7 +25165,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions91">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25187,7 +25187,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions92">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25209,7 +25209,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions93">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25231,7 +25231,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions94">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25258,7 +25258,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions95">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25280,7 +25280,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions96">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25302,7 +25302,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions97">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25324,7 +25324,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions98">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25346,7 +25346,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions99">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25368,7 +25368,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions100">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25390,7 +25390,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions101">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25412,7 +25412,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions102">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25434,7 +25434,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions103">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25456,7 +25456,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions104">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25478,7 +25478,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions105">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25500,7 +25500,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions106">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25522,7 +25522,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions107">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25552,7 +25552,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions108">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25582,7 +25582,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions109">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25604,7 +25604,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions110">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25626,7 +25626,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions111">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25648,7 +25648,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions112">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25670,7 +25670,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions113">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25692,7 +25692,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions114">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25714,7 +25714,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions115">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25744,7 +25744,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions116">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25766,7 +25766,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions117">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25788,7 +25788,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions118">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25810,7 +25810,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions119">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25832,7 +25832,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions120">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25854,7 +25854,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions121">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25876,7 +25876,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions122">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25898,7 +25898,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions123">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25920,7 +25920,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions124">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25942,7 +25942,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions125">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25964,7 +25964,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions126">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -25986,7 +25986,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions127">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26008,7 +26008,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions128">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26030,7 +26030,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions129">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26052,7 +26052,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions130">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26079,7 +26079,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions131">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26101,7 +26101,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions132">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26123,7 +26123,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions133">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26145,7 +26145,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions134">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26167,7 +26167,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions135">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26189,7 +26189,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions136">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26211,7 +26211,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions137">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26233,7 +26233,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions138">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26263,7 +26263,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions139">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26290,7 +26290,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions140">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26317,7 +26317,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions141">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26344,7 +26344,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions142">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26371,7 +26371,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions143">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26398,7 +26398,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions144">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26425,7 +26425,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions145">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26447,7 +26447,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions146">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26469,7 +26469,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions147">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26491,7 +26491,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions148">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26513,7 +26513,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions149">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26535,7 +26535,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions150">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26557,7 +26557,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions151">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26579,7 +26579,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions152">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26601,7 +26601,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions153">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26623,7 +26623,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions154">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26645,7 +26645,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions155">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26667,7 +26667,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions156">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26689,7 +26689,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions157">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26719,7 +26719,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions158">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26741,7 +26741,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions159">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26763,7 +26763,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions160">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26785,7 +26785,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions161">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26807,7 +26807,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions162">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26829,7 +26829,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions163">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26851,7 +26851,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions164">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26873,7 +26873,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions165">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26895,7 +26895,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions166">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26917,7 +26917,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions167">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26939,7 +26939,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions168">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26961,7 +26961,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions169">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -26983,7 +26983,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions170">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
@@ -27005,7 +27005,7 @@ end
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions" id="ConnectivityConditions171">
       <void property="allowAutapses">
        <boolean>false</boolean>
       </void>
