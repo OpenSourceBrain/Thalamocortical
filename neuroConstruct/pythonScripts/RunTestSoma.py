@@ -114,7 +114,7 @@ def testAll(argv=None):
     # They need to hold for all simulators
     spikeTimesToCheck = {'CG_tester_0': spike_times}
 
-    spikeTimeAccuracy = 0.001
+    spikeTimeAccuracy = 0.0006
 
     report0 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                   spikeTimeAccuracy = spikeTimeAccuracy)

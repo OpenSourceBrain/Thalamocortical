@@ -29,6 +29,14 @@
 
             <biophysics units="Physiological Units">
 
+
+                <bio:mechanism name="cat" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.05">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                
                 <bio:mechanism name="k2" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.1">
                         <bio:group>all</bio:group>
