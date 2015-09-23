@@ -1,0 +1,3889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:cml="http://morphml.org/channelml/schema" xmlns:net="http://morphml.org/networkml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/neuroml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" lengthUnits="micron">
+
+    <cells>
+        <cell name="TCR">
+
+            <meta:notes>Cell: TCR_0 exported from NEURON ModelView</meta:notes>
+
+            <mml:segments>
+
+                <mml:segment id="0" name="Seg0_comp_1" cable="0">
+                    <mml:proximal x="0.0" y="0.0" z="0.0" diameter="20.0"/>
+                    <mml:distal x="0.0" y="21.0" z="0.0" diameter="20.0"/>
+                </mml:segment>
+
+                <mml:segment id="1" name="Seg1_comp_1" parent="0" cable="0">
+                    <mml:distal x="-9.179392E-7" y="42.0" z="0.0" diameter="20.0"/>
+                </mml:segment>
+
+                <mml:segment id="262" name="Seg0_comp_132" parent="0" cable="1">
+                    <mml:proximal x="9.179392E-7" y="0.0" z="0.0" diameter="1.6"/>
+                    <mml:distal x="-1.7484616E-7" y="-25.0" z="0.0" diameter="1.6"/>
+                </mml:segment>
+
+                <mml:segment id="263" name="Seg1_comp_132" parent="262" cable="1">
+                    <mml:distal x="-1.2676315E-6" y="-50.0" z="0.0" diameter="1.6"/>
+                </mml:segment>
+
+                <mml:segment id="236" name="Seg0_comp_119" parent="1" cable="2">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="-5.87726" y="42.0" z="8.089361" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="237" name="Seg1_comp_119" parent="236" cable="2">
+                    <mml:distal x="-11.7550955" y="42.000004" z="16.179533" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="210" name="Seg0_comp_106" parent="1" cable="3">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="5.877265" y="42.0" z="-8.08936" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="211" name="Seg1_comp_106" parent="210" cable="3">
+                    <mml:distal x="11.75513" y="42.00003" z="-16.17959" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="184" name="Seg0_comp_93" parent="1" cable="4">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="9.509614" y="42.0" z="3.08986" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="185" name="Seg1_comp_93" parent="184" cable="4">
+                    <mml:distal x="19.020178" y="42.00001" z="6.180023" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="158" name="Seg0_comp_80" parent="1" cable="5">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="5.877265" y="42.0" z="8.089361" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="159" name="Seg1_comp_80" parent="158" cable="5">
+                    <mml:distal x="11.7551365" y="42.000015" z="16.179583" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="132" name="Seg0_comp_67" parent="1" cable="6">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="0.44429666" y="42.0" z="-9.99" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="133" name="Seg1_comp_67" parent="132" cable="6">
+                    <mml:distal x="0.88859874" y="42.0" z="-19.9802" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="106" name="Seg0_comp_54" parent="1" cable="7">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="-0.44429934" y="42.0" z="9.99" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="107" name="Seg1_comp_54" parent="106" cable="7">
+                    <mml:distal x="-0.8886023" y="42.0" z="19.9802" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="80" name="Seg0_comp_41" parent="1" cable="8">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="-9.50961" y="42.0" z="-3.089861" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="81" name="Seg1_comp_41" parent="80" cable="8">
+                    <mml:distal x="-19.020224" y="42.000023" z="-6.1800547" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="54" name="Seg0_comp_28" parent="1" cable="9">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="-5.87726" y="42.0" z="-8.08936" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="55" name="Seg1_comp_28" parent="54" cable="9">
+                    <mml:distal x="-11.755103" y="42.000008" z="-16.179535" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="28" name="Seg0_comp_15" parent="1" cable="10">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="-9.50961" y="42.0" z="3.089861" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="29" name="Seg1_comp_15" parent="28" cable="10">
+                    <mml:distal x="-19.020226" y="42.00004" z="6.1800585" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="2" name="Seg0_comp_2" parent="1" cable="11">
+                    <mml:proximal x="-9.179392E-7" y="42.0" z="0.0" diameter="1.46"/>
+                    <mml:distal x="9.509614" y="42.0" z="-3.089861" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="3" name="Seg1_comp_2" parent="2" cable="11">
+                    <mml:distal x="19.020168" y="41.999996" z="-6.1800375" diameter="1.46"/>
+                </mml:segment>
+
+                <mml:segment id="264" name="Seg0_comp_133" parent="263" cable="12">
+                    <mml:proximal x="-1.2676315E-6" y="-50.0" z="0.0" diameter="1.4"/>
+                    <mml:distal x="-3.9497368E-6" y="-75.0" z="0.0" diameter="1.4"/>
+                </mml:segment>
+
+                <mml:segment id="265" name="Seg1_comp_133" parent="264" cable="12">
+                    <mml:distal x="-6.6318216E-6" y="-100.0" z="0.0" diameter="1.4"/>
+                </mml:segment>
+
+                <mml:segment id="242" name="Seg0_comp_122" parent="237" cable="13">
+                    <mml:proximal x="-11.7550955" y="42.000004" z="16.179533" diameter="1.168"/>
+                    <mml:distal x="-18.567154" y="44.880123" z="43.961975" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="243" name="Seg1_comp_122" parent="242" cable="13">
+                    <mml:distal x="-25.37945" y="47.760193" z="71.744415" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="240" name="Seg0_comp_121" parent="237" cable="14">
+                    <mml:proximal x="-11.7550955" y="42.000004" z="16.179533" diameter="1.168"/>
+                    <mml:distal x="-28.653934" y="41.999992" z="39.438736" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="241" name="Seg1_comp_121" parent="240" cable="14">
+                    <mml:distal x="-45.552567" y="42.000015" z="62.6979" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="238" name="Seg0_comp_120" parent="237" cable="15">
+                    <mml:proximal x="-11.7550955" y="42.000004" z="16.179533" diameter="1.168"/>
+                    <mml:distal x="-36.072685" y="39.119892" z="31.243484" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="239" name="Seg1_comp_120" parent="238" cable="15">
+                    <mml:distal x="-60.39009" y="36.239807" z="46.307327" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="216" name="Seg0_comp_109" parent="211" cable="16">
+                    <mml:proximal x="11.75513" y="42.00003" z="-16.17959" diameter="1.168"/>
+                    <mml:distal x="33.232132" y="33.51822" z="-33.30729" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="217" name="Seg1_comp_109" parent="216" cable="16">
+                    <mml:distal x="54.709126" y="25.036484" z="-50.43508" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="214" name="Seg0_comp_108" parent="211" cable="17">
+                    <mml:proximal x="11.75513" y="42.00003" z="-16.17959" diameter="1.168"/>
+                    <mml:distal x="28.653934" y="42.000042" z="-39.438816" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="215" name="Seg1_comp_108" parent="214" cable="17">
+                    <mml:distal x="45.55289" y="42.00022" z="-62.698498" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="212" name="Seg0_comp_107" parent="211" cable="18">
+                    <mml:proximal x="11.75513" y="42.00003" z="-16.17959" diameter="1.168"/>
+                    <mml:distal x="21.407784" y="50.481857" z="-41.898212" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="213" name="Seg1_comp_107" parent="212" cable="18">
+                    <mml:distal x="31.060482" y="58.963715" z="-67.616936" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="190" name="Seg0_comp_96" parent="185" cable="19">
+                    <mml:proximal x="19.020178" y="42.00001" z="6.180023" diameter="1.168"/>
+                    <mml:distal x="43.342514" y="31.157368" z="17.016235" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="191" name="Seg1_comp_96" parent="190" cable="19">
+                    <mml:distal x="67.66503" y="20.31482" z="27.852478" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="188" name="Seg0_comp_95" parent="185" cable="20">
+                    <mml:proximal x="19.020178" y="42.00001" z="6.180023" diameter="1.168"/>
+                    <mml:distal x="46.363018" y="41.999996" z="15.064248" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="189" name="Seg1_comp_95" parent="188" cable="20">
+                    <mml:distal x="73.705666" y="41.99999" z="23.948406" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="186" name="Seg0_comp_94" parent="185" cable="21">
+                    <mml:proximal x="19.020178" y="42.00001" z="6.180023" diameter="1.168"/>
+                    <mml:distal x="45.066757" y="52.842632" z="11.709659" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="187" name="Seg1_comp_94" parent="186" cable="21">
+                    <mml:distal x="71.11335" y="63.685265" z="17.239292" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="164" name="Seg0_comp_83" parent="159" cable="22">
+                    <mml:proximal x="11.7551365" y="42.000015" z="16.179583" diameter="1.168"/>
+                    <mml:distal x="34.056313" y="34.515747" z="32.708527" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="165" name="Seg1_comp_83" parent="164" cable="22">
+                    <mml:distal x="56.35762" y="27.031525" z="49.23774" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="162" name="Seg0_comp_82" parent="159" cable="23">
+                    <mml:proximal x="11.7551365" y="42.000015" z="16.179583" diameter="1.168"/>
+                    <mml:distal x="28.653938" y="42.000027" z="39.438812" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="163" name="Seg1_comp_82" parent="162" cable="23">
+                    <mml:distal x="45.552658" y="42.000065" z="62.697968" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="160" name="Seg0_comp_81" parent="159" cable="24">
+                    <mml:proximal x="11.7551365" y="42.000015" z="16.179583" diameter="1.168"/>
+                    <mml:distal x="20.583645" y="49.48428" z="42.496964" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="161" name="Seg1_comp_81" parent="160" cable="24">
+                    <mml:distal x="29.412083" y="56.96856" z="68.81427" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="138" name="Seg0_comp_70" parent="133" cable="25">
+                    <mml:proximal x="0.88859874" y="42.0" z="-19.9802" diameter="1.168"/>
+                    <mml:distal x="13.205743" y="41.007107" z="-45.939056" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="139" name="Seg1_comp_70" parent="138" cable="25">
+                    <mml:distal x="25.522982" y="40.014202" z="-71.897804" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="136" name="Seg0_comp_69" parent="133" cable="26">
+                    <mml:proximal x="0.88859874" y="42.0" z="-19.9802" diameter="1.168"/>
+                    <mml:distal x="2.1659646" y="42.000004" z="-48.701797" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="137" name="Seg1_comp_69" parent="136" cable="26">
+                    <mml:distal x="3.4433362" y="42.0" z="-77.42289" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="134" name="Seg0_comp_68" parent="133" cable="27">
+                    <mml:proximal x="0.88859874" y="42.0" z="-19.9802" diameter="1.168"/>
+                    <mml:distal x="-9.075516" y="42.9929" z="-46.92994" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="135" name="Seg1_comp_68" parent="134" cable="27">
+                    <mml:distal x="-19.039633" y="43.9858" z="-73.87999" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="112" name="Seg0_comp_57" parent="107" cable="28">
+                    <mml:proximal x="-0.8886023" y="42.0" z="19.9802" diameter="1.168"/>
+                    <mml:distal x="9.07551" y="42.9929" z="46.92994" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="113" name="Seg1_comp_57" parent="112" cable="28">
+                    <mml:distal x="19.039625" y="43.985806" z="73.87999" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="110" name="Seg0_comp_56" parent="107" cable="29">
+                    <mml:proximal x="-0.8886023" y="42.0" z="19.9802" diameter="1.168"/>
+                    <mml:distal x="-2.1659708" y="42.0" z="48.701797" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="111" name="Seg1_comp_56" parent="110" cable="29">
+                    <mml:distal x="-3.4433446" y="42.0" z="77.42289" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="108" name="Seg0_comp_55" parent="107" cable="30">
+                    <mml:proximal x="-0.8886023" y="42.0" z="19.9802" diameter="1.168"/>
+                    <mml:distal x="-13.205749" y="41.007103" z="45.939056" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="109" name="Seg1_comp_55" parent="108" cable="30">
+                    <mml:distal x="-25.52299" y="40.0142" z="71.897804" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="86" name="Seg0_comp_44" parent="81" cable="31">
+                    <mml:proximal x="-19.020224" y="42.000023" z="-6.1800547" diameter="1.168"/>
+                    <mml:distal x="-43.263966" y="52.77403" z="-17.258093" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="87" name="Seg1_comp_44" parent="86" cable="31">
+                    <mml:distal x="-67.507614" y="63.54805" z="-28.336105" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="84" name="Seg0_comp_43" parent="81" cable="32">
+                    <mml:proximal x="-19.020224" y="42.000023" z="-6.1800547" diameter="1.168"/>
+                    <mml:distal x="-46.363075" y="42.000042" z="-15.064296" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="85" name="Seg1_comp_43" parent="84" cable="32">
+                    <mml:distal x="-73.705826" y="42.000095" z="-23.948511" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="82" name="Seg0_comp_42" parent="81" cable="33">
+                    <mml:proximal x="-19.020224" y="42.000023" z="-6.1800547" diameter="1.168"/>
+                    <mml:distal x="-45.145355" y="31.226013" z="-11.467863" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="83" name="Seg1_comp_42" parent="82" cable="33">
+                    <mml:distal x="-71.27077" y="20.452072" z="-16.755781" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="60" name="Seg0_comp_31" parent="55" cable="34">
+                    <mml:proximal x="-11.755103" y="42.000008" z="-16.179535" diameter="1.168"/>
+                    <mml:distal x="-20.992151" y="50.010513" z="-42.200153" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="61" name="Seg1_comp_31" parent="60" cable="34">
+                    <mml:distal x="-30.229197" y="58.021027" z="-68.22078" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="58" name="Seg0_comp_30" parent="55" cable="35">
+                    <mml:proximal x="-11.755103" y="42.000008" z="-16.179535" diameter="1.168"/>
+                    <mml:distal x="-28.653908" y="41.999996" z="-39.438744" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="59" name="Seg1_comp_30" parent="58" cable="35">
+                    <mml:distal x="-45.55259" y="41.99999" z="-62.697796" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="56" name="Seg0_comp_29" parent="55" cable="36">
+                    <mml:proximal x="-11.755103" y="42.000008" z="-16.179535" diameter="1.168"/>
+                    <mml:distal x="-33.647755" y="33.989483" z="-33.005283" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="57" name="Seg1_comp_29" parent="56" cable="36">
+                    <mml:distal x="-55.54046" y="25.979021" z="-49.831215" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="34" name="Seg0_comp_18" parent="29" cable="37">
+                    <mml:proximal x="-19.020226" y="42.00004" z="6.1800585" diameter="1.168"/>
+                    <mml:distal x="-43.416378" y="52.90137" z="16.789074" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="35" name="Seg1_comp_18" parent="34" cable="37">
+                    <mml:distal x="-67.81264" y="63.80274" z="27.398129" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="32" name="Seg0_comp_17" parent="29" cable="38">
+                    <mml:proximal x="-19.020226" y="42.00004" z="6.1800585" diameter="1.168"/>
+                    <mml:distal x="-46.36307" y="42.000057" z="15.064298" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="33" name="Seg1_comp_17" parent="32" cable="38">
+                    <mml:distal x="-73.70635" y="42.00029" z="23.948729" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="30" name="Seg0_comp_16" parent="29" cable="39">
+                    <mml:proximal x="-19.020226" y="42.00004" z="6.1800585" diameter="1.168"/>
+                    <mml:distal x="-44.992924" y="31.098736" z="11.9368925" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="31" name="Seg1_comp_16" parent="30" cable="39">
+                    <mml:distal x="-70.96569" y="20.197525" z="17.693771" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="8" name="Seg0_comp_5" parent="3" cable="40">
+                    <mml:proximal x="19.020168" y="41.999996" z="-6.1800375" diameter="1.168"/>
+                    <mml:distal x="47.39121" y="46.359837" z="-4.555674" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="9" name="Seg1_comp_5" parent="8" cable="40">
+                    <mml:distal x="75.76205" y="50.719646" z="-2.9313235" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="6" name="Seg0_comp_4" parent="3" cable="41">
+                    <mml:proximal x="19.020168" y="41.999996" z="-6.1800375" diameter="1.168"/>
+                    <mml:distal x="46.36304" y="42.00001" z="-15.064235" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="7" name="Seg1_comp_4" parent="6" cable="41">
+                    <mml:distal x="73.70571" y="41.999973" z="-23.948502" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="4" name="Seg0_comp_3" parent="3" cable="42">
+                    <mml:proximal x="19.020168" y="41.999996" z="-6.1800375" diameter="1.168"/>
+                    <mml:distal x="41.018032" y="37.640137" z="-24.170292" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="5" name="Seg1_comp_3" parent="4" cable="42">
+                    <mml:distal x="63.016083" y="33.280357" z="-42.160416" diameter="1.168"/>
+                </mml:segment>
+
+                <mml:segment id="270" name="Seg0_comp_136" parent="265" cable="43">
+                    <mml:proximal x="-6.6318216E-6" y="-100.0" z="0.0" diameter="1.0"/>
+                    <mml:distal x="-9.735474" y="-123.02701" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="271" name="Seg1_comp_136" parent="270" cable="43">
+                    <mml:distal x="-19.470892" y="-146.053" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="266" name="Seg0_comp_134" parent="265" cable="44">
+                    <mml:proximal x="-6.6318216E-6" y="-100.0" z="0.0" diameter="1.0"/>
+                    <mml:distal x="9.735456" y="-123.02701" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="267" name="Seg1_comp_134" parent="266" cable="44">
+                    <mml:distal x="19.470907" y="-146.053" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="260" name="Seg0_comp_131" parent="243" cable="45">
+                    <mml:proximal x="-25.37945" y="47.760193" z="71.744415" diameter="0.876"/>
+                    <mml:distal x="-21.029491" y="53.065697" z="99.66395" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="261" name="Seg1_comp_131" parent="260" cable="45">
+                    <mml:distal x="-16.678543" y="58.371376" z="127.58321" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="258" name="Seg0_comp_130" parent="243" cable="46">
+                    <mml:proximal x="-25.37945" y="47.760193" z="71.744415" diameter="0.876"/>
+                    <mml:distal x="-32.19127" y="50.640335" z="99.52668" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="259" name="Seg1_comp_130" parent="258" cable="46">
+                    <mml:distal x="-39.003105" y="53.520477" z="127.30895" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="256" name="Seg0_comp_129" parent="243" cable="47">
+                    <mml:proximal x="-25.37945" y="47.760193" z="71.744415" diameter="0.876"/>
+                    <mml:distal x="-42.277824" y="47.760246" z="95.00342" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="257" name="Seg1_comp_129" parent="256" cable="47">
+                    <mml:distal x="-59.177048" y="47.760204" z="118.26294" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="254" name="Seg0_comp_128" parent="241" cable="48">
+                    <mml:proximal x="-45.552567" y="42.000015" z="62.6979" diameter="0.876"/>
+                    <mml:distal x="-52.365227" y="44.880062" z="90.48068" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="255" name="Seg1_comp_128" parent="254" cable="48">
+                    <mml:distal x="-59.177048" y="47.760204" z="118.26294" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="252" name="Seg0_comp_127" parent="241" cable="49">
+                    <mml:proximal x="-45.552567" y="42.000015" z="62.6979" diameter="0.876"/>
+                    <mml:distal x="-62.45179" y="41.999973" z="85.95743" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="253" name="Seg1_comp_127" parent="252" cable="49">
+                    <mml:distal x="-79.35017" y="42.000027" z="109.216415" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="250" name="Seg0_comp_126" parent="241" cable="50">
+                    <mml:proximal x="-45.552567" y="42.000015" z="62.6979" diameter="0.876"/>
+                    <mml:distal x="-69.87015" y="39.119907" z="77.76185" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="251" name="Seg1_comp_126" parent="250" cable="50">
+                    <mml:distal x="-94.18774" y="36.2398" z="92.8258" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="248" name="Seg0_comp_125" parent="239" cable="51">
+                    <mml:proximal x="-60.39009" y="36.239807" z="46.307327" diameter="0.876"/>
+                    <mml:distal x="-77.289345" y="36.239746" z="69.56679" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="249" name="Seg1_comp_125" parent="248" cable="51">
+                    <mml:distal x="-94.18774" y="36.2398" z="92.8258" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="246" name="Seg0_comp_124" parent="239" cable="52">
+                    <mml:proximal x="-60.39009" y="36.239807" z="46.307327" diameter="0.876"/>
+                    <mml:distal x="-84.70768" y="33.359695" z="61.371277" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="247" name="Seg1_comp_124" parent="246" cable="52">
+                    <mml:distal x="-109.02527" y="30.479588" z="76.43523" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="244" name="Seg0_comp_123" parent="239" cable="53">
+                    <mml:proximal x="-60.39009" y="36.239807" z="46.307327" diameter="0.876"/>
+                    <mml:distal x="-88.28765" y="30.934244" z="50.797966" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="245" name="Seg1_comp_123" parent="244" cable="53">
+                    <mml:distal x="-116.18438" y="25.62878" z="55.288086" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="234" name="Seg0_comp_118" parent="217" cable="54">
+                    <mml:proximal x="54.709126" y="25.036484" z="-50.43508" diameter="0.876"/>
+                    <mml:distal x="77.37341" y="9.411922" z="-58.72691" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="235" name="Seg1_comp_118" parent="234" cable="54">
+                    <mml:distal x="100.03817" y="-6.212467" z="-67.01964" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="232" name="Seg0_comp_117" parent="217" cable="55">
+                    <mml:proximal x="54.709126" y="25.036484" z="-50.43508" diameter="0.876"/>
+                    <mml:distal x="76.18608" y="16.554726" z="-67.5628" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="233" name="Seg1_comp_117" parent="232" cable="55">
+                    <mml:distal x="97.66311" y="8.072891" z="-84.6905" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="230" name="Seg0_comp_116" parent="217" cable="56">
+                    <mml:proximal x="54.709126" y="25.036484" z="-50.43508" diameter="0.876"/>
+                    <mml:distal x="71.60803" y="25.036524" z="-73.694496" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="231" name="Seg1_comp_116" parent="230" cable="56">
+                    <mml:distal x="88.50687" y="25.036634" z="-96.9539" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="228" name="Seg0_comp_115" parent="215" cable="57">
+                    <mml:proximal x="45.55289" y="42.00022" z="-62.698498" diameter="0.876"/>
+                    <mml:distal x="67.029915" y="33.518394" z="-79.826195" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="229" name="Seg1_comp_115" parent="228" cable="57">
+                    <mml:distal x="88.50687" y="25.036634" z="-96.9539" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="226" name="Seg0_comp_114" parent="215" cable="58">
+                    <mml:proximal x="45.55289" y="42.00022" z="-62.698498" diameter="0.876"/>
+                    <mml:distal x="62.4514" y="42.00003" z="-85.957016" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="227" name="Seg1_comp_114" parent="226" cable="58">
+                    <mml:distal x="79.350235" y="42.00014" z="-109.21642" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="224" name="Seg0_comp_113" parent="215" cable="59">
+                    <mml:proximal x="45.55289" y="42.00022" z="-62.698498" diameter="0.876"/>
+                    <mml:distal x="55.20534" y="50.481945" z="-88.41669" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="225" name="Seg1_comp_113" parent="224" cable="59">
+                    <mml:distal x="64.85825" y="58.963825" z="-114.135735" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="222" name="Seg0_comp_112" parent="213" cable="60">
+                    <mml:proximal x="31.060482" y="58.963715" z="-67.616936" diameter="0.876"/>
+                    <mml:distal x="47.959354" y="58.963787" z="-90.876335" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="223" name="Seg1_comp_112" parent="222" cable="60">
+                    <mml:distal x="64.85825" y="58.963825" z="-114.135735" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="220" name="Seg0_comp_111" parent="213" cable="61">
+                    <mml:proximal x="31.060482" y="58.963715" z="-67.616936" diameter="0.876"/>
+                    <mml:distal x="40.712944" y="67.44543" z="-93.33511" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="221" name="Seg1_comp_111" parent="220" cable="61">
+                    <mml:distal x="50.365795" y="75.92737" z="-119.05418" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="218" name="Seg0_comp_110" parent="213" cable="62">
+                    <mml:proximal x="31.060482" y="58.963715" z="-67.616936" diameter="0.876"/>
+                    <mml:distal x="31.943047" y="74.58819" z="-91.734436" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="219" name="Seg1_comp_110" parent="218" cable="62">
+                    <mml:distal x="32.825565" y="90.2127" z="-115.85193" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="208" name="Seg0_comp_105" parent="191" cable="63">
+                    <mml:proximal x="67.66503" y="20.31482" z="27.852478" diameter="0.876"/>
+                    <mml:distal x="85.12662" y="0.34132385" z="38.929787" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="209" name="Seg1_comp_105" parent="208" cable="63">
+                    <mml:distal x="102.58821" y="-19.63216" z="50.0071" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="206" name="Seg0_comp_104" parent="191" cable="64">
+                    <mml:proximal x="67.66503" y="20.31482" z="27.852478" diameter="0.876"/>
+                    <mml:distal x="91.98754" y="9.4722595" z="38.688717" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="207" name="Seg1_comp_104" parent="206" cable="64">
+                    <mml:distal x="116.31006" y="-1.3702888" z="49.524956" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="204" name="Seg0_comp_103" parent="191" cable="65">
+                    <mml:proximal x="67.66503" y="20.31482" z="27.852478" diameter="0.876"/>
+                    <mml:distal x="95.00786" y="20.314846" z="36.736683" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="205" name="Seg1_comp_103" parent="204" cable="65">
+                    <mml:distal x="122.35069" y="20.314882" z="45.620888" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="202" name="Seg0_comp_102" parent="189" cable="66">
+                    <mml:proximal x="73.705666" y="41.99999" z="23.948406" diameter="0.876"/>
+                    <mml:distal x="98.028175" y="31.157429" z="34.78465" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="203" name="Seg1_comp_102" parent="202" cable="66">
+                    <mml:distal x="122.3507" y="20.314789" z="45.62092" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="200" name="Seg0_comp_101" parent="189" cable="67">
+                    <mml:proximal x="73.705666" y="41.99999" z="23.948406" diameter="0.876"/>
+                    <mml:distal x="101.0485" y="41.999924" z="32.83264" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="201" name="Seg1_comp_101" parent="200" cable="67">
+                    <mml:distal x="128.39134" y="41.999954" z="41.71685" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="198" name="Seg0_comp_100" parent="189" cable="68">
+                    <mml:proximal x="73.705666" y="41.99999" z="23.948406" diameter="0.876"/>
+                    <mml:distal x="99.75235" y="52.842606" z="29.478073" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="199" name="Seg1_comp_100" parent="198" cable="68">
+                    <mml:distal x="125.79903" y="63.68526" z="35.00773" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="196" name="Seg0_comp_99" parent="187" cable="69">
+                    <mml:proximal x="71.11335" y="63.685265" z="17.239292" diameter="0.876"/>
+                    <mml:distal x="98.456184" y="63.68526" z="26.123516" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="197" name="Seg1_comp_99" parent="196" cable="69">
+                    <mml:distal x="125.79903" y="63.68526" z="35.00773" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="194" name="Seg0_comp_98" parent="187" cable="70">
+                    <mml:proximal x="71.11335" y="63.685265" z="17.239292" diameter="0.876"/>
+                    <mml:distal x="97.16003" y="74.52787" z="22.768963" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="195" name="Seg1_comp_98" parent="194" cable="70">
+                    <mml:distal x="123.206696" y="85.37058" z="28.298603" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="192" name="Seg0_comp_97" parent="187" cable="71">
+                    <mml:proximal x="71.11335" y="63.685265" z="17.239292" diameter="0.876"/>
+                    <mml:distal x="91.75117" y="83.658615" z="18.541252" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="193" name="Seg1_comp_97" parent="192" cable="71">
+                    <mml:distal x="112.38899" y="103.63197" z="19.843212" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="182" name="Seg0_comp_92" parent="165" cable="72">
+                    <mml:proximal x="56.35762" y="27.031525" z="49.23774" diameter="0.876"/>
+                    <mml:distal x="80.54034" y="13.244663" z="56.427048" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="183" name="Seg1_comp_92" parent="182" cable="72">
+                    <mml:distal x="104.72254" y="-0.5422821" z="63.61551" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="180" name="Seg0_comp_91" parent="165" cable="73">
+                    <mml:proximal x="56.35762" y="27.031525" z="49.23774" diameter="0.876"/>
+                    <mml:distal x="78.65866" y="19.547329" z="65.76663" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="181" name="Seg1_comp_91" parent="180" cable="73">
+                    <mml:distal x="100.95976" y="12.063074" z="82.29551" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="178" name="Seg0_comp_90" parent="165" cable="74">
+                    <mml:proximal x="56.35762" y="27.031525" z="49.23774" diameter="0.876"/>
+                    <mml:distal x="73.25647" y="27.031612" z="72.49717" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="179" name="Seg1_comp_90" parent="178" cable="74">
+                    <mml:distal x="90.15488" y="27.031548" z="95.75571" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="176" name="Seg0_comp_89" parent="163" cable="75">
+                    <mml:proximal x="45.552658" y="42.000065" z="62.697968" diameter="0.876"/>
+                    <mml:distal x="67.85377" y="34.51581" z="79.22684" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="177" name="Seg1_comp_89" parent="176" cable="75">
+                    <mml:distal x="90.15488" y="27.031548" z="95.75571" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="174" name="Seg0_comp_88" parent="163" cable="76">
+                    <mml:proximal x="45.552658" y="42.000065" z="62.697968" diameter="0.876"/>
+                    <mml:distal x="62.451576" y="42.000088" z="85.957375" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="175" name="Seg1_comp_88" parent="174" cable="76">
+                    <mml:distal x="79.35048" y="42.000114" z="109.21677" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="172" name="Seg0_comp_87" parent="163" cable="77">
+                    <mml:proximal x="45.552658" y="42.000065" z="62.697968" diameter="0.876"/>
+                    <mml:distal x="54.381298" y="49.48432" z="89.01551" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="173" name="Seg1_comp_87" parent="172" cable="77">
+                    <mml:distal x="63.2099" y="56.968613" z="115.33306" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="170" name="Seg0_comp_86" parent="161" cable="78">
+                    <mml:proximal x="29.412083" y="56.96856" z="68.81427" diameter="0.876"/>
+                    <mml:distal x="46.311005" y="56.968575" z="92.07366" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="171" name="Seg1_comp_86" parent="170" cable="78">
+                    <mml:distal x="63.209904" y="56.968605" z="115.33306" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="168" name="Seg0_comp_85" parent="161" cable="79">
+                    <mml:proximal x="29.412083" y="56.96856" z="68.81427" diameter="0.876"/>
+                    <mml:distal x="38.240707" y="64.452835" z="95.13181" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="169" name="Seg1_comp_85" parent="168" cable="79">
+                    <mml:distal x="47.069324" y="71.9371" z="121.449356" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="166" name="Seg0_comp_84" parent="161" cable="80">
+                    <mml:proximal x="29.412083" y="56.96856" z="68.81427" diameter="0.876"/>
+                    <mml:distal x="28.776363" y="70.75544" z="94.03465" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="167" name="Seg1_comp_84" parent="166" cable="80">
+                    <mml:distal x="28.141151" y="84.54241" z="119.25589" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="156" name="Seg0_comp_79" parent="139" cable="81">
+                    <mml:proximal x="25.522982" y="40.014202" z="-71.897804" diameter="0.876"/>
+                    <mml:distal x="46.935406" y="38.185158" z="-90.995415" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="157" name="Seg1_comp_79" parent="156" cable="81">
+                    <mml:distal x="68.347725" y="36.35613" z="-110.094" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="154" name="Seg0_comp_78" parent="139" cable="82">
+                    <mml:proximal x="25.522982" y="40.014202" z="-71.897804" diameter="0.876"/>
+                    <mml:distal x="37.840126" y="39.02131" z="-97.856766" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="155" name="Seg1_comp_78" parent="154" cable="82">
+                    <mml:distal x="50.15736" y="38.028408" z="-123.81572" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="152" name="Seg0_comp_77" parent="139" cable="83">
+                    <mml:proximal x="25.522982" y="40.014202" z="-71.897804" diameter="0.876"/>
+                    <mml:distal x="26.800293" y="40.01421" z="-100.619804" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="153" name="Seg1_comp_77" parent="152" cable="83">
+                    <mml:distal x="28.077707" y="40.014206" z="-129.34082" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="150" name="Seg0_comp_76" parent="137" cable="84">
+                    <mml:proximal x="3.4433362" y="42.0" z="-77.42289" diameter="0.876"/>
+                    <mml:distal x="15.760565" y="41.0071" z="-103.38186" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="151" name="Seg1_comp_76" parent="150" cable="84">
+                    <mml:distal x="28.077707" y="40.014206" z="-129.34082" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="148" name="Seg0_comp_75" parent="137" cable="85">
+                    <mml:proximal x="3.4433362" y="42.0" z="-77.42289" diameter="0.876"/>
+                    <mml:distal x="4.720708" y="42.000004" z="-106.144905" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="149" name="Seg1_comp_75" parent="148" cable="85">
+                    <mml:distal x="5.9980702" y="42.000008" z="-134.86691" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="146" name="Seg0_comp_74" parent="137" cable="86">
+                    <mml:proximal x="3.4433362" y="42.0" z="-77.42289" diameter="0.876"/>
+                    <mml:distal x="-6.5207815" y="42.9929" z="-104.37295" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="147" name="Seg1_comp_74" parent="146" cable="86">
+                    <mml:distal x="-16.484907" y="43.9858" z="-131.32298" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="144" name="Seg0_comp_73" parent="135" cable="87">
+                    <mml:proximal x="-19.039633" y="43.9858" z="-73.87999" diameter="0.876"/>
+                    <mml:distal x="-17.762222" y="43.985794" z="-102.60098" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="145" name="Seg1_comp_73" parent="144" cable="87">
+                    <mml:distal x="-16.484907" y="43.9858" z="-131.32298" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="142" name="Seg0_comp_72" parent="135" cable="88">
+                    <mml:proximal x="-19.039633" y="43.9858" z="-73.87999" diameter="0.876"/>
+                    <mml:distal x="-29.003752" y="44.978703" z="-100.83003" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="143" name="Seg1_comp_72" parent="142" cable="88">
+                    <mml:distal x="-38.96787" y="45.9716" z="-127.77908" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="140" name="Seg0_comp_71" parent="135" cable="89">
+                    <mml:proximal x="-19.039633" y="43.9858" z="-73.87999" diameter="0.876"/>
+                    <mml:distal x="-38.67214" y="45.814846" z="-94.80339" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="141" name="Seg1_comp_71" parent="140" cable="89">
+                    <mml:distal x="-58.30465" y="47.64389" z="-115.72679" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="130" name="Seg0_comp_66" parent="113" cable="90">
+                    <mml:proximal x="19.039625" y="43.985806" z="73.87999" diameter="0.876"/>
+                    <mml:distal x="38.67213" y="45.81485" z="94.80339" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="131" name="Seg1_comp_66" parent="130" cable="90">
+                    <mml:distal x="58.304634" y="47.643898" z="115.72679" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="128" name="Seg0_comp_65" parent="113" cable="91">
+                    <mml:proximal x="19.039625" y="43.985806" z="73.87999" diameter="0.876"/>
+                    <mml:distal x="29.00374" y="44.978706" z="100.83003" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="129" name="Seg1_comp_65" parent="128" cable="91">
+                    <mml:distal x="38.967854" y="45.971603" z="127.77908" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="126" name="Seg0_comp_64" parent="113" cable="92">
+                    <mml:proximal x="19.039625" y="43.985806" z="73.87999" diameter="0.876"/>
+                    <mml:distal x="17.76221" y="43.985798" z="102.60098" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="127" name="Seg1_comp_64" parent="126" cable="92">
+                    <mml:distal x="16.484896" y="43.985806" z="131.32298" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="124" name="Seg0_comp_63" parent="111" cable="93">
+                    <mml:proximal x="-3.4433446" y="42.0" z="77.42289" diameter="0.876"/>
+                    <mml:distal x="6.520771" y="42.9929" z="104.37295" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="125" name="Seg1_comp_63" parent="124" cable="93">
+                    <mml:distal x="16.484896" y="43.985806" z="131.32298" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="122" name="Seg0_comp_62" parent="111" cable="94">
+                    <mml:proximal x="-3.4433446" y="42.0" z="77.42289" diameter="0.876"/>
+                    <mml:distal x="-4.7207193" y="42.000004" z="106.144905" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="123" name="Seg1_comp_62" parent="122" cable="94">
+                    <mml:distal x="-5.9980836" y="42.000004" z="134.86691" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="120" name="Seg0_comp_61" parent="111" cable="95">
+                    <mml:proximal x="-3.4433446" y="42.0" z="77.42289" diameter="0.876"/>
+                    <mml:distal x="-15.760576" y="41.007095" z="103.38186" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="121" name="Seg1_comp_61" parent="120" cable="95">
+                    <mml:distal x="-28.077719" y="40.014202" z="129.34082" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="118" name="Seg0_comp_60" parent="109" cable="96">
+                    <mml:proximal x="-25.52299" y="40.0142" z="71.897804" diameter="0.876"/>
+                    <mml:distal x="-26.800304" y="40.014206" z="100.619804" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="119" name="Seg1_comp_60" parent="118" cable="96">
+                    <mml:distal x="-28.077719" y="40.014202" z="129.34082" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="116" name="Seg0_comp_59" parent="109" cable="97">
+                    <mml:proximal x="-25.52299" y="40.0142" z="71.897804" diameter="0.876"/>
+                    <mml:distal x="-37.840134" y="39.0213" z="97.856766" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="117" name="Seg1_comp_59" parent="116" cable="97">
+                    <mml:distal x="-50.157375" y="38.0284" z="123.81572" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="114" name="Seg0_comp_58" parent="109" cable="98">
+                    <mml:proximal x="-25.52299" y="40.0142" z="71.897804" diameter="0.876"/>
+                    <mml:distal x="-46.935413" y="38.18515" z="90.995415" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="115" name="Seg1_comp_58" parent="114" cable="98">
+                    <mml:distal x="-68.34774" y="36.356117" z="110.094" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="104" name="Seg0_comp_53" parent="87" cable="99">
+                    <mml:proximal x="-67.507614" y="63.54805" z="-28.336105" diameter="0.876"/>
+                    <mml:distal x="-84.82448" y="83.39501" z="-39.85888" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="105" name="Seg1_comp_53" parent="104" cable="99">
+                    <mml:distal x="-102.14227" y="103.242096" z="-51.38199" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="102" name="Seg0_comp_52" parent="87" cable="100">
+                    <mml:proximal x="-67.507614" y="63.54805" z="-28.336105" diameter="0.876"/>
+                    <mml:distal x="-91.75155" y="74.32207" z="-39.414207" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="103" name="Seg1_comp_52" parent="102" cable="100">
+                    <mml:distal x="-115.995476" y="85.09608" z="-50.49231" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="100" name="Seg0_comp_51" parent="87" cable="101">
+                    <mml:proximal x="-67.507614" y="63.54805" z="-28.336105" diameter="0.876"/>
+                    <mml:distal x="-94.85066" y="63.548077" z="-37.220413" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="101" name="Seg1_comp_51" parent="100" cable="101">
+                    <mml:distal x="-122.193695" y="63.54812" z="-46.10472" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="98" name="Seg0_comp_50" parent="85" cable="102">
+                    <mml:proximal x="-73.705826" y="42.000095" z="-23.948511" diameter="0.876"/>
+                    <mml:distal x="-97.94977" y="52.77409" z="-35.02661" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="99" name="Seg1_comp_50" parent="98" cable="102">
+                    <mml:distal x="-122.19369" y="63.54813" z="-46.10472" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="96" name="Seg0_comp_49" parent="85" cable="103">
+                    <mml:proximal x="-73.705826" y="42.000095" z="-23.948511" diameter="0.876"/>
+                    <mml:distal x="-101.048874" y="42.00013" z="-32.832825" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="97" name="Seg1_comp_49" parent="96" cable="103">
+                    <mml:distal x="-128.3919" y="42.000164" z="-41.717125" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="94" name="Seg0_comp_48" parent="85" cable="104">
+                    <mml:proximal x="-73.705826" y="42.000095" z="-23.948511" diameter="0.876"/>
+                    <mml:distal x="-99.830864" y="31.226103" z="-29.236294" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="95" name="Seg1_comp_48" parent="94" cable="104">
+                    <mml:distal x="-125.9559" y="20.452112" z="-34.52408" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="92" name="Seg0_comp_47" parent="83" cable="105">
+                    <mml:proximal x="-71.27077" y="20.452072" z="-16.755781" diameter="0.876"/>
+                    <mml:distal x="-98.61379" y="20.452206" z="-25.64011" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="93" name="Seg1_comp_47" parent="92" cable="105">
+                    <mml:distal x="-125.9559" y="20.452112" z="-34.52408" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="90" name="Seg0_comp_46" parent="83" cable="106">
+                    <mml:proximal x="-71.27077" y="20.452072" z="-16.755781" diameter="0.876"/>
+                    <mml:distal x="-97.395775" y="9.678177" z="-22.043583" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="91" name="Seg1_comp_46" parent="90" cable="106">
+                    <mml:distal x="-123.52082" y="-1.0958176" z="-27.331366" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="88" name="Seg0_comp_45" parent="83" cable="107">
+                    <mml:proximal x="-71.27077" y="20.452072" z="-16.755781" diameter="0.876"/>
+                    <mml:distal x="-92.053764" y="0.6051483" z="-17.612423" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="89" name="Seg1_comp_45" parent="88" cable="107">
+                    <mml:distal x="-112.83584" y="-19.241909" z="-18.468721" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="78" name="Seg0_comp_40" parent="61" cable="108">
+                    <mml:proximal x="-30.229197" y="58.021027" z="-68.22078" diameter="0.876"/>
+                    <mml:distal x="-30.346024" y="72.7773" z="-92.89441" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="79" name="Seg1_comp_40" parent="78" cable="108">
+                    <mml:distal x="-30.46285" y="87.533585" z="-117.568054" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="76" name="Seg0_comp_39" parent="61" cable="109">
+                    <mml:proximal x="-30.229197" y="58.021027" z="-68.22078" diameter="0.876"/>
+                    <mml:distal x="-39.466316" y="66.031525" z="-94.24147" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="77" name="Seg1_comp_39" parent="76" cable="109">
+                    <mml:distal x="-48.703354" y="74.0421" z="-120.26219" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="74" name="Seg0_comp_38" parent="61" cable="110">
+                    <mml:proximal x="-30.229197" y="58.021027" z="-68.22078" diameter="0.876"/>
+                    <mml:distal x="-47.12799" y="58.021027" z="-91.47999" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="75" name="Seg1_comp_38" parent="74" cable="110">
+                    <mml:distal x="-64.02679" y="58.021027" z="-114.739204" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="72" name="Seg0_comp_37" parent="59" cable="111">
+                    <mml:proximal x="-45.55259" y="41.99999" z="-62.697796" diameter="0.876"/>
+                    <mml:distal x="-54.789703" y="50.01049" z="-88.7185" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="73" name="Seg1_comp_37" parent="72" cable="111">
+                    <mml:distal x="-64.02679" y="58.021027" z="-114.739204" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="70" name="Seg0_comp_36" parent="59" cable="112">
+                    <mml:proximal x="-45.55259" y="41.99999" z="-62.697796" diameter="0.876"/>
+                    <mml:distal x="-62.451424" y="41.99994" z="-85.956985" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="71" name="Seg1_comp_36" parent="70" cable="112">
+                    <mml:distal x="-79.3502" y="41.99996" z="-109.2162" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="68" name="Seg0_comp_35" parent="59" cable="113">
+                    <mml:proximal x="-45.55259" y="41.99999" z="-62.697796" diameter="0.876"/>
+                    <mml:distal x="-67.44529" y="33.989525" z="-79.52372" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="69" name="Seg1_comp_35" parent="68" cable="113">
+                    <mml:distal x="-89.338066" y="25.978994" z="-96.349625" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="66" name="Seg0_comp_34" parent="57" cable="114">
+                    <mml:proximal x="-55.54046" y="25.979021" z="-49.831215" diameter="0.876"/>
+                    <mml:distal x="-72.439224" y="25.979042" z="-73.09043" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="67" name="Seg1_comp_34" parent="66" cable="114">
+                    <mml:distal x="-89.338" y="25.979063" z="-96.34965" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="64" name="Seg0_comp_33" parent="57" cable="115">
+                    <mml:proximal x="-55.54046" y="25.979021" z="-49.831215" diameter="0.876"/>
+                    <mml:distal x="-77.43316" y="17.968561" z="-66.65714" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="65" name="Seg1_comp_33" parent="64" cable="115">
+                    <mml:distal x="-99.325874" y="9.958099" z="-83.48307" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="62" name="Seg0_comp_32" parent="57" cable="116">
+                    <mml:proximal x="-55.54046" y="25.979021" z="-49.831215" diameter="0.876"/>
+                    <mml:distal x="-78.97044" y="11.222641" z="-57.56683" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="63" name="Seg1_comp_32" parent="62" cable="116">
+                    <mml:distal x="-102.40043" y="-3.533741" z="-65.30246" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="52" name="Seg0_comp_27" parent="35" cable="117">
+                    <mml:proximal x="-67.81264" y="63.80274" z="27.398129" diameter="0.876"/>
+                    <mml:distal x="-85.4104" y="83.8842" z="38.05694" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="53" name="Seg1_comp_27" parent="52" cable="117">
+                    <mml:distal x="-103.00813" y="103.96572" z="48.715744" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="50" name="Seg0_comp_26" parent="35" cable="118">
+                    <mml:proximal x="-67.81264" y="63.80274" z="27.398129" diameter="0.876"/>
+                    <mml:distal x="-92.20835" y="74.70392" z="38.006966" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="51" name="Seg1_comp_26" parent="50" cable="118">
+                    <mml:distal x="-116.60495" y="85.60541" z="48.616158" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="48" name="Seg0_comp_25" parent="35" cable="119">
+                    <mml:proximal x="-67.81264" y="63.80274" z="27.398129" diameter="0.876"/>
+                    <mml:distal x="-95.155655" y="63.802834" z="36.28244" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="49" name="Seg1_comp_25" parent="48" cable="119">
+                    <mml:distal x="-122.49869" y="63.802887" z="45.166748" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="46" name="Seg0_comp_24" parent="33" cable="120">
+                    <mml:proximal x="-73.70635" y="42.00029" z="23.948729" diameter="0.876"/>
+                    <mml:distal x="-98.102066" y="52.901485" z="34.557564" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="47" name="Seg1_comp_24" parent="46" cable="120">
+                    <mml:distal x="-122.49869" y="63.802887" z="45.166748" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="44" name="Seg0_comp_23" parent="33" cable="121">
+                    <mml:proximal x="-73.70635" y="42.00029" z="23.948729" diameter="0.876"/>
+                    <mml:distal x="-101.04851" y="42.00005" z="32.83268" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="45" name="Seg1_comp_23" parent="44" cable="121">
+                    <mml:distal x="-128.39151" y="42.00019" z="41.716995" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="42" name="Seg0_comp_22" parent="33" cable="122">
+                    <mml:proximal x="-73.70635" y="42.00029" z="23.948729" diameter="0.876"/>
+                    <mml:distal x="-99.67906" y="31.098963" z="29.705559" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="43" name="Seg1_comp_22" parent="42" cable="122">
+                    <mml:distal x="-125.65174" y="20.19772" z="35.462402" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="40" name="Seg0_comp_21" parent="31" cable="123">
+                    <mml:proximal x="-70.96569" y="20.197525" z="17.693771" diameter="0.876"/>
+                    <mml:distal x="-98.30874" y="20.19758" z="26.578083" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="41" name="Seg1_comp_21" parent="40" cable="123">
+                    <mml:distal x="-125.65174" y="20.19772" z="35.462402" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="38" name="Seg0_comp_20" parent="31" cable="124">
+                    <mml:proximal x="-70.96569" y="20.197525" z="17.693771" diameter="0.876"/>
+                    <mml:distal x="-96.93838" y="9.296288" z="23.450617" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="39" name="Seg1_comp_20" parent="38" cable="124">
+                    <mml:distal x="-122.911095" y="-1.6050453" z="29.207449" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="36" name="Seg0_comp_19" parent="31" cable="125">
+                    <mml:proximal x="-70.96569" y="20.197525" z="17.693771" diameter="0.876"/>
+                    <mml:distal x="-91.46744" y="0.11594391" z="19.414223" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="37" name="Seg1_comp_19" parent="36" cable="125">
+                    <mml:distal x="-111.9701" y="-19.96542" z="21.135023" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="26" name="Seg0_comp_14" parent="9" cable="126">
+                    <mml:proximal x="75.76205" y="50.719646" z="-2.9313235" diameter="0.876"/>
+                    <mml:distal x="100.68256" y="58.75108" z="8.945222" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="27" name="Seg1_comp_14" parent="26" cable="126">
+                    <mml:distal x="125.60211" y="66.782364" z="20.82172" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="24" name="Seg0_comp_13" parent="9" cable="127">
+                    <mml:proximal x="75.76205" y="50.719646" z="-2.9313235" diameter="0.876"/>
+                    <mml:distal x="104.13309" y="55.079487" z="-1.3069592" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="25" name="Seg1_comp_13" parent="24" cable="127">
+                    <mml:distal x="132.50412" y="59.439327" z="0.3174057" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="22" name="Seg0_comp_12" parent="9" cable="128">
+                    <mml:proximal x="75.76205" y="50.719646" z="-2.9313235" diameter="0.876"/>
+                    <mml:distal x="103.10539" y="50.719734" z="-11.815488" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="23" name="Seg1_comp_12" parent="22" cable="128">
+                    <mml:distal x="130.4478" y="50.719654" z="-20.699776" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="20" name="Seg0_comp_11" parent="7" cable="129">
+                    <mml:proximal x="73.70571" y="41.999973" z="-23.948502" diameter="0.876"/>
+                    <mml:distal x="102.07675" y="46.359814" z="-22.32414" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="21" name="Seg1_comp_11" parent="20" cable="129">
+                    <mml:distal x="130.4478" y="50.719654" z="-20.699776" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="18" name="Seg0_comp_10" parent="7" cable="130">
+                    <mml:proximal x="73.70571" y="41.999973" z="-23.948502" diameter="0.876"/>
+                    <mml:distal x="101.04909" y="42.00004" z="-32.832737" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="19" name="Seg1_comp_10" parent="18" cable="130">
+                    <mml:distal x="128.39146" y="41.999954" z="-41.717026" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="16" name="Seg0_comp_9" parent="7" cable="131">
+                    <mml:proximal x="73.70571" y="41.999973" z="-23.948502" diameter="0.876"/>
+                    <mml:distal x="95.704254" y="37.64023" z="-41.93869" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="17" name="Seg1_comp_9" parent="16" cable="131">
+                    <mml:distal x="117.70182" y="33.280334" z="-59.92894" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="14" name="Seg0_comp_8" parent="5" cable="132">
+                    <mml:proximal x="63.016083" y="33.280357" z="-42.160416" diameter="0.876"/>
+                    <mml:distal x="90.35845" y="33.28027" z="-51.04471" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="15" name="Seg1_comp_8" parent="14" cable="132">
+                    <mml:distal x="117.70182" y="33.280334" z="-59.92894" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="12" name="Seg0_comp_7" parent="5" cable="133">
+                    <mml:proximal x="63.016083" y="33.280357" z="-42.160416" diameter="0.876"/>
+                    <mml:distal x="85.01363" y="28.92046" z="-60.150665" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="13" name="Seg1_comp_7" parent="12" cable="133">
+                    <mml:distal x="107.01119" y="24.560566" z="-78.14091" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="10" name="Seg0_comp_6" parent="5" cable="134">
+                    <mml:proximal x="63.016083" y="33.280357" z="-42.160416" diameter="0.876"/>
+                    <mml:distal x="76.19619" y="25.249002" z="-66.416405" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="11" name="Seg1_comp_6" parent="10" cable="134">
+                    <mml:distal x="89.37534" y="17.217388" z="-90.67273" diameter="0.876"/>
+                </mml:segment>
+
+                <mml:segment id="272" name="Seg0_comp_137" parent="271" cable="135">
+                    <mml:proximal x="-19.470892" y="-146.053" z="0.0" diameter="1.0"/>
+                    <mml:distal x="-29.206392" y="-169.08" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="273" name="Seg1_comp_137" parent="272" cable="135">
+                    <mml:distal x="-38.94189" y="-192.106" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="268" name="Seg0_comp_135" parent="267" cable="136">
+                    <mml:proximal x="19.470907" y="-146.053" z="0.0" diameter="1.0"/>
+                    <mml:distal x="29.206408" y="-169.08" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="269" name="Seg1_comp_135" parent="268" cable="136">
+                    <mml:distal x="38.941807" y="-192.106" z="0.0" diameter="1.0"/>
+                </mml:segment>
+
+                
+            </mml:segments>
+
+            <mml:cables>
+
+                <mml:cable id="0" name="comp_1">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="2"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>OneSecGrp_SectionRef_1</meta:group>
+                    <meta:group>soma_group</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="1" name="comp_132" fract_along_parent="0.0">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="25"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="2" name="comp_119">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="3" name="comp_106">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="4" name="comp_93">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="5" name="comp_80">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="6" name="comp_67">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="7" name="comp_54">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="8" name="comp_41">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="9" name="comp_28">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="10" name="comp_15">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="11" name="comp_2">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="3"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>prox_dends</meta:group>
+                    <meta:group>soma_prox_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="12" name="comp_133">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="27"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="13" name="comp_122">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="14" name="comp_121">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="15" name="comp_120">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="16" name="comp_109">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="17" name="comp_108">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="18" name="comp_107">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="19" name="comp_96">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="20" name="comp_95">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="21" name="comp_94">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="22" name="comp_83">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="23" name="comp_82">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="24" name="comp_81">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="25" name="comp_70">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="26" name="comp_69">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="27" name="comp_68">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="28" name="comp_57">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="29" name="comp_56">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="30" name="comp_55">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="31" name="comp_44">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="32" name="comp_43">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="33" name="comp_42">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="34" name="comp_31">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="35" name="comp_30">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="36" name="comp_29">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="37" name="comp_18">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="38" name="comp_17">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="39" name="comp_16">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="40" name="comp_5">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="41" name="comp_4">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="42" name="comp_3">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="9"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                </mml:cable>
+
+                <mml:cable id="43" name="comp_136">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="32"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="44" name="comp_134">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="32"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="45" name="comp_131">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="46" name="comp_130">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="47" name="comp_129">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="48" name="comp_128">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="49" name="comp_127">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="50" name="comp_126">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="51" name="comp_125">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="52" name="comp_124">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="53" name="comp_123">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="54" name="comp_118">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="55" name="comp_117">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="56" name="comp_116">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="57" name="comp_115">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="58" name="comp_114">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="59" name="comp_113">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="60" name="comp_112">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="61" name="comp_111">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="62" name="comp_110">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="63" name="comp_105">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="64" name="comp_104">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="65" name="comp_103">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="66" name="comp_102">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="67" name="comp_101">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="68" name="comp_100">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="69" name="comp_99">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="70" name="comp_98">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="71" name="comp_97">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="72" name="comp_92">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="73" name="comp_91">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="74" name="comp_90">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="75" name="comp_89">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="76" name="comp_88">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="77" name="comp_87">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="78" name="comp_86">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="79" name="comp_85">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="80" name="comp_84">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="81" name="comp_79">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="82" name="comp_78">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="83" name="comp_77">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="84" name="comp_76">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="85" name="comp_75">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="86" name="comp_74">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="87" name="comp_73">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="88" name="comp_72">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="89" name="comp_71">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="90" name="comp_66">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="91" name="comp_65">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="92" name="comp_64">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="93" name="comp_63">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="94" name="comp_62">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="95" name="comp_61">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="96" name="comp_60">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="97" name="comp_59">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="98" name="comp_58">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="99" name="comp_53">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="100" name="comp_52">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="101" name="comp_51">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="102" name="comp_50">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="103" name="comp_49">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="104" name="comp_48">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="105" name="comp_47">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="106" name="comp_46">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="107" name="comp_45">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="108" name="comp_40">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="109" name="comp_39">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="110" name="comp_38">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="111" name="comp_37">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="112" name="comp_36">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="113" name="comp_35">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="114" name="comp_34">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="115" name="comp_33">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="116" name="comp_32">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="117" name="comp_27">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="118" name="comp_26">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="119" name="comp_25">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="120" name="comp_24">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="121" name="comp_23">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="122" name="comp_22">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="123" name="comp_21">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="124" name="comp_20">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="125" name="comp_19">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="126" name="comp_14">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="127" name="comp_13">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="128" name="comp_12">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="129" name="comp_11">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="130" name="comp_10">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="131" name="comp_9">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="132" name="comp_8">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="133" name="comp_7">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="134" name="comp_6">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="11"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_4</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="135" name="comp_137">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="32"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>axon_group</meta:group>
+                    <meta:group>distal_axon</meta:group>
+                </mml:cable>
+
+                <mml:cable id="136" name="comp_135">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="32"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>axon_group</meta:group>
+                    <meta:group>distal_axon</meta:group>
+                </mml:cable>
+
+            </mml:cables>
+
+            <!--Adding the biophysical parameters-->
+
+            <biophysics units="Physiological Units">
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>prox_dends</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.3">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cad" type="Ion Concentration">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="beta" value="0.02">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="phi" value="52000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cad" type="Ion Concentration">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="beta" value="0.05">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="phi" value="104000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>soma_prox_dends</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cat" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="3.0">
+                        <bio:group>ModelViewParmSubset_9</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cat" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_8</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="2.0">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="6.0">
+                        <bio:group>soma_prox_dends</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_10</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kahp_slower" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.05">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kc" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="12.0">
+                        <bio:group>soma_prox_dends</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kc" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="20.0">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="33.75">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="180.0">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="22.5">
+                        <bio:group>prox_dends</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="400.0">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="shift_hnaf" value="-7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="shift_mnaf_init" value="-3.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="shift_mnaf_run" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="5.0">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="100.0">
+                        <bio:group>soma_prox_dends</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="napf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>soma_prox_dends</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="napf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="napf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.01">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="1.0">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="0.0378788">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+                
+
+                <bio:spec_capacitance>
+                    <bio:parameter value="0.9">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:spec_capacitance>
+
+                <bio:spec_axial_resistance>
+                    <bio:parameter value="0.1">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter value="0.175">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:spec_axial_resistance>
+
+                <bio:init_memb_potential>
+                    <bio:parameter value="-70.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:init_memb_potential>
+
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            </biophysics>
+
+            <connectivity>
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_TCR">
+                    <net:group>distal_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_DeepAxAx">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_DeepBask">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_L4SS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_L5Pyr">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_L6NT">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_SupFS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_SupPyr">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_nRT">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_GABAA_nRT_TCR_s">
+                    <net:group>soma_prox_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_TCR">
+                    <net:group>distal_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_DeepAxAx">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_DeepBask">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_L4SS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_L5Pyr">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_L6NT">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_SupFS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_SupPyr">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_nRT">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            </connectivity>
+
+        </cell>
+    </cells>
+</neuroml>

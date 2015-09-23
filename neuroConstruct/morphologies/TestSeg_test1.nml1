@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:cml="http://morphml.org/channelml/schema" xmlns:net="http://morphml.org/networkml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/neuroml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" lengthUnits="micron">
+
+    <cells>
+        <cell name="TestSeg_test1">
+
+            <meta:notes>A single segment/compartment cell, with almost all of the ChannelML mechanisms. Used for comparison with original mod file implementations. Note: when comparing the ChannelML files to the original mod files, DESELECT the Force correct ChannelML initialisation checkbox, as most of the mod file channel implementations are initialised incorrectly (i.e. m!=minf at t=0). This is probably due to those files attempting to replicate the original Fortran. When using this cell to compare NEURON and GENESIS ChannelML mappings, SELECT the Force correct ChannelML initialisation checkbox, as GENESIS initialises the channels correctly.</meta:notes>
+
+            <mml:segments>
+
+                <mml:segment id="0" name="Soma" cable="0">
+                    <mml:proximal x="0.0" y="0.0" z="0.0" diameter="20.0"/>
+                    <mml:distal x="0.0" y="0.0" z="0.0" diameter="20.0"/>
+                </mml:segment>
+
+                
+            </mml:segments>
+
+            <mml:cables>
+
+                <mml:cable id="0" name="Soma">
+                    <meta:group>all</meta:group>
+                    <meta:group>soma_group</meta:group>
+                </mml:cable>
+
+            </mml:cables>
+
+            <!--Adding the biophysical parameters-->
+
+            <biophysics units="Physiological Units">
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cad" type="Ion Concentration">    <!--Note: Calcium pools are not proper ion channels, thus this parameter does not represent a proper maximum conductance.
+The scaling factor for converting current into change in ion concentration should be
+ determined from ChannelML file for the CaPool...-->
+
+                    <bio:parameter name="gmax" value="0.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="beta" value="0.03">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="phi" value="300000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cat" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.05">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cat_a" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.05">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.1">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="15.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka_ib" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="15.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kahp" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.033">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.033">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kahp_slower" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.033">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kc" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="2.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kc_fast" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="2.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="62.5">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr_fs" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="62.5">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="1.5">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.033">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.033">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.033">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.05">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="napf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="15.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="napf_spinstell" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.05">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="napf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.05">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-66.6">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="0.3">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+                
+
+                <bio:spec_capacitance>
+                    <bio:parameter value="1.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:spec_capacitance>
+
+                <bio:spec_axial_resistance>
+                    <bio:parameter value="0.03">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:spec_axial_resistance>
+
+                <bio:init_memb_potential>
+                    <bio:parameter value="-60.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:init_memb_potential>
+
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            </biophysics>
+
+            <connectivity/>
+
+        </cell>
+    </cells>
+</neuroml>
