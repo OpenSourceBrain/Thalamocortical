@@ -48,7 +48,7 @@ simConfigs = []
 simConfigs.append("TestNML2")
 
 
-simDt =                 0.001
+simDt =                 0.0005
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
@@ -72,6 +72,15 @@ runInBackground =       True #(mpiConf == MpiSettings.LOCAL_SERIAL)
 suggestedRemoteRunTime = 233
 
 verbose =               True
+
+spike_times = []
+mep_file = open('.test.mep')
+for line in mep_file:
+    line = line.strip()
+    if line.startswith('spike times: ['):
+        times = line[14:-1].split(',')
+        for time in times:
+            spike_times.append(float(time.strip()))
 
 #############################################
 
@@ -103,7 +112,7 @@ def testAll(argv=None):
 
     # These were discovered using analyseSims = True above.
     # They need to hold for all simulators
-    spikeTimesToCheck = {'CG_tester_0': [22.796, 28.646, 34.774, 41.19, 47.897, 54.881, 62.118, 69.571, 77.198]}
+    spikeTimesToCheck = {'CG_tester_0': spike_times}
 
     spikeTimeAccuracy = 0.001
 
