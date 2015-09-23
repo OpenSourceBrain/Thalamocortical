@@ -2,9 +2,9 @@
 <neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:cml="http://morphml.org/channelml/schema" xmlns:net="http://morphml.org/networkml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/neuroml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" lengthUnits="micron">
 
     <cells>
-        <cell name="TestSeg_orig_all">
+        <cell name="TestSeg_test2">
 
-            <meta:notes>A single segment/compartment cell, with almost all of the original mod file mechs. Used for comparison with ChannelML implementations.</meta:notes>
+            <meta:notes>A single segment/compartment cell, with almost all of the ChannelML mechanisms. Used for comparison with original mod file implementations. Note: when comparing the ChannelML files to the original mod files, DESELECT the Force correct ChannelML initialisation checkbox, as most of the mod file channel implementations are initialised incorrectly (i.e. m!=minf at t=0). This is probably due to those files attempting to replicate the original Fortran. When using this cell to compare NEURON and GENESIS ChannelML mappings, SELECT the Force correct ChannelML initialisation checkbox, as GENESIS initialises the channels correctly.</meta:notes>
 
             <mml:segments>
 
@@ -29,147 +29,97 @@
 
             <biophysics units="Physiological Units">
 
-                <bio:mechanism name="AR_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.25">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="cad_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.0">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="beta" value="0.03">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="phi" value="300000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="CaL_mod" type="Channel Mechanism">
+                <bio:mechanism name="cal" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.5">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="cat_a_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.05">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="CaT_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.05">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="K2_mod" type="Channel Mechanism">
+                <bio:mechanism name="k2" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.1">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="ka_ib_mod" type="Channel Mechanism">
+                <bio:mechanism name="ka" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="15.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="Ka_mod" type="Channel Mechanism">
+                <bio:mechanism name="ka_ib" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="15.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="kahp_deeppyr_mod" type="Channel Mechanism">
+                <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.033">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="Kahp_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.033">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kahp_slower_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.033">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kc_fast_mod" type="Channel Mechanism">
+                <bio:mechanism name="kc_fast" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="2.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="Kc_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="2.0">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kdr_fs_mod" type="Channel Mechanism">
+                <bio:mechanism name="kdr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="62.5">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="Kdr_mod" type="Channel Mechanism">
+                <bio:mechanism name="kdr_fs" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="62.5">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="Km_mod" type="Channel Mechanism">
+                <bio:mechanism name="km" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="1.5">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="naf2_mod" type="Channel Mechanism">
+                <bio:mechanism name="naf" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.033">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="NaF_mod" type="Channel Mechanism">
+                <bio:mechanism name="naf2" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.033">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="naf_tcr_mod" type="Channel Mechanism">
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.033">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="NaP_mod" type="Channel Mechanism">
+                <bio:mechanism name="nap" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.05">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="napf_mod" type="Channel Mechanism">
+                <bio:mechanism name="napf" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="15.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="napf_spinstell_mod" type="Channel Mechanism">
+                <bio:mechanism name="napf_spinstell" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.05">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="napf_tcr_mod" type="Channel Mechanism">
+                <bio:mechanism name="napf_tcr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.05">
                         <bio:group>all</bio:group>
                     </bio:parameter>

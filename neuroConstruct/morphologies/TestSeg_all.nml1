@@ -210,15 +210,15 @@ The scaling factor for converting current into change in ion concentration shoul
                     </bio:parameter>
                 </bio:init_memb_potential>
 
-                <bio:ion_props name="na">
-                    <bio:parameter name="e" value="50.0">
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
             
 
-                <bio:ion_props name="k">
-                    <bio:parameter name="e" value="-95.0">
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>

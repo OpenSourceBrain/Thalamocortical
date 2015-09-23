@@ -3525,18 +3525,6 @@
             <biophysics units="Physiological Units">
 
                 <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.5">
-                        <bio:group>prox_dends</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.25">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="ar" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="-1.0E8">
                         <bio:group>ModelViewParmSubset_1</bio:group>
                     </bio:parameter>
@@ -3551,8 +3539,20 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.3">
                         <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>prox_dends</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -3585,14 +3585,14 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="cal" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.5">
-                        <bio:group>soma_prox_dends</bio:group>
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="cal" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.25">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -3621,14 +3621,14 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="6.0">
-                        <bio:group>soma_prox_dends</bio:group>
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_10</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.2">
-                        <bio:group>ModelViewParmSubset_10</bio:group>
+                    <bio:parameter name="gmax" value="6.0">
+                        <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -3651,12 +3651,6 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="33.75">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kdr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="180.0">
                         <bio:group>ModelViewParmSubset_3</bio:group>
                     </bio:parameter>
@@ -3668,15 +3662,15 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="km" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.5">
-                        <bio:group>ModelViewParmSubset_1</bio:group>
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="33.75">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="400.0">
-                        <bio:group>ModelViewParmSubset_3</bio:group>
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -3699,20 +3693,20 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="naf_tcr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="5.0">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="100.0">
                         <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="napf_tcr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.2">
-                        <bio:group>soma_prox_dends</bio:group>
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="400.0">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="5.0">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -3748,15 +3742,9 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="gmax" value="1.0">
-                        <bio:group>ModelViewParmSubset_3</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="gmax" value="0.0378788">
-                        <bio:group>ModelViewParmSubset_1</bio:group>
+                <bio:mechanism name="napf_tcr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -3766,6 +3754,18 @@
                     </bio:parameter>
                     <bio:parameter name="gmax" value="-1.0E8">
                         <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="1.0">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="0.0378788">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
                 
@@ -3792,15 +3792,15 @@
                     </bio:parameter>
                 </bio:init_memb_potential>
 
-                <bio:ion_props name="na">
-                    <bio:parameter name="e" value="50.0">
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
             
 
-                <bio:ion_props name="k">
-                    <bio:parameter name="e" value="-95.0">
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>

@@ -35,12 +35,6 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="CaL_mod" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.5">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
                 <bio:mechanism name="cad_mod" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.0">
                         <bio:group>all</bio:group>
@@ -51,6 +45,12 @@
                     </bio:parameter>
                     <bio:parameter name="phi" value="26000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="CaL_mod" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>

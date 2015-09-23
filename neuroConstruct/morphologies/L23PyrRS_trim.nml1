@@ -828,20 +828,6 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
 
                 <bio:mechanism name="cad" type="Ion Concentration">
                     <bio:parameter name="gmax" value="-1.0E8">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="beta" value="0.05">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="phi" value="52000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="cad" type="Ion Concentration">
-                    <bio:parameter name="gmax" value="-1.0E8">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                     <bio:parameter name="beta" value="0.01">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
@@ -851,6 +837,20 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                     <bio:parameter name="phi" value="26000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cad" type="Ion Concentration">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="beta" value="0.05">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="phi" value="52000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -867,18 +867,12 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                 </bio:mechanism>
 
                 <bio:mechanism name="cat" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.2">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="cat" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.1">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="k2" type="Channel Mechanism">
+                <bio:mechanism name="cat" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.2">
                         <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
@@ -890,15 +884,9 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="60.0">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="30.0">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -909,8 +897,20 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                 </bio:mechanism>
 
                 <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="30.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="4.0">
                         <bio:group>ModelViewParmSubset_5</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="60.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -939,20 +939,8 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                 </bio:mechanism>
 
                 <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="400.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kdr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="125.0">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="250.0">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -968,9 +956,15 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="km" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="7.5">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="250.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="400.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -980,21 +974,9 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="250.0">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="400.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="25.0">
-                        <bio:group>ModelViewParmSubset_6</bio:group>
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="7.5">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1030,6 +1012,30 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                     </bio:parameter>
                 </bio:mechanism>
 
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="250.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="25.0">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="400.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.12">
+                        <bio:group>ModelViewParmSubset_8</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
                 <bio:mechanism name="nap" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.016">
                         <bio:group>ModelViewParmSubset_6</bio:group>
@@ -1039,12 +1045,6 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                 <bio:mechanism name="nap" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.16">
                         <bio:group>OneSecGrp_SectionRef_3</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="nap" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.12">
-                        <bio:group>ModelViewParmSubset_8</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1058,12 +1058,6 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                 </bio:mechanism>
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="gmax" value="0.04">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="gmax" value="1.0">
                         <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
@@ -1072,6 +1066,12 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="gmax" value="0.02">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="0.04">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
                 
@@ -1102,15 +1102,15 @@ NOTE: This is a trimmed version of L23PyrRS to allow the cell to be run on GENES
                     </bio:parameter>
                 </bio:init_memb_potential>
 
-                <bio:ion_props name="na">
-                    <bio:parameter name="e" value="50.0">
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
             
 
-                <bio:ion_props name="k">
-                    <bio:parameter name="e" value="-95.0">
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>

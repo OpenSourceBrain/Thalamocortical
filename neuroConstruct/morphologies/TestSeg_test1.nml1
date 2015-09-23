@@ -39,23 +39,6 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="cad" type="Ion Concentration">    <!--Note: Calcium pools are not proper ion channels, thus this parameter does not represent a proper maximum conductance.
-The scaling factor for converting current into change in ion concentration should be
- determined from ChannelML file for the CaPool...-->
-
-                    <bio:parameter name="gmax" value="0.0">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="beta" value="0.03">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="phi" value="300000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
                 <bio:mechanism name="cal" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.5">
                         <bio:group>all</bio:group>
@@ -92,26 +75,8 @@ The scaling factor for converting current into change in ion concentration shoul
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="kahp" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.033">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
                 <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.033">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kahp_slower" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.033">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kc" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="2.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:mechanism>

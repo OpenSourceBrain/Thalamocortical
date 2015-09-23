@@ -690,7 +690,7 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                     <meta:group>soma_group</meta:group>
                 </mml:cable>
 
-                <mml:cable id="1" name="comp_69" fract_along_parent="0.5">
+                <mml:cable id="1" name="comp_69">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>ModelViewParmSubset_2</meta:group>
@@ -1353,33 +1353,6 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
 
             <biophysics units="Physiological Units">
 
-                <bio:mechanism name="LeakCond" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="e" value="-70.0">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="gmax" value="0.04">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="LeakCond" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="e" value="-70.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="gmax" value="1.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="LeakCond" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="e" value="-70.0">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="gmax" value="0.02">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
                 <bio:mechanism name="ar" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.5">
                         <bio:group>ModelViewParmSubset_1</bio:group>
@@ -1417,20 +1390,20 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                 </bio:mechanism>
 
                 <bio:mechanism name="k2" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.2">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="k2" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.1">
                         <bio:group>ModelViewParmSubset_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
                 <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="60.0">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    <bio:parameter name="gmax" value="2.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1447,20 +1420,20 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                 </bio:mechanism>
 
                 <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="2.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kahp" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.2">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    <bio:parameter name="gmax" value="60.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="kahp" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.1">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kahp" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1477,8 +1450,8 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                 </bio:mechanism>
 
                 <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="400.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
+                    <bio:parameter name="gmax" value="125.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1489,20 +1462,27 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                 </bio:mechanism>
 
                 <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="187.5">
+                        <bio:group>ModelViewParmSubset_7</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="250.0">
                         <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="125.0">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    <bio:parameter name="gmax" value="400.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="187.5">
-                        <bio:group>ModelViewParmSubset_7</bio:group>
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="15.0">
+                        <bio:group>all</bio:group>
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1512,10 +1492,42 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="km" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="15.0">
-                        <bio:group>all</bio:group>
+                <bio:mechanism name="LeakCond" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="1.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="LeakCond" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="0.02">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="LeakCond" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
                         <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="0.04">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="187.5">
+                        <bio:group>ModelViewParmSubset_8</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="250.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1531,18 +1543,6 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="187.5">
-                        <bio:group>ModelViewParmSubset_8</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="250.0">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
                 <bio:mechanism name="nap" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.48">
                         <bio:group>ModelViewParmSubset_8</bio:group>
@@ -1550,14 +1550,14 @@ NOTE: This cell has been left in the project to illustrate the original morpholo
                 </bio:mechanism>
 
                 <bio:mechanism name="nap" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.64">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    <bio:parameter name="gmax" value="0.064">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="nap" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.064">
-                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    <bio:parameter name="gmax" value="0.64">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
                 

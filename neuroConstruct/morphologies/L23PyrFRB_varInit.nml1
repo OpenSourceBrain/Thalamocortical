@@ -2032,18 +2032,6 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
             <biophysics units="Physiological Units">
 
                 <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.25">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.5">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="ar" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="-1.0E8">
                         <bio:group>ModelViewParmSubset_1</bio:group>
                     </bio:parameter>
@@ -2054,6 +2042,18 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                     <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2122,8 +2122,8 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 </bio:mechanism>
 
                 <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="4.0">
-                        <bio:group>ModelViewParmSubset_5</bio:group>
+                    <bio:parameter name="gmax" value="2.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2134,8 +2134,8 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 </bio:mechanism>
 
                 <bio:mechanism name="ka" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="2.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
+                    <bio:parameter name="gmax" value="4.0">
+                        <bio:group>ModelViewParmSubset_5</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2146,14 +2146,14 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 </bio:mechanism>
 
                 <bio:mechanism name="kahp" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.2">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    <bio:parameter name="gmax" value="0.1">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="kahp" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.1">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2170,6 +2170,24 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 </bio:mechanism>
 
                 <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="125.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="12.5">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="187.5">
+                        <bio:group>ModelViewParmSubset_7</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="250.0">
                         <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
@@ -2181,33 +2199,15 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="125.0">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="187.5">
-                        <bio:group>ModelViewParmSubset_7</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="12.5">
-                        <bio:group>ModelViewParmSubset_6</bio:group>
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="15.0">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="km" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="7.5">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="km" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="15.0">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2238,26 +2238,26 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="25.0">
-                        <bio:group>ModelViewParmSubset_6</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="naf" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="187.5">
                         <bio:group>ModelViewParmSubset_8</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="400.0">
-                        <bio:group>ModelViewParmSubset_2</bio:group>
+                    <bio:parameter name="gmax" value="250.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="250.0">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    <bio:parameter name="gmax" value="25.0">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="400.0">
+                        <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2280,18 +2280,6 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 </bio:mechanism>
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="gmax" value="0.04">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="gmax" value="0.02">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="e" value="-70.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
@@ -2303,6 +2291,18 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="gmax" value="1.0">
                         <bio:group>ModelViewParmSubset_2</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="0.02">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="0.04">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
                 
@@ -2333,15 +2333,15 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                     </bio:parameter>
                 </bio:init_memb_potential>
 
-                <bio:ion_props name="na">
-                    <bio:parameter name="e" value="50.0">
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
             
 
-                <bio:ion_props name="k">
-                    <bio:parameter name="e" value="-95.0">
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
@@ -2383,8 +2383,6 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Inh_LTS_Pyr">
-                    <net:group>mid_dist_dend</net:group>
-                
                     <net:group>mid_dist_bas_dend</net:group>
                 </net:potential_syn_loc>
             

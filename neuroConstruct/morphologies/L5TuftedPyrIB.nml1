@@ -1779,20 +1779,6 @@
 
                 <bio:mechanism name="cad" type="Ion Concentration">
                     <bio:parameter name="gmax" value="-1.0E8">
-                        <bio:group>ModelViewParmSubset_9</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="beta" value="0.075">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>ModelViewParmSubset_9</bio:group>
-                    </bio:parameter>
-                    <bio:parameter name="phi" value="86666.7">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
-
-                        <bio:group>ModelViewParmSubset_9</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="cad" type="Ion Concentration">
-                    <bio:parameter name="gmax" value="-1.0E8">
                         <bio:group>ModelViewParmSubset_8</bio:group>
                     </bio:parameter>
                     <bio:parameter name="beta" value="0.02">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
@@ -1805,21 +1791,17 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="cal" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="5.4">
-                        <bio:group>ModelViewParmSubset_13</bio:group>
+                <bio:mechanism name="cad" type="Ion Concentration">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>ModelViewParmSubset_9</bio:group>
                     </bio:parameter>
-                </bio:mechanism>
+                    <bio:parameter name="beta" value="0.075">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                <bio:mechanism name="cal" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="4.0">
-                        <bio:group>ModelViewParmSubset_12</bio:group>
+                        <bio:group>ModelViewParmSubset_9</bio:group>
                     </bio:parameter>
-                </bio:mechanism>
+                    <bio:parameter name="phi" value="86666.7">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                <bio:mechanism name="cal" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="2.0">
-                        <bio:group>ModelViewParmSubset_11</bio:group>
+                        <bio:group>ModelViewParmSubset_9</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1830,14 +1812,26 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="cal" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="8.0">
-                        <bio:group>ModelViewParmSubset_14</bio:group>
+                    <bio:parameter name="gmax" value="2.0">
+                        <bio:group>ModelViewParmSubset_11</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="cat" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.2">
-                        <bio:group>ModelViewParmSubset_5</bio:group>
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="4.0">
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="5.4">
+                        <bio:group>ModelViewParmSubset_13</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="8.0">
+                        <bio:group>ModelViewParmSubset_14</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1847,9 +1841,9 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="k2" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.5">
-                        <bio:group>ModelViewParmSubset_4</bio:group>
+                <bio:mechanism name="cat" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_5</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1859,15 +1853,15 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="ka_ib" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.6">
-                        <bio:group>axon_group</bio:group>
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="ka_ib" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="20.0">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    <bio:parameter name="gmax" value="1.2">
+                        <bio:group>dend_tips_shaft</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1878,14 +1872,14 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="ka_ib" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="1.2">
-                        <bio:group>dend_tips_shaft</bio:group>
+                    <bio:parameter name="gmax" value="20.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.4">
-                        <bio:group>ModelViewParmSubset_5</bio:group>
+                <bio:mechanism name="ka_ib" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.6">
+                        <bio:group>axon_group</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1895,9 +1889,9 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="kc" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="2.4">
-                        <bio:group>ModelViewParmSubset_18</bio:group>
+                <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.4">
+                        <bio:group>ModelViewParmSubset_5</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1914,8 +1908,20 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="kc" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="2.4">
+                        <bio:group>ModelViewParmSubset_18</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kc" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="32.0">
                         <bio:group>ModelViewParmSubset_16</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="150.0">
+                        <bio:group>ModelViewParmSubset_19</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -1937,24 +1943,6 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="kdr" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="150.0">
-                        <bio:group>ModelViewParmSubset_19</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="km" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="30.0">
-                        <bio:group>axon_group</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="km" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="38.08">
-                        <bio:group>ModelViewParmSubset_20</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
                 <bio:mechanism name="km" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="11.2">
                         <bio:group>ModelViewParmSubset_18</bio:group>
@@ -1967,9 +1955,15 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="300.0">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="30.0">
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="38.08">
+                        <bio:group>ModelViewParmSubset_20</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2006,14 +2000,20 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="30.0">
-                        <bio:group>ModelViewParmSubset_17</bio:group>
+                    <bio:parameter name="gmax" value="200.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="6.0">
-                        <bio:group>ModelViewParmSubset_18</bio:group>
+                    <bio:parameter name="gmax" value="300.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="30.0">
+                        <bio:group>ModelViewParmSubset_17</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2024,19 +2024,7 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="200.0">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="nap" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.16">
-                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="nap" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.0048">
+                    <bio:parameter name="gmax" value="6.0">
                         <bio:group>ModelViewParmSubset_18</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -2048,8 +2036,8 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="nap" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.24">
-                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    <bio:parameter name="gmax" value="0.16">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2059,9 +2047,15 @@
                     </bio:parameter>
                 </bio:mechanism>
 
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
-                    <bio:parameter name="gmax" value="1.0">
-                        <bio:group>axon_group</bio:group>
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.24">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.0048">
+                        <bio:group>ModelViewParmSubset_18</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2071,6 +2065,12 @@
                     </bio:parameter>
                     <bio:parameter name="gmax" value="-1.0E8">
                         <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="gmax" value="1.0">
+                        <bio:group>axon_group</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
@@ -2113,15 +2113,15 @@
                     </bio:parameter>
                 </bio:init_memb_potential>
 
-                <bio:ion_props name="na">
-                    <bio:parameter name="e" value="50.0">
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
             
 
-                <bio:ion_props name="k">
-                    <bio:parameter name="e" value="-95.0">
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:ion_props>
