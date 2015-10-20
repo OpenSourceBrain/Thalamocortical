@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="L23PyrFRB_varInit">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="L23PyrFRB">
+
+    <include href="ar.channel.nml"/>
+
+    <include href="ar__m00_25.channel.nml"/>
+
+    <include href="cad__beta0_01__phi26000.nml"/>
+
+    <include href="cad__beta0_05__phi52000.nml"/>
 
     <include href="cal.channel.nml"/>
 
@@ -25,13 +33,11 @@
 
     <include href="pas.channel.nml"/>
 
-    <cell id="L23PyrFRB_varInit">
+    <cell id="L23PyrFRB">
 
-        <notes>Cell: suppyrFRB_0 exported from NEURON ModelView
+        <notes>Cell: suppyrFRB_0 exported from NEURON ModelView</notes>
 
-NOTE: This is a variant of L23PyrFRB which has a variable initial potential. This is used in the network model to initialise the FRB cells at different voltages, and so ensure they fire out of synchrony</notes>
-
-        <morphology id="morphology_L23PyrFRB_varInit">
+        <morphology id="morphology_L23PyrFRB">
 
             <segment id="0" name="Seg0_comp_1">
                 <proximal x="0.0" y="0.0" z="0.0" diameter="16.0"/>
@@ -2798,6 +2804,12 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
 
             <membraneProperties>
                 
+                <channelDensity condDensity="-1.0E8 mS_per_cm2" id="ar_ModelViewParmSubset_1" ionChannel="ar__m00_25" segmentGroup="ModelViewParmSubset_1" erev="-35.0 mV" ion="ar"/>
+                
+                <channelDensity condDensity="0.25 mS_per_cm2" id="ar_OneSecGrp_SectionRef_1" ionChannel="ar" segmentGroup="OneSecGrp_SectionRef_1" ion="ar" erev="-35.0 mV"/>
+                
+                <channelDensity condDensity="0.5 mS_per_cm2" id="ar_ModelViewParmSubset_4" ionChannel="ar" segmentGroup="ModelViewParmSubset_4" ion="ar" erev="-35.0 mV"/>
+                
                 <channelDensity condDensity="1.0 mS_per_cm2" id="cal_OneSecGrp_SectionRef_1" ionChannel="cal" segmentGroup="OneSecGrp_SectionRef_1" ion="ca" erev="125.0 mV"/>
                 
                 <channelDensity condDensity="2.0 mS_per_cm2" id="cal_ModelViewParmSubset_4" ionChannel="cal" segmentGroup="ModelViewParmSubset_4" ion="ca" erev="125.0 mV"/>
@@ -2876,6 +2888,10 @@ NOTE: This is a variant of L23PyrFRB which has a variable initial potential. Thi
             </membraneProperties>
 
             <intracellularProperties>
+
+                <species segmentGroup="ModelViewParmSubset_4" id="ca" ion="ca" concentrationModel="cad__beta0_05__phi52000"/>
+
+                <species segmentGroup="OneSecGrp_SectionRef_1" id="ca" ion="ca" concentrationModel="cad__beta0_01__phi26000"/>
 
                 <resistivity segmentGroup="ModelViewParmSubset_2" value="0.1 kohm_cm"/>
 

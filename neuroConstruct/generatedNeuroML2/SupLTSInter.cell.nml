@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="SupLTSInter">
 
+    <include href="cal.channel.nml"/>
+
+    <include href="cat_a.channel.nml"/>
+
+    <include href="k2.channel.nml"/>
+
+    <include href="ka.channel.nml"/>
+
+    <include href="kahp_slower.channel.nml"/>
+
+    <include href="kc_fast.channel.nml"/>
+
+    <include href="kdr_fs.channel.nml"/>
+
+    <include href="km.channel.nml"/>
+
+    <include href="naf2.channel.nml"/>
+
+    <include href="naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml"/>
+
+    <include href="nap.channel.nml"/>
+
+    <include href="pas.channel.nml"/>
+
     <cell id="SupLTSInter">
 
         <notes>Cell: supLTS_0 exported from NEURON ModelView</notes>
@@ -2103,8 +2127,6 @@
 
             <membraneProperties>
                 
-                <channelDensity condDensity="0.0 mS_per_cm2" id="ar_ModelViewParmSubset_1" ionChannel="ar__m00_25" segmentGroup="ModelViewParmSubset_1" erev="-40.0 mV" ion="ar"/>
-                
                 <channelDensity condDensity="0.1 mS_per_cm2" id="cal_ModelViewParmSubset_4" ionChannel="cal" segmentGroup="ModelViewParmSubset_4" ion="ca" erev="125.0 mV"/>
                 
                 <channelDensity condDensity="0.2 mS_per_cm2" id="cal_ModelViewParmSubset_5" ionChannel="cal" segmentGroup="ModelViewParmSubset_5" ion="ca" erev="125.0 mV"/>
@@ -2155,7 +2177,6 @@
             </membraneProperties>
 
             <intracellularProperties>
-
 
                 <resistivity segmentGroup="ModelViewParmSubset_2" value="0.1 kohm_cm"/>
 
