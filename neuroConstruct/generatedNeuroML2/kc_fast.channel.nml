@@ -42,12 +42,27 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
             </rdf:RDF>
         </annotation>
 
+        <baseConductanceScalingCaDependent type="cond_scaling_kc_fast"/>
+
         <gate id="m" type="gateHHrates" instances="1">
             <forwardRate type="kc_fast_m_alpha_rate"/>
             <reverseRate type="kc_fast_m_beta_rate"/>
         </gate>
                             
     </ionChannel>
+
+    <ComponentType name="cond_scaling_kc_fast" extends="baseConductanceScalingCaDependent">
+        <Constant name="CONC_SCALE" dimension="concentration" value="1 mol_per_cm3"/>
+
+        <Dynamics>
+            <DerivedVariable name="ca_conc" dimension="none" value="caConc / CONC_SCALE"/>
+            <ConditionalDerivedVariable name="factor" exposure="factor" dimension="none">
+                <Case condition="ca_conc  .lt. ( 0.00025 )" value=" (ca_conc / 0.00025) "/>
+                <Case value=" 1"/>
+            </ConditionalDerivedVariable>
+        </Dynamics>
+
+    </ComponentType>
 
     <ComponentType name="kc_fast_m_alpha_rate" extends="baseVoltageDepRate">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>

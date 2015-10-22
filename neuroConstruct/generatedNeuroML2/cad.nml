@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="iso-8859-1"?><neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="cad">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cad">
 
     <notes>ChannelML file based on Traub et al. 2003</notes>
 
-    <!--  NOT YET TESTED!! -->
-    <fixedFactorConcentrationModel id="cad" restingConc="0mol_per_cm3" decayConstant="ms" ion="ca" rho="2600000mol_per_m_per_A_per_s"/>
+    <fixedFactorConcentrationModel id="cad" restingConc="0mol_per_cm3" decayConstant="100ms" ion="ca" rho="0.000026000000000000002mol_per_cm_per_uA_per_ms"/>
 
 </neuroml>
