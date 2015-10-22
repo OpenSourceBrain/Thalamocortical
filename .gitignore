@@ -14,10 +14,9 @@ generatedPSICS
 simulations
 *.bak
 *py.class
-Syn_NMDA*
-Syn_AMPA*
-Syn_GABAA*
-Syn_Elect*
+
+neuroConstruct/cellMechanisms/Syn_*
+
 neuroConstruct/pythonScripts/testFiles/nrntraub
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/batchdata
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/dat
