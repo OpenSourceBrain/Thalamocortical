@@ -2030,27 +2030,29 @@
             <biophysics units="Physiological Units">
 
                 <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="-1.0E8">
-                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                     <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>ModelViewParmSubset_1</bio:group>
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                     <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>ModelViewParmSubset_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.25">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="ar" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
                         <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -2279,26 +2281,26 @@
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="e" value="-70.0">
-                        <bio:group>all</bio:group>
+                        <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="gmax" value="-1.0E8">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="gmax" value="1.0">
                         <bio:group>ModelViewParmSubset_2</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
                     <bio:parameter name="gmax" value="0.02">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
                     <bio:parameter name="gmax" value="0.04">
                         <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
@@ -2330,6 +2332,28 @@
                         <bio:group>all</bio:group>
                     </bio:parameter>
                 </bio:init_memb_potential>
+
+                <bio:ion_props name="ca">
+                    <bio:parameter name="conc_e" value="2.0E-6">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter name="conc_i" value="1.0E-8">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="ca">
+                    <bio:parameter name="conc_e" value="2.0E-6">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter name="conc_i" value="1.0E-8">
+                        <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
 
                 <bio:ion_props name="k">
                     <bio:parameter name="e" value="-95.0">

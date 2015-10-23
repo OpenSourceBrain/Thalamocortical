@@ -45,7 +45,7 @@ mpiConfig =               MpiSettings.LOCAL_SERIAL
 
 simConfigs = []
 
-simConfigs.append("TestNML2")
+simConfigs.append("Default Simulation Configuration")
 
 
 simDt =                 0.0005
@@ -112,7 +112,7 @@ def testAll(argv=None):
 
     # These were discovered using analyseSims = True above.
     # They need to hold for all simulators
-    spikeTimesToCheck = {'CG_tester_0': spike_times}
+    spikeTimesToCheck = {'CG_CML_0': spike_times}
 
     spikeTimeAccuracy = 0.0006
 

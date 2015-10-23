@@ -17,7 +17,7 @@ The Default Simulation Configuration contains a single compartment cell model co
 
 The Simulation Configurations CellX-xxx-Figxx etc. attempt to reproduce the figures for cell behaviour in Appendix A of Traub et al 2005. The sim configs CellX-xxx-10ms etc. had been used for comparison to the cell behaviour in the NEURON download from ModelDB, but have not all been kept up to date. 
 
-*****  NOTE!  *****   
+*****  NOTE!  *****    
 Most of the cells have a spatial discretisation which will allow single cell simulations to run in a reasonable time (a few minutes). However, most cells will require a greater spatial discretisation (and/or smaller timestep) to ensure NEURON, GENESIS and MOOSE simulations are in close alignment. See Help -&gt; Glossary -&gt; Electrotonic length.
 
 The simulation configuration CunninghamEtAl04_small generates a 56 cell Layer 2/3 network based on Cunningham Et Al 2004. This simulation too requires a much finer spatial discretisation and a small dt (~0.001) to get precise spike time agreement across simulators.
@@ -4605,7 +4605,7 @@ end
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.0025</float>
+   <float>0.005</float>
   </void>
   <void property="duration">
    <float>100.0</float>
@@ -4617,7 +4617,7 @@ end
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>C3D_248</string>
+   <string>C3D_258</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
