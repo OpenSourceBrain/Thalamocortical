@@ -992,7 +992,7 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      <string>DeepAxAx</string>
     </void>
     <void method="add">
-     <string>TestSeg_ca0</string>
+     <string>TestSeg_ca2</string>
     </void>
    </void>
    <void method="get">
@@ -4590,11 +4590,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
   </void>
@@ -4605,7 +4605,7 @@ end
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.025</float>
+   <float>0.0025</float>
   </void>
   <void property="duration">
    <float>100.0</float>
@@ -4617,7 +4617,7 @@ end
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>C3D_231</string>
+   <string>C3D_248</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -10373,6 +10373,12 @@ end
       </void>
       <void method="add">
        <string>CGca</string>
+      </void>
+      <void method="add">
+       <string>Var_26</string>
+      </void>
+      <void method="add">
+       <string>Var_30</string>
       </void>
      </void>
      <void property="simDuration">
