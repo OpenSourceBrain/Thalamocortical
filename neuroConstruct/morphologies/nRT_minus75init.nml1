@@ -1635,12 +1635,12 @@
                 </bio:spec_capacitance>
 
                 <bio:spec_axial_resistance>
-                    <bio:parameter value="0.25">
-                        <bio:group>ModelViewParmSubset_1</bio:group>
-                    </bio:parameter>
-                
                     <bio:parameter value="0.1">
                         <bio:group>ModelViewParmSubset_2</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter value="0.25">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
                     </bio:parameter>
                 </bio:spec_axial_resistance>
 

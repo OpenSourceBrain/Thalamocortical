@@ -17,7 +17,7 @@ The Default Simulation Configuration contains a single compartment cell model co
 
 The Simulation Configurations CellX-xxx-Figxx etc. attempt to reproduce the figures for cell behaviour in Appendix A of Traub et al 2005. The sim configs CellX-xxx-10ms etc. had been used for comparison to the cell behaviour in the NEURON download from ModelDB, but have not all been kept up to date. 
 
-*****  NOTE!  *****  
+*****  NOTE!  *****   
 Most of the cells have a spatial discretisation which will allow single cell simulations to run in a reasonable time (a few minutes). However, most cells will require a greater spatial discretisation (and/or smaller timestep) to ensure NEURON, GENESIS and MOOSE simulations are in close alignment. See Help -&gt; Glossary -&gt; Electrotonic length.
 
 The simulation configuration CunninghamEtAl04_small generates a 56 cell Layer 2/3 network based on Cunningham Et Al 2004. This simulation too requires a much finer spatial discretisation and a small dt (~0.001) to get precise spike time agreement across simulators.
@@ -4400,6 +4400,10 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string>
    </void>
    <void method="put">
+    <float>-1.0</float>
+    <string></string>
+   </void>
+   <void method="put">
     <float>1.0</float>
     <string>
 
@@ -4417,10 +4421,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 
 </string>
-   </void>
-   <void method="put">
-    <float>-1.0</float>
-    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4590,11 +4590,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
   </void>
@@ -4617,7 +4617,7 @@ end
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>C3D_226</string>
+   <string>C3D_231</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -10373,12 +10373,6 @@ end
       </void>
       <void method="add">
        <string>CGca</string>
-      </void>
-      <void method="add">
-       <string>Var_26</string>
-      </void>
-      <void method="add">
-       <string>Var_30</string>
       </void>
      </void>
      <void property="simDuration">
