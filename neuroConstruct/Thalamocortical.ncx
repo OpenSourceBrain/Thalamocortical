@@ -11,7 +11,7 @@ part of NeuroML or any standardised XML specification. -->
   <void property="projectDescription">
    <string>This is a project implementing cells from the thalamocortical network model of Traub et al 2005 in NeuroML. Based on the NEURON implementation from: http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=45539.  
 
-This model can be run on NEURON, GENESIS and MOOSE (though not yet PSICS as calcium dynamics aren&apos;t supported). It can also be used to generate a smaller version of the Layer 2/3 network model described in Cunningham et al 2004.
+This model can be run on NEURON, GENESIS and MOOSE (though not yet PSICS as calcium dynamics aren&apos;t supported). It can also be used to generate a smaller version of the Layer 2/3 network model described in Cunningham et al 2004. 
   
 The Default Simulation Configuration contains a single compartment cell model containing all of the 22 active channels (plus a passive conductance and a calcium pool) as used in the more detailed cell models. To run this simulation through the neuroConstruct interface, click on tab Generate, select Default Simulation Configuration, press Generate, go to tab Export -&gt; NEURON, press Create hoc simulation, and run the simulation (or do the equivalent at tab GENESIS; MOOSE can be generated at that tab too).
 
@@ -4400,10 +4400,6 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>1.0</float>
     <string>
 
@@ -4421,6 +4417,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 
 </string>
+   </void>
+   <void method="put">
+    <float>-1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4590,11 +4590,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
   </void>

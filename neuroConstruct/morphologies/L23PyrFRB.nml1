@@ -2306,12 +2306,12 @@
                 
 
                 <bio:spec_capacitance>
-                    <bio:parameter value="0.9">
-                        <bio:group>ModelViewParmSubset_3</bio:group>
-                    </bio:parameter>
-                
                     <bio:parameter value="1.8">
                         <bio:group>ModelViewParmSubset_4</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter value="0.9">
+                        <bio:group>ModelViewParmSubset_3</bio:group>
                     </bio:parameter>
                 </bio:spec_capacitance>
 
