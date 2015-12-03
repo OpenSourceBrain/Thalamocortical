@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="L23PyrFRB">
 
-    <include href="ar.channel.nml"/>
-
     <include href="ar__m00_25.channel.nml"/>
 
     <include href="cad__beta0_01__phi26000.nml"/>
@@ -2804,11 +2802,9 @@
 
             <membraneProperties>
                 
-                <channelDensity condDensity="-1.0E8 mS_per_cm2" id="ar_ModelViewParmSubset_1" ionChannel="ar__m00_25" segmentGroup="ModelViewParmSubset_1" erev="-35.0 mV" ion="ar"/>
+                <channelDensity condDensity="0.25 mS_per_cm2" id="ar_OneSecGrp_SectionRef_1" ionChannel="ar__m00_25" segmentGroup="OneSecGrp_SectionRef_1" erev="-35.0 mV" ion="ar"/>
                 
-                <channelDensity condDensity="0.25 mS_per_cm2" id="ar_OneSecGrp_SectionRef_1" ionChannel="ar" segmentGroup="OneSecGrp_SectionRef_1" ion="ar" erev="-35.0 mV"/>
-                
-                <channelDensity condDensity="0.5 mS_per_cm2" id="ar_ModelViewParmSubset_4" ionChannel="ar" segmentGroup="ModelViewParmSubset_4" ion="ar" erev="-35.0 mV"/>
+                <channelDensity condDensity="0.5 mS_per_cm2" id="ar_ModelViewParmSubset_4" ionChannel="ar__m00_25" segmentGroup="ModelViewParmSubset_4" erev="-35.0 mV" ion="ar"/>
                 
                 <channelDensity condDensity="1.0 mS_per_cm2" id="cal_OneSecGrp_SectionRef_1" ionChannel="cal" segmentGroup="OneSecGrp_SectionRef_1" ion="ca" erev="125.0 mV"/>
                 
@@ -2868,20 +2864,18 @@
                 
                 <channelDensity condDensity="0.64 mS_per_cm2" id="nap_OneSecGrp_SectionRef_3" ionChannel="nap" segmentGroup="OneSecGrp_SectionRef_3" ion="na" erev="50.0 mV"/>
                 
-                <channelDensity condDensity="-1.0E8 mS_per_cm2" id="pas_all" ionChannel="pas" erev="-70.0 mV" ion="non_specific"/>
+                <channelDensity condDensity="1.0 mS_per_cm2" id="pas_ModelViewParmSubset_2" ionChannel="pas" segmentGroup="ModelViewParmSubset_2" erev="-70.0 mV" ion="non_specific"/>
                 
-                <channelDensity condDensity="1.0 mS_per_cm2" id="pas_ModelViewParmSubset_2" ionChannel="pas" segmentGroup="ModelViewParmSubset_2" ion="non_specific" erev="-66.6 mV"/>
+                <channelDensity condDensity="0.02 mS_per_cm2" id="pas_OneSecGrp_SectionRef_1" ionChannel="pas" segmentGroup="OneSecGrp_SectionRef_1" erev="-70.0 mV" ion="non_specific"/>
                 
-                <channelDensity condDensity="0.02 mS_per_cm2" id="pas_OneSecGrp_SectionRef_1" ionChannel="pas" segmentGroup="OneSecGrp_SectionRef_1" ion="non_specific" erev="-66.6 mV"/>
-                
-                <channelDensity condDensity="0.04 mS_per_cm2" id="pas_ModelViewParmSubset_4" ionChannel="pas" segmentGroup="ModelViewParmSubset_4" ion="non_specific" erev="-66.6 mV"/>
+                <channelDensity condDensity="0.04 mS_per_cm2" id="pas_ModelViewParmSubset_4" ionChannel="pas" segmentGroup="ModelViewParmSubset_4" erev="-70.0 mV" ion="non_specific"/>
                 
 
                 <spikeThresh value="0 mV"/>
 
-                <specificCapacitance segmentGroup="ModelViewParmSubset_3" value="0.9 uF_per_cm2"/>
-
                 <specificCapacitance segmentGroup="ModelViewParmSubset_4" value="1.8 uF_per_cm2"/>
+
+                <specificCapacitance segmentGroup="ModelViewParmSubset_3" value="0.9 uF_per_cm2"/>
 
                 <initMembPotential value="-70.0 mV"/>
 
@@ -2889,9 +2883,9 @@
 
             <intracellularProperties>
 
-                <species segmentGroup="ModelViewParmSubset_4" id="ca" ion="ca" concentrationModel="cad__beta0_05__phi52000"/>
+                <species segmentGroup="ModelViewParmSubset_4" id="ca" ion="ca" concentrationModel="cad__beta0_05__phi52000" initialConcentration="1.0E-8 mol_per_cm3" initialExtConcentration="2.0E-6 mol_per_cm3"/>
 
-                <species segmentGroup="OneSecGrp_SectionRef_1" id="ca" ion="ca" concentrationModel="cad__beta0_01__phi26000"/>
+                <species segmentGroup="OneSecGrp_SectionRef_1" id="ca" ion="ca" concentrationModel="cad__beta0_01__phi26000" initialConcentration="1.0E-8 mol_per_cm3" initialExtConcentration="2.0E-6 mol_per_cm3"/>
 
                 <resistivity segmentGroup="ModelViewParmSubset_2" value="0.1 kohm_cm"/>
 
