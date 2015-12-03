@@ -992,7 +992,7 @@ Other simulation configurations are present for testing a lagre scale thalamocor
      <string>DeepAxAx</string>
     </void>
     <void method="add">
-     <string>TestSeg_ca2</string>
+     <string>TestSeg_ca0</string>
     </void>
    </void>
    <void method="get">
@@ -4400,6 +4400,10 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string>
    </void>
    <void method="put">
+    <float>-1.0</float>
+    <string></string>
+   </void>
+   <void method="put">
     <float>1.0</float>
     <string>
 
@@ -4417,10 +4421,6 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 
 </string>
-   </void>
-   <void method="put">
-    <float>-1.0</float>
-    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4617,7 +4617,7 @@ end
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>C3D_258</string>
+   <string>C3D_285</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>

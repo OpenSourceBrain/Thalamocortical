@@ -15,7 +15,8 @@ import ncutils as nc # Many useful functions such as SimManager.runMultipleSims 
 projFile = File(os.getcwd(), "../Thalamocortical.ncx")
 
 simConfigs = []
-simConfigs.append("TestNML2")
+#simConfigs.append("TestNML2")
+simConfigs.append("Default Simulation Configuration")
 
 
 if len(sys.argv)==2 and sys.argv[1] == "-v1":
@@ -48,10 +49,13 @@ else:
                    'Layer23.net.nml', 
                    'Layer23_NoConns.net.nml', 
                    'Thalamocortical_large.net.nml', 
-                   'Medium.net.nml']
+                   'Medium.net.nml',
+                   'naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml',
+	           'naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml']
+                   
     if len(sys.argv)==2 and sys.argv[1] == "-f":
         extra_files.append('Thalamocortical.net.nml')
-        #extra_files.append('LEMS_GranuleCell.xml')
+        extra_files.append('LEMS_Thalamocortical.xml')
 
     from subprocess import call
     for f in extra_files:
