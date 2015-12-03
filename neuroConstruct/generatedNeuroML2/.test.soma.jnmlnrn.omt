@@ -2,7 +2,7 @@
 
 target: LEMS_SomaTest.xml
 engine: jNeuroML_NEURON
-mep: ../pythonScripts/.test.mep
+mep: .test.soma.mep
 experiments:
   Current clamp:
     observables:
@@ -14,4 +14,4 @@ experiments:
         spike detection: 
           method: threshold
           threshold: 0
-        tolerance: 0.00565
+        tolerance: 0.00

@@ -37,7 +37,7 @@
 
         <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ... 
         is used to allow validation of this file according to the LEMS schema specified above...-->
-    <Component type="Simulation" id="sim1" length="100.0ms" step="0.005ms" target="network_Thalamocortical">
+    <Component type="Simulation" id="sim1" length="100.0ms" step="0.001ms" target="network_Thalamocortical">
         
         <Display id="CG_tester_v" title="Thalamocortical: TestNML2, CG_tester, VOLTAGE" xmin="-0.010000001" xmax="0.11000001" ymin="-0.104" ymax="0.064" timeScale="1s">
             <Line id="v" timeScale="1s" quantity="CG_tester/0/TestSeg_test2/v" scale="1 V" color="#000000"/>
