@@ -1,31 +1,52 @@
+####   Temporary script for comparing nml & nrn implementations
+
 from pyneuroml import pynml
 
 import matplotlib.pyplot as plt
 
-v_nml2_f = 'CG_CML_0.0.dat'
-ca_nml2_f = 'CG_CML_0.0.cad_CONC_ca.dat'
+l23 = True
+l23 = False
 
-sim_dir= '../simulations/DefaultSimulationConfiguration__N/'
+if l23:
+    
+    v_nml2_f = 'CGsuppyrFRB_0.0.dat'
+    ca_nml2_f = 'CGsuppyrFRB_0.0.cad_CONC_ca.dat'
+    
+    sim_dir= '../simulations/Cell2-suppyrFRB-FigA1FRB__N/'
 
-t_nrn_f = sim_dir+'time.dat'
-v_nrn_f = sim_dir+'CG_CML_0.dat'
-ca_nrn_f = sim_dir+'CG_CML_0.cad_CONC_ca.dat'
+    t_nrn_f = sim_dir+'time.dat'
+    v_nrn_f = sim_dir+'CGsuppyrFRB_0.dat'
+    ca_nrn_f = sim_dir+'CGsuppyrFRB_0.cad_CONC_ca.dat'
+    
+else:
+    
+    v_nml2_f = 'CG_CML_0.0.dat'
+    ca_nml2_f = 'CG_CML_0.0.cad_CONC_ca.dat'
 
+    sim_dir= '../simulations/DefaultSimulationConfiguration__N/'
 
+    t_nrn_f = sim_dir+'time.dat'
+    v_nrn_f = sim_dir+'CG_CML_0.dat'
+    ca_nrn_f = sim_dir+'CG_CML_0.cad_CONC_ca.dat'
 
-data, indices = pynml.reload_standard_dat_file(v_nml2_f)
 x = []
 y = []
-tt = [t*1000 for t in data['t']]
-x.append(tt)
-y.append([v*1000 for v in data[0]])
-    
-data, indices = pynml.reload_standard_dat_file(ca_nml2_f)
+
 xc = []
-yc = []    
-tt = [t*1000 for t in data['t']]
-xc.append(tt)
-yc.append([c for c in data[0]])
+yc = [] 
+    
+if not l23:
+    data, indices = pynml.reload_standard_dat_file(v_nml2_f)
+
+    tt = [t*1000 for t in data['t']]
+    x.append(tt)
+    y.append([v*1000 for v in data[0]])
+
+    data, indices = pynml.reload_standard_dat_file(ca_nml2_f)
+   
+    tt = [t*1000 for t in data['t']]
+    xc.append(tt)
+    yc.append([c for c in data[0]])
     
 def read_dat_file(filename):
 
@@ -42,6 +63,7 @@ x.append(tt)
 y.append(vv)
 xc.append(tt)
 yc.append(cc)
+
 
 pynml.generate_plot(x,
                     y, 
