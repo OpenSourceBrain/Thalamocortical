@@ -1732,21 +1732,15 @@
             <biophysics units="Physiological Units">
 
                 <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="-1.0E8">
-                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    <bio:parameter name="gmax" value="0.1">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                     <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>ModelViewParmSubset_1</bio:group>
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                     <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>ModelViewParmSubset_1</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="ar" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="0.1">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -1755,10 +1749,26 @@
                     <bio:parameter name="gmax" value="0.2">
                         <bio:group>dends_no_tuft</bio:group>
                     </bio:parameter>
+                    <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>dends_no_tuft</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>dends_no_tuft</bio:group>
+                    </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="ar" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.4">
+                        <bio:group>ModelViewParmSubset_7</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_7</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
                         <bio:group>ModelViewParmSubset_7</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -1968,33 +1978,27 @@
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="-1.0E8">
-                        <bio:group>all</bio:group>
+                    <bio:parameter name="gmax" value="150.0">
+                        <bio:group>ModelViewParmSubset_19</bio:group>
                     </bio:parameter>
                     <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>all</bio:group>
+                        <bio:group>ModelViewParmSubset_19</bio:group>
                     </bio:parameter>
                     <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>all</bio:group>
+                        <bio:group>ModelViewParmSubset_19</bio:group>
                     </bio:parameter>
                     <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>all</bio:group>
+                        <bio:group>ModelViewParmSubset_19</bio:group>
                     </bio:parameter>
                     <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>all</bio:group>
+                        <bio:group>ModelViewParmSubset_19</bio:group>
                     </bio:parameter>
                     <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="naf" type="Channel Mechanism">
-                    <bio:parameter name="gmax" value="150.0">
                         <bio:group>ModelViewParmSubset_19</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -2003,10 +2007,50 @@
                     <bio:parameter name="gmax" value="200.0">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="300.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
                         <bio:group>OneSecGrp_SectionRef_3</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -2015,16 +2059,76 @@
                     <bio:parameter name="gmax" value="30.0">
                         <bio:group>ModelViewParmSubset_17</bio:group>
                     </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_17</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_17</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_17</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_17</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_17</bio:group>
+                    </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="450.0">
                         <bio:group>axon_group</bio:group>
                     </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="naf" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="6.0">
+                        <bio:group>ModelViewParmSubset_18</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_18</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_18</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_18</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_18</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
                         <bio:group>ModelViewParmSubset_18</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
@@ -2061,26 +2165,26 @@
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="e" value="-70.0">
-                        <bio:group>all</bio:group>
+                        <bio:group>axon_group</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="gmax" value="-1.0E8">
-                        <bio:group>all</bio:group>
-                    </bio:parameter>
-                </bio:mechanism>
-
-                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
                     <bio:parameter name="gmax" value="1.0">
                         <bio:group>axon_group</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
                     <bio:parameter name="gmax" value="0.02">
                         <bio:group>OneSecGrp_SectionRef_1</bio:group>
                     </bio:parameter>
                 </bio:mechanism>
 
                 <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>ModelViewParmSubset_5</bio:group>
+                    </bio:parameter>
                     <bio:parameter name="gmax" value="0.04">
                         <bio:group>ModelViewParmSubset_5</bio:group>
                     </bio:parameter>
