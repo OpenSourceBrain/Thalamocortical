@@ -48,7 +48,8 @@ simConfigs = []
 simConfigs.append("Default Simulation Configuration")
 
 
-simDt =                 0.0005
+simDt =                 0.005
+simDtOverride =         {"LEMS":0.0005}
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
@@ -90,6 +91,7 @@ def testAll(argv=None):
 
     simManager.runMultipleSims(simConfigs =              simConfigs,
                                simDt =                   simDt,
+                               simDtOverride =           simDtOverride,
                                simulators =              simulators,
                                runInBackground =         runInBackground,
                                varTimestepNeuron =       varTimestepNeuron,
@@ -108,7 +110,7 @@ def testAll(argv=None):
     spikeTimesToCheck = {'CG_CML_0': spike_times['Current clamp'],
                          'CG_CML_0.0': spike_times['Current clamp']}
 
-    spikeTimeAccuracy = 0.034
+    spikeTimeAccuracy = 0.028
 
     report0 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                   spikeTimeAccuracy = spikeTimeAccuracy)
