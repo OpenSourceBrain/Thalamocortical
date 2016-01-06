@@ -179,7 +179,7 @@ def testAll(argv=None):
 	
       spikeTimesToCheck = {'CGnRT_0': nc.loadMepFile('.test.nrt.mep')['nRT']}
 
-      spikeTimeAccuracy = 0.266 # ms  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
+      spikeTimeAccuracy = 0.271 # ms  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
 
       report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
 				    spikeTimeAccuracy = spikeTimeAccuracy)
