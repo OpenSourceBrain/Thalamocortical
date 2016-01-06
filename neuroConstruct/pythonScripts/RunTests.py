@@ -33,6 +33,7 @@ sys.path.append(os.environ["NC_HOME"]+"/pythonNeuroML/nCUtils")
 
 import ncutils as nc # Many useful functions such as SimManager.runMultipleSims found here
 from ucl.physiol.neuroconstruct.hpc.mpi import MpiSettings
+from java.lang.management import ManagementFactory
 
 
 projFile = File(os.getcwd(), "../Thalamocortical.ncx")
@@ -69,7 +70,7 @@ simConfigs.append("Cell14-nRT-FigA8-00")
 #
 ##########################################################################
 
-simDt =                 0.01
+simDt =                 0.005
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
@@ -83,13 +84,13 @@ maxElecLens =           [0.01]  # 0.01 will give ~700 in FRB & RS
 #maxElecLens =            [-1]  # -1 means don't recompartmentalise use settings in proj
 #maxElecLens =           [0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001]
 
-numConcurrentSims =     3
+numConcurrentSims =     ManagementFactory.getOperatingSystemMXBean().getAvailableProcessors() -1
 
 if mpiConfig != MpiSettings.LOCAL_SERIAL: 
   numConcurrentSims = 60
 suggestedRemoteRunTime = 80   # mins
 
-varTimestepNeuron =     True
+varTimestepNeuron =     False  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
 varTimestepTolerance =  0.00001
 
 analyseSims =           True
@@ -140,7 +141,7 @@ def testAll(argv=None):
       # They need to hold for all simulators
       spikeTimesToCheck = {'CG_CML_0': nc.loadMepFile('.test.mep')['Current clamp']}
 
-      spikeTimeAccuracy = 0.02
+      spikeTimeAccuracy = 0.0751  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
 
       report0 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
 				    spikeTimeAccuracy = spikeTimeAccuracy)
@@ -154,7 +155,7 @@ def testAll(argv=None):
       # They need to hold for all simulators
       spikeTimesToCheck = {'CGsuppyrFRB_0': nc.loadMepFile('.test.l23frb.mep')['L23FRB']}
 
-      spikeTimeAccuracy = 1 # larger due to longer simulation duration...
+      spikeTimeAccuracy = 2.32 #  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
 
       report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
 				    spikeTimeAccuracy = spikeTimeAccuracy)
@@ -166,7 +167,7 @@ def testAll(argv=None):
 	
       spikeTimesToCheck = {'CGsupaxax_0': nc.loadMepFile('.test.supaxax.mep')['SupAxAx']}
 
-      spikeTimeAccuracy = 0.29 # ms in 300 ms
+      spikeTimeAccuracy = 0.711 # ms # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
 
       report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
 				    spikeTimeAccuracy = spikeTimeAccuracy)
@@ -178,7 +179,7 @@ def testAll(argv=None):
 	
       spikeTimesToCheck = {'CGnRT_0': nc.loadMepFile('.test.nrt.mep')['nRT']}
 
-      spikeTimeAccuracy = 0.0391 # ms in 300 ms
+      spikeTimeAccuracy = 0.266 # ms  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
 
       report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
 				    spikeTimeAccuracy = spikeTimeAccuracy)

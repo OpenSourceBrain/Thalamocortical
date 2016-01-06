@@ -40,7 +40,7 @@
 
         <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ... 
         is used to allow validation of this file according to the LEMS schema specified above...-->
-    <Component type="Simulation" id="sim1" length="800.0ms" step="0.025ms" target="network_Thalamocortical">
+    <Component type="Simulation" id="sim1" length="800.0ms" step="0.005ms" target="network_Thalamocortical">
         
         <Display id="CGsuppyrFRB_v" title="Thalamocortical: Cell2-suppyrFRB-FigA1FRB, CGsuppyrFRB, VOLTAGE" xmin="-0.080000006" xmax="0.88000005" ymin="-0.09200001" ymax="0.052" timeScale="1s">
             <Line id="v" timeScale="1s" quantity="CGsuppyrFRB/0/L23PyrFRB/0/v" scale="1 V" color="#000000"/>

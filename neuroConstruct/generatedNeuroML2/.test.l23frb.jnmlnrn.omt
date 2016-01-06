@@ -1,17 +1,17 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
-target: LEMS_Thalamocortical.xml 
-engine: jNeuroML
-mep: ../pythonScripts/.test.mep
+target: LEMS_L23PyrFRB.xml
+engine: jNeuroML_NEURON
+mep: ../pythonScripts/.test.l23frb.mep
 experiments:
-  Current clamp:
+  L23FRB:
     observables:
       spike times:
         file: 
-          path: CG_CML_0.0.dat
+          path: CGsuppyrFRB_0.0.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 
           method: threshold
           threshold: 0
-        tolerance: 0.000511
+        tolerance: 0.00484
