@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_91" class="java.beans.XMLDecoder">
+<java version="1.8.0_66" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -4400,10 +4400,6 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
-    <string></string>
-   </void>
-   <void method="put">
     <float>1.0</float>
     <string>
 
@@ -4421,6 +4417,10 @@ forall if (ismembrane(&quot;ca_ion&quot;)) {
 
 
 </string>
+   </void>
+   <void method="put">
+    <float>-1.0</float>
+    <string></string>
    </void>
    <void method="put">
     <float>2.0</float>
@@ -4590,11 +4590,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
   </void>

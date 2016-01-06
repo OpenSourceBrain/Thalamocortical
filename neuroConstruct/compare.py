@@ -5,7 +5,7 @@ from pyneuroml import pynml
 import matplotlib.pyplot as plt
 
 l23 = True
-l23 = False
+#l23 = False
 
 if l23:
     
@@ -35,7 +35,8 @@ y = []
 xc = []
 yc = [] 
     
-if not l23:
+if True or not l23:
+    
     data, indices = pynml.reload_standard_dat_file(v_nml2_f)
 
     tt = [t*1000 for t in data['t']]
