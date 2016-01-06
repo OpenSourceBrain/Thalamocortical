@@ -57,7 +57,7 @@ simConfigs.append("Default Simulation Configuration")
 #simConfigs.append("Cell1-supppyrRS-FigA1RS")
 simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
-#simConfigs.append("Cell4-supaxax-FigA2a")
+simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell5-supLTS-FigA2b")
 #simConfigs.append("Cell6-spinstell-FigA3-333")
 #simConfigs.append("Cell7-tuftIB-FigA4-1500")
@@ -138,7 +138,7 @@ def testAll(argv=None):
       
       # These were discovered using analyseSims = True above.
       # They need to hold for all simulators
-      spikeTimesToCheck = {'CG_CML_0': [22.85, 46.34, 53.8, 77.55]}
+      spikeTimesToCheck = {'CG_CML_0': nc.loadMepFile('.test.mep')['Current clamp']}
 
       spikeTimeAccuracy = 0.02
 
@@ -148,14 +148,11 @@ def testAll(argv=None):
       print report0
       report = report + report0+"\n"
     
-    if "Cell2" in simConfigs:
+    if "Cell2-suppyrFRB-FigA1FRB" in simConfigs:
 	
       # These were discovered using analyseSims = True above.
       # They need to hold for all simulators
-      spikeTimesToCheck = {'CGsuppyrFRB_0': [8.3, 99.2, 231.8, 377.1, 407.6, 416.5,
-					    420.6, 451.0, 453.5, 487.0, 489.5, 523.9,
-					    526.4, 561.5, 564.0, 599.6, 602.2, 638.0,
-					    640.6, 676.9, 679.3, 750.9, 754.0]}
+      spikeTimesToCheck = {'CGsuppyrFRB_0': nc.loadMepFile('.test.l23frb.mep')['L23FRB']}
 
       spikeTimeAccuracy = 1 # larger due to longer simulation duration...
 
@@ -163,7 +160,20 @@ def testAll(argv=None):
 				    spikeTimeAccuracy = spikeTimeAccuracy)
 
       print report2
+      report = report + report2+ '\n'
+      
+    if "Cell4-supaxax-FigA2a" in simConfigs:
+	
+      spikeTimesToCheck = {'CGsupaxax_0': nc.loadMepFile('.test.supaxax.mep')['SupAxAx']}
+
+      spikeTimeAccuracy = 0.29 # ms in 300 ms
+
+      report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
+				    spikeTimeAccuracy = spikeTimeAccuracy)
+
+      print report2
       report = report + report2+"\n"
+      
 
     return report
 

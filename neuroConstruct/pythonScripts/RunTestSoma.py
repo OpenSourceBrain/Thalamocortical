@@ -73,14 +73,7 @@ suggestedRemoteRunTime = 233
 
 verbose =               True
 
-spike_times = []
-mep_file = open('.test.mep')
-for line in mep_file:
-    line = line.strip()
-    if line.startswith('spike times: ['):
-        times = line[14:-1].split(',')
-        for time in times:
-            spike_times.append(float(time.strip()))
+spike_times = nc.loadMepFile('.test.mep')
 
 #############################################
 
@@ -112,9 +105,10 @@ def testAll(argv=None):
 
     # These were discovered using analyseSims = True above.
     # They need to hold for all simulators
-    spikeTimesToCheck = {'CG_CML_0': spike_times}
+    spikeTimesToCheck = {'CG_CML_0': spike_times['Current clamp'],
+                         'CG_CML_0.0': spike_times['Current clamp']}
 
-    spikeTimeAccuracy = 0.0006
+    spikeTimeAccuracy = 0.034
 
     report0 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                   spikeTimeAccuracy = spikeTimeAccuracy)
