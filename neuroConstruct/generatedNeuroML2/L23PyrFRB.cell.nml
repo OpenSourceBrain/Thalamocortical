@@ -23,8 +23,6 @@
 
     <include href="km.channel.nml"/>
 
-    <include href="naf.channel.nml"/>
-
     <include href="naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
 
     <include href="nap.channel.nml"/>
@@ -2700,15 +2698,13 @@
                 
                 <channelDensity condDensity="7.5 mS_per_cm2" id="km_OneSecGrp_SectionRef_1" ionChannel="km" segmentGroup="OneSecGrp_SectionRef_1" ion="k" erev="-95.0 mV"/>
                 
-                <channelDensity condDensity="-1.0E8 mS_per_cm2" id="naf_all" ionChannel="naf__a0__b0__c0__d0__fastNa_shiftmin3_5" ion="na" erev="50.0 mV"/>
+                <channelDensity condDensity="187.5 mS_per_cm2" id="naf_ModelViewParmSubset_8" ionChannel="naf__a0__b0__c0__d0__fastNa_shiftmin3_5" segmentGroup="ModelViewParmSubset_8" ion="na" erev="50.0 mV"/>
                 
-                <channelDensity condDensity="187.5 mS_per_cm2" id="naf_ModelViewParmSubset_8" ionChannel="naf" segmentGroup="ModelViewParmSubset_8" ion="na" erev="50.0 mV"/>
+                <channelDensity condDensity="250.0 mS_per_cm2" id="naf_OneSecGrp_SectionRef_3" ionChannel="naf__a0__b0__c0__d0__fastNa_shiftmin3_5" segmentGroup="OneSecGrp_SectionRef_3" ion="na" erev="50.0 mV"/>
                 
-                <channelDensity condDensity="250.0 mS_per_cm2" id="naf_OneSecGrp_SectionRef_3" ionChannel="naf" segmentGroup="OneSecGrp_SectionRef_3" ion="na" erev="50.0 mV"/>
+                <channelDensity condDensity="25.0 mS_per_cm2" id="naf_ModelViewParmSubset_6" ionChannel="naf__a0__b0__c0__d0__fastNa_shiftmin3_5" segmentGroup="ModelViewParmSubset_6" ion="na" erev="50.0 mV"/>
                 
-                <channelDensity condDensity="25.0 mS_per_cm2" id="naf_ModelViewParmSubset_6" ionChannel="naf" segmentGroup="ModelViewParmSubset_6" ion="na" erev="50.0 mV"/>
-                
-                <channelDensity condDensity="400.0 mS_per_cm2" id="naf_ModelViewParmSubset_2" ionChannel="naf" segmentGroup="ModelViewParmSubset_2" ion="na" erev="50.0 mV"/>
+                <channelDensity condDensity="400.0 mS_per_cm2" id="naf_ModelViewParmSubset_2" ionChannel="naf__a0__b0__c0__d0__fastNa_shiftmin3_5" segmentGroup="ModelViewParmSubset_2" ion="na" erev="50.0 mV"/>
                 
                 <channelDensity condDensity="0.48 mS_per_cm2" id="nap_ModelViewParmSubset_8" ionChannel="nap" segmentGroup="ModelViewParmSubset_8" ion="na" erev="50.0 mV"/>
                 
