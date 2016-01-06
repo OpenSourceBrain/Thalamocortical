@@ -65,7 +65,7 @@ simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell9-nontuftRS-FigA6-1000")
 #simConfigs.append("Cell12-deepLTS-FigA2b")
 #simConfigs.append("Cell13-TCR-FigA7-600")
-#simConfigs.append("Cell14-nRT-FigA8-00")
+simConfigs.append("Cell14-nRT-FigA8-00")
 #
 ##########################################################################
 
@@ -167,6 +167,18 @@ def testAll(argv=None):
       spikeTimesToCheck = {'CGsupaxax_0': nc.loadMepFile('.test.supaxax.mep')['SupAxAx']}
 
       spikeTimeAccuracy = 0.29 # ms in 300 ms
+
+      report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
+				    spikeTimeAccuracy = spikeTimeAccuracy)
+
+      print report2
+      report = report + report2+"\n"
+      
+    if "Cell14-nRT-FigA8-00" in simConfigs:
+	
+      spikeTimesToCheck = {'CGnRT_0': nc.loadMepFile('.test.nrt.mep')['nRT']}
+
+      spikeTimeAccuracy = 0.0391 # ms in 300 ms
 
       report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
 				    spikeTimeAccuracy = spikeTimeAccuracy)
