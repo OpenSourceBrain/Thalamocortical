@@ -1,0 +1,17 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+target: LEMS_SupAxAx.xml
+engine: jNeuroML_NEURON
+mep: ../pythonScripts/.test.supaxax.mep
+experiments:
+  SupAxAx:
+    observables:
+      spike times:
+        file: 
+          path: CGsupaxax_0.0.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: 0
+        tolerance: 0.00741
