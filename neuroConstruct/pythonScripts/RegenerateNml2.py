@@ -52,6 +52,8 @@ else:
                    'Medium.net.nml', 
                    'L23PyrFRB.net.nml', 
                    'LEMS_L23PyrFRB.xml', 
+                   'SupAxAx.net.nml', 
+                   'LEMS_SupAxAx.xml', 
                    'naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml',
 	           'naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml',
 	           'cad__beta0_01__phi26000.nml',

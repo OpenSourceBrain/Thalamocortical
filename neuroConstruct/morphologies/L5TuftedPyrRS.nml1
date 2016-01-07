@@ -2261,6 +2261,39 @@
                     </bio:parameter>
                 </bio:init_memb_potential>
 
+                <bio:ion_props name="ca">
+                    <bio:parameter name="conc_e" value="2.0E-6">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter name="conc_i" value="1.0E-8">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="ca">
+                    <bio:parameter name="conc_e" value="2.0E-6">
+                        <bio:group>ModelViewParmSubset_8</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter name="conc_i" value="1.0E-8">
+                        <bio:group>ModelViewParmSubset_8</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="ca">
+                    <bio:parameter name="conc_e" value="2.0E-6">
+                        <bio:group>ModelViewParmSubset_9</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter name="conc_i" value="1.0E-8">
+                        <bio:group>ModelViewParmSubset_9</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
                 <bio:ion_props name="k">
                     <bio:parameter name="e" value="-95.0">
                         <bio:group>all</bio:group>
