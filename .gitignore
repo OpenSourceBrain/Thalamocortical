@@ -31,3 +31,5 @@ neuroConstruct/generatedNeuroML2/html
 /neuroConstruct/generatedNeuroML2/*.hoc
 /neuroConstruct/generatedNeuroML2/*.props
 /neuroConstruct/generatedNeuroML2/*nrn.py
+/neuroConstruct/generatedNeuroML2/LEMS_Net3D.xml
+/neuroConstruct/generatedNeuroML2/Net3D.net.nml

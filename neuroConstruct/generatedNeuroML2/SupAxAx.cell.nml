@@ -2050,7 +2050,7 @@
                 <channelDensity condDensity="0.04 mS_per_cm2" id="pas_ModelViewParmSubset_1" ionChannel="pas" segmentGroup="ModelViewParmSubset_1" erev="-65.0 mV" ion="non_specific"/>
                 
 
-                <spikeThresh value="0 mV"/>
+                <spikeThresh value="0.0 mV"/>
 
                 <specificCapacitance value="1.0 uF_per_cm2"/>
 

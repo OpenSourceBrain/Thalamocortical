@@ -57,9 +57,12 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
     <ComponentType name="naf_tcr_m_tau_tau" extends="baseVoltageDepTime">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_init" dimension="none" value="-3"/>
-        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
-        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_hnaf" dimension="none" value="-7"/>
+        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_init" dimension="none" value="-3"/>
+        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
+        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_hnaf" dimension="none" value="-7"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
@@ -74,9 +77,12 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
     <ComponentType name="naf_tcr_m_inf_inf" extends="baseVoltageDepVariable">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_init" dimension="none" value="-3"/>
-        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
-        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_hnaf" dimension="none" value="-7"/>
+        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_init" dimension="none" value="-3"/>
+        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
+        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_hnaf" dimension="none" value="-7"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
@@ -88,9 +94,12 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
     <ComponentType name="naf_tcr_h_tau_tau" extends="baseVoltageDepTime">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_init" dimension="none" value="-3"/>
-        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
-        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_hnaf" dimension="none" value="-7"/>
+        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_init" dimension="none" value="-3"/>
+        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
+        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_hnaf" dimension="none" value="-7"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
@@ -102,9 +111,12 @@ J. Neurophysiol. 93, 2194-2232, 2005</rdf:li>
     <ComponentType name="naf_tcr_h_inf_inf" extends="baseVoltageDepVariable">
         <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
         <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
-        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_init" dimension="none" value="-3"/>
-        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
-        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...--><Constant name="shift_hnaf" dimension="none" value="-7"/>
+        <!--Note: this parameter (shift_mnaf_init) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_init" dimension="none" value="-3"/>
+        <!--Note: this parameter (shift_mnaf_run) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_mnaf_run" dimension="none" value="-2.5"/>
+        <!--Note: this parameter (shift_hnaf) should ideally be defined only once within the ionChannel! Work in progress...-->
+        <Constant name="shift_hnaf" dimension="none" value="-7"/>
 
         <Dynamics>
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
