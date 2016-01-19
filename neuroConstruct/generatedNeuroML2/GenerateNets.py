@@ -79,7 +79,9 @@ generate_lems_file_for_neuroml("Sim_"+net_ref,
                                "LEMS_%s.xml"%net_ref,
                                ".",
                                gen_plots_for_all_v = True,
+                               plot_all_segments = True,
                                gen_saves_for_all_v = True,
+                               save_all_segments = True,
                                copy_neuroml = False,
                                seed = 1234)
 

@@ -50,20 +50,16 @@ else:
                    'Layer23_NoConns.net.nml', 
                    'Thalamocortical_large.net.nml', 
                    'Medium.net.nml', 
+                   'GenerateNets.py',
                    'L23PyrFRB.net.nml', 
                    'LEMS_L23PyrFRB.xml', 
                    'SupAxAx.net.nml', 
                    'LEMS_SupAxAx.xml', 
-                   'naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml',
-	           'naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml',
-	           'cad__beta0_01__phi26000.nml',
-	           'cad__beta0_05__phi52000.nml',
-	           'cad__beta0_02__phi260000.nml',
-	           'cad__beta0_05__phi520000.nml',
-	           'naf_tcr__shift_hnafmin7__shift_mnaf_initmin3__shift_mnaf_runmin2_5.channel.nml',
-	           'napf__a0__b0__c0__d0__fastNa_shift0.channel.nml',
-	           'napf_spinstell__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml',
-	           'napf_tcr__a0__b0__c0__d0__fastNa_shift7.channel.nml']
+                   'naf2_*.channel.nml',
+                   'cad__beta*.nml',
+                   'ar_*.nml',
+                   'naf_*.channel.nml',
+                   'napf_*.channel.nml']
                    
     if len(sys.argv)==2 and sys.argv[1] == "-f":
         extra_files.append('Thalamocortical.net.nml')
