@@ -1,0 +1,1981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:cml="http://morphml.org/channelml/schema" xmlns:net="http://morphml.org/networkml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://morphml.org/neuroml/schema  http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" lengthUnits="micron">
+
+    <cells>
+        <cell name="L6NonTuftedPyrRS">
+
+            <meta:notes>Cell: nontuftRS_0 exported from NEURON ModelView</meta:notes>
+
+            <mml:segments>
+
+                <mml:segment id="0" name="Seg0_comp_1" cable="0">
+                    <mml:proximal x="0.0" y="0.0" z="0.0" diameter="16.0"/>
+                    <mml:distal x="0.0" y="10.0" z="0.0" diameter="16.0"/>
+                </mml:segment>
+
+                <mml:segment id="1" name="Seg1_comp_1" parent="0" cable="0">
+                    <mml:distal x="-4.371139E-7" y="20.0" z="0.0" diameter="16.0"/>
+                </mml:segment>
+
+                <mml:segment id="88" name="Seg0_comp_45" parent="0" cable="1">
+                    <mml:proximal x="0.0" y="0.0" z="0.0" diameter="1.8"/>
+                    <mml:distal x="12.5" y="0.0" z="0.0" diameter="1.8"/>
+                </mml:segment>
+
+                <mml:segment id="89" name="Seg1_comp_45" parent="88" cable="1">
+                    <mml:distal x="25.0" y="9.2276395E-7" z="-6.94707E-14" diameter="1.8"/>
+                </mml:segment>
+
+                <mml:segment id="68" name="Seg0_comp_35" parent="1" cable="2">
+                    <mml:proximal x="0.0" y="20.0" z="0.0" diameter="3.0"/>
+                    <mml:distal x="0.0" y="45.0" z="0.0" diameter="3.0"/>
+                </mml:segment>
+
+                <mml:segment id="69" name="Seg1_comp_35" parent="68" cable="2">
+                    <mml:distal x="-1.6583364E-5" y="69.99997" z="0.0" diameter="3.0"/>
+                </mml:segment>
+
+                <mml:segment id="10" name="Seg0_comp_6" parent="1" cable="3">
+                    <mml:proximal x="0.0" y="20.0" z="0.0" diameter="1.7"/>
+                    <mml:distal x="0.0" y="-1.2132034" z="21.213203" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="11" name="Seg1_comp_6" parent="10" cable="3">
+                    <mml:distal x="1.1551366E-5" y="-22.426464" z="42.426445" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="8" name="Seg0_comp_5" parent="1" cable="4">
+                    <mml:proximal x="0.0" y="20.0" z="0.0" diameter="1.7"/>
+                    <mml:distal x="0.0" y="-1.2132034" z="-21.213203" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="9" name="Seg1_comp_5" parent="8" cable="4">
+                    <mml:distal x="7.984267E-6" y="-22.426373" z="-42.42637" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="6" name="Seg0_comp_4" parent="1" cable="5">
+                    <mml:proximal x="0.0" y="20.0" z="0.0" diameter="1.7"/>
+                    <mml:distal x="-21.213203" y="-1.2132034" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="7" name="Seg1_comp_4" parent="6" cable="5">
+                    <mml:distal x="-42.42636" y="-22.42638" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="4" name="Seg0_comp_3" parent="1" cable="6">
+                    <mml:proximal x="0.0" y="20.0" z="0.0" diameter="1.7"/>
+                    <mml:distal x="21.213203" y="-1.2132034" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="5" name="Seg1_comp_3" parent="4" cable="6">
+                    <mml:distal x="42.42646" y="-22.426445" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="2" name="Seg0_comp_2" parent="1" cable="7">
+                    <mml:proximal x="0.0" y="20.0" z="0.0" diameter="1.7"/>
+                    <mml:distal x="0.0" y="-9.999994" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="3" name="Seg1_comp_2" parent="2" cable="7">
+                    <mml:distal x="-1.3068187E-4" y="-40.00004" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="90" name="Seg0_comp_46" parent="89" cable="8">
+                    <mml:proximal x="25.0" y="9.2276395E-7" z="-6.94707E-14" diameter="1.4"/>
+                    <mml:distal x="50.0" y="1.2789027E-6" z="6.947164E-14" diameter="1.4"/>
+                </mml:segment>
+
+                <mml:segment id="91" name="Seg1_comp_46" parent="90" cable="8">
+                    <mml:distal x="75.0" y="1.4565248E-7" z="2.0841583E-13" diameter="1.4"/>
+                </mml:segment>
+
+                <mml:segment id="70" name="Seg0_comp_36" parent="69" cable="9">
+                    <mml:proximal x="0.0" y="70.0" z="0.0" diameter="2.8"/>
+                    <mml:distal x="0.0" y="100.0" z="0.0" diameter="2.8"/>
+                </mml:segment>
+
+                <mml:segment id="71" name="Seg1_comp_36" parent="70" cable="9">
+                    <mml:distal x="3.04693E-4" y="124.99974" z="0.0" diameter="2.8"/>
+                </mml:segment>
+
+                <mml:segment id="22" name="Seg0_comp_12" parent="69" cable="10">
+                    <mml:proximal x="0.0" y="70.0" z="0.0" diameter="1.24"/>
+                    <mml:distal x="-30.0" y="70.0" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="23" name="Seg1_comp_12" parent="22" cable="10">
+                    <mml:distal x="-60.00023" y="69.99986" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="12" name="Seg0_comp_7" parent="69" cable="11">
+                    <mml:proximal x="0.0" y="70.0" z="0.0" diameter="1.24"/>
+                    <mml:distal x="30.0" y="70.0" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="13" name="Seg1_comp_7" parent="12" cable="11">
+                    <mml:distal x="60.00001" y="70.00002" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="32" name="Seg0_comp_17" parent="11" cable="12">
+                    <mml:proximal x="1.1551366E-5" y="-22.426464" z="42.426445" diameter="1.7"/>
+                    <mml:distal x="2.33004E-5" y="-43.639362" z="63.639324" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="33" name="Seg1_comp_17" parent="32" cable="12">
+                    <mml:distal x="-1.4493322E-4" y="-64.853096" z="84.853195" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="30" name="Seg0_comp_16" parent="9" cable="13">
+                    <mml:proximal x="7.984267E-6" y="-22.426373" z="-42.42637" diameter="1.7"/>
+                    <mml:distal x="2.3281485E-5" y="-43.639473" z="-63.63946" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="31" name="Seg1_comp_16" parent="30" cable="13">
+                    <mml:distal x="3.1499014E-5" y="-64.852646" z="-84.85263" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="28" name="Seg0_comp_15" parent="7" cable="14">
+                    <mml:proximal x="-42.42636" y="-22.42638" z="0.0" diameter="1.7"/>
+                    <mml:distal x="-63.63944" y="-43.639492" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="29" name="Seg1_comp_15" parent="28" cable="14">
+                    <mml:distal x="-84.8526" y="-64.85267" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="26" name="Seg0_comp_14" parent="5" cable="15">
+                    <mml:proximal x="42.42646" y="-22.426445" z="0.0" diameter="1.7"/>
+                    <mml:distal x="63.639362" y="-43.639328" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="27" name="Seg1_comp_14" parent="26" cable="15">
+                    <mml:distal x="84.85303" y="-64.85327" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="24" name="Seg0_comp_13" parent="3" cable="16">
+                    <mml:proximal x="-1.3068187E-4" y="-40.00004" z="0.0" diameter="1.7"/>
+                    <mml:distal x="6.618662E-5" y="-69.999565" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="25" name="Seg1_comp_13" parent="24" cable="16">
+                    <mml:distal x="-9.839095E-5" y="-99.999695" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="96" name="Seg0_comp_49" parent="91" cable="17">
+                    <mml:proximal x="75.0" y="1.4565248E-7" z="2.0841583E-13" diameter="1.0"/>
+                    <mml:distal x="98.02649" y="-9.735456" z="1.7022016E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="97" name="Seg1_comp_49" parent="96" cable="17">
+                    <mml:distal x="121.05301" y="-19.470882" z="3.404398E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="92" name="Seg0_comp_47" parent="91" cable="18">
+                    <mml:proximal x="75.0" y="1.4565248E-7" z="2.0841583E-13" diameter="1.0"/>
+                    <mml:distal x="98.0265" y="9.735463" z="-1.7022022E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="93" name="Seg1_comp_47" parent="92" cable="18">
+                    <mml:distal x="121.05301" y="19.470919" z="-3.4044026E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="20" name="Seg0_comp_11" parent="71" cable="19">
+                    <mml:proximal x="0.0" y="125.0" z="0.0" diameter="1.24"/>
+                    <mml:distal x="0.0" y="125.0" z="-30.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="21" name="Seg1_comp_11" parent="20" cable="19">
+                    <mml:distal x="-3.9912673E-4" y="125.0" z="-60.000046" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="14" name="Seg0_comp_8" parent="71" cable="20">
+                    <mml:proximal x="0.0" y="125.0" z="0.0" diameter="1.24"/>
+                    <mml:distal x="0.0" y="125.0" z="30.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="15" name="Seg1_comp_8" parent="14" cable="20">
+                    <mml:distal x="4.4153922E-4" y="125.00026" z="59.999832" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="72" name="Seg0_comp_37" parent="71" cable="21">
+                    <mml:proximal x="0.0" y="125.0" z="0.0" diameter="2.6"/>
+                    <mml:distal x="0.0" y="150.0" z="0.0" diameter="2.6"/>
+                </mml:segment>
+
+                <mml:segment id="73" name="Seg1_comp_37" parent="72" cable="21">
+                    <mml:distal x="-6.4953038E-6" y="174.99948" z="0.0" diameter="2.6"/>
+                </mml:segment>
+
+                <mml:segment id="44" name="Seg0_comp_23" parent="23" cable="22">
+                    <mml:proximal x="-60.00023" y="69.99986" z="0.0" diameter="1.24"/>
+                    <mml:distal x="-90.00041" y="69.999855" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="45" name="Seg1_comp_23" parent="44" cable="22">
+                    <mml:distal x="-119.99962" y="70.000145" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="34" name="Seg0_comp_18" parent="13" cable="23">
+                    <mml:proximal x="60.00001" y="70.00002" z="0.0" diameter="1.24"/>
+                    <mml:distal x="90.0" y="70.00005" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="35" name="Seg1_comp_18" parent="34" cable="23">
+                    <mml:distal x="120.0" y="70.000084" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="54" name="Seg0_comp_28" parent="33" cable="24">
+                    <mml:proximal x="-1.4493322E-4" y="-64.853096" z="84.853195" diameter="1.7"/>
+                    <mml:distal x="-1.1118335E-4" y="-86.06622" z="106.06629" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="55" name="Seg1_comp_28" parent="54" cable="24">
+                    <mml:distal x="-7.2776886E-5" y="-107.27936" z="127.27937" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="52" name="Seg0_comp_27" parent="31" cable="25">
+                    <mml:proximal x="3.1499014E-5" y="-64.852646" z="-84.85263" diameter="1.7"/>
+                    <mml:distal x="3.911812E-5" y="-86.06582" z="-106.065796" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="53" name="Seg1_comp_27" parent="52" cable="25">
+                    <mml:distal x="7.813368E-6" y="-107.27897" z="-127.27896" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="50" name="Seg0_comp_26" parent="29" cable="26">
+                    <mml:proximal x="-84.8526" y="-64.85267" z="0.0" diameter="1.7"/>
+                    <mml:distal x="-106.06576" y="-86.06585" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="51" name="Seg1_comp_26" parent="50" cable="26">
+                    <mml:distal x="-127.27894" y="-107.27899" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="48" name="Seg0_comp_25" parent="27" cable="27">
+                    <mml:proximal x="84.85303" y="-64.85327" z="0.0" diameter="1.7"/>
+                    <mml:distal x="106.06616" y="-86.06635" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="49" name="Seg1_comp_25" parent="48" cable="27">
+                    <mml:distal x="127.2793" y="-107.27943" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="46" name="Seg0_comp_24" parent="25" cable="28">
+                    <mml:proximal x="-9.839095E-5" y="-99.999695" z="0.0" diameter="1.7"/>
+                    <mml:distal x="-1.7607235E-4" y="-129.99988" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="47" name="Seg1_comp_24" parent="46" cable="28">
+                    <mml:distal x="-3.4862006E-4" y="-160.00003" z="0.0" diameter="1.7"/>
+                </mml:segment>
+
+                <mml:segment id="98" name="Seg0_comp_50" parent="97" cable="29">
+                    <mml:proximal x="121.05301" y="-19.470882" z="3.404398E-6" diameter="1.0"/>
+                    <mml:distal x="144.08" y="-29.206375" z="5.1066063E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="99" name="Seg1_comp_50" parent="98" cable="29">
+                    <mml:distal x="167.106" y="-38.94187" z="6.8088148E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="94" name="Seg0_comp_48" parent="93" cable="30">
+                    <mml:proximal x="121.05301" y="19.470919" z="-3.4044026E-6" diameter="1.0"/>
+                    <mml:distal x="144.08" y="29.206419" z="-5.106612E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="95" name="Seg1_comp_48" parent="94" cable="30">
+                    <mml:distal x="167.106" y="38.941826" z="-6.808804E-6" diameter="1.0"/>
+                </mml:segment>
+
+                <mml:segment id="42" name="Seg0_comp_22" parent="21" cable="31">
+                    <mml:proximal x="-3.9912673E-4" y="125.0" z="-60.000046" diameter="1.24"/>
+                    <mml:distal x="-8.4935466E-4" y="125.0" z="-89.999985" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="43" name="Seg1_comp_22" parent="42" cable="31">
+                    <mml:distal x="-3.4218514E-4" y="124.99999" z="-119.99954" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="36" name="Seg0_comp_19" parent="15" cable="32">
+                    <mml:proximal x="4.4153922E-4" y="125.00026" z="59.999832" diameter="1.24"/>
+                    <mml:distal x="0.0010041951" y="125.00052" z="89.99986" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="37" name="Seg1_comp_19" parent="36" cable="32">
+                    <mml:distal x="9.4755244E-4" y="125.00078" z="119.99925" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="18" name="Seg0_comp_10" parent="73" cable="33">
+                    <mml:proximal x="0.0" y="175.0" z="0.0" diameter="1.24"/>
+                    <mml:distal x="21.213203" y="175.0" z="21.213203" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="19" name="Seg1_comp_10" parent="18" cable="33">
+                    <mml:distal x="42.426598" y="174.99991" z="42.42608" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="16" name="Seg0_comp_9" parent="73" cable="34">
+                    <mml:proximal x="0.0" y="175.0" z="0.0" diameter="1.24"/>
+                    <mml:distal x="-21.213203" y="175.0" z="-21.213203" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="17" name="Seg1_comp_9" parent="16" cable="34">
+                    <mml:distal x="-42.426537" y="175.00044" z="-42.426445" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="74" name="Seg0_comp_38" parent="73" cable="35">
+                    <mml:proximal x="0.0" y="175.0" z="0.0" diameter="2.4"/>
+                    <mml:distal x="0.0" y="200.0" z="0.0" diameter="2.4"/>
+                </mml:segment>
+
+                <mml:segment id="75" name="Seg1_comp_38" parent="74" cable="35">
+                    <mml:distal x="1.1079743E-5" y="225.0" z="0.0" diameter="2.4"/>
+                </mml:segment>
+
+                <mml:segment id="66" name="Seg0_comp_34" parent="45" cable="36">
+                    <mml:proximal x="-119.99962" y="70.000145" z="0.0" diameter="1.24"/>
+                    <mml:distal x="-149.9998" y="70.00013" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="67" name="Seg1_comp_34" parent="66" cable="36">
+                    <mml:distal x="-179.99992" y="70.00004" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="56" name="Seg0_comp_29" parent="35" cable="37">
+                    <mml:proximal x="120.0" y="70.000084" z="0.0" diameter="1.24"/>
+                    <mml:distal x="150.0" y="70.00011" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="57" name="Seg1_comp_29" parent="56" cable="37">
+                    <mml:distal x="179.99998" y="70.00014" z="0.0" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="64" name="Seg0_comp_33" parent="43" cable="38">
+                    <mml:proximal x="-3.4218514E-4" y="124.99999" z="-119.99954" diameter="1.24"/>
+                    <mml:distal x="-4.34654E-4" y="124.99999" z="-150.00043" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="65" name="Seg1_comp_33" parent="64" cable="38">
+                    <mml:distal x="-8.648856E-4" y="124.99999" z="-180.00037" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="58" name="Seg0_comp_30" parent="37" cable="39">
+                    <mml:proximal x="9.4755244E-4" y="125.00078" z="119.99925" diameter="1.24"/>
+                    <mml:distal x="0.0015615688" y="125.00104" z="149.99931" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="59" name="Seg1_comp_30" parent="58" cable="39">
+                    <mml:distal x="0.0014558281" y="125.0013" z="180.00014" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="40" name="Seg0_comp_21" parent="19" cable="40">
+                    <mml:proximal x="42.426598" y="174.99991" z="42.42608" diameter="1.24"/>
+                    <mml:distal x="63.64018" y="174.99962" z="63.638973" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="41" name="Seg1_comp_21" parent="40" cable="40">
+                    <mml:distal x="84.853035" y="174.99994" z="84.851654" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="38" name="Seg0_comp_20" parent="17" cable="41">
+                    <mml:proximal x="-42.426537" y="175.00044" z="-42.426445" diameter="1.24"/>
+                    <mml:distal x="-63.63994" y="175.00078" z="-63.63958" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="39" name="Seg1_comp_20" parent="38" cable="41">
+                    <mml:distal x="-84.853165" y="175.00156" z="-84.853195" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="76" name="Seg0_comp_39" parent="75" cable="42">
+                    <mml:proximal x="1.1079743E-5" y="225.0" z="0.0" diameter="2.2"/>
+                    <mml:distal x="2.3916264E-5" y="250.0" z="0.0" diameter="2.2"/>
+                </mml:segment>
+
+                <mml:segment id="77" name="Seg1_comp_39" parent="76" cable="42">
+                    <mml:distal x="4.9515475E-5" y="275.0" z="0.0" diameter="2.2"/>
+                </mml:segment>
+
+                <mml:segment id="62" name="Seg0_comp_32" parent="41" cable="43">
+                    <mml:proximal x="84.853035" y="174.99994" z="84.851654" diameter="1.24"/>
+                    <mml:distal x="106.06665" y="174.99965" z="106.064606" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="63" name="Seg1_comp_32" parent="62" cable="43">
+                    <mml:distal x="127.28051" y="174.99997" z="127.27829" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="60" name="Seg0_comp_31" parent="39" cable="44">
+                    <mml:proximal x="-84.853165" y="175.00156" z="-84.853195" diameter="1.24"/>
+                    <mml:distal x="-106.06663" y="175.00168" z="-106.06609" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="61" name="Seg1_comp_31" parent="60" cable="44">
+                    <mml:distal x="-127.27904" y="175.00273" z="-127.27927" diameter="1.24"/>
+                </mml:segment>
+
+                <mml:segment id="78" name="Seg0_comp_40" parent="77" cable="45">
+                    <mml:proximal x="4.9515475E-5" y="275.0" z="0.0" diameter="2.0"/>
+                    <mml:distal x="5.4033335E-5" y="300.00006" z="0.0" diameter="2.0"/>
+                </mml:segment>
+
+                <mml:segment id="79" name="Seg1_comp_40" parent="78" cable="45">
+                    <mml:distal x="5.5863948E-5" y="325.0" z="0.0" diameter="2.0"/>
+                </mml:segment>
+
+                <mml:segment id="80" name="Seg0_comp_41" parent="79" cable="46">
+                    <mml:proximal x="5.5863948E-5" y="325.0" z="0.0" diameter="1.8"/>
+                    <mml:distal x="7.79496E-5" y="350.00006" z="0.0" diameter="1.8"/>
+                </mml:segment>
+
+                <mml:segment id="81" name="Seg1_comp_41" parent="80" cable="46">
+                    <mml:distal x="8.949458E-5" y="375.00006" z="0.0" diameter="1.8"/>
+                </mml:segment>
+
+                <mml:segment id="82" name="Seg0_comp_42" parent="81" cable="47">
+                    <mml:proximal x="8.949458E-5" y="375.00006" z="0.0" diameter="1.6"/>
+                    <mml:distal x="9.1325186E-5" y="400.00003" z="0.0" diameter="1.6"/>
+                </mml:segment>
+
+                <mml:segment id="83" name="Seg1_comp_42" parent="82" cable="47">
+                    <mml:distal x="1.169244E-4" y="425.00006" z="0.0" diameter="1.6"/>
+                </mml:segment>
+
+                <mml:segment id="84" name="Seg0_comp_43" parent="83" cable="48">
+                    <mml:proximal x="1.169244E-4" y="425.00006" z="0.0" diameter="1.4"/>
+                    <mml:distal x="1.3063931E-4" y="450.00006" z="0.0" diameter="1.4"/>
+                </mml:segment>
+
+                <mml:segment id="85" name="Seg1_comp_43" parent="84" cable="48">
+                    <mml:distal x="1.3029999E-4" y="475.00006" z="0.0" diameter="1.4"/>
+                </mml:segment>
+
+                <mml:segment id="86" name="Seg0_comp_44" parent="85" cable="49">
+                    <mml:proximal x="1.3029999E-4" y="475.00006" z="0.0" diameter="1.2"/>
+                    <mml:distal x="1.4401489E-4" y="500.00006" z="0.0" diameter="1.2"/>
+                </mml:segment>
+
+                <mml:segment id="87" name="Seg1_comp_44" parent="86" cable="49">
+                    <mml:distal x="1.5989975E-4" y="525.0" z="0.0" diameter="1.2"/>
+                </mml:segment>
+
+                
+            </mml:segments>
+
+            <mml:cables>
+
+                <mml:cable id="0" name="comp_1">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="2"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_5</meta:group>
+                    <meta:group>OneSecGrp_SectionRef_1</meta:group>
+                    <meta:group>soma_group</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="1" name="comp_45" fract_along_parent="0.0">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="24"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_5</meta:group>
+                    <meta:group>axon_group</meta:group>
+                    <meta:group>prox_axon</meta:group>
+                </mml:cable>
+
+                <mml:cable id="2" name="comp_35">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="12"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>OneSecGrp_SectionRef_3</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="3" name="comp_6">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="4" name="comp_5">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="5" name="comp_4">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="6" name="comp_3">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="7" name="comp_2">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="8" name="comp_46">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="54"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_5</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="9" name="comp_36">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="14"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>DeepBask_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="10" name="comp_12">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="11" name="comp_7">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="12" name="comp_17">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="13" name="comp_16">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="14" name="comp_15">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="15" name="comp_14">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="16" name="comp_13">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="17" name="comp_49">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="64"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_5</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="18" name="comp_47">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="64"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_5</meta:group>
+                    <meta:group>axon_group</meta:group>
+                </mml:cable>
+
+                <mml:cable id="19" name="comp_11">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="20" name="comp_8">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="21" name="comp_37">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="13"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>L4SS_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="22" name="comp_23">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="23" name="comp_18">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="24" name="comp_28">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="25" name="comp_27">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="26" name="comp_26">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="27" name="comp_25">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="28" name="comp_24">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="29" name="comp_50">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="64"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_5</meta:group>
+                    <meta:group>axon_group</meta:group>
+                    <meta:group>distal_axon</meta:group>
+                </mml:cable>
+
+                <mml:cable id="30" name="comp_48">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="64"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_5</meta:group>
+                    <meta:group>axon_group</meta:group>
+                    <meta:group>distal_axon</meta:group>
+                </mml:cable>
+
+                <mml:cable id="31" name="comp_22">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="32" name="comp_19">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="33" name="comp_10">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="34" name="comp_9">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_2</meta:group>
+                    <meta:group>ModelViewParmSubset_3</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_10</meta:group>
+                    <meta:group>ModelViewParmSubset_11</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="35" name="comp_38">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="13"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>L4SS_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="36" name="comp_34">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="37" name="comp_29">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="38" name="comp_33">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="39" name="comp_30">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="40" name="comp_21">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="41" name="comp_20">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="42" name="comp_39">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="14"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>apical_dend</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>L4SS_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="43" name="comp_32">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="44" name="comp_31">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="22"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_7</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="45" name="comp_40">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="15"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>apical_dend</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L4SS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>TCR_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="46" name="comp_41">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="15"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>apical_dend</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L4SS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>TCR_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="47" name="comp_42">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="16"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>apical_dend</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>TCR_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="48" name="comp_43">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="17"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>apical_dend</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>TCR_dends</meta:group>
+                </mml:cable>
+
+                <mml:cable id="49" name="comp_44">
+                    <meta:properties>
+                        
+                    <meta:property tag="numberInternalDivisions" value="19"/>
+
+                    </meta:properties>
+                
+                    <meta:group>all</meta:group>
+                    <meta:group>ModelViewParmSubset_1</meta:group>
+                    <meta:group>ModelViewParmSubset_6</meta:group>
+                    <meta:group>ModelViewParmSubset_8</meta:group>
+                    <meta:group>ModelViewParmSubset_9</meta:group>
+                    <meta:group>ModelViewParmSubset_12</meta:group>
+                    <meta:group>distal_dends</meta:group>
+                    <meta:group>dendrite_group</meta:group>
+                    <meta:group>apical_dend</meta:group>
+                    <meta:group>LTS_dends</meta:group>
+                    <meta:group>L5Pyr_dends</meta:group>
+                    <meta:group>L6Pyr_dends</meta:group>
+                    <meta:group>TCR_dends</meta:group>
+                </mml:cable>
+
+            </mml:cables>
+
+            <!--Adding the biophysical parameters-->
+
+            <biophysics units="Physiological Units">
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.25">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ar" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.5">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="erev" value="-35.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="m0" value="0.25">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cad" type="Ion Concentration">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="beta" value="0.01">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="phi" value="13000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cad" type="Ion Concentration">
+                    <bio:parameter name="gmax" value="-1.0E8">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="beta" value="0.05">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="phi" value="65000.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="4.0">
+                        <bio:group>ModelViewParmSubset_8</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cal" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.4">
+                        <bio:group>ModelViewParmSubset_7</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cat" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.1">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="cat" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.1">
+                        <bio:group>ModelViewParmSubset_5</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="k2" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="119.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="238.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="27.2">
+                        <bio:group>ModelViewParmSubset_9</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="ka" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="4.0">
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.2">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kahp_deeppyr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.4">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kc" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="15.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kc" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="30.0">
+                        <bio:group>ModelViewParmSubset_10</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="150.0">
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="170.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="240.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="kdr" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="450.0">
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="4.2">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="km" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="8.4">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="10.0">
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="150.0">
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="200.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="300.0">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="naf" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="450.0">
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="a" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="b" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="c" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="d" value="0.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="fastNa_shift" value="-3.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.12">
+                        <bio:group>OneSecGrp_SectionRef_3</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.004">
+                        <bio:group>ModelViewParmSubset_12</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.06">
+                        <bio:group>ModelViewParmSubset_11</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="nap" type="Channel Mechanism">
+                    <bio:parameter name="gmax" value="0.08">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="1.0">
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="0.02">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
+                <bio:mechanism name="pas" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-70.0">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="0.04">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+                
+
+                <bio:spec_capacitance>
+                    <bio:parameter value="1.8">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter value="0.9">
+                        <bio:group>ModelViewParmSubset_5</bio:group>
+                    </bio:parameter>
+                </bio:spec_capacitance>
+
+                <bio:spec_axial_resistance>
+                    <bio:parameter value="0.1">
+                        <bio:group>axon_group</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter value="0.25">
+                        <bio:group>ModelViewParmSubset_1</bio:group>
+                    </bio:parameter>
+                </bio:spec_axial_resistance>
+
+                <bio:init_memb_potential>
+                    <bio:parameter value="-70.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:init_memb_potential>
+
+                <bio:ion_props name="ca">
+                    <bio:parameter name="conc_e" value="2.0E-6">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter name="conc_i" value="1.0E-8">
+                        <bio:group>ModelViewParmSubset_6</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="ca">
+                    <bio:parameter name="conc_e" value="2.0E-6">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                
+                    <bio:parameter name="conc_i" value="1.0E-8">
+                        <bio:group>OneSecGrp_SectionRef_1</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="k">
+                    <bio:parameter name="e" value="-95.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            
+
+                <bio:ion_props name="na">
+                    <bio:parameter name="e" value="50.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:ion_props>
+            </biophysics>
+
+            <connectivity>
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L4SS_Pyr">
+                    <net:group>L4SS_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L5IB_L6NT">
+                    <net:group>L5Pyr_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L5RS_L6NT">
+                    <net:group>L5Pyr_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_L4SS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_L5Pyr">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_L6NT">
+                    <net:group>L6Pyr_dends</net:group>
+                
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_SupPyr">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_TCR">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_nRT">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_SupPyr_L6NT">
+                    <net:group>apical_dend</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_TCR_L6NT">
+                    <net:group>TCR_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_Elect_DeepPyr_DeepPyr" synapse_direction="pre">
+                    <net:group>axon_group</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_GABAA_DeepAxAx_Pyr">
+                    <net:group>prox_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_GABAA_DeepBask_L6NT">
+                    <net:group>DeepBask_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_GABAA_DeepLTS_L6NT">
+                    <net:group>LTS_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_GABAA_SupAxAx_DeepPyr">
+                    <net:group>prox_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_GABAA_SupLTS_L6NT">
+                    <net:group>LTS_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L4SS_Pyr">
+                    <net:group>L4SS_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L5IB_DeepPyr">
+                    <net:group>L5Pyr_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L5RS_DeepPyr">
+                    <net:group>L5Pyr_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_DeepPyr">
+                    <net:group>L6Pyr_dends</net:group>
+                
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_L4SS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_SupPyr">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_TCR">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_nRT">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_SupPyr_L6NT">
+                    <net:group>apical_dend</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_TCR_L6NT">
+                    <net:group>TCR_dends</net:group>
+                </net:potential_syn_loc>
+            </connectivity>
+
+        </cell>
+    </cells>
+</neuroml>
