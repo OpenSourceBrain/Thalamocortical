@@ -1,6 +1,6 @@
 <Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
 
-    <Target component="sim1" reportFile="simulator.props" timesFile="time.dat"/>
+    <Target component="sim1" reportFile="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/simulator.props" timesFile="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/time.dat"/>
 
         <!--Include standard NeuroML 2 ComponentType definitions-->
 
@@ -48,48 +48,47 @@
 
         <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ... 
         is used to allow validation of this file according to the LEMS schema specified above...-->
-    <Component type="Simulation" id="sim1" length="100.0ms" step="5.0E-4ms" target="network_Thalamocortical">
+    <Component type="Simulation" id="sim1" length="100.0ms" step="0.025ms" target="network_Thalamocortical">
         
-        <Display id="CG_CML_v" title="Thalamocortical: Default Simulation Configuration, CG_CML, VOLTAGE" xmin="-0.010000001" xmax="0.11000001" ymin="-0.104" ymax="0.064" timeScale="1s">
-            <Line id="v" timeScale="1s" quantity="CG_CML/0/TestSeg_all/v" scale="1 V" color="#000000"/>
-        </Display>
-    <!--
-        <Display id="GraphWin_19" title="Thalamocortical: Default Simulation Configuration, CG_CML, cal:m, nap:m, naf2:h, ar:m" xmin="-0.010000001" xmax="0.11000001" ymin="-0.1" ymax="1.1" timeScale="1s">
-            <Line id="cal_m" timeScale="1s" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/cal_all/cal/m/q" scale="1" color="#000000"/>
-        
-            <Line id="nap_m" timeScale="1s" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/nap_all/nap/m/q" scale="1" color="#ff0000"/>
-        
-            <Line id="naf2_h" timeScale="1s" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/naf2_all/naf2/h/q" scale="1" color="#0000ff"/>
-        
-            <Line id="ar_m" timeScale="1s" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/ar_all/ar__m00_25/m/q" scale="1" color="#009b00"/>
-        </Display>-->
-    
-        <Display id="GraphWin_3" title="Thalamocortical: Default Simulation Configuration, CG_CML, cad:CONC:ca" xmin="-0.010000001" xmax="0.11000001" ymin="-1000.0" ymax="11000.0" timeScale="1s">
-            <Line id="cad_CONC_ca" timeScale="1s" quantity="CG_CML/0/TestSeg_all/caConc" scale="1 mol_per_m3" color="#000000"/>
+        <Display id="CG_CML_v" title="Thalamocortical: Default Simulation Configuration, CG_CML, VOLTAGE" xmin="-10.0" xmax="110.0" ymin="-104.0" ymax="64.0" timeScale="1ms">
+            <Line id="v" timeScale="1ms" quantity="CG_CML/0/TestSeg_all/v" scale="1 mV" color="#000000"/>
         </Display>
     
-        <OutputFile id="CG_CML_v_0_0_OF" fileName="CG_CML_0.0.dat">
+        <Display id="GraphWin_19" title="Thalamocortical: Default Simulation Configuration, CG_CML, cal:m, nap:m, naf2:h, ar:m" xmin="-10.0" xmax="110.0" ymin="-0.1" ymax="1.1" timeScale="1ms">
+            <Line id="cal_m" timeScale="1ms" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/cal_all/cal/m/q" scale="1" color="#000000"/>
+        
+            <Line id="nap_m" timeScale="1ms" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/nap_all/nap/m/q" scale="1" color="#ff0000"/>
+        
+            <Line id="naf2_h" timeScale="1ms" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/naf2_all/naf2/h/q" scale="1" color="#0000ff"/>
+        
+            <Line id="ar_m" timeScale="1ms" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/ar_all/ar__m00_25/m/q" scale="1" color="#009b00"/>
+        </Display>
+    
+        <Display id="GraphWin_3" title="Thalamocortical: Default Simulation Configuration, CG_CML, cad:CONC:ca" xmin="-10.0" xmax="110.0" ymin="-0.001" ymax="0.011" timeScale="1ms">
+            <Line id="cad_CONC_ca" timeScale="1ms" quantity="CG_CML/0/TestSeg_all/caConc" scale="1 mol_per_cm3" color="#000000"/>
+        </Display>
+    
+        <OutputFile id="CG_CML_v_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CG_CML_0.0.dat">
             <OutputColumn id="v" quantity="CG_CML/0/TestSeg_all/v"/>
         </OutputFile>
     
-    <!--
-        <OutputFile id="Var_2_0_0_OF" fileName="CG_CML_0.0.cal_m.dat">
+        <OutputFile id="Var_2_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CG_CML_0.0.cal_m.dat">
             <OutputColumn id="q" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/cal_all/cal/m/q"/>
         </OutputFile>
     
-        <OutputFile id="Var_27_0_0_OF" fileName="CG_CML_0.0.nap_m.dat">
+        <OutputFile id="Var_27_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CG_CML_0.0.nap_m.dat">
             <OutputColumn id="q" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/nap_all/nap/m/q"/>
         </OutputFile>
     
-        <OutputFile id="Var_33_0_0_OF" fileName="CG_CML_0.0.naf2_h.dat">
+        <OutputFile id="Var_33_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CG_CML_0.0.naf2_h.dat">
             <OutputColumn id="q" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/naf2_all/naf2/h/q"/>
         </OutputFile>
     
-        <OutputFile id="Var_5_0_0_OF" fileName="CG_CML_0.0.ar_m.dat">
+        <OutputFile id="Var_5_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CG_CML_0.0.ar_m.dat">
             <OutputColumn id="q" quantity="CG_CML/0/TestSeg_all/biophys/membraneProperties/ar_all/ar__m00_25/m/q"/>
-        </OutputFile>-->
+        </OutputFile>
     
-        <OutputFile id="Var_6_0_0_OF" fileName="CG_CML_0.0.cad_CONC_ca.dat">
+        <OutputFile id="Var_6_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CG_CML_0.0.cad_CONC_ca.dat">
             <OutputColumn id="caConc" quantity="CG_CML/0/TestSeg_all/caConc"/>
         </OutputFile>
     </Component>

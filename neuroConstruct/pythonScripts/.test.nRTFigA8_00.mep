@@ -1,0 +1,6 @@
+system: Testing a cell
+
+experiments:
+  nRTFigA8_00:
+    expected:
+      spike times: [74.12, 77.34, 80.26, 83.21, 86.21, 89.26, 92.41, 95.7, 99.18, 102.99, 107.37, 113.0]
