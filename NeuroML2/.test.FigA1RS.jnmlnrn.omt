@@ -1,0 +1,18 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+target: Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/LEMS_FigA1RS.xml 
+engine: jNeuroML_NEURON
+
+mep: ./.test.FigA1RS.mep
+experiments:
+  FigA1RS:
+    observables:
+      spike times:
+        file: 
+          path: Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/Sim_FigA1RS.CGsuppyrRS.v.dat
+          columns: [0,1]
+          scaling: [1, 1]
+        spike detection: 
+          method: threshold
+          threshold: -0.02
+        tolerance: 0.0001
