@@ -1,0 +1,6 @@
+system: Testing a cell
+
+experiments:
+  spinstell10ms:
+    expected:
+      spike times: [1.42, 5.08, 9.22, 13.93]

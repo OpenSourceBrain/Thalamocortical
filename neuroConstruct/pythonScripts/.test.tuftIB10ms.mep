@@ -1,0 +1,6 @@
+system: Testing a cell
+
+experiments:
+  tuftIB10ms:
+    expected:
+      spike times: [4.95, 8.18]

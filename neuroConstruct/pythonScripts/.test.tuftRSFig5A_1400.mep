@@ -3,4 +3,4 @@ system: Testing a cell
 experiments:
   tuftRSFig5A_1400:
     expected:
-      spike times: [202.09, 232.68, 283.86, 343.03, 408.89, 479.46, 552.66]
+      spike times: [202.14, 232.74, 283.92, 343.08, 408.94, 479.51, 552.71]
