@@ -76,5 +76,7 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
 
 
 if __name__=="__main__":
-   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
+   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
+   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
+   
   

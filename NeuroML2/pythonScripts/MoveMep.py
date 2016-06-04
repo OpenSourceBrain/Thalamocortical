@@ -2,11 +2,21 @@ import os
 import shutil
 import re
 
-def MoveMep(scalingFactor=None):
+def MoveMep(whichMepFiles=None,scalingFactor=None):
 
     src_files = os.listdir("../../neuroConstruct/pythonScripts/")
-    for file_name in src_files:
-        if "mep" in file_name:
+    target_file_names=[]
+    if whichMepFiles==None:
+       for file_name in src_files:
+           if "mep" in file_name:
+              target_file_names.append(file_name)
+    else:
+        for target_name in whichMepFiles:
+            if target_name in src_files:
+               target_file_names.append(target_name)
+               
+    if target_file_names != []:
+       for file_name in target_file_names:
            full_file_name = os.path.join("../../neuroConstruct/pythonScripts/", file_name)
            if (os.path.isfile(full_file_name)):
               print("Copying %s from %s to a directory %s"%(file_name,full_file_name,"../"))
@@ -46,4 +56,4 @@ def MoveMep(scalingFactor=None):
 
 if __name__=="__main__":
 
-  MoveMep(scalingFactor=0.001)
+  MoveMep(whichMepFiles=['.test.FigA1RS0005.mep'],scalingFactor=0.001)

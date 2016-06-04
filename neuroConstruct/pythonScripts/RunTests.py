@@ -47,7 +47,7 @@ mpiConfig =               MpiSettings.LOCAL_SERIAL
 
 simConfigs = []
 
-#simConfigs.append("Default Simulation Configuration")
+simConfigs.append("Default Simulation Configuration")
 
 ##########################################################################
 #
@@ -56,17 +56,17 @@ simConfigs = []
 #          match between NEURON, MOOSE & GENESIS
 #
 #simConfigs.append("Cell1-supppyrRS-FigA1RS")
-#simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
+simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
-#simConfigs.append("Cell4-supaxax-FigA2a")
+simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell5-supLTS-FigA2b")
 #simConfigs.append("Cell6-spinstell-FigA3-333")
 #simConfigs.append("Cell7-tuftIB-FigA4-1500")
-simConfigs.append("Cell8-tuftRS-Fig5A-1400")
-simConfigs.append("Cell9-nontuftRS-FigA6-1000")
-simConfigs.append("Cell12-deepLTS-FigA2b")
-simConfigs.append("Cell13-TCR-FigA7-600")
-simConfigs.append("Cell14-nRT-FigA8-00")
+#simConfigs.append("Cell8-tuftRS-Fig5A-1400")
+#simConfigs.append("Cell9-nontuftRS-FigA6-1000")
+#simConfigs.append("Cell12-deepLTS-FigA2b")
+#simConfigs.append("Cell13-TCR-FigA7-600")
+#simConfigs.append("Cell14-nRT-FigA8-00")
 
 #simConfigs.append("Cell1-supppyrRS-10ms")
 #simConfigs.append("Cell2-suppyrFRB-10ms")   
@@ -81,12 +81,12 @@ simConfigs.append("Cell14-nRT-FigA8-00")
 #simConfigs.append("Cell11-deepaxax-10ms")
 #simConfigs.append("Cell12-deepLTS-10ms")
 #simConfigs.append("Cell13-TCR-10ms")
-#simConfigs.append("Cell14-nRT-10ms")
+simConfigs.append("Cell14-nRT-10ms")
 #
 ##########################################################################
 
-#simDt =                 0.005
-simDt=                   0.01   # for newly added mep tests which will be used for omv tests with jNeuroML_NEURON
+simDt =                 0.005
+#simDt=                   0.01   # for newly added mep tests which will be used for omv tests with jNeuroML_NEURON
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
