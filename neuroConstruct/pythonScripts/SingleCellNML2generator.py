@@ -34,23 +34,32 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
     project=pm.loadProject(projFile)
     
     for config in ConfigDict.keys():
-   
+        
+        if " " in config:
+           configPath=config.replace(" ","_")
+        else:
+           configPath=config
+           
         for maxElecLen in ElecLenList:
 
-
+            cell=project.cellManager.getCell(ConfigDict[config])
+            
             if maxElecLen > 0:
-	       Cell = project.cellManager.getCell(ConfigDict[config])
-	       info = CellTopologyHelper.recompartmentaliseCell(Cell, maxElecLen, project)
+
+	       info = CellTopologyHelper.recompartmentaliseCell(cell, maxElecLen, project)
 	       print "Recompartmentalising cell %s"%ConfigDict[config]
 	       if somaNseg != None:
-	          Cell.getSegmentWithId(0).getSection().setNumberInternalDivisions(somaNseg)
+	          cell.getSegmentWithId(0).getSection().setNumberInternalDivisions(somaNseg)
 	          
-	       cellpath = r'../../NeuroML2/%s/%s_%f'%(config,config,maxElecLen)
+	       cellpath = r'../../NeuroML2/%s/%s_%f'%(configPath,configPath,maxElecLen)
 	       
 	    else:
 	    
-	       cellpath = r'../../NeuroML2/%s/%s_default'%(config,config)
+	       cellpath = r'../../NeuroML2/%s/%s_default'%(configPath,configPath)
 	       
+	    summary=cell.getMorphSummary() 
+	    print("Will be printing a cell morphology summary")
+	    print summary
             nc.generateNeuroML2(projFile, [config])
             
             
@@ -77,6 +86,7 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
 
 if __name__=="__main__":
    #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
-   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
+   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
+   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
    
   

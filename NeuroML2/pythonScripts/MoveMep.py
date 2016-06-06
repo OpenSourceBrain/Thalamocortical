@@ -56,4 +56,6 @@ def MoveMep(whichMepFiles=None,scalingFactor=None):
 
 if __name__=="__main__":
 
-  MoveMep(whichMepFiles=['.test.FigA1RS0005.mep'],scalingFactor=0.001)
+  #MoveMep(whichMepFiles=['.test.FigA1RS0005.mep'],scalingFactor=0.001)
+  MoveMep(whichMepFiles=['.test.mep'],scalingFactor=0.001)
+  

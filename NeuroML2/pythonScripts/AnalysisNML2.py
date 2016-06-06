@@ -76,10 +76,13 @@ def SingleCellSim(simConfig,sim_duration,dt,targetPath):
                                     
 if __name__=="__main__":
 
+
+  SingleCellSim(simConfig="Default_Simulation_Configuration",sim_duration=100,dt=0.005,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
+
   #AnalysisNML2("../L23PyrRS/L23PyrRS_default/L23PyrRS.cell.nml","L23PyrRS")
   #SingleCellSim("SupBasket","Test_Cell3_supbask_FigA2a")
   #SingleCellSim("L23PyrRS","Cell1_supppyrRS_10ms",10)
-  SingleCellSim(simConfig="FigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/")
+  #SingleCellSim(simConfig="FigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/")
   #SingleCellSim("L23PyrFRB","Cell2_suppyrFRB_10ms",10)
   #SingleCellSim("L23PyrFRB","Cell2_suppyrFRB_FigA1FRB",800)
   #SingleCellSim("SupBasket","Cell3_supbask_10ms",10)

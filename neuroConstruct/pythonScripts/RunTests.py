@@ -47,7 +47,7 @@ mpiConfig =               MpiSettings.LOCAL_SERIAL
 
 simConfigs = []
 
-simConfigs.append("Default Simulation Configuration")
+#simConfigs.append("Default Simulation Configuration")
 
 ##########################################################################
 #
@@ -55,10 +55,10 @@ simConfigs.append("Default Simulation Configuration")
 #          a fine spatial discretisation (maxElecLens) to have a close
 #          match between NEURON, MOOSE & GENESIS
 #
-#simConfigs.append("Cell1-supppyrRS-FigA1RS")
-simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
+simConfigs.append("Cell1-supppyrRS-FigA1RS")
+#simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
-simConfigs.append("Cell4-supaxax-FigA2a")
+#simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell5-supLTS-FigA2b")
 #simConfigs.append("Cell6-spinstell-FigA3-333")
 #simConfigs.append("Cell7-tuftIB-FigA4-1500")
@@ -81,7 +81,7 @@ simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell11-deepaxax-10ms")
 #simConfigs.append("Cell12-deepLTS-10ms")
 #simConfigs.append("Cell13-TCR-10ms")
-simConfigs.append("Cell14-nRT-10ms")
+#simConfigs.append("Cell14-nRT-10ms")
 #
 ##########################################################################
 
@@ -206,12 +206,30 @@ def testAll(argv=None):
 
           print report2
           report = report + report2+"\n"
+       ###### the .mep tests below are NEURON specific - not tested on other simulators   
+       if "NEURON"==simulators[0]:
+          
+          if "Cell1-supppyrRS-FigA1RS" in simConfigs:
+             
+              print("Tests for default project simulation for %s with 0.005 dt in NEURON"%("Cell1-supppyrRS-FigA1RS"))
+	
+      
+              spikeTimesToCheck = {'CGsuppyrRS_0': nc.loadMepFile('.test.FigA1RS0005.mep')['FigA1RS']}
+
+              spikeTimeAccuracy = 0
+  
+              report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,spikeTimeAccuracy = spikeTimeAccuracy)
+
+              print report2
+              report = report + report2+ '\n' 
+          
+          
       
       
     ######## added by Rokas Stanislovas : tests for all figures with 0.01 dt and default project spatial discretization in NEURON
     
     
-    if "NEURON" in simulators:
+    if "NEURON"==simulators[0]:
     
        if simDt==0.01:
           

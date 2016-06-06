@@ -1,0 +1,447 @@
+// Cell: TestSeg_all
+/*
+{
+  "id" : "TestSeg_all",
+  "sections" : [ {
+    "name" : "Soma",
+    "id" : "Soma",
+    "points3d" : [ "0.0, 0.0, 0.0, 20.0", "0.0, 20.0, 0.0, 20.0" ],
+    "comments" : "Section in NeuroML is spherical, so using cylindrical section along Y axis for NEURON\n"
+  } ],
+  "groups" : [ {
+    "name" : "soma_group",
+    "groups" : [ ],
+    "sections" : [ "Soma" ]
+  }, {
+    "name" : "all",
+    "sections" : [ "Soma" ]
+  } ],
+  "specificCapacitance" : [ {
+    "group" : "all",
+    "value" : "1.0"
+  } ],
+  "initMembPotential" : [ {
+    "group" : "all",
+    "value" : "-60.0"
+  } ],
+  "resistivity" : [ {
+    "group" : "all",
+    "value" : "30.000002"
+  } ],
+  "channelDensity" : [ {
+    "id" : "ar_all",
+    "ionChannel" : "ar__m00_25",
+    "ion" : "ar",
+    "group" : "all",
+    "condDens" : "2.4999998E-4",
+    "erev" : "-35.0"
+  }, {
+    "id" : "cal_all",
+    "ionChannel" : "cal",
+    "ion" : "ca",
+    "group" : "all",
+    "condDens" : "4.9999997E-4",
+    "erev" : "125.0"
+  }, {
+    "id" : "cat_all",
+    "ionChannel" : "cat",
+    "ion" : "cat",
+    "group" : "all",
+    "condDens" : "5.0E-5",
+    "erev" : "125.0"
+  }, {
+    "id" : "cat_a_all",
+    "ionChannel" : "cat_a",
+    "ion" : "cat_a",
+    "group" : "all",
+    "condDens" : "5.0E-5",
+    "erev" : "125.0"
+  }, {
+    "id" : "k2_all",
+    "ionChannel" : "k2",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "1.0E-4",
+    "erev" : "-95.0"
+  }, {
+    "id" : "ka_all",
+    "ionChannel" : "ka",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.015",
+    "erev" : "-95.0"
+  }, {
+    "id" : "ka_ib_all",
+    "ionChannel" : "ka_ib",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.015",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kahp_all",
+    "ionChannel" : "kahp",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "3.3E-5",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kahp_deeppyr_all",
+    "ionChannel" : "kahp_deeppyr",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "3.3E-5",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kahp_slower_all",
+    "ionChannel" : "kahp_slower",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "3.3E-5",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kc_all",
+    "ionChannel" : "kc",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.0019999999",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kc_fast_all",
+    "ionChannel" : "kc_fast",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.0019999999",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kdr_all",
+    "ionChannel" : "kdr",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.0625",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kdr_fs_all",
+    "ionChannel" : "kdr_fs",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.0625",
+    "erev" : "-95.0"
+  }, {
+    "id" : "km_all",
+    "ionChannel" : "km",
+    "ion" : "k",
+    "group" : "all",
+    "condDens" : "0.0015",
+    "erev" : "-95.0"
+  }, {
+    "id" : "naf_all",
+    "ionChannel" : "naf",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "3.3E-5",
+    "erev" : "50.0"
+  }, {
+    "id" : "naf2_all",
+    "ionChannel" : "naf2",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "3.3E-5",
+    "erev" : "50.0"
+  }, {
+    "id" : "naf_tcr_all",
+    "ionChannel" : "naf_tcr",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "3.3E-5",
+    "erev" : "50.0"
+  }, {
+    "id" : "nap_all",
+    "ionChannel" : "nap",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "5.0E-5",
+    "erev" : "50.0"
+  }, {
+    "id" : "napf_all",
+    "ionChannel" : "napf",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "0.015",
+    "erev" : "50.0"
+  }, {
+    "id" : "napf_spinstell_all",
+    "ionChannel" : "napf_spinstell",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "5.0E-5",
+    "erev" : "50.0"
+  }, {
+    "id" : "napf_tcr_all",
+    "ionChannel" : "napf_tcr",
+    "ion" : "na",
+    "group" : "all",
+    "condDens" : "5.0E-5",
+    "erev" : "50.0"
+  }, {
+    "id" : "pas_all",
+    "ionChannel" : "pas_nml2",
+    "ion" : "non_specific",
+    "group" : "all",
+    "condDens" : "2.9999999E-4",
+    "erev" : "-66.600006"
+  } ],
+  "species" : [ {
+    "id" : "ca",
+    "ion" : "ca",
+    "concentrationModel" : "cad__beta0_03__phi300000",
+    "group" : "all",
+    "initialConcentration" : "0.01",
+    "initialExtConcentration" : "2.0"
+  } ]
+}
+*/
+
+load_file("subiter.hoc")
+
+begintemplate TestSeg_all
+
+public init, topol, basic_shape, subsets, geom, memb
+public x, y, z, position
+
+
+//  Some methods for referencing the cells
+
+public toString, netInfo, set_initial_v, set_initial_ion_properties, synlist
+
+
+// Section: Soma, id: Soma, parent: $s.parent
+create Soma
+public Soma
+
+// Group: {name=soma_group, groups=[], sections=[Soma]}
+objref soma_group
+// Group: {name=all, sections=[Soma]}
+objref all
+
+objref synlist
+
+proc init() {
+    topol()
+    geom_nseg()
+    subsets()
+    subsets_inhomogeneous()
+    biophys()
+    biophys_inhomogeneous()
+    synlist = new List()
+    x = y = z = 0
+
+}
+
+proc set_initial_v() {
+    // Taken from the initMembPotential value
+    forsec all v = -60.0  // units: mV
+}
+
+
+proc set_initial_ion_properties() {
+    // From species
+    // Ion: ca on group: all, with concentration model: cad__beta0_03__phi300000
+    forsec all {
+        cai = 0.01  // units: mM
+        cao = 2.0  // units: mM
+    }
+}
+
+
+proc topol() {
+    basic_shape()
+
+}
+
+
+proc basic_shape() {
+
+    // Section: Soma, id: Soma, parent: $s.parent (entry count 0/100)
+    Soma { pt3dclear() }
+    Soma { pt3dadd( 0.0, 0.0, 0.0, 20.0 ) }
+    Soma { pt3dadd( 0.0, 20.0, 0.0, 20.0 ) }
+
+}
+
+
+proc subsets() { local i
+
+    // Group: {name=soma_group, groups=[], sections=[Soma]}
+    soma_group = new SectionList()
+    Soma soma_group.append()
+
+    // Group: {name=all, sections=[Soma]}
+    all = new SectionList()
+    Soma all.append()
+
+}
+
+
+proc subsets_inhomogeneous() {
+}
+
+proc biophys() {
+
+    // Specific capacitance
+    forsec all cm = 1.0  // units: uF/cm2
+
+    // Specific axial resistance/resistivity
+    forsec all Ra = 30.000002  // units: ohm cm
+
+    // Channel densities
+    forsec all {
+        insert ar__m00_25
+        gmax_ar__m00_25 = 2.4999998E-4  // units: S cm-2
+        ear = -35.0  // units: mV
+    }
+    forsec all {
+        insert cal
+        gmax_cal = 4.9999997E-4  // units: S cm-2
+        eca = 125.0  // units: mV
+    }
+    forsec all {
+        insert cat
+        gmax_cat = 5.0E-5  // units: S cm-2
+        ecat = 125.0  // units: mV
+    }
+    forsec all {
+        insert cat_a
+        gmax_cat_a = 5.0E-5  // units: S cm-2
+        ecat_a = 125.0  // units: mV
+    }
+    forsec all {
+        insert k2
+        gmax_k2 = 1.0E-4  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert ka
+        gmax_ka = 0.015  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert ka_ib
+        gmax_ka_ib = 0.015  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert kahp
+        gmax_kahp = 3.3E-5  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert kahp_deeppyr
+        gmax_kahp_deeppyr = 3.3E-5  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert kahp_slower
+        gmax_kahp_slower = 3.3E-5  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert kc
+        gmax_kc = 0.0019999999  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert kc_fast
+        gmax_kc_fast = 0.0019999999  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert kdr
+        gmax_kdr = 0.0625  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert kdr_fs
+        gmax_kdr_fs = 0.0625  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert km
+        gmax_km = 0.0015  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec all {
+        insert naf
+        gmax_naf = 3.3E-5  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert naf2
+        gmax_naf2 = 3.3E-5  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert naf_tcr
+        gmax_naf_tcr = 3.3E-5  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert nap
+        gmax_nap = 5.0E-5  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert napf
+        gmax_napf = 0.015  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert napf_spinstell
+        gmax_napf_spinstell = 5.0E-5  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert napf_tcr
+        gmax_napf_tcr = 5.0E-5  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec all {
+        insert pas_nml2
+        gmax_pas_nml2 = 2.9999999E-4  // units: S cm-2
+        e_pas_nml2 = -66.600006  // units: mV
+    }
+
+    // Concentration models for species
+    // Ion: ca on group: all, with concentration model: cad__beta0_03__phi300000
+    forsec all {
+        insert cad__beta0_03__phi300000
+    }
+
+}
+
+func H() { // Heaviside function
+    if ($1>=0) return 1
+    if ($1==0) return 0.5
+    return 0
+}
+
+proc biophys_inhomogeneous() {
+}
+
+proc geom_nseg() {
+    // All sections not mentioned here have nseg = 1
+}
+
+
+proc position() { local i
+    forsec all {
+        for i = 0, n3d()-1 {
+            pt3dchange(i, $1+x3d(i), $2+y3d(i), $3+z3d(i), diam3d(i))
+        }
+    }
+    x = $1  y = $2  z = $3
+}
+
+
+endtemplate TestSeg_all
+
+
