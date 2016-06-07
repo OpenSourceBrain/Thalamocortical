@@ -18,6 +18,8 @@ from pyneuroml.lems import generate_lems_file_for_neuroml
 from neuroml.utils import validate_neuroml2
 
 import random
+import subprocess
+import re
 
 
 def AnalysisNML2(pathToCell,cellID):
@@ -69,22 +71,69 @@ def SingleCellSim(simConfig,sim_duration,dt,targetPath):
                                copy_neuroml = False,
                                seed = 1234)
 
+
+def getSpikes(leftIdent,targetFile,scalingFactor=1,rightIdent=None):
+
+    with open(targetFile, 'r') as file:
+         lines = file.readlines()
+    count=0
+    last_line=len(lines)
+    for line in lines:
+               
+         if leftIdent in line:
+            first_line=count
+         if rightIdent !=None and rightIdent in line:
+            last_line=count
+         count+=1
+    observed_array=[]
+    for target_line in range(first_line,last_line):
+        values=re.findall("\d+\.\d+",lines[target_line])
+        for value in values:
+            value_float=float(value)*scalingFactor
+            observed_array.append(value_float)   
+            
+            
+    return observed_array
+
+                                        
                                     
-                                    
-                                    
+#def PerturbChanNML2(targetCell,targetChannels,condStep,omtFile,targetPath=None):
+def PerturbChanNML2(targetCell,targetPath=None):
+
+    cell_nml2 = '%s.cell.nml'%targetCell
+    document_cell = loaders.NeuroMLLoader.load(targetPath+cell_nml2)
+    cell_obj=document_cell.cells[0]
+    
+    
+    for channel_density in cell_obj.biophysical_properties.membrane_properties.channel_densities:
+    
+        print channel_density.id 
+        print channel_density.cond_density
+    
+    
+    out_file=open(r'../temp_results.txt','w')   
+    command_line="omv test ../.test.SingleComp0005.jnmlnrn.omt"
+    print("Running %s..."%command_line)
+    subprocess.call([command_line],shell=True,stdout=out_file)
+    out_file.close()
+    print getSpikes(leftIdent="observed data",targetFile=r'../temp_results.txt',rightIdent="and")
+    print getSpikes(leftIdent="spike times",targetFile=r'../.test.mep')
+
+                                   
                                     
                                     
 if __name__=="__main__":
 
+  PerturbChanNML2(targetCell="TestSeg_all",targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
 
-  SingleCellSim(simConfig="Default_Simulation_Configuration",sim_duration=100,dt=0.005,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
+  #SingleCellSim(simConfig="Default_Simulation_Configuration",sim_duration=100,dt=0.005,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
 
   #AnalysisNML2("../L23PyrRS/L23PyrRS_default/L23PyrRS.cell.nml","L23PyrRS")
   #SingleCellSim("SupBasket","Test_Cell3_supbask_FigA2a")
   #SingleCellSim("L23PyrRS","Cell1_supppyrRS_10ms",10)
   #SingleCellSim(simConfig="FigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/")
   #SingleCellSim("L23PyrFRB","Cell2_suppyrFRB_10ms",10)
-  #SingleCellSim("L23PyrFRB","Cell2_suppyrFRB_FigA1FRB",800)
+  #SingleCellSim(simConfig="L23PyrFRBFigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell2-suppyrFRB-FigA1FRB/Cell2-suppyrFRB-FigA1FRB_default/")
   #SingleCellSim("SupBasket","Cell3_supbask_10ms",10)
   #SingleCellSim("SupAxAx","Cell4_supaxax_10ms",10)
   #SingleCellSim("SupAxAx","Cell4_supaxax_FigA2a",300)

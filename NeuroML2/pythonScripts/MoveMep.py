@@ -27,10 +27,11 @@ def MoveMep(whichMepFiles=None,scalingFactor=None):
                 lines = file.readlines()
            count=0
            for line in lines:
-               
+               print line
                if "spike times" in line:
                   
                   values=re.findall("\d+\.\d+",line)
+                  print values
                   if values != []:
                      print("will scale spike times in %s by the factor %f"%("../"+file_name,scalingFactor))
                      scaled_spike_times=""
@@ -57,5 +58,6 @@ def MoveMep(whichMepFiles=None,scalingFactor=None):
 if __name__=="__main__":
 
   #MoveMep(whichMepFiles=['.test.FigA1RS0005.mep'],scalingFactor=0.001)
-  MoveMep(whichMepFiles=['.test.mep'],scalingFactor=0.001)
+  #MoveMep(whichMepFiles=['.test.mep'],scalingFactor=0.001)
+  MoveMep(whichMepFiles=['.test.FigA1FRB0005.mep'],scalingFactor=0.001)
   
