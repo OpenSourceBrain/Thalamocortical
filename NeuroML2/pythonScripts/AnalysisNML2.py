@@ -20,6 +20,7 @@ from neuroml.utils import validate_neuroml2
 import random
 import subprocess
 import re
+import numpy as np
 
 
 def AnalysisNML2(pathToCell,cellID):
@@ -95,36 +96,137 @@ def getSpikes(leftIdent,targetFile,scalingFactor=1,rightIdent=None):
             
     return observed_array
 
-                                        
-                                    
-#def PerturbChanNML2(targetCell,targetChannels,condStep,omtFile,targetPath=None):
-def PerturbChanNML2(targetCell,targetPath=None):
 
+                                         
+                                    
+def PerturbChanNML2(targetCell,targetChannels,noSteps,sim_duration,dt,mepFile,omtFile,targetNet,targetPath=None):
+    ###### method for testing how spiking behaviour of single cell NML2 models is affected by conductance changes in given ion channels  
     cell_nml2 = '%s.cell.nml'%targetCell
     document_cell = loaders.NeuroMLLoader.load(targetPath+cell_nml2)
     cell_obj=document_cell.cells[0]
     
-    
-    for channel_density in cell_obj.biophysical_properties.membrane_properties.channel_densities:
-    
-        print channel_density.id 
-        print channel_density.cond_density
+    gInfo={}
     
     
-    out_file=open(r'../temp_results.txt','w')   
-    command_line="omv test ../.test.SingleComp0005.jnmlnrn.omt"
-    print("Running %s..."%command_line)
-    subprocess.call([command_line],shell=True,stdout=out_file)
-    out_file.close()
-    print getSpikes(leftIdent="observed data",targetFile=r'../temp_results.txt',rightIdent="and")
-    print getSpikes(leftIdent="spike times",targetFile=r'../.test.mep')
+    spikesDict={}
+    spikesDict['expected']=getSpikes(leftIdent="spike times",targetFile=mepFile)
+    spikesDict['observed']={}
+    
+    for targetChan in targetChannels:
+        
+        for channel_density in cell_obj.biophysical_properties.membrane_properties.channel_densities:
+           
+            if targetChan==channel_density.ion_channel:
+               gInfo[targetChan]={}
+               #print channel_density.id
+               chan_str=channel_density.cond_density.split(" ") 
+               gInfo[targetChan]['units']=chan_str[1]
+               gInfo[targetChan]['values']=[]
+               initial_value=float(chan_str[0])
+               gInfo[targetChan]['values']=np.linspace(initial_value,0,noSteps)
+               #print gInfo
+               spikesDict['observed'][targetChan]={}
+               
+               for gValue in gInfo[targetChan]['values']:
+                   
+                   if gValue==initial_value:
+                      pass
+                   else:
+                   
+                      cell_id="%sG%s"%(channel_density.id,str(gValue).replace(".",""))
+                      
+                      new_cell_nml2="%s.cell.nml"%cell_id
+                      document_cell.id=cell_id
+                      cell_obj.id=cell_id
+                      channel_density.cond_density=str(gValue)+" "+gInfo[targetChan]['units']
+                      writers.NeuroMLWriter.write(document_cell, targetPath+new_cell_nml2)
+                      src_files = os.listdir(targetPath)
+                      
+                      if targetNet in src_files:
+                         net_doc = pynml.read_neuroml2_file(targetPath+targetNet)
+                         net_doc.id="Test_%s"%cell_id
+                         net=net_doc.networks[0]
+                         pop=net.populations[0]
+                         popID=pop.id
+                         #print popID
+                         net.id=net_doc.id
+                         net_file = '%s.net.nml'%(net_doc.id)
+                         netPath=targetPath+net_file
+                         writers.NeuroMLWriter.write(net_doc, netPath)
+                         with open(netPath, 'r') as file:
+                              lines = file.readlines()
+                         count=0
+                         for line in lines:
+                             #print line
+                             if targetCell in line:
+                                new_line=line.replace(targetCell,cell_id)
+                                lines[count]=new_line
+                             count+=1
+                         with open(netPath, 'w') as file:
+                              file.writelines( lines )
+                         lems_string="LEMS_%s.xml"%net_doc.id
+                         sim_string="Sim_"+net_doc.id
+                         generate_lems_file_for_neuroml(sim_string, 
+                               netPath, 
+                               net_doc.id, 
+                               sim_duration,
+                               dt, 
+                               lems_string,
+                               targetPath,
+                               gen_plots_for_all_v = True,
+                               plot_all_segments = False,
+                               gen_saves_for_all_v = True,
+                               save_all_segments = False,
+                               copy_neuroml = False,
+                               seed = 1234)
+                               
+                         with open(omtFile, 'r') as file:
+                              lines = file.readlines()
+                         count=0
+                         for line in lines:
+                             #print line
+                             if "target" in line:
+                                find_lems=line.find("LEMS")
+                                find_xml=line.find("xml")
+                                to_be_replaced=line[find_lems:find_xml+3]
+                                #print to_be_replaced
+                                new_line=line.replace(to_be_replaced,lems_string)
+                                lines[count]=new_line
+                             if "path" in line:
+                                find_sim=line.find("Sim_")
+                                find_dat=line.find("dat")
+                                to_be_replaced=line[find_sim:find_dat+3]
+                                new_line=line.replace(to_be_replaced,sim_string+".%s.v.dat"%popID)
+                                lines[count]=new_line
+                             count+=1
+                         with open(omtFile, 'w') as file:
+                              file.writelines( lines )
+                               
+                   
+   
+                   out_file=open(r'../temp_results.txt','w')   
+                   command_line="omv test  %s"%omtFile
+                   print("Running %s..."%command_line+" after setting conDensity of %s to %f"%(targetChan,gValue))
+                   subprocess.call([command_line],shell=True,stdout=out_file)
+                   out_file.close()
+                   spikesDict['observed'][targetChan][str(gValue)]=getSpikes(leftIdent="observed data",targetFile=r'../temp_results.txt',rightIdent="and")
+                   print "Observed spikes:"+str(spikesDict['observed'][targetChan][str(gValue)])
+                   print "Expected spikes:"+str(spikesDict['expected'])
 
-                                   
+                                  
                                     
                                     
 if __name__=="__main__":
 
-  PerturbChanNML2(targetCell="TestSeg_all",targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
+   PerturbChanNML2(targetCell="TestSeg_all",
+   targetChannels=['ar__m00_25'],
+   noSteps=2,
+   sim_duration=100,
+   dt=0.005,
+   mepFile="../.test.mep",
+   omtFile="../.test.SingleComp0005.jnmlnrn.omt",
+   targetNet="Thalamocortical.net.nml",
+   targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
 
   #SingleCellSim(simConfig="Default_Simulation_Configuration",sim_duration=100,dt=0.005,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
 
