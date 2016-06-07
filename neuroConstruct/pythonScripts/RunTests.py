@@ -55,8 +55,8 @@ simConfigs = []
 #          a fine spatial discretisation (maxElecLens) to have a close
 #          match between NEURON, MOOSE & GENESIS
 #
-simConfigs.append("Cell1-supppyrRS-FigA1RS")
-#simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
+#simConfigs.append("Cell1-supppyrRS-FigA1RS")
+simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
 #simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell5-supLTS-FigA2b")
@@ -219,6 +219,22 @@ def testAll(argv=None):
               spikeTimeAccuracy = 0
   
               report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,spikeTimeAccuracy = spikeTimeAccuracy)
+
+              print report2
+              report = report + report2+ '\n'
+              
+          if "Cell2-suppyrFRB-FigA1FRB" in simConfigs:
+              
+          
+              print("Tests for default project simulation for %s with 0.005 dt in NEURON"%("Cell2-suppyrFRB-FigA1FRB"))
+	
+             
+              spikeTimesToCheck = {'CGsuppyrFRB_0': nc.loadMepFile('.test.FigA1FRB0005.mep')['FigA1FRB']}
+
+              spikeTimeAccuracy = 0 #  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
+
+              report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
+				    spikeTimeAccuracy = spikeTimeAccuracy)
 
               print report2
               report = report + report2+ '\n' 
