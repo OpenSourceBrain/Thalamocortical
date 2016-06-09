@@ -315,14 +315,14 @@ if __name__=="__main__":
    
    
    PerturbChanNML2(targetCell="TestSeg_all",
-   noSteps=1,
+   noSteps=30,
    sim_duration=100,
    dt=0.005,
    mepFile="../.test.mep",
    omtFile="../.test.SingleComp0005.jnmlnrn.omt",
    targetNet="Thalamocortical.net.nml",
-   targetChannels='all',
-   targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/",save_to_file="Test.pdf")
+   targetChannels=['cal','napf'],
+   targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/",save_to_file="cal_and_napf.pdf")
 
   #SingleCellSim(simConfig="Default_Simulation_Configuration",sim_duration=100,dt=0.005,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
 
