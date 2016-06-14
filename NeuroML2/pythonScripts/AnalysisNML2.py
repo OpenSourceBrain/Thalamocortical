@@ -1,4 +1,4 @@
-#   Script for generating analysis plots for Traub model cells in NeuroML2 format
+#   Script for generating analysis plots for Traub model cells in the NeuroML2 format
 #
 #   Author: Rokas Stanislovas
 #
@@ -28,23 +28,29 @@ import math
 def AnalysisNML2(pathToCell,cellID):
 
 
-    generate_current_vs_frequency_curve(pathToCell, 
-                                    cellID, 
-                                    start_amp_nA =         -0.2, 
-                                    end_amp_nA =           0.8, 
-                                    step_nA =              0.2, 
-                                    analysis_duration =    1000, 
-                                    analysis_delay =       50,
-                                    simulator=             "jNeuroML_NEURON")
+    generate_current_vs_frequency_curve(pathToCell+cellID+".cell.nml", 
+                                        cellID, 
+                                        start_amp_nA =         -0.2, 
+                                        end_amp_nA =           2, 
+                                        step_nA =              0.2, 
+                                        analysis_duration =    1000, 
+                                        analysis_delay =       50,
+                                        dt=                    0.01,
+                                        temperature=           "6.3degC",
+                                        simulator=             "jNeuroML_NEURON",
+                                        plot_voltage_traces=   True,
+                                        save_if_figure_to='%sIF_%s.png'%(pathToCell,cellID))
                                     
                                     
                                     
-def SingleCellSim(simConfig,sim_duration,dt,targetPath):
+def SingleCellSim(simConfig,dt,targetPath):
     
     src_files = os.listdir(targetPath)
     for file_name in src_files:
+    
         if file_name=="Thalamocortical.net.nml":
-           net_doc = pynml.read_neuroml2_file(targetPath+file_name)
+           full_target_path=os.path.join(targetPath,file_name)
+           net_doc = pynml.read_neuroml2_file(full_target_path)
            net_doc.id=simConfig
 
            net=net_doc.networks[0]
@@ -52,16 +58,29 @@ def SingleCellSim(simConfig,sim_duration,dt,targetPath):
 
 
            net_file = '%s.net.nml'%(net_doc.id)
-           writers.NeuroMLWriter.write(net_doc, targetPath+net_file)
+           writers.NeuroMLWriter.write(net_doc, full_target_path)
 
-           print("Written network with 1 cell in network to: %s"%(targetPath+net_file))
+           print("Written network with 1 cell in network to: %s"%(full_target_path))
+           
+        if file_name=="LEMS_Thalamocortical.xml":
+           full_lems_path=os.path.join(targetPath,file_name)
+           with open(full_lems_path, 'r') as file:
+                lines = file.readlines()
+           for line in lines:
+               if "Simulation" in line:
+                  target_line=line.split(" ")
+                  for item in target_line:
+                      if "length" in item:
+                         target_str=item.split("=")
+                         print target_str
+                         get_value=target_str[1][1:-3]
+                         sim_duration=float(get_value)
+           
 
-    
-
-    validate_neuroml2(targetPath+net_file)
+    validate_neuroml2(full_target_path)
 
     generate_lems_file_for_neuroml("Sim_"+net_doc.id, 
-                               targetPath+net_file, 
+                               full_target_path, 
                                net_doc.id, 
                                sim_duration,
                                dt, 
@@ -73,7 +92,26 @@ def SingleCellSim(simConfig,sim_duration,dt,targetPath):
                                save_all_segments = False,
                                copy_neuroml = False,
                                seed = 1234)
+                               
+                               
+def generate_sims(configs,parentDir,dt,sharedTag=None):
 
+    src_files = os.listdir(parentDir)
+    for file_name in src_files:
+        if file_name in configs.keys():
+           full_file_name = os.path.join(parentDir, file_name)
+           if (os.path.isdir(full_file_name)):
+              print("%s is a directory"%full_file_name)
+              src_files2=os.listdir(full_file_name)
+              for file_name2 in src_files2:
+                  full_file_name2=os.path.join(full_file_name,file_name2)
+                  if (os.path.isdir(full_file_name2)):
+                     print("%s is a directory"%full_file_name2)
+                     if sharedTag !=None:
+                        SingleCellSim(sharedTag,dt,full_file_name2)
+                     else:
+                        SingleCellSim(file_name,dt,full_file_name2)
+           
 
 def getSpikes(leftIdent,targetFile,scalingFactor=1,rightIdent=None):
 
@@ -314,55 +352,61 @@ def PerturbChanNML2(targetCell,noSteps,sim_duration,dt,mepFile,omtFile,targetNet
 if __name__=="__main__":
    
    
-   PerturbChanNML2(targetCell="TestSeg_all",
-   noSteps=30,
-   sim_duration=100,
-   dt=0.005,
-   mepFile="../.test.mep",
-   omtFile="../.test.SingleComp0005.jnmlnrn.omt",
-   targetNet="Thalamocortical.net.nml",
-   targetChannels=['cal','napf'],
-   targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/",save_to_file="cal_and_napf.pdf")
+   #PerturbChanNML2(targetCell="TestSeg_all",
+   #noSteps=30,
+   #sim_duration=100,
+   #dt=0.005,
+   #mepFile="../.test.mep",
+   #omtFile="../.test.SingleComp0005.jnmlnrn.omt",
+   #targetNet="Thalamocortical.net.nml",
+   #targetChannels=['cal','napf'],
+   #targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/",save_to_file="cal_and_napf.pdf")
 
-  #SingleCellSim(simConfig="Default_Simulation_Configuration",sim_duration=100,dt=0.005,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
-
-  #AnalysisNML2("../L23PyrRS/L23PyrRS_default/L23PyrRS.cell.nml","L23PyrRS")
-  #SingleCellSim("SupBasket","Test_Cell3_supbask_FigA2a")
-  #SingleCellSim("L23PyrRS","Cell1_supppyrRS_10ms",10)
-  #SingleCellSim(simConfig="FigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/")
-  #SingleCellSim("L23PyrFRB","Cell2_suppyrFRB_10ms",10)
-  #SingleCellSim(simConfig="L23PyrFRBFigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell2-suppyrFRB-FigA1FRB/Cell2-suppyrFRB-FigA1FRB_default/")
-  #SingleCellSim("SupBasket","Cell3_supbask_10ms",10)
-  #SingleCellSim("SupAxAx","Cell4_supaxax_10ms",10)
-  #SingleCellSim("SupAxAx","Cell4_supaxax_FigA2a",300)
-  #SingleCellSim("SupLTSInter","Cell5_supLTS_10ms",10)
-  #SingleCellSim("SupLTSInter","Cell5_supLTS_FigA2b",300)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_10ms",30)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_FigA3_167",700)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_FigA3_250",700)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_FigA3_333",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_10ms",10)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FIgA4_900",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FigA4_1100",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FigA4_1300",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FigA4_1500",700)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_10ms",10)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_FigA5_800",700)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_Fig5A_1000",700)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_Fig5A_1200",700)
-  #SingleCellSim('L5TuftedPyrRS','Cell8_tuftRS_Fig5A_1400',700)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_10ms",50)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_FigA6_500",800)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_FigA6_800",800)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_FigA6_1000",800)
-  #SingleCellSim("DeepBasket","Cell10_deepbask_10ms",10)
-  #SingleCellSim("DeepAxAx","Cell11_deepaxax_10ms",10)
-  #SingleCellSim("DeepLTSInter","Cell12_deepLTS_10ms",10)
-  #SingleCellSim("DeepLTSInter","Cell12_deepLTS_FigA2b",300)
-  #SingleCellSim("TCR","Cell13_TCR_10ms",10)
-  #SingleCellSim("TCR","Cell13_TCR_FigA7_100",350)
-  #SingleCellSim("TCR","Cell13_TCR_FigA7_600",1500)
-  #SingleCellSim("nRT","Cell14_nRT_10ms",30)
-  #SingleCellSim("nRT","Cell14_nRT_FigA8_00",200)
-  #SingleCellSim("nRT","Cell14_nRT_FigA8_300",450)
-  #SingleCellSim("nRT","Cell14_nRT_FigA8_500",450)
+  #SingleCellSim(simConfig="Default_Simulation_Configuration",dt=0.005,targetPath="../Test/Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
+  #SingleCellSim(simConfig="FigA1RS",dt=0.01,targetPath="../Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/")
+  configs={"Default Simulation Configuration":"TestSeg_all",  
+           "Cell1-supppyrRS-FigA1RS":"L23PyrRS",
+           "Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
+           "Cell3-supbask-FigA2a":"SupBasket",
+           "Cell1-supppyrRS-10ms":"L23PyrRS",
+           "Cell4-supaxax-FigA2a":"SupAxAx",
+           "Cell2-suppyrFRB-10ms":"L23PyrFRB",
+           "Cell3-supbask-10ms":"SupBasket",
+           "Cell4-supaxax-10ms":"SupAxAx",
+           "Cell4-supaxax-FigA2a":"SupAxAx",
+           "Cell5-supLTS-10ms":"SupLTSInter",
+           "Cell5-supLTS-FigA2b":"SupLTSInter",
+           "Cell6-spinstell-10ms":"L4SpinyStellate",
+           "Cell6-spinstell-FigA3-167":"L4SpinyStellate",
+           "Cell6-spinstell-FigA3-250":"L4SpinyStellate",
+           "Cell6-spinstell-FigA3-333":"L4SpinyStellate",
+           "Cell7-tuftIB-10ms":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-900":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-1100":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-1300":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-1500":"L5TuftedPyrIB",
+           "Cell8-tuftRS-10ms":"L5TuftedPyrRS",
+           "Cell8-tuftRS-FigA5-800":"L5TuftedPyrRS",
+           "Cell8-tuftRS-FigA5-1000":"L5TuftedPyrRS",
+           "Cell8-tuftRS-FigA5-1200":"L5TuftedPyrRS",
+           "Cell8-tuftRS-FigA5-1400":"L5TuftedPyrRS",
+           "Cell9-nontuftRS-10ms":"L6NonTuftedPyrRS",
+           "Cell9-nontuftRS-FigA6-500":"L6NonTuftedPyrRS",
+           "Cell9-nontuftRS-FigA6-800":"L6NonTuftedPyrRS",
+           "Cell9-nontuftRS-FigA6-1000":"L6NonTuftedPyrRS",
+           "Cell10-deepbask-10ms":"DeepBasket",
+           "Cell11-deepaxax-10ms":"DeepAxAx",
+           "Cell12-deepLTS-10ms":"DeepLTSInter",
+           "Cell12-deepLTS-FigA2b":"DeepLTSInter",
+           "Cell13-TCR-10ms":"TCR",
+           "Cell13-TCR-FigA7-100":"TCR",
+           "Cell13-TCR-FigA7-600":"TCR",
+           "Cell14-nRT-10ms":"nRT",
+           "Cell14-nRT-FigA8-00":"nRT",
+           "Cell14-nRT-FigA8-300":"nRT",
+           "Cell14-nRT-FigA8-500":"nRT"}
+            
+  generate_sims(configs,"../",0.01,'Target')
+            
+            
+  

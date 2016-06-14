@@ -52,7 +52,7 @@
     <Include file="nap.channel.nml"/>
     <Include file="pas.channel.nml"/>
    
-    <Simulation id="Sim_FigA1RS" length="800ms" step="0.005ms" target="FigA1RS" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="Sim_FigA1RS" length="800.0ms" step="0.01ms" target="FigA1RS" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         
         <Display id="DispPop__CGsuppyrRS" title="Membrane potentials of cells in CGsuppyrRS" timeScale="1ms" xmin="-80.0" xmax="880.0" ymin="-90" ymax="50">
             <Line id="CGsuppyrRS[0]: v" quantity="CGsuppyrRS/0/L23PyrRS/v" scale="1mV" color="#f7697f" timeScale="1ms"/>

@@ -1,6 +1,6 @@
 <Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
 
-    <Target component="sim1" reportFile="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/simulator.props" timesFile="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/time.dat"/>
+    <Target component="sim1" reportFile="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_296/simulator.props" timesFile="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_296/time.dat"/>
 
         <!--Include standard NeuroML 2 ComponentType definitions-->
 
@@ -59,19 +59,19 @@
             <Line id="v" timeScale="1ms" quantity="CGsuppyrRS/0/L23PyrRS/142/v" scale="1 mV" color="#000000"/>
         </Display>
     
-        <OutputFile id="CGsuppyrFRB_v_11_0_79_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CGsuppyrRS_0.79.cad_CONC_ca.dat">
+        <OutputFile id="CGsuppyrFRB_v_11_0_79_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_296/CGsuppyrRS_0.79.cad_CONC_ca.dat">
             <OutputColumn id="caConc" quantity="CGsuppyrRS/0/L23PyrRS/79/caConc"/>
         </OutputFile>
     
-        <OutputFile id="CGsuppyrFRB_v_2_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CGsuppyrRS_0.0.cad_CONC_ca.dat">
+        <OutputFile id="CGsuppyrFRB_v_2_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_296/CGsuppyrRS_0.0.cad_CONC_ca.dat">
             <OutputColumn id="caConc" quantity="CGsuppyrRS/0/L23PyrRS/0/caConc"/>
         </OutputFile>
     
-        <OutputFile id="CGsuppyrRS_v_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CGsuppyrRS_0.0.dat">
+        <OutputFile id="CGsuppyrRS_v_0_0_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_296/CGsuppyrRS_0.0.dat">
             <OutputColumn id="v" quantity="CGsuppyrRS/0/L23PyrRS/0/v"/>
         </OutputFile>
     
-        <OutputFile id="Var_1_0_142_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_285/CGsuppyrRS_0.142.dat">
+        <OutputFile id="Var_1_0_142_OF" fileName="/home/rokas/Thalamocortical/neuroConstruct/pythonScripts/../simulations/C3D_296/CGsuppyrRS_0.142.dat">
             <OutputColumn id="v" quantity="CGsuppyrRS/0/L23PyrRS/142/v"/>
         </OutputFile>
     </Component>

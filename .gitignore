@@ -33,3 +33,14 @@ neuroConstruct/generatedNeuroML2/html
 /neuroConstruct/generatedNeuroML2/*nrn.py
 /neuroConstruct/generatedNeuroML2/LEMS_Net3D.xml
 /neuroConstruct/generatedNeuroML2/Net3D.net.nml
+
+/NeuroML2/*-*
+/NeuroML2/*_*
+/NeuroML2/pythonScripts/*.mod
+/NeuroML2/pythonScripts/*.hoc
+/NeuroML2/pythonScripts/*.props
+/NeuroML2/pythonScripts/*nrn.py
+/NeuroML2/pythonScripts/*.dat
+/NeuroML2/pythonScripts/*.xml
+/NeuroML2/pythonScripts/*.nml
+/NeuroML2/Test/

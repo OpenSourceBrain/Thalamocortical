@@ -86,8 +86,8 @@ simConfigs.append("Cell7-tuftIB-FigA4-1500")
 #
 ##########################################################################
 
-simDt =                 0.005
-#simDt=                   0.01   # for newly added mep tests which will be used for omv tests with jNeuroML_NEURON
+#simDt =                 0.005
+simDt=                   0.01   # for newly added mep tests which will be used for omv tests with jNeuroML_NEURON
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
@@ -239,38 +239,37 @@ def testAll(argv=None):
 
               print report2
               report = report + report2+ '\n' 
-          # NEURON throws maximum recursion depth exceeded when cell 7 configs (below) are used with 0.005 dt    
-          #if  "Cell7-tuftIB-FigA4-1300" in simConfigs:
+              
+          if "Cell7-tuftIB-FigA4-1300" in simConfigs:
+              
+          
+              print("Tests for default project simulation for %s with 0.005 dt in NEURON"%("Cell7-tuftIB-FigA4-1300"))
+	
+             
+              spikeTimesToCheck ={'CGtuftIB_0': nc.loadMepFile('.test.tuftIBFigA4_1300_0005NoTable.mep')['FigA4']}
+          
+              spikeTimeAccuracy = 0 #  # could be more accurate with var time step in nrn, but need to compare these to jNeuroML_NEURON
+
+              report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
+				    spikeTimeAccuracy = spikeTimeAccuracy)
+
+              print report2
+              report = report + report2+ '\n' 
+              
+          if  "Cell7-tuftIB-FigA4-1500" in simConfigs:
           
           
-              #print("Tests for default project simulation for %s with 0.005 dt in NEURON"%("Cell7-tuftIB-FigA4-1300"))
+              print("Tests for default project simulation for %s with 0.01 dt in NEURON"%("Cell7-tuftIB-FigA4-1500"))
 	 
      
-              #spikeTimesToCheck = {'CGtuftIB_0': nc.loadMepFile('.test.tuftIBFigA40005_1300.mep')['tuftIBFigA4_1300']}
+              spikeTimesToCheck = {'CGtuftIB_0': nc.loadMepFile('.test.tuftIBFigA4_1500_0005NoTable.mep')['tuftIBFigA4_1500']}
 
-              #spikeTimeAccuracy = 0
+              spikeTimeAccuracy = 0
   
-              #report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,spikeTimeAccuracy = spikeTimeAccuracy)
+              report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,spikeTimeAccuracy = spikeTimeAccuracy)
 
-              #print report2
-              #report = report + report2+ '\n' 
-              
-         
-          #if  "Cell7-tuftIB-FigA4-1500" in simConfigs:
-          
-          
-              #print("Tests for default project simulation for %s with 0.005 dt in NEURON"%("Cell7-tuftIB-FigA4-1500"))
-	 
-     
-              #spikeTimesToCheck = {'CGtuftIB_0': nc.loadMepFile('.test.tuftIBFigA40005_1500.mep')['tuftIBFigA4_1500']}
-
-              #spikeTimeAccuracy = 0
-  
-              #report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,spikeTimeAccuracy = spikeTimeAccuracy)
-
-              #print report2
-              #report = report + report2+ '\n' 
-              
+              print report2
+              report = report + report2+ '\n' 
           
           
       

@@ -11,6 +11,7 @@ import sys
 import os
 import subprocess
 import shutil
+import json
 
 try:
     from java.io import File
@@ -27,21 +28,21 @@ import ncutils as nc
 
 
 
-def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg=None):
+def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg=None,savingDir=None):
 
     projFile=File(os.getcwd(),projString)
     pm=ProjectManager()
     project=pm.loadProject(projFile)
-    
+    compSummary={}
     for config in ConfigDict.keys():
-        
+        compSummary[config]={}
         if " " in config:
            configPath=config.replace(" ","_")
         else:
            configPath=config
-           
+        
         for maxElecLen in ElecLenList:
-
+            compSummary[config][str(maxElecLen)]={}
             cell=project.cellManager.getCell(ConfigDict[config])
             
             if maxElecLen > 0:
@@ -50,16 +51,25 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
 	       print "Recompartmentalising cell %s"%ConfigDict[config]
 	       if somaNseg != None:
 	          cell.getSegmentWithId(0).getSection().setNumberInternalDivisions(somaNseg)
-	          
-	       cellpath = r'../../NeuroML2/%s/%s_%f'%(configPath,configPath,maxElecLen)
+	       if savingDir !=None: 
+	          cellpath = r'../../NeuroML2/%s/%s/%s_%f'%(savingDir,configPath,configPath,maxElecLen)
+	       else:
+	          cellpath = r'../../NeuroML2/%s/%s_%f'%(configPath,configPath,maxElecLen)
 	       
 	    else:
-	    
-	       cellpath = r'../../NeuroML2/%s/%s_default'%(configPath,configPath)
+	       if savingDir !=None:
+	          cellpath = r'../../NeuroML2/%s/%s/%s_default'%(savingDir,configPath,configPath)
+	       else:
+	          cellpath = r'../../NeuroML2/%s/%s_default'%(configPath,configPath)
 	       
-	    summary=cell.getMorphSummary() 
+	    summary=str(cell.getMorphSummary()) 
+	    summary_string=summary.split("_")
+	    for feature in summary_string:
+	        feature_split=feature.split(":")
+	        compSummary[config][str(maxElecLen)][feature_split[0]]=feature_split[1]
+	    # the format of summary :  Segs:122_Secs:61_IntDivs:1458
 	    print("Will be printing a cell morphology summary")
-	    print summary
+	    print compSummary[config][str(maxElecLen)]
             nc.generateNeuroML2(projFile, [config])
             
             
@@ -77,17 +87,72 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
                    print("Moving generated NeuroML2 to files to %s"%cellpath)
                    shutil.copy(full_file_name, cellpath)
                       
-                     
+    with open("compSummary.json",'w') as fout:
+        json.dump(compSummary, fout)            
     subprocess.call(["~/neuroConstruct/nC.sh -python RegenerateNml2.py"],shell=True)
+    subprocess.call(["cp compSummary.json ~/Thalamocortical/NeuroML2/"],shell=True)
    
     quit()
 
 
 
 if __name__=="__main__":
-   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
-   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
-   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
-   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB"},ElecLenList=[-1])
+   
+   configs={"Default Simulation Configuration":"TestSeg_all",  
+            "Cell1-supppyrRS-FigA1RS":"L23PyrRS",
+            "Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
+            "Cell3-supbask-FigA2a":"SupBasket",
+            "Cell1-supppyrRS-10ms":"L23PyrRS",
+            "Cell4-supaxax-FigA2a":"SupAxAx",
+            "Cell2-suppyrFRB-10ms":"L23PyrFRB",
+            "Cell3-supbask-10ms":"SupBasket",
+            "Cell4-supaxax-10ms":"SupAxAx",
+            "Cell4-supaxax-FigA2a":"SupAxAx",
+            "Cell5-supLTS-10ms":"SupLTSInter",
+            "Cell5-supLTS-FigA2b":"SupLTSInter",
+            "Cell6-spinstell-10ms":"L4SpinyStellate",
+            "Cell6-spinstell-FigA3-167":"L4SpinyStellate",
+            "Cell6-spinstell-FigA3-250":"L4SpinyStellate",
+            "Cell6-spinstell-FigA3-333":"L4SpinyStellate",
+            "Cell7-tuftIB-10ms":"L5TuftedPyrIB",
+            "Cell7-tuftIB-FigA4-900":"L5TuftedPyrIB",
+            "Cell7-tuftIB-FigA4-1100":"L5TuftedPyrIB",
+            "Cell7-tuftIB-FigA4-1300":"L5TuftedPyrIB",
+            "Cell7-tuftIB-FigA4-1500":"L5TuftedPyrIB",
+            "Cell8-tuftRS-10ms":"L5TuftedPyrRS",
+            "Cell8-tuftRS-FigA5-800":"L5TuftedPyrRS",
+            "Cell8-tuftRS-Fig5A-1000":"L5TuftedPyrRS",
+            "Cell8-tuftRS-Fig5A-1200":"L5TuftedPyrRS",
+            "Cell8-tuftRS-Fig5A-1400":"L5TuftedPyrRS",
+            "Cell9-nontuftRS-10ms":"L6NonTuftedPyrRS",
+            "Cell9-nontuftRS-FigA6-500":"L6NonTuftedPyrRS",
+            "Cell9-nontuftRS-FigA6-800":"L6NonTuftedPyrRS",
+            "Cell9-nontuftRS-FigA6-1000":"L6NonTuftedPyrRS",
+            "Cell10-deepbask-10ms":"DeepBasket",
+            "Cell11-deepaxax-10ms":"DeepAxAx",
+            "Cell12-deepLTS-10ms":"DeepLTSInter",
+            "Cell12-deepLTS-FigA2b":"DeepLTSInter",
+            "Cell13-TCR-10ms":"TCR",
+            "Cell13-TCR-FigA7-100":"TCR",
+            "Cell13-TCR-FigA7-600":"TCR",
+            "Cell14-nRT-10ms":"nRT",
+            "Cell14-nRT-FigA8-00":"nRT",
+            "Cell14-nRT-FigA8-300":"nRT",
+            "Cell14-nRT-FigA8-500":"nRT"}
+            
+            
+   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
   
