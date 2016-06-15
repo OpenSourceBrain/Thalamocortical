@@ -1,0 +1,18 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+target: Cell9-nontuftRS-FigA6-1000/Cell9-nontuftRS-FigA6-1000_default/LEMS_Target.xml 
+engine: jNeuroML_NEURON
+
+mep: ./.test.nontuftRSFigA6_1000.mep
+experiments:
+  nontuftRSFigA6_1000:
+    observables:
+      spike times:
+        file: 
+          path: Cell9-nontuftRS-FigA6-1000/Cell9-nontuftRS-FigA6-1000_default/Sim_Target.CGnontuftRS.v.dat
+          columns: [0,1]
+          scaling: [1, 1]
+        spike detection: 
+          method: threshold
+          threshold: -0.02
+        tolerance: 0.001

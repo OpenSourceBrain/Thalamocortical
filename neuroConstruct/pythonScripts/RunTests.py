@@ -55,13 +55,13 @@ simConfigs = []
 #          a fine spatial discretisation (maxElecLens) to have a close
 #          match between NEURON, MOOSE & GENESIS
 #
-#simConfigs.append("Cell1-supppyrRS-FigA1RS")
+simConfigs.append("Cell1-supppyrRS-FigA1RS")
 #simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
 #simConfigs.append("Cell4-supaxax-FigA2a")
 #simConfigs.append("Cell5-supLTS-FigA2b")
 #simConfigs.append("Cell6-spinstell-FigA3-333")
-simConfigs.append("Cell7-tuftIB-FigA4-1500")
+#simConfigs.append("Cell7-tuftIB-FigA4-1500")
 #simConfigs.append("Cell7-tuftIB-FigA4-1300")
 #simConfigs.append("Cell8-tuftRS-Fig5A-1400")
 #simConfigs.append("Cell9-nontuftRS-FigA6-1000")

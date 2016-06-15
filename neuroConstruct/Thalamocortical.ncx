@@ -4400,11 +4400,56 @@ if(strFuncs.substr(nrnversion(), &quot;VERSION 7&quot;) &gt;=0 || strFuncs.subst
     <string></string>
    </void>
    <void method="put">
-    <float>-1.0</float>
-    <string></string>
+    <float>1.0</float>
+    <string>
+//forall {
+
+//usetable_ar=0
+
+//usetable_cal=0
+
+//usetable_cat=0
+
+//usetable_k2=0
+
+//usetable_ka=0
+
+//usetable_kc=0
+
+//usetable_kdr=0
+
+//usetable_km=0
+
+//usetable_naf=0
+
+//usetable_nap=0
+
+//usetable_cat_a=0
+
+//usetable_ka_bi=0
+
+//usetable_kc_fast=0
+
+//usetable_kdr_fs=0
+
+//usetable_km=0
+
+//usetable_naf=0
+
+//usetable_naf2=0
+
+//usetable_naf_tcr=0
+
+//usetable_napf=0
+
+//usetable_napf_tcr=0
+
+//usetable_napf_spinstell=0
+
+//}</string>
    </void>
    <void method="put">
-    <float>1.0</float>
+    <float>-1.0</float>
     <string></string>
    </void>
    <void method="put">
@@ -4575,11 +4620,11 @@ end
 </string>
    </void>
    <void method="put">
-    <int>-1</int>
+    <int>1</int>
     <string></string>
    </void>
    <void method="put">
-    <int>1</int>
+    <int>-1</int>
     <string></string>
    </void>
   </void>
@@ -4590,7 +4635,7 @@ end
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.025</float>
+   <float>0.01</float>
   </void>
   <void property="duration">
    <float>100.0</float>
@@ -4602,7 +4647,7 @@ end
    <float>1.0E-5</float>
   </void>
   <void property="reference">
-   <string>C3D_296</string>
+   <string>C3D_304</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>

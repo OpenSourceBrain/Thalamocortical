@@ -103,7 +103,6 @@ if __name__=="__main__":
             "Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
             "Cell3-supbask-FigA2a":"SupBasket",
             "Cell1-supppyrRS-10ms":"L23PyrRS",
-            "Cell4-supaxax-FigA2a":"SupAxAx",
             "Cell2-suppyrFRB-10ms":"L23PyrFRB",
             "Cell3-supbask-10ms":"SupBasket",
             "Cell4-supaxax-10ms":"SupAxAx",
@@ -141,10 +140,13 @@ if __name__=="__main__":
             "Cell14-nRT-FigA8-500":"nRT"}
             
             
-   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
+   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
    
    
    
+   ######### regenerate specific configs from above if needed ...
+   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
+   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
    
    
    

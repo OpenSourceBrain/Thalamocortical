@@ -1,6 +1,6 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
-target: Default_Simulation_Configuration/Default_Simulation_Configuration_default/LEMS_Test_napf_allG144827586207.xml 
+target: Default_Simulation_Configuration/Default_Simulation_Configuration_default/LEMS_Target.xml 
 engine: jNeuroML_NEURON
 
 mep: ./.test.mep
@@ -9,7 +9,7 @@ experiments:
     observables:
       spike times:
         file: 
-          path: Default_Simulation_Configuration/Default_Simulation_Configuration_default/Sim_Test_napf_allG144827586207.CG_CML.v.dat
+          path: Default_Simulation_Configuration/Default_Simulation_Configuration_default/Sim_Target.CG_CML.v.dat
           columns: [0,1]
           scaling: [1, 1]
         spike detection: 

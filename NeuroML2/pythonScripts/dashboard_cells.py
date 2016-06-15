@@ -2,9 +2,9 @@ from AnalysisNML2 import AnalysisNML2
 
 
 
-def dashboard_cells(modelArray,genericSimParams=None):
+def dashboard_cells(configArray,simParams=None):
    
-    for model in range(0,len(modelArray)):
+    for model in in configArray.keys():
         AnalysisNML2(modelArray[model]['PathToCellModel'],modelArray[model]['CellID'])
 
 
@@ -15,45 +15,23 @@ if __name__=="__main__":
   dashboard_cells(modelArray)
   print "testing a new script: dashboard_cells"
   
-  #SingleCellSim(simConfig="Default_Simulation_Configuration",sim_duration=100,dt=0.005,targetPath="../Test/Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
-
-  #AnalysisNML2("../L23PyrRS/L23PyrRS_default/L23PyrRS.cell.nml","L23PyrRS")
-  #SingleCellSim("SupBasket","Test_Cell3_supbask_FigA2a")
-  #SingleCellSim("L23PyrRS","Cell1_supppyrRS_10ms",10)
-  #SingleCellSim(simConfig="FigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/")
-  #SingleCellSim("L23PyrFRB","Cell2_suppyrFRB_10ms",10)
-  #SingleCellSim(simConfig="L23PyrFRBFigA1RS",sim_duration=800,dt=0.005,targetPath="../Cell2-suppyrFRB-FigA1FRB/Cell2-suppyrFRB-FigA1FRB_default/")
-  #SingleCellSim("SupBasket","Cell3_supbask_10ms",10)
-  #SingleCellSim("SupAxAx","Cell4_supaxax_10ms",10)
-  #SingleCellSim("SupAxAx","Cell4_supaxax_FigA2a",300)
-  #SingleCellSim("SupLTSInter","Cell5_supLTS_10ms",10)
-  #SingleCellSim("SupLTSInter","Cell5_supLTS_FigA2b",300)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_10ms",30)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_FigA3_167",700)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_FigA3_250",700)
-  #SingleCellSim("L4SpinyStellate","Cell6_spinstell_FigA3_333",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_10ms",10)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FIgA4_900",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FigA4_1100",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FigA4_1300",700)
-  #SingleCellSim("L5TuftedPyrIB","Cell7_tuftIB_FigA4_1500",700)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_10ms",10)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_FigA5_800",700)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_Fig5A_1000",700)
-  #SingleCellSim("L5TuftedPyrRS","Cell8_tuftRS_Fig5A_1200",700)
-  #SingleCellSim('L5TuftedPyrRS','Cell8_tuftRS_Fig5A_1400',700)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_10ms",50)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_FigA6_500",800)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_FigA6_800",800)
-  #SingleCellSim("L6NonTuftedPyrRS","Cell9_nontuftRS_FigA6_1000",800)
-  #SingleCellSim("DeepBasket","Cell10_deepbask_10ms",10)
-  #SingleCellSim("DeepAxAx","Cell11_deepaxax_10ms",10)
-  #SingleCellSim("DeepLTSInter","Cell12_deepLTS_10ms",10)
-  #SingleCellSim("DeepLTSInter","Cell12_deepLTS_FigA2b",300)
-  #SingleCellSim("TCR","Cell13_TCR_10ms",10)
-  #SingleCellSim("TCR","Cell13_TCR_FigA7_100",350)
-  #SingleCellSim("TCR","Cell13_TCR_FigA7_600",1500)
-  #SingleCellSim("nRT","Cell14_nRT_10ms",30)
-  #SingleCellSim("nRT","Cell14_nRT_FigA8_00",200)
-  #SingleCellSim("nRT","Cell14_nRT_FigA8_300",450)
-  #SingleCellSim("nRT","Cell14_nRT_FigA8_500",450)
+  configsTest={"L23PyrRS":["Cell1-supppyrRS-FigA1RS","Cell1-supppyrRS-10ms"]}
+  
+  configs_all={"L23PyrRS":["Cell1-supppyrRS-FigA1RS","Cell1-supppyrRS-10ms"],
+               "L23PyrFRB":["Cell2-suppyrFRB-FigA1FRB","Cell2-suppyrFRB-10ms"],
+               "SupBasket":["Cell3-supbask-FigA2a","Cell3-supbask-10ms"],
+               "SupAxAx":["Cell4-supaxax-FigA2a","Cell4-supaxax-10ms"],
+               "SupLTSInter":["Cell5-supLTS-10ms","Cell5-supLTS-FigA2b"],
+               "L4SpinyStellate":["Cell6-spinstell-10ms","Cell6-spinstell-FigA3-167","Cell6-spinstell-FigA3-250","Cell6-spinstell-FigA3-333"],
+               "L5TuftedPyrIB":["Cell7-tuftIB-10ms", "Cell7-tuftIB-FigA4-900","Cell7-tuftIB-FigA4-1100","Cell7-tuftIB-FigA4-1300","Cell7-tuftIB-FigA4-1500"],
+               "L5TuftedPyrRS":["Cell8-tuftRS-10ms","Cell8-tuftRS-FigA5-800","Cell8-tuftRS-Fig5A-1000","Cell8-tuftRS-Fig5A-1200","Cell8-tuftRS-Fig5A-1400"],
+               "L6NonTuftedPyrRS":["Cell9-nontuftRS-10ms","Cell9-nontuftRS-FigA6-500","Cell9-nontuftRS-FigA6-800","Cell9-nontuftRS-FigA6-1000"],
+               "DeepBasket":["Cell10-deepbask-10ms"],
+               "DeepAxAx":["Cell11-deepaxax-10ms"],
+               "DeepLTSInter":["Cell12-deepLTS-10ms"],
+               "DeepLTSInter":["Cell12-deepLTS-FigA2b"],
+               "TCR":["Cell13-TCR-10ms","Cell13-TCR-FigA7-100","Cell13-TCR-FigA7-600"],
+               "nRT":["Cell14-nRT-10ms","Cell14-nRT-FigA8-00","Cell14-nRT-FigA8-300","Cell14-nRT-FigA8-500"]
+               
+                
+           

@@ -1,0 +1,18 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+target: Cell5-supLTS-FigA2b/Cell5-supLTS-FigA2b_default/LEMS_Target.xml 
+engine: jNeuroML_NEURON
+
+mep: ./.test.supLTSFigA2b.mep
+experiments:
+  supLTSFigA2b:
+    observables:
+      spike times:
+        file: 
+          path: Cell5-supLTS-FigA2b/Cell5-supLTS-FigA2b_default/Sim_Target.CGsupLTS.v.dat
+          columns: [0,1]
+          scaling: [1, 1]
+        spike detection: 
+          method: threshold
+          threshold: -0.02
+        tolerance: 0.001
