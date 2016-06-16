@@ -1,12 +1,9 @@
  
          
-        ## Model: L23PyrRS
+## Model: L23PyrRS
 
-        ### Original model
+### Simulation of the NeuroML2 model in NEURON
 
-        **IF curve**
+**IF curve**
 
-        ![Original](IF_L23PyrRS.png)
-        
-
-        
+![Simulation](IF_L23PyrRS.png)
