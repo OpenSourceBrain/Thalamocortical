@@ -70,6 +70,8 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
 	    # the format of summary :  Segs:122_Secs:61_IntDivs:1458
 	    print("Will be printing a cell morphology summary")
 	    print compSummary[config][str(maxElecLen)]
+	    ######### it turns out that this does not save recompartmentalized cells - all saved cells have identical spatial discretization; 
+	    ##### generateNeuroML2 receives the parent projFile but not the loaded project which is  modified by the CellTopologyHelper.recompartmentaliseCell()
             nc.generateNeuroML2(projFile, [config])
             
             
@@ -140,13 +142,13 @@ if __name__=="__main__":
             "Cell14-nRT-FigA8-500":"nRT"}
             
             
-   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
+   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
    
    
    
    ######### regenerate specific configs from above if needed ...
    #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
-   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
+   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
    
    
    

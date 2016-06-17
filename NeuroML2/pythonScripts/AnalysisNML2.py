@@ -24,24 +24,119 @@ import re
 import numpy as np
 import math
 
+##############################################################################################################################
+def PlotNC_vs_NML2(targets_to_plot,legend=False,save_to_file=None,nCcellPath=None,NML2cellPath=None):
+    
+    path={}
+    path['nC']=nCcellPath
+    path['NML2']=NML2cellPath
+    colour={}
+    colour['nC']='r'
+    colour['NML2']='b'
+    subplot_titles=targets_to_plot['subplotTitles']
 
-def AnalysisNML2(pathToCell,cellID):
+    if len(targets_to_plot['NML2'])==len(targets_to_plot['nC']):
+       no_of_pairs=len(targets_to_plot['NML2'])
+       
+       if (no_of_pairs % 5) >= 1:
+          rows = max(1,int(math.ceil(no_of_pairs/5)+1))
+       else:
+          rows=max(1,int(math.ceil(no_of_pairs/5)))
+       columns = min(5,no_of_pairs)
+       
+       fig,ax = plt.subplots(rows,columns,sharex=False,figsize=(4*columns,4*rows))
 
+       if rows > 1 or columns > 1:
+          ax = ax.ravel()
+      
+       fig.canvas.set_window_title("Thalamocortical cell models: neuroConstruct project compared to NeuroML2")
+       
+       for pair in range(0,no_of_pairs):
+           cells={}
+           cells['NML2']=targets_to_plot['NML2'][pair]
+           cells['nC']=targets_to_plot['nC'][pair]
+           if no_of_pairs > 1:
+              ax[pair].set_xlabel('Time (s)')
+              ax[pair].set_ylabel('Membrane potential (V)')
+              ax[pair].xaxis.grid(True)
+              ax[pair].yaxis.grid(True)
+           else:
+              ax.set_xlabel('Time (s)')
+              ax.set_ylabel('Membrane potential (V)')
+              ax.xaxis.grid(True)
+              ax.yaxis.grid(True)
+           
+           for cell_project in ['NML2','nC']:
+               data=[]
+               time_array=[]
+               voltage_array=[]
+               data.append(time_array)
+               data.append(voltage_array)
+               
+               if path[cell_project]==None:
+                  cell_path=cells[cell_project]+'.dat'
+               else:
+                  cell_path=path[cell_project]+cells[cell_project]+'.dat'
+               
+               for line in open(cell_path):
+                   values=line.split() # for each line there is a time point and voltage value at that time point
+                   for x in range(0,2):
+                       data[x].append(float(values[x]))
+               if no_of_pairs >1:
+                  ax[pair].plot(data[0],data[1],label=cell_project,color=colour[cell_project])
+               else:
+                  ax.plot(data[0],data[1],label=cell_project,color=colour[cell_project])
+               print("Adding trace for: %s"%subplot_titles[pair])
+                  
+  
+           
+           if no_of_pairs >1:
+              ax[pair].used = True
+              ax[pair].set_title(subplot_titles[pair],size=13)
+              ax[pair].locator_params(tight=True, nbins=8)
+           else:
+              ax.used = True
+              ax.set_title(subplot_titles[pair],size=13)
+              ax.locator_params(tight=True, nbins=8)
+           
+           if no_of_pairs >1:
+              for tick in ax[pair].xaxis.get_major_ticks():
+                  tick.label.set_fontsize(9) 
+           else:
+              for tick in ax.xaxis.get_major_ticks():
+                  tick.label.set_fontsize(9)
+                  
+       if no_of_pairs != int(rows*columns):  
+       
+          for empty_plot in range(0,int(rows*columns)-no_of_pairs):
+              x=-1-empty_plot
+              ax[x].axis("off")         
+          
+       if legend:
+          ##### adjust these for better display
+          ax[0].legend(loc='upper center',bbox_to_anchor=(0.19, 1),fontsize=14, fancybox=True,ncol=1, shadow=True)
+       plt.tight_layout()
+       if save_to_file !=None:
+          plt.savefig(save_to_file)
+       plt.show()
+       
+######################################################################################################################
+def get_sim_duration(full_lems_path):
 
-    generate_current_vs_frequency_curve(pathToCell+cellID+".cell.nml", 
-                                        cellID, 
-                                        start_amp_nA =         -0.2, 
-                                        end_amp_nA =           2, 
-                                        step_nA =              0.2, 
-                                        analysis_duration =    1000, 
-                                        analysis_delay =       50,
-                                        dt=                    0.01,
-                                        temperature=           "6.3degC",
-                                        simulator=             "jNeuroML_NEURON",
-                                        plot_voltage_traces=   True,
-                                        save_if_figure_to='%sIF_%s.png'%(pathToCell,cellID))
-                                    
-                                    
+    with open(full_lems_path, 'r') as file:
+         lines = file.readlines()
+    for line in lines:
+        if "Simulation" in line:
+           target_line=line.split(" ")
+           for item in target_line:
+               if "length" in item:
+                  target_str=item.split("=")
+                  print target_str
+                  get_value=target_str[1][1:-3]
+                  sim_duration=float(get_value)
+                  
+    return sim_duration
+##################################################################                                    
                                     
 def SingleCellSim(simConfig,dt,targetPath):
     
@@ -64,17 +159,7 @@ def SingleCellSim(simConfig,dt,targetPath):
            
         if file_name=="LEMS_Thalamocortical.xml":
            full_lems_path=os.path.join(targetPath,file_name)
-           with open(full_lems_path, 'r') as file:
-                lines = file.readlines()
-           for line in lines:
-               if "Simulation" in line:
-                  target_line=line.split(" ")
-                  for item in target_line:
-                      if "length" in item:
-                         target_str=item.split("=")
-                         print target_str
-                         get_value=target_str[1][1:-3]
-                         sim_duration=float(get_value)
+           sim_duration=get_sim_duration(full_lems_path)
            
 
     validate_neuroml2(full_target_path)
@@ -93,7 +178,7 @@ def SingleCellSim(simConfig,dt,targetPath):
                                copy_neuroml = False,
                                seed = 1234)
                                
-                               
+###############################################################################################                               
 def generate_sims(configs,parentDir,dt,sharedTag=None):
 
     src_files = os.listdir(parentDir)
@@ -112,7 +197,7 @@ def generate_sims(configs,parentDir,dt,sharedTag=None):
                      else:
                         SingleCellSim(file_name,dt,full_file_name2)
            
-
+######################################################################################################
 def getSpikes(leftIdent,targetFile,scalingFactor=1,rightIdent=None):
 
     with open(targetFile, 'r') as file:
@@ -136,7 +221,7 @@ def getSpikes(leftIdent,targetFile,scalingFactor=1,rightIdent=None):
             
     return observed_array
     
-
+##################################################################################################################
 def Replace(line,leftTag,rightTag,newString):
 
     find_left=line.find(leftTag)
@@ -144,7 +229,7 @@ def Replace(line,leftTag,rightTag,newString):
     to_be_replaced=line[find_left:find_right+len(rightTag)]
     new_line=line.replace(to_be_replaced,newString)
     return new_line
-
+####################################################################################################################
 def spike_df_vs_gmax(gInfo,spikesDict,save_to_file):
     
     no_of_plots=len(spikesDict['observed'])
@@ -225,7 +310,7 @@ def spike_df_vs_gmax(gInfo,spikesDict,save_to_file):
        plt.savefig(save_to_file)
     plt.show()
                                               
-                                    
+#####################################################################################################################                                   
 def PerturbChanNML2(targetCell,noSteps,sim_duration,dt,mepFile,omtFile,targetNet,targetChannels="all",targetPath=None,save_to_file=None):
     ###### method for testing how spiking behaviour of single cell NML2 models is affected by conductance changes in given ion channels  
     cell_nml2 = '%s.cell.nml'%targetCell
@@ -347,7 +432,7 @@ def PerturbChanNML2(targetCell,noSteps,sim_duration,dt,mepFile,omtFile,targetNet
     print("will generate plots for how differences between expected and observed spike times vary with conductance level of a given ion channel")     
     spike_df_vs_gmax(gInfo,spikesDict,save_to_file)
                                   
-                                    
+#####################################################################################################################                                    
                                     
 if __name__=="__main__":
    
@@ -366,49 +451,49 @@ if __name__=="__main__":
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Cell1-supppyrRS-FigA1RS/Cell1-supppyrRS-FigA1RS_default/")
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Cell7-tuftIB-FigA4-1500/Cell7-tuftIB-FigA4-1500_default/")
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Cell8-tuftRS-Fig5A-1400/Cell8-tuftRS-Fig5A-1400_default/")
-  SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
-  #configs={"Default Simulation Configuration":"TestSeg_all",  
-           #"Cell1-supppyrRS-FigA1RS":"L23PyrRS",
-           #"Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
-           #"Cell3-supbask-FigA2a":"SupBasket",
-           #"Cell1-supppyrRS-10ms":"L23PyrRS",
-           #"Cell4-supaxax-FigA2a":"SupAxAx",
-           #"Cell2-suppyrFRB-10ms":"L23PyrFRB",
-           #"Cell3-supbask-10ms":"SupBasket",
-           #"Cell4-supaxax-10ms":"SupAxAx",
-           #"Cell5-supLTS-10ms":"SupLTSInter",
-           #"Cell5-supLTS-FigA2b":"SupLTSInter",
-           #"Cell6-spinstell-10ms":"L4SpinyStellate",
-           #"Cell6-spinstell-FigA3-167":"L4SpinyStellate",
-           #"Cell6-spinstell-FigA3-250":"L4SpinyStellate",
-           #"Cell6-spinstell-FigA3-333":"L4SpinyStellate",
-           #"Cell7-tuftIB-10ms":"L5TuftedPyrIB",
-           #"Cell7-tuftIB-FigA4-900":"L5TuftedPyrIB",
-           #"Cell7-tuftIB-FigA4-1100":"L5TuftedPyrIB",
-           #"Cell7-tuftIB-FigA4-1300":"L5TuftedPyrIB",
-           #"Cell7-tuftIB-FigA4-1500":"L5TuftedPyrIB",
-           #"Cell8-tuftRS-10ms":"L5TuftedPyrRS",
-           #"Cell8-tuftRS-FigA5-800":"L5TuftedPyrRS",
-           #"Cell8-tuftRS-Fig5A-1000":"L5TuftedPyrRS",
-           #"Cell8-tuftRS-Fig5A-1200":"L5TuftedPyrRS",
-           #"Cell8-tuftRS-Fig5A-1400":"L5TuftedPyrRS",
-           #"Cell9-nontuftRS-10ms":"L6NonTuftedPyrRS",
-           #"Cell9-nontuftRS-FigA6-500":"L6NonTuftedPyrRS",
-           #"Cell9-nontuftRS-FigA6-800":"L6NonTuftedPyrRS",
-           #"Cell9-nontuftRS-FigA6-1000":"L6NonTuftedPyrRS",
-           #"Cell10-deepbask-10ms":"DeepBasket",
-           #"Cell11-deepaxax-10ms":"DeepAxAx",
-           #"Cell12-deepLTS-10ms":"DeepLTSInter",
-           #"Cell12-deepLTS-FigA2b":"DeepLTSInter",
-           #"Cell13-TCR-10ms":"TCR",
-           #"Cell13-TCR-FigA7-100":"TCR",
-           #"Cell13-TCR-FigA7-600":"TCR",
-           #"Cell14-nRT-10ms":"nRT",
-           #"Cell14-nRT-FigA8-00":"nRT",
-           #"Cell14-nRT-FigA8-300":"nRT",
-           #"Cell14-nRT-FigA8-500":"nRT"}
+  #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
+  configs={"Default Simulation Configuration":"TestSeg_all",  
+           "Cell1-supppyrRS-FigA1RS":"L23PyrRS",
+           "Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
+           "Cell3-supbask-FigA2a":"SupBasket",
+           "Cell1-supppyrRS-10ms":"L23PyrRS",
+           "Cell4-supaxax-FigA2a":"SupAxAx",
+           "Cell2-suppyrFRB-10ms":"L23PyrFRB",
+           "Cell3-supbask-10ms":"SupBasket",
+           "Cell4-supaxax-10ms":"SupAxAx",
+           "Cell5-supLTS-10ms":"SupLTSInter",
+           "Cell5-supLTS-FigA2b":"SupLTSInter",
+           "Cell6-spinstell-10ms":"L4SpinyStellate",
+           "Cell6-spinstell-FigA3-167":"L4SpinyStellate",
+           "Cell6-spinstell-FigA3-250":"L4SpinyStellate",
+           "Cell6-spinstell-FigA3-333":"L4SpinyStellate",
+           "Cell7-tuftIB-10ms":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-900":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-1100":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-1300":"L5TuftedPyrIB",
+           "Cell7-tuftIB-FigA4-1500":"L5TuftedPyrIB",
+           "Cell8-tuftRS-10ms":"L5TuftedPyrRS",
+           "Cell8-tuftRS-FigA5-800":"L5TuftedPyrRS",
+           "Cell8-tuftRS-Fig5A-1000":"L5TuftedPyrRS",
+           "Cell8-tuftRS-Fig5A-1200":"L5TuftedPyrRS",
+           "Cell8-tuftRS-Fig5A-1400":"L5TuftedPyrRS",
+           "Cell9-nontuftRS-10ms":"L6NonTuftedPyrRS",
+           "Cell9-nontuftRS-FigA6-500":"L6NonTuftedPyrRS",
+           "Cell9-nontuftRS-FigA6-800":"L6NonTuftedPyrRS",
+           "Cell9-nontuftRS-FigA6-1000":"L6NonTuftedPyrRS",
+           "Cell10-deepbask-10ms":"DeepBasket",
+           "Cell11-deepaxax-10ms":"DeepAxAx",
+           "Cell12-deepLTS-10ms":"DeepLTSInter",
+           "Cell12-deepLTS-FigA2b":"DeepLTSInter",
+           "Cell13-TCR-10ms":"TCR",
+           "Cell13-TCR-FigA7-100":"TCR",
+           "Cell13-TCR-FigA7-600":"TCR",
+           "Cell14-nRT-10ms":"nRT",
+           "Cell14-nRT-FigA8-00":"nRT",
+           "Cell14-nRT-FigA8-300":"nRT",
+           "Cell14-nRT-FigA8-500":"nRT"}
             
-  #generate_sims(configs,"../",0.01,'Target')
+  generate_sims(configs,"../",0.01,'Target')
             
             
   
