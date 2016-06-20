@@ -55,7 +55,7 @@ simConfigs = []
 #          a fine spatial discretisation (maxElecLens) to have a close
 #          match between NEURON, MOOSE & GENESIS
 #
-simConfigs.append("Cell1-supppyrRS-FigA1RS")
+#simConfigs.append("Cell1-supppyrRS-FigA1RS")
 #simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
 #simConfigs.append("Cell4-supaxax-FigA2a")
@@ -69,25 +69,25 @@ simConfigs.append("Cell1-supppyrRS-FigA1RS")
 #simConfigs.append("Cell13-TCR-FigA7-600")
 #simConfigs.append("Cell14-nRT-FigA8-00")
 
-#simConfigs.append("Cell1-supppyrRS-10ms")
-#simConfigs.append("Cell2-suppyrFRB-10ms")   
-#simConfigs.append("Cell3-supbask-10ms")
-#simConfigs.append("Cell4-supaxax-10ms")
-#simConfigs.append("Cell5-supLTS-10ms")
-#simConfigs.append("Cell6-spinstell-10ms")
-#simConfigs.append("Cell7-tuftIB-10ms")
-#simConfigs.append("Cell8-tuftRS-10ms")
-#simConfigs.append("Cell9-nontuftRS-10ms")
-#simConfigs.append("Cell10-deepbask-10ms")
-#simConfigs.append("Cell11-deepaxax-10ms")
-#simConfigs.append("Cell12-deepLTS-10ms")
-#simConfigs.append("Cell13-TCR-10ms")
-#simConfigs.append("Cell14-nRT-10ms")
-#
+simConfigs.append("Cell1-supppyrRS-10ms")
+simConfigs.append("Cell2-suppyrFRB-10ms")   
+simConfigs.append("Cell3-supbask-10ms")
+simConfigs.append("Cell4-supaxax-10ms")
+simConfigs.append("Cell5-supLTS-10ms")
+simConfigs.append("Cell6-spinstell-10ms")
+simConfigs.append("Cell7-tuftIB-10ms")
+simConfigs.append("Cell8-tuftRS-10ms")
+simConfigs.append("Cell9-nontuftRS-10ms")
+simConfigs.append("Cell10-deepbask-10ms")
+simConfigs.append("Cell11-deepaxax-10ms")
+simConfigs.append("Cell12-deepLTS-10ms")
+simConfigs.append("Cell13-TCR-10ms")
+simConfigs.append("Cell14-nRT-10ms")
+
 ##########################################################################
 
-simDt =                 0.005
-#simDt=                   0.01   # for newly added mep tests which will be used for omv tests with jNeuroML_NEURON
+#simDt =                 0.005
+simDt=                   0.01   # for newly added mep tests which will be used for omv tests with jNeuroML_NEURON
 
 neuroConstructSeed =    12345
 simulatorSeed =         11111
