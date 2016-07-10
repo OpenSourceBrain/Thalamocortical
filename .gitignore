@@ -44,3 +44,13 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/pythonScripts/*.xml
 /NeuroML2/pythonScripts/*.nml
 /NeuroML2/Test/
+/NeuroML2/pythonScripts/netbuild/*
+!/NeuroML2/pythonScripts/netbuild/*.py
+/NeuroML2/pythonScripts/netbuild/*_nrn.py
+!/NeuroML2/pythonScripts/netbuild/*.net.nml
+!/NeuroML2/pythonScripts/netbuild/*.xml
+!/NeuroML2/pythonScripts/netbuild/netConnList
+
+
+
+
