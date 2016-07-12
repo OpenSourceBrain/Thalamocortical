@@ -34,6 +34,21 @@ from ucl.physiol.neuroconstruct.neuroml import LemsConstants
 
 def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg=None,savingDir=None):
 
+
+    from ucl.physiol.neuroconstruct.project import ProjectManager
+    from ucl.physiol.neuroconstruct.cell.utils import CellTopologyHelper
+    import ncutils as nc 
+    from ucl.physiol.neuroconstruct.neuroml import NeuroMLFileManager
+    from ucl.physiol.neuroconstruct.cell.compartmentalisation import OriginalCompartmentalisation
+    from ucl.physiol.neuroconstruct.neuroml import NeuroMLConstants
+    from ucl.physiol.neuroconstruct.neuroml import LemsConstants
+    import sys
+    import os
+    import subprocess
+    import shutil
+    import json
+    import time
+
     projFile=File(os.getcwd(),projString)
     pm=ProjectManager()
     compSummary={}
@@ -60,15 +75,15 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
 	       if somaNseg != None:
 	          cell.getSegmentWithId(0).getSection().setNumberInternalDivisions(somaNseg)
 	       if savingDir !=None: 
-	          cellpath = r'../../NeuroML2/%s/%s/%s_%f'%(savingDir,configPath,configPath,maxElecLen)
+	          cellpath = r'../NeuroML2/%s/%s/%s_%f'%(savingDir,configPath,configPath,maxElecLen)
 	       else:
-	          cellpath = r'../../NeuroML2/%s/%s_%f'%(configPath,configPath,maxElecLen)
+	          cellpath = r'../NeuroML2/%s/%s_%f'%(configPath,configPath,maxElecLen)
 	       
 	    else:
 	       if savingDir !=None:
-	          cellpath = r'../../NeuroML2/%s/%s/%s_default'%(savingDir,configPath,configPath)
+	          cellpath = r'../NeuroML2/%s/%s/%s_default'%(savingDir,configPath,configPath)
 	       else:
-	          cellpath = r'../../NeuroML2/%s/%s_default'%(configPath,configPath)
+	          cellpath = r'../NeuroML2/%s/%s_default'%(configPath,configPath)
 	       
 	    summary=str(cell.getMorphSummary()) 
 	    summary_string=summary.split("_")
@@ -116,18 +131,18 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
                print("A directory %s already exists"%cellpath)
               
                
-            src_files = os.listdir("../generatedNeuroML2/")
+            src_files = os.listdir("../../neuroConstruct/generatedNeuroML2/")
             for file_name in src_files:
-                full_file_name = os.path.join("../generatedNeuroML2/", file_name)
+                full_file_name = os.path.join("../../neuroConstruct/generatedNeuroML2/", file_name)
                 if (os.path.isfile(full_file_name)):
                    print("Moving generated NeuroML2 to files to %s"%cellpath)
                    shutil.copy(full_file_name, cellpath)
                       
-    with open("compSummary.json",'w') as fout:
-        json.dump(compSummary, fout)            
-    subprocess.call(["~/neuroConstruct/nC.sh -python RegenerateNml2.py"],shell=True)
-    subprocess.call(["cp compSummary.json ~/Thalamocortical/NeuroML2/"],shell=True)
-   
+    with open("../compSummary.json",'w') as fout:
+        json.dump(compSummary, fout)          
+          
+    subprocess.call(["~/neuroConstruct/nC.sh -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py"],shell=True)
+    
     quit()
 
 
@@ -176,13 +191,11 @@ if __name__=="__main__":
             "Cell14-nRT-FigA8-500":"nRT"}
             
             
-   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
-   
-   
+   SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
    
    ######### regenerate specific configs from above if needed ...
-   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all","Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
-   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
+   #SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all","Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
+   #SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
    
    
    

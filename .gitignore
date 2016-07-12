@@ -14,6 +14,7 @@ generatedPSICS
 simulations
 *.bak
 *py.class
+*.dat
 
 neuroConstruct/cellMechanisms/Syn_*
 
@@ -40,7 +41,6 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/pythonScripts/*.hoc
 /NeuroML2/pythonScripts/*.props
 /NeuroML2/pythonScripts/*nrn.py
-/NeuroML2/pythonScripts/*.dat
 /NeuroML2/pythonScripts/*.xml
 /NeuroML2/pythonScripts/*.nml
 /NeuroML2/Test/

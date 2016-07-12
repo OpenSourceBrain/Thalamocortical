@@ -196,6 +196,12 @@ def generate_sims(configs,parentDir,dt,sharedTag=None):
                         SingleCellSim(sharedTag,dt,full_file_name2)
                      else:
                         SingleCellSim(file_name,dt,full_file_name2)
+                        
+#####################################################################################################
+def RunNeuroConstruct():
+
+    #TODO
+    pass                        
            
 ######################################################################################################
 def getSpikes(leftIdent,targetFile,scalingFactor=1,rightIdent=None):
@@ -431,6 +437,223 @@ def PerturbChanNML2(targetCell,noSteps,sim_duration,dt,mepFile,omtFile,targetNet
            letChannel=False   
     print("will generate plots for how differences between expected and observed spike times vary with conductance level of a given ion channel")     
     spike_df_vs_gmax(gInfo,spikesDict,save_to_file)
+    
+############################################################################################################################################################   
+    
+def analyse_spiketime_vs_dx(lems_path_dict, 
+                            simulator,
+                            cell_v_path,
+                            verbose=False,
+                            spike_threshold_mV = 0,
+                            show_plot_already=True,
+                            save_figure_to=None):
+                                
+    from pyelectro.analysis import max_min
+    
+    all_results = {}
+    comp_values=[]
+    for num_of_comps in lems_path_dict.keys():
+        comp_values.append(int(num_of_comps))
+        if verbose:
+            print_comment_v(" == Generating simulation for electrotonic length = %s"%(dx))
+                                   
+        if simulator == 'jNeuroML':
+             results = pynml.run_lems_with_jneuroml(lems_path_dict[num_of_comps], nogui=True, load_saved_data=True, plot=False, verbose=verbose)
+        if simulator == 'jNeuroML_NEURON':
+             results = pynml.run_lems_with_jneuroml_neuron(lems_path_dict[num_of_comps], nogui=True, load_saved_data=True, plot=False, verbose=verbose)
+             
+        print("Results reloaded: %s"%results.keys())
+             
+        all_results[int(num_of_comps)] = results
+        
+
+    xs = []
+    ys = []
+    labels = []
+    
+    spxs = []
+    spys = []
+    linestyles = []
+    markers = []
+    
+    for num_of_comps in comp_values:
+        t = all_results[num_of_comps]['t']
+        v = all_results[num_of_comps][cell_v_path]
+        xs.append(t)
+        ys.append(v)
+        labels.append(num_of_comps)
+        
+        mm = max_min(v, t, delta=0, peak_threshold=spike_threshold_mV)
+        spike_times = mm['maxima_times']
+        
+
+        spxs_ = []
+        spys_ = []
+        for s in spike_times:
+            spys_.append(s)
+            spxs_.append(num_of_comps)
+        
+        spys.append(spys_)
+        spxs.append(spxs_)
+        linestyles.append('-')
+        markers.append('x')
+        
+    num_of_spikes=len(spys[0])
+    all_equal=True
+    for num_of_comps in range(0,len(comp_values)):
+        if len(spys[num_of_comps]) != num_of_spikes:
+           all_equal=False
+           break
+    if all_equal:
+       line_spxs=[]
+       line_spys=[]
+       linestyles=[]
+       markers=[]
+       for spike in range(0,num_of_spikes):
+           linestyles.append('-')
+           markers.append('x')
+           line_spxs.append(comp_values)
+           spike_var=[]
+           for comp_value in range(0,len(comp_values)):
+               spike_var.append(spys[comp_value][spike])
+           line_spys.append(spike_var)
+       spxs=line_spxs
+       spys=line_spys
+                   
+    pynml.generate_plot(spxs, 
+          spys, 
+          "Spike times vs spatial discretization",
+          linestyles = linestyles,
+          markers = markers,
+          xaxis = 'Number of compartments', 
+          yaxis = 'Spike times (s)',
+          show_plot_already=show_plot_already,
+          save_figure_to=save_figure_to) 
+
+        
+    if verbose:
+        pynml.generate_plot(xs, 
+                  ys, 
+                  "Membrane potentials in %s for %s"%(simulator,dts),
+                  labels = labels,
+                  show_plot_already=show_plot_already,
+                  save_figure_to=save_figure_to)      
+                  
+####################################################################################################################
+def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg=None,savingDir=None):
+
+
+    from ucl.physiol.neuroconstruct.project import ProjectManager
+    from ucl.physiol.neuroconstruct.cell.utils import CellTopologyHelper
+    import ncutils as nc 
+    from ucl.physiol.neuroconstruct.neuroml import NeuroMLFileManager
+    from ucl.physiol.neuroconstruct.cell.compartmentalisation import OriginalCompartmentalisation
+    from ucl.physiol.neuroconstruct.neuroml import NeuroMLConstants
+    from ucl.physiol.neuroconstruct.neuroml import LemsConstants
+    import sys
+    import os
+    import subprocess
+    import shutil
+    import json
+    import time
+
+    projFile=File(os.getcwd(),projString)
+    pm=ProjectManager()
+    compSummary={}
+    for config in ConfigDict.keys():
+    
+        project=pm.loadProject(projFile)
+        
+        nmlfm = NeuroMLFileManager(project)
+       
+        compSummary[config]={}
+        if " " in config:
+           configPath=config.replace(" ","_")
+        else:
+           configPath=config
+        
+        for maxElecLen in ElecLenList:
+            compSummary[config][str(maxElecLen)]={}
+            cell=project.cellManager.getCell(ConfigDict[config])
+            
+            if maxElecLen > 0:
+
+	       info = CellTopologyHelper.recompartmentaliseCell(cell, maxElecLen, project)
+	       print "Recompartmentalising cell %s"%ConfigDict[config]
+	       if somaNseg != None:
+	          cell.getSegmentWithId(0).getSection().setNumberInternalDivisions(somaNseg)
+	       if savingDir !=None: 
+	          cellpath = r'../NeuroML2/%s/%s/%s_%f'%(savingDir,configPath,configPath,maxElecLen)
+	       else:
+	          cellpath = r'../NeuroML2/%s/%s_%f'%(configPath,configPath,maxElecLen)
+	       
+	    else:
+	       if savingDir !=None:
+	          cellpath = r'../NeuroML2/%s/%s/%s_default'%(savingDir,configPath,configPath)
+	       else:
+	          cellpath = r'../NeuroML2/%s/%s_default'%(configPath,configPath)
+	       
+	    summary=str(cell.getMorphSummary()) 
+	    summary_string=summary.split("_")
+	    for feature in summary_string:
+	        feature_split=feature.split(":")
+	        compSummary[config][str(maxElecLen)][feature_split[0]]=feature_split[1]
+	    # the format of summary :  Segs:122_Secs:61_IntDivs:1458
+	    print("Will be printing a cell morphology summary")
+	    print compSummary[config][str(maxElecLen)]
+	    ######### it turns out that this does not save recompartmentalized cells - all saved cells have identical spatial discretization; 
+	    ##### generateNeuroML2 receives the parent projFile but not the loaded project which is  modified by the CellTopologyHelper.recompartmentaliseCell()
+	    
+	    ##################### neuroConstruct block #############################################################################
+	    
+	    neuroConstructSeed=1234
+	    verbose=True
+	    pm.doGenerate(config, neuroConstructSeed)
+
+            while pm.isGenerating():
+                  if verbose: 
+                     print("Waiting for the project to be generated with Simulation Configuration: "+config)
+                     time.sleep(5)
+                     
+	    simConfig = project.simConfigInfo.getSimConfig(config)
+	    
+	    seed=1234
+	    genDir = File(projFile.getParentFile(), "generatedNeuroML2")
+            nmlfm.generateNeuroMLFiles(simConfig,
+                                       NeuroMLConstants.NeuroMLVersion.getLatestVersion(),
+                                       LemsConstants.LemsOption.LEMS_WITHOUT_EXECUTE_MODEL,
+                                       OriginalCompartmentalisation(),
+                                       seed,
+                                       False,
+                                       True,
+                                       genDir,
+                                       "GENESIS Physiological Units",
+                                       False)
+            
+            ########################################################################################################################
+            
+            if not os.path.exists(cellpath):
+               print("Creating a new directory %s"%cellpath)
+               os.makedirs(cellpath)
+            else:
+               print("A directory %s already exists"%cellpath)
+              
+               
+            src_files = os.listdir("../../neuroConstruct/generatedNeuroML2/")
+            for file_name in src_files:
+                full_file_name = os.path.join("../../neuroConstruct/generatedNeuroML2/", file_name)
+                if (os.path.isfile(full_file_name)):
+                   print("Moving generated NeuroML2 to files to %s"%cellpath)
+                   shutil.copy(full_file_name, cellpath)
+                      
+    with open("../compSummary.json",'w') as fout:
+        json.dump(compSummary, fout)          
+          
+    subprocess.call(["~/neuroConstruct/nC.sh -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py"],shell=True)
+    
+    quit()
+            
+                  
                                   
 #####################################################################################################################                                    
                                     

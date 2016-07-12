@@ -24,7 +24,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         which_models='all',
                         dir_cell_models="../../",
                         full_path_to_connectivity='netConnList',
-                        simulator='jNeuroML_NEURON',
+                        simulator=None,
                         duration=300,
                         dt=0.025,
                         max_memory='1000M',
@@ -122,8 +122,33 @@ def RunColumnSimulation(net_id="TestRunColumn",
     synapseList,projArray=oc_utils.build_connectivity(network,pop_params,dir_cell_models,full_path_to_connectivity,extra_params)                  
 
     oc.add_synapses(nml_doc,dir_cell_models,synapseList)
+    
+    ############ for testing only; will add original specifications later ##############################################################
+    
+    input_params={'L23PyrRS':[{'InputType':'GeneratePoissonTrains',
+                  'Layer':'L23',
+                  'TrainType':'transient',
+                  'Synapse':'Syn_AMPA_SupPyr_SupPyr',
+                  'AverageRateList':[200.0,150.0],
+                  'DurationList':[100.0,50.0],
+                  'DelayList':[50.0,200.0],
+                  'FractionToTarget':1.0,
+                  'LocationSpecific':False,
+                  'TargetDict':{'soma_group':1 }       }]              }
+                  
+                  
+    passed=oc_utils.check_inputs(input_params,popDict,dir_cell_models)
 
+    if passed:
+    
+       print("Input parameters are specified correctly")
+       
+       oc_utils.build_inputs(nml_doc=nml_doc,net=network,pop_params=pop_params,input_params=input_params,path_to_nml2=dir_cell_models)
+    
+    ####################################################################################################################################
+    
     nml_file_name = '%s.net.nml'%network.id
+    
     oc.save_network(nml_doc, nml_file_name, validate=True)
     
     for syn_ind in range(0,len(synapseList)):

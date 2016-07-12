@@ -1,21 +1,62 @@
 from pyneuroml.analysis import generate_current_vs_frequency_curve
 from pyneuroml.analysis import analyse_spiketime_vs_dt
-from pyneuroml.analysis import analyse_spiketime_vs_dx
 from pyneuroml import pynml
 import json
 import os
 from AnalysisNML2 import get_sim_duration
+from AnalysisNML2 import analyse_spiketime_vs_dx
 from PlotNC_vs_NML2 import *
 
-def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,compSummary):
 
+def dashboard_cells(net_id,
+                    net_file_name,
+                    config_array,
+                    if_params,
+                    elec_len_list,
+                    dt_list,
+                    comp_summary,
+                    compare_to_neuroConstruct=False,
+                    regenerate_recompartmentalization=False,
+                    proj_string_neuroConstruct=None):
+                    
+    
+    if compare_to_neuroConstruct or regenerate_recompartmentalization:
+    
+       try:
+          from java.io import File
+       except ImportError:
+          print "Note: this file should be run using ..\\..\\..\\nC.bat -python XXX.py' or '../../../nC.sh -python XXX.py'"
+          print "See http://www.neuroconstruct.org/docs/python.html for more details"
+          quit()
+          
+       import sys
+       
+       sys.path.append(os.environ["NC_HOME"]+"/pythonNeuroML/nCUtils")
+       
+       if proj_string_neuroConstruct==None:
+       
+          print("Note: loading neuroConstruct is required; set the argument proj_string_neuroConstruct to the path to the neuroConstruct project.")
+          quit()                
+                    
+    if regenerate_recompartmentalization:
+    
+       from AnalysisNML2 import SingleCellNML2generator
+         
+    if compare_to_neuroConstruct:
+       
+       import ncutils as nc
+       from ucl.physiol.neuroconstruct.hpc.mpi import MpiSettings
+       from java.lang.management import ManagementFactory   
+       
+    
+    
     try:
-       with open(compSummary,'r') as f:
-              comp_summary=json.load(f)
+       with open(comp_summary,'r') as f:
+              comp_info=json.load(f)
     except IOError:
        print "cannot open file %s"%connInfo
        
-    for cellModel in configArray.keys():
+    for cellModel in config_array.keys():
         
         save_to_path="../"+cellModel
         
@@ -25,10 +66,9 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
         else:
            print("A directory %s already exists"%save_to_path)
            
-        
-        pathToConfig="../"+configArray[cellModel]['Analysis']
+        pathToConfig="../"+config_array[cellModel]['Analysis']
            
-        cell_morph_summary=comp_summary[configArray[cellModel]['Analysis']]
+        cell_morph_summary=comp_info[config_array[cellModel]['Analysis']]
            
         src_files = os.listdir(pathToConfig)
            
@@ -45,7 +85,7 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
                original_LEMS_target=os.path.join(full_file_path,"LEMS_Target.xml")
             
                ###################################################################################
-               if -1 in ElecLenList and "-1" in cell_morph_summary.keys():
+               if -1 in elec_len_list and "-1" in cell_morph_summary.keys():
                   dx_configs[cell_morph_summary["-1"]["IntDivs"]]=original_LEMS_target
                   num_dx_configs+=1
                ##################################################################################      
@@ -53,21 +93,21 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
                print("will generate the IF curve for %s.cell.nml"%cellModel)
                #generate_current_vs_frequency_curve(os.path.join(full_file_path,cellModel+".cell.nml"), 
                                         #cellModel, 
-                                        #start_amp_nA =     ifParams['start_amp_nA'], 
-                                        #end_amp_nA =       ifParams['end_amp_nA'], 
-                                        #step_nA =          ifParams['step_nA'], 
-                                        #analysis_duration =ifParams['analysis_duration'], 
-                                        #analysis_delay =   ifParams['analysis_delay'],
-                                        #dt=                ifParams['dt'],
-                                        #temperature=       ifParams['temperature'],
-                                        #plot_voltage_traces=ifParams['plot_voltage_traces'],
-                                        #plot_if=            ifParams['plot_if'],
+                                        #start_amp_nA =     if_params['start_amp_nA'], 
+                                        #end_amp_nA =       if_params['end_amp_nA'], 
+                                        #step_nA =          if_params['step_nA'], 
+                                        #analysis_duration =if_params['analysis_duration'], 
+                                        #analysis_delay =   if_params['analysis_delay'],
+                                        #dt=                if_params['dt'],
+                                        #temperature=       if_params['temperature'],
+                                        #plot_voltage_traces=if_params['plot_voltage_traces'],
+                                        #plot_if=            if_params['plot_if'],
                                         #save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
-                                        #simulator=         ifParams['simulator'])
+                                        #simulator=         if_params['simulator'])
                                         
                IFcurve="IF_%s"%cellModel
                   
-               nml2_file_path=os.path.join(full_file_path,netFileName+".net.nml")      
+               nml2_file_path=os.path.join(full_file_path,net_file_name+".net.nml")      
                   
                net_doc = pynml.read_neuroml2_file(nml2_file_path)
                net=net_doc.networks[0]
@@ -78,9 +118,9 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
                
                ########################################################################################
                
-               if ifParams['simulator'] == 'jNeuroML':
+               if if_params['simulator'] == 'jNeuroML':
                   results = pynml.run_lems_with_jneuroml(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
-               if ifParams['simulator'] == 'jNeuroML_NEURON':
+               if if_params['simulator'] == 'jNeuroML_NEURON':
                   results = pynml.run_lems_with_jneuroml_neuron(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
                   
                t = results['t']
@@ -88,23 +128,23 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
                
                print("will generate the comparison between the nC model and NeuroML2 model")
                
-               PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[configArray[cellModel]['OriginalTag']],'subplotTitles':['NML2 versus nC model: simulations in NEURON']},
+               PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],'subplotTitles':['NML2 versus nC model: simulations in NEURON']},
                               {'cols':8,'rows':5},
                               legend=True,
-                              save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,configArray[cellModel]['Analysis']),
-                              nCcellPath=os.path.join(save_to_path,configArray[cellModel]['Analysis'])   )
+                              save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['Analysis']),
+                              nCcellPath=os.path.join(save_to_path,config_array[cellModel]['Analysis'])   )
                               
                               
-               nC_vs_NML2_config="nC_vs_NML2_%s"%configArray[cellModel]['Analysis']
+               nC_vs_NML2_config="nC_vs_NML2_%s"%config_array[cellModel]['Analysis']
                
                ########################################################################################
                print("will generate the spike times vs dt curve for %s.cell.nml"%cellModel)
                #analyse_spiketime_vs_dt(nml2_file_path, 
-                                       #netID,
-                                       #get_sim_duration(os.path.join(full_file_path,"LEMS_%s.xml"%netID)),
-                                       #ifParams['simulator'],
+                                       #net_id,
+                                       #get_sim_duration(os.path.join(full_file_path,"LEMS_%s.xml"%net_id)),
+                                       #if_params['simulator'],
                                        #target_v,
-                                       #DtList,
+                                       #dt_list,
                                        #verbose=False,
                                        #spike_threshold_mV = 0,
                                        #show_plot_already=True,
@@ -112,9 +152,9 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
                                           
                dt_curve="Dt_%s"%cellModel 
                   
-            for elecLen in range(0,len(ElecLenList)):
+            for elecLen in range(0,len(elec_len_list)):
                
-                elec_len=str(ElecLenList[elecLen]) 
+                elec_len=str(elec_len_list[elecLen]) 
                   
                 if elec_len  in file_name and elec_len in cell_morph_summary.keys():
                       
@@ -122,10 +162,10 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
                       
                    num_dx_configs+=1
                       
-        if num_dx_configs==len(ElecLenList):
+        if num_dx_configs==len(elec_len_list):
            print("testing the presence of cell configs with different levels of spatial discretization")
            #analyse_spiketime_vs_dx(dx_configs, 
-                                   #ifParams['simulator'],
+                                   #if_params['simulator'],
                                    #target_v,
                                    #verbose=False,
                                    #spike_threshold_mV = 0,
@@ -135,14 +175,14 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
            dx_curve="Dx_%s"%cellModel        
                                
         
-        pathToProfileConfig="../"+configArray[cellModel]['SpikeProfile']+"/"+configArray[cellModel]['SpikeProfile']+"_default"
+        pathToProfileConfig="../"+config_array[cellModel]['SpikeProfile']+"/"+config_array[cellModel]['SpikeProfile']+"_default"
            
            
         original_LEMS_target=os.path.join(pathToProfileConfig,"LEMS_Target.xml")
                
-        if ifParams['simulator'] == 'jNeuroML':
+        if if_params['simulator'] == 'jNeuroML':
            results = pynml.run_lems_with_jneuroml(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
-        if ifParams['simulator'] == 'jNeuroML_NEURON':
+        if if_params['simulator'] == 'jNeuroML_NEURON':
            results = pynml.run_lems_with_jneuroml_neuron(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
                   
         t = results['t']
@@ -150,16 +190,15 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
                
         print("will generate the comparison between the nC model and NeuroML2 model")
                
-        PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[configArray[cellModel]['OriginalTag']],'subplotTitles':['NML2 versus nC model: simulations in NEURON']},
+        PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],'subplotTitles':['NML2 versus nC model: simulations in NEURON']},
                        {'cols':8,'rows':5},
                        legend=True,
-                       save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,configArray[cellModel]['SpikeProfile']),
-                       nCcellPath=os.path.join(save_to_path,configArray[cellModel]['SpikeProfile'])   )
+                       save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']),
+                       nCcellPath=os.path.join(save_to_path,config_array[cellModel]['SpikeProfile'])   )
                               
                               
-        nC_vs_NML2_spike_profile="nC_vs_NML2_%s"%configArray[cellModel]['SpikeProfile']
+        nC_vs_NML2_spike_profile="nC_vs_NML2_%s"%config_array[cellModel]['SpikeProfile']
                
-        
         os.chdir(save_to_path)
         
         readme = ''' 
@@ -199,8 +238,6 @@ def dashboard_cells(netID,netFileName,configArray,ifParams,ElecLenList,DtList,co
     
 
 if __name__=="__main__":
-
- 
   
   print "testing a new script: dashboard_cells"
 
@@ -242,7 +279,21 @@ if __name__=="__main__":
   
   DtList=[0.01,0.025]
   
-  dashboard_cells('Target','Thalamocortical',configsTest,ifParams,ElecLenList,DtList,"../compSummaryFull.json")        
+  dashboard_cells(net_id='Target',
+                  net_file_name='Thalamocortical',
+                  config_array=configsTest,
+                  if_params=ifParams,
+                  elec_len_list=ElecLenList,
+                  dt_list=DtList,
+                  comp_summary="../compSummaryFull.json",
+                  compare_to_neuroConstruct=False,
+                  regenerate_recompartmentalization=True)
+                  
+                  #proj_string_neuroConstruct="../../neuroConstruct/Thalamocortical.ncx")
+  
+    
+  
+  
             
             
   
