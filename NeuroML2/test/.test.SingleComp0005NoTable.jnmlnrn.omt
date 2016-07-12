@@ -1,0 +1,18 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+target: Default_Simulation_Configuration/Default_Simulation_Configuration_default/LEMS_Target.xml 
+engine: jNeuroML_NEURON
+
+mep: ./.testNoTable0005.mep
+experiments:
+  Current clamp:
+    observables:
+      spike times:
+        file: 
+          path: Default_Simulation_Configuration/Default_Simulation_Configuration_default/Sim_Target.CG_CML.v.dat
+          columns: [0,1]
+          scaling: [1, 1]
+        spike detection: 
+          method: threshold
+          threshold: 0
+        tolerance: 0.001

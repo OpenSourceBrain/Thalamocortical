@@ -1,0 +1,6 @@
+system: Testing a cell
+
+experiments:
+  nontuftRS10ms:
+    expected:
+       spike times: [0.03316]

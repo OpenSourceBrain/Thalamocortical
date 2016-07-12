@@ -34,7 +34,7 @@ simConfigs = []
 
 #simConfigs.append("Default Simulation Configuration")
 
-#simConfigs.append("Cell1-supppyrRS-FigA1RS")
+simConfigs.append("Cell1-supppyrRS-FigA1RS")
 
 #simConfigs.append("Cell2-suppyrFRB-FigA1FRB")
 
@@ -44,7 +44,7 @@ simConfigs = []
 
 #simConfigs.append("Cell9-nontuftRS-FigA6-1000")
 
-simConfigs.append("Cell14-nRT-FigA8-00")
+#simConfigs.append("Cell14-nRT-FigA8-00")
 
 
 simulators =            ["N", "G", "M"]
