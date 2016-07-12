@@ -30,24 +30,74 @@ from ucl.physiol.neuroconstruct.neuroml import NeuroMLFileManager
 from ucl.physiol.neuroconstruct.cell.compartmentalisation import OriginalCompartmentalisation
 from ucl.physiol.neuroconstruct.neuroml import NeuroMLConstants
 from ucl.physiol.neuroconstruct.neuroml import LemsConstants
+from ucl.physiol.neuroconstruct.hpc.mpi import MpiSettings
+from java.lang.management import ManagementFactory
+###### General settings ##################################
+mpiConfig =               MpiSettings.MATLEM_1PROC
+mpiConfig =               MpiSettings.LOCAL_SERIAL
+neuroConstructSeed =    12345
+simulatorSeed =         11111
+simulators =            ["NEURON"]
+numConcurrentSims =     ManagementFactory.getOperatingSystemMXBean().getAvailableProcessors() -1
+
+if mpiConfig != MpiSettings.LOCAL_SERIAL: 
+   numConcurrentSims = 60
+suggestedRemoteRunTime = 80   
+
+varTimestepNeuron =     False  
+varTimestepTolerance =  0.00001
+
+analyseSims =           True
+plotSims =              True
+plotVoltageOnly =       True
 
 
-def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg=None,savingDir=None):
+simAllPrefix =          ""  
+
+runInBackground =       True 
+
+suggestedRemoteRunTime = 233
+
+verbose =               True
+##########################################################
+
+####################################################################################################################
+
+def RunConfigs(projString,simConfigs,simDt,argv=None):
+
+    projFile = File(os.getcwd(), projString)
+
+    if argv is None:
+        argv = sys.argv
+
+    print "Loading project from "+ projFile.getCanonicalPath()
 
 
-    from ucl.physiol.neuroconstruct.project import ProjectManager
-    from ucl.physiol.neuroconstruct.cell.utils import CellTopologyHelper
-    import ncutils as nc 
-    from ucl.physiol.neuroconstruct.neuroml import NeuroMLFileManager
-    from ucl.physiol.neuroconstruct.cell.compartmentalisation import OriginalCompartmentalisation
-    from ucl.physiol.neuroconstruct.neuroml import NeuroMLConstants
-    from ucl.physiol.neuroconstruct.neuroml import LemsConstants
-    import sys
-    import os
-    import subprocess
-    import shutil
-    import json
-    import time
+    simManager = nc.SimulationManager(projFile,
+                                      numConcurrentSims = numConcurrentSims,
+                                      verbose = verbose)
+
+    simManager.runMultipleSims(simConfigs =              simConfigs,
+                               simDt =                   simDt,
+                               simulators =              simulators,
+                               runInBackground =         runInBackground,
+                               varTimestepNeuron =       varTimestepNeuron,
+                               varTimestepTolerance =    varTimestepTolerance,
+                               mpiConfig =               mpiConfig,
+                               suggestedRemoteRunTime =  suggestedRemoteRunTime)
+
+    simManager.reloadSims(plotVoltageOnly =   plotVoltageOnly,
+                          plotSims =          plotSims,
+                          analyseSims =       analyseSims)
+                          
+    report= ""
+    
+    return report
+
+###################################################################################################################
+ 
+def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg=None,savingDir=None,shell=None):
+
 
     projFile=File(os.getcwd(),projString)
     pm=ProjectManager()
@@ -138,17 +188,20 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
                    print("Moving generated NeuroML2 to files to %s"%cellpath)
                    shutil.copy(full_file_name, cellpath)
                       
-    with open("../compSummary.json",'w') as fout:
+    with open("compSummary.json",'w') as fout:
         json.dump(compSummary, fout)          
-          
-    subprocess.call(["~/neuroConstruct/nC.sh -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py"],shell=True)
+      
+    if shell ==None:
+       extension='sh'
+    else:
+       extension=shell      
+      
+    subprocess.call(["%s/nC.%s -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py"%(os.environ["NC_HOME"],extension)])
     
-    quit()
-
 
 
 if __name__=="__main__":
-   
+   ##### all configs
    configs={"Default Simulation Configuration":"TestSeg_all",  
             "Cell1-supppyrRS-FigA1RS":"L23PyrRS",
             "Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
@@ -191,7 +244,38 @@ if __name__=="__main__":
             "Cell14-nRT-FigA8-500":"nRT"}
             
             
-   SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
+   elec_len_list=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001]    
+   
+   sim_dt=0.01
+     
+   #############################################        
+            
+   if os.path.exists("nc_parameters.json"):
+      
+      with open("nc_parameters.json",'r') as f:
+           nc_parameters=json.load(f)
+         
+      if nc_configs !=None:
+      
+         configs=nc_parameters['configs']
+         
+         elec_len_list=nc_parameters['ElecLenList']
+         
+         recompartmentalization_required=nc_parameters['Recompartmentalize']
+         
+         comparison_to_neuroConstruct=nc_parameters['CompareToNeuroConstruct']
+         
+         if comparison_to_neuroConstruct:
+         
+            sim_dt=nc_parameters['dt']
+            
+            RunConfigs(projString="../../neuroConstruct/Thalamocortical.ncx",simConfigs=configs.keys(),simDt=sim_dt)
+            
+         if recompartmentalization_required:
+         
+            SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict=configs,ElecLenList=elec_len_list)
+     
+      
    
    ######### regenerate specific configs from above if needed ...
    #SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all","Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])

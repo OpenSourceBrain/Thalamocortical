@@ -1,3 +1,13 @@
+#################################################################
+###### Script that generates cell model dashboards
+###
+###    Author: Rokas Stanislovas
+###
+###    GSoC 2016 project Cortical Networks
+###
+######
+#################################################################
+
 from pyneuroml.analysis import generate_current_vs_frequency_curve
 from pyneuroml.analysis import analyse_spiketime_vs_dt
 from pyneuroml import pynml
@@ -5,7 +15,10 @@ import json
 import os
 from AnalysisNML2 import get_sim_duration
 from AnalysisNML2 import analyse_spiketime_vs_dx
-from PlotNC_vs_NML2 import *
+from matplotlib import pyplot as plt
+import math
+from PlotNC_vs_NML2 import PlotNC_vs_NML2
+
 
 
 def dashboard_cells(net_id,
@@ -21,33 +34,21 @@ def dashboard_cells(net_id,
                     
     
     if compare_to_neuroConstruct or regenerate_recompartmentalization:
-    
-       try:
-          from java.io import File
-       except ImportError:
-          print "Note: this file should be run using ..\\..\\..\\nC.bat -python XXX.py' or '../../../nC.sh -python XXX.py'"
-          print "See http://www.neuroconstruct.org/docs/python.html for more details"
-          quit()
-          
-       import sys
-       
-       sys.path.append(os.environ["NC_HOME"]+"/pythonNeuroML/nCUtils")
        
        if proj_string_neuroConstruct==None:
        
-          print("Note: loading neuroConstruct is required; set the argument proj_string_neuroConstruct to the path to the neuroConstruct project.")
+          print("Note: loading a neuroConstruct project is required; set the argument proj_string_neuroConstruct to the aprropriate project path.")
           quit()                
                     
     if regenerate_recompartmentalization:
     
-       from AnalysisNML2 import SingleCellNML2generator
+       
          
     if compare_to_neuroConstruct:
        
-       import ncutils as nc
-       from ucl.physiol.neuroconstruct.hpc.mpi import MpiSettings
-       from java.lang.management import ManagementFactory   
        
+       
+    
     
     
     try:
@@ -286,10 +287,9 @@ if __name__=="__main__":
                   elec_len_list=ElecLenList,
                   dt_list=DtList,
                   comp_summary="../compSummaryFull.json",
-                  compare_to_neuroConstruct=False,
-                  regenerate_recompartmentalization=True)
-                  
-                  #proj_string_neuroConstruct="../../neuroConstruct/Thalamocortical.ncx")
+                  compare_to_neuroConstruct=True,
+                  regenerate_recompartmentalization=True,
+                  proj_string_neuroConstruct="../../neuroConstruct/Thalamocortical.ncx")
   
     
   
