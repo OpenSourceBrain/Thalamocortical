@@ -1875,6 +1875,14 @@
                     <net:group>L5Pyr_dends</net:group>
                 </net:potential_syn_loc>
             
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_DeepFS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_DeepLTS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
                 <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_L4SS">
                     <net:group>distal_axon</net:group>
                 </net:potential_syn_loc>
@@ -1887,6 +1895,14 @@
                     <net:group>distal_axon</net:group>
                 
                     <net:group>L6Pyr_dends</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_SupFS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_SupLTS">
+                    <net:group>distal_axon</net:group>
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Syn_AMPA_L6NT_SupPyr">
@@ -1945,6 +1961,14 @@
                     <net:group>L5Pyr_dends</net:group>
                 </net:potential_syn_loc>
             
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_DeepFS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_DeepLTS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
                 <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_DeepPyr">
                     <net:group>distal_axon</net:group>
                 
@@ -1952,6 +1976,14 @@
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_L4SS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_SupFS">
+                    <net:group>distal_axon</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Syn_NMDA_L6NT_SupLTS">
                     <net:group>distal_axon</net:group>
                 </net:potential_syn_loc>
             
