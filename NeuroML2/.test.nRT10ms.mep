@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-      nRT10ms:
-    expected:
-       spike times: [0.00496, 0.00911, 0.0129, 0.01666, 0.02053, 0.0246, 0.02901]

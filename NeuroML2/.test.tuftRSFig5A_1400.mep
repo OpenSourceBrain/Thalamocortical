@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  tuftRSFig5A_1400:
-    expected:
-       spike times: [0.20214, 0.23274, 0.28392, 0.34308, 0.40894, 0.47951, 0.55271]

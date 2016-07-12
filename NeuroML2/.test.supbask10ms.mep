@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  supbask10ms:
-    expected:
-       spike times: [0.00148, 0.00666]

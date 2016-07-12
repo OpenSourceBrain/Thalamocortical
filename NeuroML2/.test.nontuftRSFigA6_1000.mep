@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  nontuftRSFigA6_1000:
-    expected:
-       spike times: [0.30191, 0.31793, 0.3248, 0.33463, 0.35986, 0.38735, 0.42107, 0.46114, 0.50751, 0.55951, 0.61609, 0.67612]

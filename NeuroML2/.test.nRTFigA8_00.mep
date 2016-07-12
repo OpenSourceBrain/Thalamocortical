@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  nRTFigA8_00:
-    expected:
-       spike times: [0.07415, 0.07738, 0.08029, 0.08325, 0.08624, 0.0893, 0.09245, 0.09573, 0.09922, 0.10303, 0.10741, 0.11305]

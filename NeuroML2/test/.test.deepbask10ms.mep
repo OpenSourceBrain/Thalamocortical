@@ -1,0 +1,6 @@
+system: Testing a cell
+
+experiments:
+  deepbask10ms:
+    expected:
+       spike times: [0.00148, 0.00666]

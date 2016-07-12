@@ -3,7 +3,7 @@
 
     <notes>
 
-Network structure (NeuroML 2beta4) for project: Thalamocortical saved with neuroConstruct v1.7.1 on: 19:14:17, 11-Jul-16
+Network structure (NeuroML 2beta4) for project: Thalamocortical saved with neuroConstruct v1.7.1 on: 19:30:42, 23-Oct-15
 
 Cell Group: CG_CML contains 1 cells
 
@@ -39,7 +39,7 @@ Cell Group: CG_CML contains 1 cells
     <include href="napf_tcr.channel.nml"/>
     <include href="pas.channel.nml"/>
     <include href="TestSeg_all.cell.nml"/>
-    <pulseGenerator id="Input_4" delay="20.0ms" duration="60.0ms" amplitude="8.0E-5uA"/>
+    <pulseGenerator id="Input_4" delay="0.02s" duration="0.06s" amplitude="8.0E-11A"/>
     
     <network id="network_Thalamocortical" type="networkWithTemperature" temperature="6.3 degC">
 
@@ -50,7 +50,7 @@ Cell Group: CG_CML contains 1 cells
                 <property tag="color" value="0.85546875 0.6875 0.27734375"/>
             </annotation>
             <instance id="0">
-                <location x="54.987995" y="27.486061" z="40.31429"/>
+                <location x="97.22775" y="16.977047" z="57.349842"/>
             </instance>
         </population>
 

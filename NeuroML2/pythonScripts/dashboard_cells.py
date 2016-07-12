@@ -15,10 +15,12 @@ import json
 import os
 from AnalysisNML2 import get_sim_duration
 from AnalysisNML2 import analyse_spiketime_vs_dx
+from AnalysisNML2 import generate_sims
+from AnalysisNML2 import generate_and_copy_dat
 from matplotlib import pyplot as plt
 import math
 from PlotNC_vs_NML2 import PlotNC_vs_NML2
-
+import subprocess
 
 
 def dashboard_cells(net_id,
@@ -30,26 +32,122 @@ def dashboard_cells(net_id,
                     comp_summary,
                     compare_to_neuroConstruct=False,
                     regenerate_recompartmentalization=False,
-                    proj_string_neuroConstruct=None):
-                    
-    
+                    proj_string_neuroConstruct=None,
+                    shell=None,
+                    nc_home=None):
+            
+    ################### check whether use of neuroConstruct python interface is needed
     if compare_to_neuroConstruct or regenerate_recompartmentalization:
        
        if proj_string_neuroConstruct==None:
        
           print("Note: loading a neuroConstruct project is required; set the argument proj_string_neuroConstruct to the aprropriate project path.")
-          quit()                
+          quit()   
+          
+       nc_parameters={}
+       
+       lems_configs={}
+       
+       nc_parameters_path="nc_parameters.json"
+    
+       if not os.path.exists(nc_parameters_path):
+       
+          print("Creating a new directory %s"%nc_parameters_path)
+          
+          os.makedirs(nc_parameters_path)          
                     
-    if regenerate_recompartmentalization:
-    
+       if regenerate_recompartmentalization:
        
+          nc_parameters['Recompartmentalize']=True
+          
+          nc_parameters['configsToRecompartmentalize']={}
+           
+       if compare_to_neuroConstruct:
+       
+          nc_parameters['CompareToNeuroConstruct']=True
+          
+          nc_parameters['configsToCompare']=[]
+          
+          cell_models_to_compare=[]
+           
+       for cell_model in config_array.keys():
+           
+           if regenerate_recompartmentalization:
+              
+              if 'Analysis' in config_array[cell_model].keys():
+              
+                 nc_parameters['configsToRecompartmentalize'][config_array[cell_model]['Analysis']]=cell_model
+                 
+                 lems_configs[config_array[cell_model]['Analysis']]=cell_model
+                    
+           if compare_to_neuroConstruct:
+           
+              cell_models_to_compare.append(cell_model)
+           
+              if 'Analysis' in config_array[cell_model].keys():
+              
+                 nc_parameters['configsToCompare'].append(config_array[cell_model]['Analysis'])
+                 
+                 lems_configs[config_array[cell_model]['SpikeProfile']=cell_model
+                 
+              
+              if 'SpikeProfile' in config_array[cell_model].keys():
+              
+                 nc_parameters['configsToCompare'].append(config_array[cell_model]['SpikeProfile'])
+                 
+                 lems_configs[config_array[cell_model]['SpikeProfile']=cell_model
+                 
+       with open("nc_parameters.json",'w') as fout:
+            json.dump(nc_parameters, fout)
+            
+       if shell ==None:
+          extension='sh'
+       else:
+          extension=shell   
+          
+       if nc_home==None:
+       
+          nc_home="~/neuroConstruct"   
+      
+       subprocess.call(["%s/nC.%s -python RunNeuroConstruct.py"%(nc_home,extension) ] )
+       
+       generate_sims(lems_configs,"../",if_params['dt'],'Target')
+       
+       if compare_to_neuroConstruct:
+       
+          targetFileDict={"L23PyrRS":{'DatTag':'CGsuppyrRS_0'},
+                   "L23PyrFRB":{'DatTag':'CGsuppyrFRB_0'},
+                   "SupBasket":{'DatTag':'CGsupbask_0'},
+                   "L4SpinyStellate":{'DatTag':'CGspinstell_0'},
+                   "SupAxAx":{'DatTag':'CGsupaxax_0'},
+                   "SupLTSInter":{'DatTag':'CGsupLTS_0'},
+                   "L5TuftedPyrIB":{'DatTag':'CGtuftIB_0'},
+                   "L5TuftedPyrRS":{'DatTag':'CGtuftRS_0'},
+                   "L6NonTuftedPyrRS":{'DatTag':'CGnontuftRS_0'},
+                   "DeepBasket":{"DatTag":'CGdeepbask_0'},
+                   "DeepAxAx":{"DatTag":'CGdeepaxax_0'},
+                   "DeepLTSInter":{'DatTag':'CGdeepLTS_0'},
+                   "nRT":{"DatTag":'CGnRT_min75init_0'},
+                   "TCR":{"DatTag":'CGTCR_0'}}
+                   
+          required_cell_models={}
+          
+          for cell_model in cell_models_to_compare:
+          
+              if cell_model in targetFileDict.keys():
+              
+                 required_cell_models[cell_model]=targetFileDict[cell_model]
+        
+          generate_and_copy_dat("../../neuroConstruct/simulations",required_cell_models,"../NeuroML2/")
+       
+       
+            
+       ########################################################################################################
          
-    if compare_to_neuroConstruct:
        
        
-       
-    
-    
+          
+           
     
     try:
        with open(comp_summary,'r') as f:
@@ -244,6 +342,8 @@ if __name__=="__main__":
 
   configsTest={"L23PyrRS":{'Analysis':"Cell1-supppyrRS-FigA1RS","SpikeProfile":"Cell1-supppyrRS-10ms",'OriginalTag':'CGsuppyrRS_0_wtime'}  }
   
+  
+  ####### just the list; the expected format is the one given by configsTest
   configs_all={"L23PyrRS":["Cell1-supppyrRS-FigA1RS","Cell1-supppyrRS-10ms"],
                "L23PyrFRB":["Cell2-suppyrFRB-FigA1FRB","Cell2-suppyrFRB-10ms"],
                "SupBasket":["Cell3-supbask-FigA2a","Cell3-supbask-10ms"],
