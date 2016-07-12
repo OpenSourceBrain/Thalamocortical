@@ -185,18 +185,18 @@ CG3D_L5TuftRS    CG3D_L5TuftRS          [Syn_Elect_DeepPyr_DeepPyr]             
 CG3D_L6NonTuftRS    CG3D_L23PyrRS       [Syn_AMPA_L6NT_SupPyr,Syn_NMDA_L6NT_SupPyr]         10      L6Pyr_dends
 CG3D_L6NonTuftRS    CG3D_L23PyrFRB      [Syn_AMPA_L6NT_SupPyr,Syn_NMDA_L6NT_SupPyr]         10      L6Pyr_dends
 
-CG3D_L5TuftRS       CG3D_SupBask        [Syn_AMPA_L6NT_SupFS,Syn_NMDA_L6NT_SupFS]           10      mid_tip_dends
-CG3D_L5TuftRS       CG3D_SupAxAx        [Syn_AMPA_L6NT_SupFS,Syn_NMDA_L6NT_SupFS]           10      mid_tip_dends
-CG3D_L5TuftRS       CG3D_SupLTS         [Syn_AMPA_L6NT_SupLTS,Syn_NMDA_L6NT_SupLTS]         10      mid_tip_dends
+CG3D_L6NonTuftRS    CG3D_SupBask        [Syn_AMPA_L6NT_SupFS,Syn_NMDA_L6NT_SupFS]           10      mid_tip_dends
+CG3D_L6NonTuftRS    CG3D_SupAxAx        [Syn_AMPA_L6NT_SupFS,Syn_NMDA_L6NT_SupFS]           10      mid_tip_dends
+CG3D_L6NonTuftRS    CG3D_SupLTS         [Syn_AMPA_L6NT_SupLTS,Syn_NMDA_L6NT_SupLTS]         10      mid_tip_dends
 
 CG3D_L6NonTuftRS    CG3D_L4SpinStell    [Syn_AMPA_L6NT_L4SS,Syn_NMDA_L6NT_L4SS]             10      mid_tip_dends
 
 CG3D_L6NonTuftRS    CG3D_L5TuftIB       [Syn_AMPA_L6NT_L5Pyr,Syn_NMDA_L6NT_DeepPyr]         10      dends_no_tuft
 CG3D_L6NonTuftRS    CG3D_L5TuftRS       [Syn_AMPA_L6NT_L5Pyr,Syn_NMDA_L6NT_DeepPyr]         10      dends_no_tuft
 
-CG3D_L5TuftRS       CG3D_DeepBask       [Syn_AMPA_L6NT_DeepFS,Syn_NMDA_L6NT_DeepFS]         10      mid_tip_dends
-CG3D_L5TuftRS       CG3D_DeepAxAx       [Syn_AMPA_L6NT_DeepFS,Syn_NMDA_L6NT_DeepFS]         10      mid_tip_dends
-CG3D_L5TuftRS       CG3D_DeepLTS        [Syn_AMPA_L6NT_DeepLTS,Syn_NMDA_L6NT_DeepLTS]       10      mid_tip_dends
+CG3D_L6NonTuftRS    CG3D_DeepBask       [Syn_AMPA_L6NT_DeepFS,Syn_NMDA_L6NT_DeepFS]         10      mid_tip_dends
+CG3D_L6NonTuftRS    CG3D_DeepAxAx       [Syn_AMPA_L6NT_DeepFS,Syn_NMDA_L6NT_DeepFS]         10      mid_tip_dends
+CG3D_L6NonTuftRS    CG3D_DeepLTS        [Syn_AMPA_L6NT_DeepLTS,Syn_NMDA_L6NT_DeepLTS]       10      mid_tip_dends
 
 CG3D_L6NonTuftRS    CG3D_L6NonTuftRS    [Syn_AMPA_L6NT_L6NT,Syn_NMDA_L6NT_DeepPyr]          20      L6Pyr_dends
 
