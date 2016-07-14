@@ -47,9 +47,9 @@ suggestedRemoteRunTime = 80
 varTimestepNeuron =     False  
 varTimestepTolerance =  0.00001
 
-analyseSims =           True
-plotSims =              True
-plotVoltageOnly =       True
+#analyseSims =           False
+#plotSims =              False
+#plotVoltageOnly =       False
 
 
 simAllPrefix =          ""  
@@ -86,13 +86,9 @@ def RunConfigs(projString,simConfigs,simDt,argv=None):
                                mpiConfig =               mpiConfig,
                                suggestedRemoteRunTime =  suggestedRemoteRunTime)
 
-    simManager.reloadSims(plotVoltageOnly =   plotVoltageOnly,
-                          plotSims =          plotSims,
-                          analyseSims =       analyseSims)
+    #simManager.reloadSims(plotVoltageOnly =plotVoltageOnly,plotSims =plotSims,analyseSims =analyseSims)
                           
-    report= ""
     
-    return report
 
 ###################################################################################################################
  
@@ -125,15 +121,15 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
 	       if somaNseg != None:
 	          cell.getSegmentWithId(0).getSection().setNumberInternalDivisions(somaNseg)
 	       if savingDir !=None: 
-	          cellpath = r'../NeuroML2/%s/%s/%s_%f'%(savingDir,configPath,configPath,maxElecLen)
+	          cellpath = r'../%s/%s/%s_%f'%(savingDir,configPath,configPath,maxElecLen)
 	       else:
-	          cellpath = r'../NeuroML2/%s/%s_%f'%(configPath,configPath,maxElecLen)
+	          cellpath = r'../%s/%s_%f'%(configPath,configPath,maxElecLen)
 	       
 	    else:
 	       if savingDir !=None:
-	          cellpath = r'../NeuroML2/%s/%s/%s_default'%(savingDir,configPath,configPath)
+	          cellpath = r'../%s/%s/%s_default'%(savingDir,configPath,configPath)
 	       else:
-	          cellpath = r'../NeuroML2/%s/%s_default'%(configPath,configPath)
+	          cellpath = r'../%s/%s_default'%(configPath,configPath)
 	       
 	    summary=str(cell.getMorphSummary()) 
 	    summary_string=summary.split("_")
@@ -195,8 +191,12 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
        extension='sh'
     else:
        extension=shell      
+    
+    os.chdir("../../neuroConstruct/pythonScripts")  
       
-    subprocess.call(["%s/nC.%s -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py"%(os.environ["NC_HOME"],extension)])
+    subprocess.call("%s/nC.%s -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py"%(os.environ["NC_HOME"],extension),shell=True)
+    
+    os.chdir("../../NeuroML2/pythonScripts")
     
     
 
@@ -257,7 +257,7 @@ if __name__=="__main__":
          
       if nc_parameters !=None:
          
-         recompartmentalization_required=nc_parameters['Recompartmentalize']
+         regenerate_nml2=nc_parameters['GenerateConfigs']
          
          comparison_to_neuroConstruct=nc_parameters['CompareToNeuroConstruct']
          
@@ -269,11 +269,11 @@ if __name__=="__main__":
             
             RunConfigs(projString="../../neuroConstruct/Thalamocortical.ncx",simConfigs=configs,simDt=sim_dt)
             
-         if recompartmentalization_required:
+         if regenerate_nml2:
          
             elec_len_list=nc_parameters['ElecLenList']
          
-            configs=nc_parameters['configsToRecompartmentalize']
+            configs=nc_parameters['configsToGenerate']
          
             SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict=configs,ElecLenList=elec_len_list)
             
@@ -284,7 +284,7 @@ if __name__=="__main__":
       ######### can be run directly as a main function
       #SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all","Cell1-supppyrRS- FigA1RS":"L23PyrRS"},ElecLenList=[-1])
       #SingleCellNML2generator(projString="../../neuroConstruct/Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
-   
+   quit()
    
    
    
