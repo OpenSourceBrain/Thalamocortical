@@ -23,7 +23,6 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         scaleThalamus=0.1,
                         which_models='all',
                         dir_cell_models="../../",
-                        full_path_to_connectivity='netConnList',
                         simulator=None,
                         duration=300,
                         dt=0.025,
@@ -39,60 +38,63 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     ##############   Full model ##################################
     
-    popDictFull['L23PyrRS'] = [(1000, 'L23')]
-    popDictFull['SupBasket'] = [(90, 'L23')]
-    popDictFull['SupAxAx'] = [(90, 'L23')]
-    popDictFull['L5TuftedPyrIB'] = [(800, 'L5')]
-    popDictFull['L5TuftedPyrRS']=[(0,'L5')]           ##### not all of the L5TuftedPyrRS synapses can be found in generatedNeuroML2;  200
-    popDictFull['L4SpinyStellate']=[(240,'L4')]
-    popDictFull['L23PyrFRB']=[(50,'L23')]
-    popDictFull['L6NonTuftedPyrRS']=[(500,'L6')]
-    popDictFull['DeepAxAx']=[(100,'L6')]
-    popDictFull['DeepBasket']=[(100,'L6')]
-    popDictFull['DeepLTSInter']=[(100,'L6')]
-    popDictFull['SupLTSInter']=[(90,'L23')]
-    popDictFull['nRT']=[(100,'Thalamus')]
-    popDictFull['TCR']=[(100,'Thalamus')]
+    popDictFull['CG3D_L23PyrRS'] = (1000, 'L23','L23PyrRS')
+    popDictFull['CG3D_SupBask'] = (90, 'L23','SupBasket')
+    popDictFull['CG3D_SupAxAx'] = (90, 'L23','SupAxAx')
+    popDictFull['CG3D_L5TuftIB'] = (800, 'L5','L5TuftedPyrIB')
+    popDictFull['CG3D_L5TuftRS']= (200,'L5','L5TuftedPyrRS')          
+    popDictFull['CG3D_L4SpinStell']= (240,'L4','L4SpinyStellate')
+    popDictFull['CG3D_L23PyrFRB']= (50,'L23','L23PyrFRB')
+    popDictFull['CG3D_L6NonTuftRS']= (500,'L6','L6NonTuftedPyrRS')
+    popDictFull['CG3D_DeepAxAx']= (100,'L6','DeepAxAx')
+    popDictFull['CG3D_DeepBask']= (100,'L6','DeepBasket')
+    popDictFull['CG3D_DeepLTS']= (100,'L6','DeepLTSInter')
+    popDictFull['CG3D_SupLTS']= (90,'L23','SupLTSInter')
+    popDictFull['CG3D_nRT']= (100,'Thalamus','nRT')
+    popDictFull['CG3D_TCR']= (100,'Thalamus','TCR')
     
     ###############################################################
     
     popDict={}
     
+    cell_model_list=[]
+    
     nml_doc, network = oc.generate_network(net_id)
     
-    for cell_model in popDictFull.keys():
+    for cell_population in popDictFull.keys():
     
-        include_cell_model=False
+        include_cell_population=False
     
         if which_models=='all' or cell_model in which_models:
+        
+           popDict[cell_population]=()
 
-           popDict[cell_model]=[]
-    
-           for pop_in_layer in range(0,len(popDictFull[cell_model])):
-      
-               pop_in_layer_tuple=()
+           if popDictFull[cell_population][1] !='Thalamus':
              
-               if popDictFull[cell_model][pop_in_layer][1] !='Thalamus':
-             
-                  pop_in_layer_tuple=( int(round(scaleCortex*popDictFull[cell_model][pop_in_layer][0] )), popDictFull[cell_model][pop_in_layer][1] )
+              popDict[cell_population]=( int(round(scaleCortex*popDictFull[cell_population][0])), popDictFull[cell_population][1],popDictFull[cell_population][2])
                   
-                  cell_count=int(round(scaleCortex*popDictFull[cell_model][pop_in_layer][0] ))
+              cell_count=int(round(scaleCortex*popDictFull[cell_population][0]))
                 
-               else:
+           else:
              
-                  pop_in_layer_tuple=( int(round(scaleThalamus*popDictFull[cell_model][pop_in_layer][0] )), popDictFull[cell_model][pop_in_layer][1] )
+              pop_in_layer_tuple=( int(round(scaleThalamus*popDictFull[cell_population][0])),popDictFull[cell_population][1],popDictFull[cell_population][2])
                   
-                  cell_count=int(round(scaleThalamus*popDictFull[cell_model][pop_in_layer][0] ))
+              cell_count=int(round(scaleThalamus*popDictFull[cell_population][0]))
            
-               popDict[cell_model].append(pop_in_layer_tuple)
-               
-               if cell_count !=0:
+           if cell_count !=0:
     
-                  include_cell_model=True
+              include_cell_population=True
                
-        if include_cell_model:
+        if include_cell_population:
+        
+           cell_model_list.append(popDictFull[cell_population][2])
+           
+           
+    cell_model_list_final=list(set(cell_model_list))
     
-           oc.add_cell_and_channels(nml_doc, os.path.join(dir_cell_models,'%s.cell.nml'%cell_model),cell_model)
+    for cell_model in cell_model_list_final:
+    
+        oc.add_cell_and_channels(nml_doc, os.path.join(dir_cell_models,'%s.cell.nml'%cell_model), cell_model)
 
         
         
@@ -117,7 +119,32 @@ def RunColumnSimulation(net_id="TestRunColumn",
     xs = [0,500]
     zs = [0,500] 
 
-    pop_params=oc_utils.add_populations_in_layers(network,boundaries,popDict,xs,zs)
+    passed_pops=oc_utils.check_pop_dict_and_layers(pop_dict=popDict,boundary_dict=boundaries)
+    
+    if passed_pops:
+    
+       print("Population parameters were specified correctly.")
+      
+       pop_params=oc_utils.add_populations_in_layers(network,boundaries,popDict,xs,zs)
+       
+    else:
+    
+       print("Population parameters were specified incorrectly; execution of RunColumn.py will terminate.")
+       
+       quit()
+    
+    
+    src_files = os.listdir("./")
+    
+    if 'netConnList' in src_files:
+    
+       full_path_to_connectivity='netConnList'
+       
+    else:
+    
+       full_path_to_connectivity="../../../neuroConstruct/pythonScripts/netbuild/netConnList"
+    
+    
 
     synapseList,projArray=oc_utils.build_connectivity(network,pop_params,dir_cell_models,full_path_to_connectivity,extra_params)                  
 
@@ -125,8 +152,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     ############ for testing only; will add original specifications later ##############################################################
     
-    input_params={'L23PyrRS':[{'InputType':'GeneratePoissonTrains',
-                  'Layer':'L23',
+    input_params={'CG3D_L23PyrRS':[{'InputType':'GeneratePoissonTrains',
                   'TrainType':'transient',
                   'Synapse':'Syn_AMPA_SupPyr_SupPyr',
                   'AverageRateList':[200.0,150.0],
@@ -137,13 +163,20 @@ def RunColumnSimulation(net_id="TestRunColumn",
                   'TargetDict':{'soma_group':1 }       }]              }
                   
                   
-    passed=oc_utils.check_inputs(input_params,popDict,dir_cell_models)
+    passed_inputs=oc_utils.check_inputs(input_params,popDict,dir_cell_models)
 
-    if passed:
+    if passed_inputs:
     
-       print("Input parameters are specified correctly")
+       print("Input parameters were specified correctly")
        
        oc_utils.build_inputs(nml_doc=nml_doc,net=network,pop_params=pop_params,input_params=input_params,path_to_nml2=dir_cell_models)
+       
+       
+    else:
+    
+      print("Input parameters were specified incorrectly; execution of RunColumn.py will terminate."
+      
+      quit()
     
     ####################################################################################################################################
     
@@ -152,8 +185,14 @@ def RunColumnSimulation(net_id="TestRunColumn",
     oc.save_network(nml_doc, nml_file_name, validate=True)
     
     for syn_ind in range(0,len(synapseList)):
+    
+        if 'Elect' not in synapseList[syn_ind]:
 
-        synapseList[syn_ind]=os.path.join(net_id,synapseList[syn_ind]+".synapse.nml")
+           synapseList[syn_ind]=os.path.join(net_id,synapseList[syn_ind]+".synapse.nml")
+           
+        else:
+        
+           synapseList[syn_ind]=os.path.join(net_id,synapseList[syn_ind]+".nml")
 
     lems_file_name=oc.generate_lems_simulation(nml_doc, 
                                                network, 
@@ -170,6 +209,6 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
 if __name__=="__main__":
 
-   RunColumnSimulation(which_models=['L23PyrRS','SupBasket'])
+   RunColumnSimulation(which_models=['CG3D_L23PyrRS','CG3D_SupBask'])
    
                                               
