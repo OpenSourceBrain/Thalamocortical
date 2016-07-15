@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  suppyrFRB10ms:
-    expected:
-      spike times: [2.73]

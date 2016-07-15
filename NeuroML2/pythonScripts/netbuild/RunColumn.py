@@ -11,6 +11,7 @@ import opencortex
 import opencortex.utils as oc_utils
 import opencortex.build as oc
 import os
+import sys
 
 #### distribute cells for the sake of network visualization; no spatial dependence of connection probability at the moment;
 ###### larger networks exceed GitHub's file size limit of 100.00 MB;
@@ -19,14 +20,17 @@ import os
 
 
 def RunColumnSimulation(net_id="TestRunColumn",
+                        nml2_source_dir="../../../neuroConstruct/generatedNeuroML2/",
                         scaleCortex=0.1,
                         scaleThalamus=0.1,
                         which_models='all',
-                        dir_cell_models="../../",
-                        simulator=None,
+                        dir_nml2="../../",
                         duration=300,
                         dt=0.025,
                         max_memory='1000M',
+                        copy_nml2_from_source=True,
+                        check_component_dirs=True,
+                        simulator=None,
                         extra_params=None):
                         
                         #TODO additional parameters and options
@@ -77,7 +81,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                 
            else:
              
-              pop_in_layer_tuple=( int(round(scaleThalamus*popDictFull[cell_population][0])),popDictFull[cell_population][1],popDictFull[cell_population][2])
+              popDict[cell_population]=( int(round(scaleThalamus*popDictFull[cell_population][0])),popDictFull[cell_population][1],popDictFull[cell_population][2])
                   
               cell_count=int(round(scaleThalamus*popDictFull[cell_population][0]))
            
@@ -88,16 +92,40 @@ def RunColumnSimulation(net_id="TestRunColumn",
         if include_cell_population:
         
            cell_model_list.append(popDictFull[cell_population][2])
-           
-           
+     
     cell_model_list_final=list(set(cell_model_list))
+           
+    if copy_nml2_from_source:
+    
+       oc.copy_nml2_source(dir_to_project_nml2=dir_nml2,
+                        primary_nml2_dir=nml2_source_dir,
+                        electrical_synapse_tags=['Elect'],
+                        chemical_synapse_tags=['.synapse.'],
+                        extra_channel_tags=['cad'])
+                        
+    opencortex.print_comment_v("This is a final list of cell model ids: %s"%cell_model_list_final)
+    
+    if check_component_dirs:
+                
+       passed_includes_in_cells=oc_utils.check_includes_in_cells(os.path.join(dir_nml2,"cells"),cell_model_list_final,extra_channel_tags=['cad'])
+                                           
+       if not passed_includes_in_cells:
+    
+          print("Execution of RunColumn.py will terminate.")
+  
+          quit()
+       
+    dir_to_cells=os.path.join(dir_nml2,"cells")
+    
+    dir_to_synapses=os.path.join(dir_nml2,"synapses")
+    
+    dir_to_gap_junctions=os.path.join(dir_nml2,"gapJunctions")
     
     for cell_model in cell_model_list_final:
-    
-        oc.add_cell_and_channels(nml_doc, os.path.join(dir_cell_models,'%s.cell.nml'%cell_model), cell_model)
-
         
+        oc.add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model)
         
+     
     t1=-0
     t2=-250
     t3=-250
@@ -131,8 +159,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
        print("Population parameters were specified incorrectly; execution of RunColumn.py will terminate.")
        
-       quit()
-    
+       quit() 
+      
     
     src_files = os.listdir("./")
     
@@ -144,11 +172,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
        full_path_to_connectivity="../../../neuroConstruct/pythonScripts/netbuild/netConnList"
     
-    
-
-    synapseList,projArray=oc_utils.build_connectivity(network,pop_params,dir_cell_models,full_path_to_connectivity,extra_params)                  
-
-    oc.add_synapses(nml_doc,dir_cell_models,synapseList)
+    all_synapse_components,projArray,cached_segment_dicts=oc_utils.build_connectivity(network,pop_params,dir_to_cells,full_path_to_connectivity,extra_params=None)     
     
     ############ for testing only; will add original specifications later ##############################################################
     
@@ -163,43 +187,68 @@ def RunColumnSimulation(net_id="TestRunColumn",
                   'TargetDict':{'soma_group':1 }       }]              }
                   
                   
-    passed_inputs=oc_utils.check_inputs(input_params,popDict,dir_cell_models)
+    passed_inputs=oc_utils.check_inputs(input_params,popDict,dir_to_cells,dir_to_synapses)
 
     if passed_inputs:
     
-       print("Input parameters were specified correctly")
+       print("Input parameters were specified correctly.")
        
-       oc_utils.build_inputs(nml_doc=nml_doc,net=network,pop_params=pop_params,input_params=input_params,path_to_nml2=dir_cell_models)
+       input_list_array_final, input_synapse_list=oc_utils.build_inputs(nml_doc=nml_doc,
+                                                                        net=network,
+                                                                        pop_params=pop_params,
+                                                                        input_params=input_params,
+                                                                        cached_dicts=cached_segment_dicts,
+                                                                        path_to_nml2=dir_nml2)
        
        
     else:
     
-      print("Input parameters were specified incorrectly; execution of RunColumn.py will terminate."
+      print("Input parameters were specified incorrectly; execution of RunColumn.py will terminate.")
       
       quit()
     
     ####################################################################################################################################
     
+    for input_synapse in input_synapse_list:
+    
+        if input_synapse not in all_synapse_components:
+        
+           all_synapse_components.append(input_synapse)
+           
+    synapse_list=[]
+    
+    gap_junction_list=[]
+        
+    for syn_ind in range(0,len(all_synapse_components)):
+    
+        if 'Elect' not in all_synapse_components[syn_ind]:
+        
+           synapse_list.append(all_synapse_components[syn_ind])
+        
+           all_synapse_components[syn_ind]=os.path.join(net_id,all_synapse_components[syn_ind]+".synapse.nml")
+           
+        else:
+        
+           gap_junction_list.append(all_synapse_components[syn_ind])
+        
+           all_synapse_components[syn_ind]=os.path.join(net_id,all_synapse_components[syn_ind]+".nml")
+           
+    oc.add_synapses(nml_doc,dir_to_synapses,synapse_list,synapse_tag=True)
+    
+    oc.add_synapses(nml_doc,dir_to_gap_junctions,gap_junction_list,synapse_tag=False)
+    
     nml_file_name = '%s.net.nml'%network.id
     
     oc.save_network(nml_doc, nml_file_name, validate=True)
     
-    for syn_ind in range(0,len(synapseList)):
+    oc.remove_component_dirs(dir_to_project_nml2="%s"%network.id,list_of_cell_ids=cell_model_list_final,extra_channel_tags=['cad'])
     
-        if 'Elect' not in synapseList[syn_ind]:
-
-           synapseList[syn_ind]=os.path.join(net_id,synapseList[syn_ind]+".synapse.nml")
-           
-        else:
-        
-           synapseList[syn_ind]=os.path.join(net_id,synapseList[syn_ind]+".nml")
-
     lems_file_name=oc.generate_lems_simulation(nml_doc, 
                                                network, 
                                                nml_file_name, 
                                                duration =duration, 
                                                dt =dt,
-                                               include_extra_lems_files=synapseList)
+                                               include_extra_lems_files=all_synapse_components)
                             
     oc.simulate_network(lems_file_name=lems_file_name,
                         simulator=simulator,
@@ -209,6 +258,6 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
 if __name__=="__main__":
 
-   RunColumnSimulation(which_models=['CG3D_L23PyrRS','CG3D_SupBask'])
+   RunColumnSimulation(copy_nml2_from_source=False,check_component_dirs=False)
    
                                               

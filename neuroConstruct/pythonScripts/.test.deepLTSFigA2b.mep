@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  deepLTSFigA2b:
-    expected:
-      spike times: [102.91, 106.91, 110.94, 115.15, 119.61, 124.4, 129.57, 135.18, 141.23, 147.69, 154.48, 161.55, 168.9, 176.56, 184.56, 192.9]

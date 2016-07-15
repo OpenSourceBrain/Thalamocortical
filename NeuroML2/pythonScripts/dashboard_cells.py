@@ -204,8 +204,7 @@ def dashboard_cells(net_id,
             
                              
     ############################################################################################################
-    
-            
+        
     if generate_dashboards:    
            
        try:
@@ -373,26 +372,26 @@ def dashboard_cells(net_id,
            else:
               print("not all of the target configurations were recompartmentalized; execution will terminate; set regenerate_nml2 to True to obtain all of the target configurations.")
               quit() 
-                               
+              
+           if config_array[cellModel]['Analysis'] != config_array[cellModel]['SpikeProfile']:    
         
-           pathToProfileConfig="../"+config_array[cellModel]['SpikeProfile']+"/"+config_array[cellModel]['SpikeProfile']+"_default"
+              pathToProfileConfig="../"+config_array[cellModel]['SpikeProfile']+"/"+config_array[cellModel]['SpikeProfile']+"_default"
            
-           
-           original_LEMS_target=os.path.join(pathToProfileConfig,"LEMS_Target.xml")
+              original_LEMS_target=os.path.join(pathToProfileConfig,"LEMS_Target.xml")
                
-           if if_params['simulator'] == 'jNeuroML':
-              results = pynml.run_lems_with_jneuroml(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
-           if if_params['simulator'] == 'jNeuroML_NEURON':
-              results = pynml.run_lems_with_jneuroml_neuron(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
+              if if_params['simulator'] == 'jNeuroML':
+                 results = pynml.run_lems_with_jneuroml(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
+              if if_params['simulator'] == 'jNeuroML_NEURON':
+                 results = pynml.run_lems_with_jneuroml_neuron(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
                   
-           t = results['t']
-           v = results[target_v]
+              t = results['t']
+              v = results[target_v]
         
-           if compare_to_neuroConstruct:
+              if compare_to_neuroConstruct:
                
-              print("will generate the comparison between the nC model and NeuroML2 model")
+                 print("will generate the comparison between the nC model and NeuroML2 model")
                
-              PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
+                 PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
                               'subplotTitles':['NML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
                               {'cols':8,'rows':5},
                               legend=True,
@@ -401,27 +400,29 @@ def dashboard_cells(net_id,
                               nCcellPath=os.path.join(save_to_path,config_array[cellModel]['SpikeProfile'])   )
                               
                               
-              analysis_string2="nC_vs_NML2_%s"%config_array[cellModel]['SpikeProfile']
+                 analysis_string2="nC_vs_NML2_%s"%config_array[cellModel]['SpikeProfile']
            
-              analysis_header2="Comparison between the original nC model and NeuroML2 model: simulations in NEURON"
+                 analysis_header2="Comparison between the original nC model and NeuroML2 model: simulations in NEURON"
            
-           else:
+              else:
         
-              print("will generate the plot for the NeuroML2 model")
+                 print("will generate the plot for the NeuroML2 model")
            
-              pynml.generate_plot(t,
-                                  v,
-                                  "NeuroML2: simulations in NEURON with dt=%f"%global_dt,
-                                  show_plot_already=False,
-                                  save_figure_to='%s/NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']))
+                 pynml.generate_plot(t,
+                                     v,
+                                     "NeuroML2: simulations in NEURON with dt=%f"%global_dt,
+                                     show_plot_already=False,
+                                     save_figure_to='%s/NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']))
                                          
-              analysis_string2="NML2_%s"%config_array[cellModel]['Analysis']
+                 analysis_string2="NML2_%s"%config_array[cellModel]['Analysis']
                      
-              analysis_header2="NeuroML2 model: simulations in NEURON"
+                 analysis_header2="NeuroML2 model: simulations in NEURON"
+              
+              cwd=os.getcwd()
                
-           os.chdir(save_to_path)
+              os.chdir(save_to_path)
         
-           readme = ''' 
+              readme = ''' 
          
 ## Model: %(CellID)s
 
@@ -449,27 +450,74 @@ def dashboard_cells(net_id,
 
 ![Simulation](%(DtCurve)s.png)
 
-**Spike times versus spatial discretization: default value for the number of internal divs is %(default_divs)f**
+**Spike times versus spatial discretization: default value for the number of internal divs is %(default_divs)s**
 
 ![Simulation](%(DxCurve)s.png)'''
 
-           readme_file = open('README.md','w')
-           readme_final=readme%{"CellID":cellModel,
-                             "IFcurve":IFcurve,
-                             "IVcurve":IVcurve,
-                             "Config":config_array[cellModel]['Analysis'],
-                             "DtCurve":dt_curve,
-                             "DxCurve":dx_curve,
-                             "nC_vs_NML2Curve":analysis_string1,
-                             "AnalysisHeader1":analysis_header1,
-                             "SpikeProfileCurve":analysis_string2,
-                             "AnalysisHeader2":analysis_header2,
-                             "default_divs":default_num_of_comps,
-                             "SpikeProfile":config_array[cellModel]['SpikeProfile']}
+              readme_file = open('README.md','w')
+              readme_final=readme%{"CellID":cellModel,
+                                   "IFcurve":IFcurve,
+                                   "IVcurve":IVcurve,
+                                   "Config":config_array[cellModel]['Analysis'],
+                                   "DtCurve":dt_curve,
+                                   "DxCurve":dx_curve,
+                                   "nC_vs_NML2Curve":analysis_string1,
+                                   "AnalysisHeader1":analysis_header1,
+                                   "SpikeProfileCurve":analysis_string2,
+                                   "AnalysisHeader2":analysis_header2,
+                                   "default_divs":default_num_of_comps,
+                                   "SpikeProfile":config_array[cellModel]['SpikeProfile']}
                            
-           readme_file.write(readme_final)
-           readme_file.close()
+              readme_file.write(readme_final)
+              readme_file.close()
 
-           os.chdir('..')
+              os.chdir(cwd)
       
-                                             
+           else:  
+           
+              cwd=os.getcwd()
+               
+              os.chdir(save_to_path)
+        
+              readme = ''' 
+         
+## Model: %(CellID)s
+
+### Original neuroConstruct config ID: %(Config)s
+
+**%(AnalysisHeader1)s**
+
+![Simulation](%(nC_vs_NML2Curve)s.png)
+
+**IF curve for the NeuroML2 model simulated in NEURON**
+
+![Simulation](%(IFcurve)s.png)
+
+**IV curve for the NeuroML2 model simulated in NEURON**
+
+![Simulation](%(IVcurve)s.png)
+
+**Spike times versus dt curve for the NeuroML2 model simulated in NEURON**
+
+![Simulation](%(DtCurve)s.png)
+
+**Spike times versus spatial discretization: default value for the number of internal divs is %(default_divs)s**
+
+![Simulation](%(DxCurve)s.png)'''
+
+              readme_file = open('README.md','w')
+              
+              readme_final=readme%{"CellID":cellModel,
+                                   "IFcurve":IFcurve,
+                                   "IVcurve":IVcurve,
+                                   "Config":config_array[cellModel]['Analysis'],
+                                   "DtCurve":dt_curve,
+                                   "DxCurve":dx_curve,
+                                   "nC_vs_NML2Curve":analysis_string1,
+                                   "AnalysisHeader1":analysis_header1,
+                                   "default_divs":default_num_of_comps}
+                           
+              readme_file.write(readme_final)
+              readme_file.close()
+
+              os.chdir(cwd)                                

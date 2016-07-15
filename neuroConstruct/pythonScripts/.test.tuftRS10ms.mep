@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  tuftRS10ms:
-    expected:
-      spike times: [4.79]

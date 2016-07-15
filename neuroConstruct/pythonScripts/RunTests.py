@@ -55,7 +55,7 @@ simConfigs = []
 #          a fine spatial discretisation (maxElecLens) to have a close
 #          match between NEURON, MOOSE & GENESIS
 #
-#simConfigs.append("Cell1-supppyrRS-FigA1RS")
+simConfigs.append("Cell1-supppyrRS-FigA1RS")
 #simConfigs.append("Cell2-suppyrFRB-FigA1FRB")   # use maxElecLens = 0.01
 #simConfigs.append("Cell3-supbask-FigA2a")
 #simConfigs.append("Cell4-supaxax-FigA2a")
@@ -69,20 +69,20 @@ simConfigs = []
 #simConfigs.append("Cell13-TCR-FigA7-600")
 #simConfigs.append("Cell14-nRT-FigA8-00")
 
-simConfigs.append("Cell1-supppyrRS-10ms")
-simConfigs.append("Cell2-suppyrFRB-10ms")   
-simConfigs.append("Cell3-supbask-10ms")
-simConfigs.append("Cell4-supaxax-10ms")
-simConfigs.append("Cell5-supLTS-10ms")
-simConfigs.append("Cell6-spinstell-10ms")
-simConfigs.append("Cell7-tuftIB-10ms")
-simConfigs.append("Cell8-tuftRS-10ms")
-simConfigs.append("Cell9-nontuftRS-10ms")
-simConfigs.append("Cell10-deepbask-10ms")
-simConfigs.append("Cell11-deepaxax-10ms")
-simConfigs.append("Cell12-deepLTS-10ms")
-simConfigs.append("Cell13-TCR-10ms")
-simConfigs.append("Cell14-nRT-10ms")
+#simConfigs.append("Cell1-supppyrRS-10ms")
+#simConfigs.append("Cell2-suppyrFRB-10ms")   
+#simConfigs.append("Cell3-supbask-10ms")
+#simConfigs.append("Cell4-supaxax-10ms")
+#simConfigs.append("Cell5-supLTS-10ms")
+#simConfigs.append("Cell6-spinstell-10ms")
+#simConfigs.append("Cell7-tuftIB-10ms")
+#simConfigs.append("Cell8-tuftRS-10ms")
+#simConfigs.append("Cell9-nontuftRS-10ms")
+#simConfigs.append("Cell10-deepbask-10ms")
+#simConfigs.append("Cell11-deepaxax-10ms")
+#simConfigs.append("Cell12-deepLTS-10ms")
+#simConfigs.append("Cell13-TCR-10ms")
+#simConfigs.append("Cell14-nRT-10ms")
 
 ##########################################################################
 
@@ -286,11 +286,16 @@ def testAll(argv=None):
           if "Cell1-supppyrRS-FigA1RS" in simConfigs:
              
               print("Tests for default project simulation for %s with 0.01 dt in NEURON"%("Cell1-supppyrRS-FigA1RS"))
+              
+              mep_from_nml2=nc.loadMepFile('../../NeuroML2/test/.test.FigA1RS.mep')['FigA1RS']
+              
+              for value in range(0,len(mep_from_nml2)):
+              
+                  mep_from_nml2[value]=1000*mep_from_nml2[value]
 	
-      
-              spikeTimesToCheck = {'CGsuppyrRS_0': nc.loadMepFile('.test.FigA1RS.mep')['FigA1RS']}
+              spikeTimesToCheck = {'CGsuppyrRS_0': mep_from_nml2}
 
-              spikeTimeAccuracy = 0
+              spikeTimeAccuracy = 0.00000001
   
               report2 = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,spikeTimeAccuracy = spikeTimeAccuracy)
 

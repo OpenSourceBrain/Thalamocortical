@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  deepaxax10ms:
-    expected:
-      spike times: [1.48, 6.66]

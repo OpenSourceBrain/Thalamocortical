@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  spinstellFigA3_333:
-    expected:
-      spike times: [3.16, 202.63, 208.47, 223.5, 250.48, 283.52, 324.23, 372.61, 427.16, 485.4, 545.39]

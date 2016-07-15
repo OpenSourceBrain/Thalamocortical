@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  nRT:
-    expected:
-      spike times: [74.135, 77.35, 80.255, 83.195, 86.18, 89.225, 92.355, 95.625, 99.095, 102.875, 107.22, 112.76] 

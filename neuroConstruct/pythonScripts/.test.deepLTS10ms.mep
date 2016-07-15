@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  deepLTS10ms:
-    expected:
-      spike times: [1.54, 7.06]

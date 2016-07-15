@@ -1,0 +1,58 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="TestSeg_test2">
+    <include href="../channels/k2.channel.nml"></include>
+    <include href="../channels/ka.channel.nml"></include>
+    <include href="../channels/ka_ib.channel.nml"></include>
+    <include href="../channels/kdr.channel.nml"></include>
+    <include href="../channels/kdr_fs.channel.nml"></include>
+    <include href="../channels/km.channel.nml"></include>
+    <include href="../channels/naf.channel.nml"></include>
+    <include href="../channels/naf2.channel.nml"></include>
+    <include href="../channels/naf_tcr.channel.nml"></include>
+    <include href="../channels/nap.channel.nml"></include>
+    <include href="../channels/napf.channel.nml"></include>
+    <include href="../channels/napf_spinstell.channel.nml"></include>
+    <include href="../channels/napf_tcr.channel.nml"></include>
+    <include href="../channels/pas.channel.nml"></include>
+    <cell id="TestSeg_test2">
+        <notes>Test cell2</notes>
+        <morphology id="morphology_TestSeg_test2">
+            <segment id="0" name="Soma">
+                <proximal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="20.0"/>
+                <distal x="0.000000e+00" y="0.000000e+00" z="0.000000e+00" diameter="20.0"/>
+            </segment>
+            <segmentGroup neuroLexId="sao864921383" id="Soma">
+                <member segment="0"/>
+            </segmentGroup>
+            <segmentGroup id="all">
+                <include segmentGroup="Soma"/>
+            </segmentGroup>
+            <segmentGroup neuroLexId="GO:0043025" id="soma_group">
+                <include segmentGroup="Soma"/>
+            </segmentGroup>
+        </morphology>
+        <biophysicalProperties id="biophys">
+            <membraneProperties>
+                <channelDensity id="k2_all" ionChannel="k2" condDensity="0.1 mS_per_cm2" erev="-95.0 mV" ion="k"/>
+                <channelDensity id="ka_all" ionChannel="ka" condDensity="15.0 mS_per_cm2" erev="-95.0 mV" ion="k"/>
+                <channelDensity id="ka_ib_all" ionChannel="ka_ib" condDensity="15.0 mS_per_cm2" erev="-95.0 mV" ion="k"/>
+                <channelDensity id="kdr_all" ionChannel="kdr" condDensity="62.5 mS_per_cm2" erev="-95.0 mV" ion="k"/>
+                <channelDensity id="kdr_fs_all" ionChannel="kdr_fs" condDensity="62.5 mS_per_cm2" erev="-95.0 mV" ion="k"/>
+                <channelDensity id="km_all" ionChannel="km" condDensity="1.5 mS_per_cm2" erev="-95.0 mV" ion="k"/>
+                <channelDensity id="naf_all" ionChannel="naf" condDensity="0.033 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="naf2_all" ionChannel="naf2" condDensity="0.033 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="naf_tcr_all" ionChannel="naf_tcr" condDensity="0.033 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="nap_all" ionChannel="nap" condDensity="0.05 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="napf_all" ionChannel="napf" condDensity="15.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="napf_spinstell_all" ionChannel="napf_spinstell" condDensity="0.05 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="napf_tcr_all" ionChannel="napf_tcr" condDensity="0.05 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="pas_all" ionChannel="pas" condDensity="0.3 mS_per_cm2" erev="-66.6 mV" ion="non_specific"/>
+                <spikeThresh value="0 mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-60.0 mV"/>
+            </membraneProperties>
+            <intracellularProperties>
+                <resistivity value="0.03 kohm_cm"/>
+            </intracellularProperties>
+        </biophysicalProperties>
+    </cell>
+</neuroml>
