@@ -18,6 +18,7 @@ from AnalysisNML2 import analyse_spiketime_vs_dx
 from AnalysisNML2 import generate_sims
 from AnalysisNML2 import generate_and_copy_dat
 from AnalysisNML2 import PlotNC_vs_NML2
+from AnalysisNML2 import generate_nml2_plot
 from matplotlib import pyplot as plt
 import math
 import subprocess
@@ -173,6 +174,7 @@ def dashboard_cells(net_id,
                     generate_dashboards=True,
                     compare_to_neuroConstruct=False,
                     regenerate_nml2=False,
+                    show_plot_already=False,
                     proj_string_neuroConstruct=None,
                     shell=None,
                     nc_home=None):
@@ -268,7 +270,7 @@ def dashboard_cells(net_id,
                                         plot_voltage_traces=if_params['plot_voltage_traces'],
                                         plot_if=            if_params['plot_if'],
                                         plot_iv=            if_params['plot_iv'],
-                                        show_plot_already=  False,
+                                        show_plot_already=  show_plot_already,
                                         save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
                                         save_iv_figure_to='%s/IV_%s.png'%(save_to_path,cellModel),
                                         simulator=         if_params['simulator'])
@@ -310,21 +312,20 @@ def dashboard_cells(net_id,
                                     
                      analysis_string1="nC_vs_NML2_%s"%config_array[cellModel]['Analysis']
                      
-                     analysis_header1="Comparison between the original nC model and NeuroML2 model: simulations in NEURON"
+                     analysis_header1="Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
                               
                   else:
                   
                      print("will generate the plot for the NeuroML2 model")
-                  
-                     pynml.generate_plot(t,
-                                         v, 
-                                         "NeuroML2: simulations in NEURON with dt=%f"%global_dt,
-                                         show_plot_already=False,
-                                         save_figure_to='%s/NML2_%s.png'%(save_to_path,config_array[cellModel]['Analysis']) )
-                                         
+                     
+                     generate_nml2_plot({'NML2':[{'t':t,'v':v}],'subplotTitles':['NeuroML2 model: simulations in NEURON with dt=%f'%global_dt]},
+                                        {'cols':8,'rows':5},
+                                        show=False,
+                                        save_to_file='%s/NML2_%s.png'%(save_to_path,config_array[cellModel]['Analysis']))
+                                            
                      analysis_string1="NML2_%s"%config_array[cellModel]['Analysis']
                      
-                     analysis_header1="NeuroML2 model: simulations in NEURON"
+                     analysis_header1="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
                               
                               
                   ########################################################################################
@@ -337,7 +338,7 @@ def dashboard_cells(net_id,
                                           dt_list,
                                           verbose=False,
                                           spike_threshold_mV = 0,
-                                          show_plot_already=False,
+                                          show_plot_already=show_plot_already,
                                           save_figure_to="%s/Dt_%s.png"%(save_to_path,cellModel))
                                           
                   dt_curve="Dt_%s"%cellModel
@@ -364,7 +365,7 @@ def dashboard_cells(net_id,
                                       target_v,
                                       verbose=False,
                                       spike_threshold_mV = 0,
-                                      show_plot_already=False,
+                                      show_plot_already=show_plot_already,
                                       save_figure_to="%s/Dx_%s.png"%(save_to_path,cellModel)) 
                
               dx_curve="Dx_%s"%cellModel
@@ -395,28 +396,28 @@ def dashboard_cells(net_id,
                               'subplotTitles':['NML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
                               {'cols':8,'rows':5},
                               legend=True,
-                              show=False,
+                              show=show_plot_already,
                               save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']),
                               nCcellPath=os.path.join(save_to_path,config_array[cellModel]['SpikeProfile'])   )
                               
                               
                  analysis_string2="nC_vs_NML2_%s"%config_array[cellModel]['SpikeProfile']
            
-                 analysis_header2="Comparison between the original nC model and NeuroML2 model: simulations in NEURON"
+                 analysis_header2="Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
            
               else:
         
                  print("will generate the plot for the NeuroML2 model")
+                 
+                 generate_nml2_plot({'NML2':[{'t':t,'v':v}],'subplotTitles':['NeuroML2 model: simulations in NEURON with dt=%f'%global_dt]},
+                                        {'cols':8,'rows':5},
+                                        show=False,
+                                        save_to_file='%s/NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']))
            
-                 pynml.generate_plot(t,
-                                     v,
-                                     "NeuroML2: simulations in NEURON with dt=%f"%global_dt,
-                                     show_plot_already=False,
-                                     save_figure_to='%s/NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']))
                                          
-                 analysis_string2="NML2_%s"%config_array[cellModel]['Analysis']
+                 analysis_string2="NML2_%s"%config_array[cellModel]['SpikeProfile']
                      
-                 analysis_header2="NeuroML2 model: simulations in NEURON"
+                 analysis_header2="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
               
               cwd=os.getcwd()
                
@@ -519,5 +520,4 @@ def dashboard_cells(net_id,
                            
               readme_file.write(readme_final)
               readme_file.close()
-
               os.chdir(cwd)                                
