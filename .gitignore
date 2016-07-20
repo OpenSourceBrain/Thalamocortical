@@ -40,9 +40,7 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/*-*
 /NeuroML2/*_*
 
-/NeuroML2/pythonScripts/*
 
-/NeuroML2/pythonScripts
 /NeuroML2/pythonScripts/*.json
 /NeuroML2/pythonScripts/*.mod
 /NeuroML2/pythonScripts/*.hoc
