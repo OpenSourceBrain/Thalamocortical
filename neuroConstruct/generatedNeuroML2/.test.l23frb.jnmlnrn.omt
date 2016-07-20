@@ -2,7 +2,7 @@
 
 target: LEMS_L23PyrFRB.xml
 engine: jNeuroML_NEURON
-mep: ../pythonScripts/.test.l23frb.mep
+mep: ../../NeuroML2/test/.test.l23frb.mep
 experiments:
   L23FRB:
     observables:

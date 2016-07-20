@@ -2,7 +2,7 @@
 
 target: LEMS_SupAxAx.xml
 engine: jNeuroML_NEURON
-mep: ../pythonScripts/.test.supaxax.mep
+mep: ../../NeuroML2/test/.test.supaxax.mep
 experiments:
   SupAxAx:
     observables:
