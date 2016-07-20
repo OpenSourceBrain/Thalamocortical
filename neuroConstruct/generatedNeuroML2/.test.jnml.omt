@@ -2,7 +2,7 @@
 
 target: LEMS_Thalamocortical.xml 
 engine: jNeuroML
-mep: ../pythonScripts/.test.mep
+mep: .test.mep
 experiments:
   Current clamp:
     observables:
@@ -10,7 +10,7 @@ experiments:
         file: 
           path: CG_CML_0.0.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1, 1]
         spike detection: 
           method: threshold
           threshold: 0
