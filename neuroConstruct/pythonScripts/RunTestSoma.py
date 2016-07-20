@@ -74,7 +74,7 @@ suggestedRemoteRunTime = 233
 
 verbose =               True
 
-spike_times = nc.loadMepFile('.test.mep')
+spike_times = nc.loadMepFile('../generatedNeuroML2/.test.mep',scale=1000)
 
 #############################################
 
@@ -87,6 +87,7 @@ def testAll(argv=None):
 
 
     simManager = nc.SimulationManager(projFile,
+                                      numConcurrentSims = 2,
                                       verbose = verbose)
 
     simManager.runMultipleSims(simConfigs =              simConfigs,

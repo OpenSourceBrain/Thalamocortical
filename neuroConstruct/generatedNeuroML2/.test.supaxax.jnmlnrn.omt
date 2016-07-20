@@ -2,7 +2,7 @@
 
 target: LEMS_SupAxAx.xml
 engine: jNeuroML_NEURON
-mep: ../pythonScripts/.test.supaxax.mep
+mep: ../../NeuroML2/test/.test.supaxax.mep
 experiments:
   SupAxAx:
     observables:
@@ -10,7 +10,7 @@ experiments:
         file: 
           path: CGsupaxax_0.0.dat
           columns: [0,1]
-          scaling: [1000, 1000]
+          scaling: [1, 1]
         spike detection: 
           method: threshold
           threshold: 0

@@ -161,7 +161,7 @@ def testAll(argv=None):
           # These were discovered using analyseSims = True above.
           # They need to hold for all simulators
           
-          mep_from_nml2=nc.loadMepFile('../../NeuroML2/test/.test.mep')['Current clamp']
+          mep_from_nml2=nc.loadMepFile('../generatedNeuroML2/.test.mep')['Current clamp']
           
           for value in range(0,len(mep_from_nml2)):
               
