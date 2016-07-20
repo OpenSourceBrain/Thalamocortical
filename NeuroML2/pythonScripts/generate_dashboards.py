@@ -22,10 +22,10 @@ if __name__=="__main__":
                    "TCR":{"Analysis":"Cell13-TCR-FigA7-600","SpikeProfile":"Cell13-TCR-10ms","OriginalTag":'CGTCR_0_wtime'},
                    "nRT":{"Analysis":"Cell14-nRT-FigA8-500","SpikeProfile":"Cell14-nRT-10ms","OriginalTag":'CGnRT_min75init_0_wtime'} }
                
-  ifParams={'start_amp_nA':0, 
-            'end_amp_nA':2, 
-            'step_nA':0.5, 
-            'analysis_duration':1000, 
+  ifParams={'start_amp_nA':-0.2, 
+            'end_amp_nA':0.4, 
+            'step_nA':0.02, 
+            'analysis_duration':3000, 
             'analysis_delay':50,
             'dt':0.01,
             'temperature':"6.3degC",
@@ -34,13 +34,13 @@ if __name__=="__main__":
             'plot_if':True,
             'plot_iv':True}
             
-  #ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005]
+  ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005]
   
-  ElecLenList=[-1,0.05,0.025,0.005]
+  #ElecLenList=[-1,0.05,0.025,0.005]
   
-  #DtList=[0.0005,0.001,0.005,0.01,0.025]
+  DtList=[0.0001,0.0005,0.001,0.005,0.01,0.025]
   
-  DtList=[0.001,0.005,0.01,0.025]
+  #DtList=[0.001,0.005,0.01,0.025]
   
   dashboard_cells(net_id='Target',
                   net_file_name='Thalamocortical',
