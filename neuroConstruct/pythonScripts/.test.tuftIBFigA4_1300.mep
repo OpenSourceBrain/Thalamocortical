@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  tuftIBFigA4_1300:
-    expected:
-      spike times: [202.83, 206.85, 212.48, 307.1, 309.46, 311.91, 314.4, 317.74, 507.2, 509.26, 511.43, 513.82, 516.77]

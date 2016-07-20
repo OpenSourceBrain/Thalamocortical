@@ -11,28 +11,30 @@ import opencortex
 import opencortex.utils as oc_utils
 import opencortex.build as oc
 import os
+import sys
 
 #### distribute cells for the sake of network visualization; no spatial dependence of connection probability at the moment;
 ###### larger networks exceed GitHub's file size limit of 100.00 MB;
 ######Note: the below leads to Java out of memory errors when validating the final nml2 network file; use another format instead of nml; #TODO
 
 
-
 def RunColumnSimulation(net_id="TestRunColumn",
-                        scaleCortex=0.1,
-                        scaleThalamus=0.1,
+                        nml2_source_dir="../../../neuroConstruct/generatedNeuroML2/",
+                        scale_cortex=0.5,
+                        scale_thalamus=0.5,
+                        default_synaptic_delay=0.05,
+                        gaba_scaling=1.0,
+                        l4ss_ampa_scaling=1.0,
+                        l5pyr_gap_scaling =1.0,
+			in_nrt_tcr_nmda_scaling =1.0,
+			pyr_ss_nmda_scaling=1.0,
                         which_models='all',
-                        dir_cell_models="../../",
-                        simulator=None,
+                        dir_nml2="../../",
                         duration=300,
                         dt=0.025,
                         max_memory='1000M',
-                        extra_params=None):
-                        
-                        #TODO additional parameters and options
-                        
-                        
-    #extra_params=[{'pre':'L23PyrRS','post':'SupBasket','weights':[0.05],'delays':[5],'synComps':['NMDA']}]                  
+                        simulator=None):
+              
                         
     popDictFull = {}
     
@@ -71,15 +73,15 @@ def RunColumnSimulation(net_id="TestRunColumn",
 
            if popDictFull[cell_population][1] !='Thalamus':
              
-              popDict[cell_population]=( int(round(scaleCortex*popDictFull[cell_population][0])), popDictFull[cell_population][1],popDictFull[cell_population][2])
+              popDict[cell_population]=( int(round(scale_cortex*popDictFull[cell_population][0])), popDictFull[cell_population][1],popDictFull[cell_population][2])
                   
-              cell_count=int(round(scaleCortex*popDictFull[cell_population][0]))
+              cell_count=int(round(scale_cortex*popDictFull[cell_population][0]))
                 
            else:
              
-              pop_in_layer_tuple=( int(round(scaleThalamus*popDictFull[cell_population][0])),popDictFull[cell_population][1],popDictFull[cell_population][2])
+              popDict[cell_population]=( int(round(scale_thalamus*popDictFull[cell_population][0])),popDictFull[cell_population][1],popDictFull[cell_population][2])
                   
-              cell_count=int(round(scaleThalamus*popDictFull[cell_population][0]))
+              cell_count=int(round(scale_thalamus*popDictFull[cell_population][0]))
            
            if cell_count !=0:
     
@@ -88,15 +90,46 @@ def RunColumnSimulation(net_id="TestRunColumn",
         if include_cell_population:
         
            cell_model_list.append(popDictFull[cell_population][2])
-           
-           
+     
     cell_model_list_final=list(set(cell_model_list))
+    
+    opencortex.print_comment_v("This is a final list of cell model ids: %s"%cell_model_list_final)
+    
+    dir_to_cells=os.path.join(dir_nml2,"cells")
+    
+    dir_to_synapses=os.path.join(dir_nml2,"synapses")
+    
+    dir_to_gap_junctions=os.path.join(dir_nml2,"gapJunctions")
+    
+    copy_nml2_from_source=False
     
     for cell_model in cell_model_list_final:
     
-        oc.add_cell_and_channels(nml_doc, os.path.join(dir_cell_models,'%s.cell.nml'%cell_model), cell_model)
-
+       if not os.path.exists(os.path.join(dir_to_cells,"%s.cell.nml"%cell_model)):
+       
+          copy_nml2_from_source=True
+          
+          break
+           
+    if copy_nml2_from_source:
+       
+       oc.copy_nml2_source(dir_to_project_nml2=dir_nml2,
+                        primary_nml2_dir=nml2_source_dir,
+                        electrical_synapse_tags=['Elect'],
+                        chemical_synapse_tags=['.synapse.'],
+                        extra_channel_tags=['cad'])
+                        
+       passed_includes_in_cells=oc_utils.check_includes_in_cells(os.path.join(dir_nml2,"cells"),cell_model_list_final,extra_channel_tags=['cad'])
+       
+       if not passed_includes_in_cells:
+       
+          opencortex.print_comment_v("Execution of RunColumn.py will terminate.")
+  
+          quit()
+             
+    for cell_model in cell_model_list_final:
         
+        oc.add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model)
         
     t1=-0
     t2=-250
@@ -123,16 +156,15 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     if passed_pops:
     
-       print("Population parameters were specified correctly.")
+       opencortex.print_comment_v("Population parameters were specified correctly.")
       
        pop_params=oc_utils.add_populations_in_layers(network,boundaries,popDict,xs,zs)
        
     else:
     
-       print("Population parameters were specified incorrectly; execution of RunColumn.py will terminate.")
+       opencortex.print_comment_v("Population parameters were specified incorrectly; execution of RunColumn.py will terminate.")
        
-       quit()
-    
+       quit() 
     
     src_files = os.listdir("./")
     
@@ -143,12 +175,43 @@ def RunColumnSimulation(net_id="TestRunColumn",
     else:
     
        full_path_to_connectivity="../../../neuroConstruct/pythonScripts/netbuild/netConnList"
+                   
+    weight_params=[{'weight':gaba_scaling,'synComp':'GABAA','synEndsWith':[],'targetCellGroup':[]},
+                   {'weight':l4ss_ampa_scaling,'synComp':'Syn_AMPA_L4SS_L4SS','synEndsWith':[],'targetCellGroup':[]},
+                   {'weight':l5pyr_gap_scaling,'synComp':'Syn_Elect_DeepPyr_DeepPyr','synEndsWith':[],'targetCellGroup':['CG3D_L5']},
+                   {'weight':in_nrt_tcr_nmda_scaling,'synComp':'NMDA','synEndsWith':["_IN","_DeepIN","_SupIN","_SupFS","_DeepFS","_SupLTS","_DeepLTS","_nRT","_TCR"],
+                   'targetCellGroup':[]},
+                   {'weight':pyr_ss_nmda_scaling,'synComp':'NMDA','synEndsWith':["_IN","_DeepIN","_SupIN","_SupFS","_DeepFS","_SupLTS","_DeepLTS","_nRT","_TCR"],
+                   'targetCellGroup':[]}]
+                   
+    delay_params=[{'delay':default_synaptic_delay,'synComp':'all'}] 
     
+    passed_weight_params=oc_utils.check_weight_params(weight_params)
     
-
-    synapseList,projArray=oc_utils.build_connectivity(network,pop_params,dir_cell_models,full_path_to_connectivity,extra_params)                  
-
-    oc.add_synapses(nml_doc,dir_cell_models,synapseList)
+    passed_delay_params=oc_utils.check_delay_params(delay_params)
+    
+    if passed_weight_params and passed_delay_params:    
+    
+       opencortex.print_comment_v("Synaptic weight and delay parameters were specified correctly.")     
+    
+       all_synapse_components,projArray,cached_segment_dicts=oc_utils.build_connectivity(net=network,
+                                                                                         pop_objects=pop_params,
+                                                                                         path_to_cells=dir_to_cells,
+                                                                                         full_path_to_conn_summary=full_path_to_connectivity,
+                                                                                         synaptic_scaling_params=weight_params,
+                                                                                         synaptic_delay_params=delay_params)   
+                                                                                         
+    else:
+       
+       if not passed_weight_params:
+       
+          opencortex.print_comment_v("Synaptic weight parameters were specified incorrectly; execution of RunColumn.py will terminate.") 
+          
+       if not passed_delay_params:
+       
+          opencortex.print_comment_v("Synaptic delay parameters were specified incorrectly; execution of RunColumn.py will terminate.")
+       
+       quit()
     
     ############ for testing only; will add original specifications later ##############################################################
     
@@ -161,45 +224,68 @@ def RunColumnSimulation(net_id="TestRunColumn",
                   'FractionToTarget':1.0,
                   'LocationSpecific':False,
                   'TargetDict':{'soma_group':1 }       }]              }
-                  
-                  
-    passed_inputs=oc_utils.check_inputs(input_params,popDict,dir_cell_models)
+                    
+    passed_inputs=oc_utils.check_inputs(input_params,popDict,dir_to_cells,dir_to_synapses)
 
     if passed_inputs:
     
-       print("Input parameters were specified correctly")
+       opencortex.print_comment_v("Input parameters were specified correctly.")
        
-       oc_utils.build_inputs(nml_doc=nml_doc,net=network,pop_params=pop_params,input_params=input_params,path_to_nml2=dir_cell_models)
-       
+       input_list_array_final, input_synapse_list=oc_utils.build_inputs(nml_doc=nml_doc,
+                                                                        net=network,
+                                                                        pop_params=pop_params,
+                                                                        input_params=input_params,
+                                                                        cached_dicts=cached_segment_dicts,
+                                                                        path_to_nml2=dir_nml2)
        
     else:
     
-      print("Input parameters were specified incorrectly; execution of RunColumn.py will terminate."
+      opencortex.print_comment_v("Input parameters were specified incorrectly; execution of RunColumn.py will terminate.")
       
       quit()
     
     ####################################################################################################################################
     
+    for input_synapse in input_synapse_list:
+    
+        if input_synapse not in all_synapse_components:
+        
+           all_synapse_components.append(input_synapse)
+           
+    synapse_list=[]
+    
+    gap_junction_list=[]
+        
+    for syn_ind in range(0,len(all_synapse_components)):
+    
+        if 'Elect' not in all_synapse_components[syn_ind]:
+        
+           synapse_list.append(all_synapse_components[syn_ind])
+        
+           all_synapse_components[syn_ind]=os.path.join(net_id,all_synapse_components[syn_ind]+".synapse.nml")
+           
+        else:
+        
+           gap_junction_list.append(all_synapse_components[syn_ind])
+        
+           all_synapse_components[syn_ind]=os.path.join(net_id,all_synapse_components[syn_ind]+".nml")
+           
+    oc.add_synapses(nml_doc,dir_to_synapses,synapse_list,synapse_tag=True)
+    
+    oc.add_synapses(nml_doc,dir_to_gap_junctions,gap_junction_list,synapse_tag=False)
+    
     nml_file_name = '%s.net.nml'%network.id
     
     oc.save_network(nml_doc, nml_file_name, validate=True)
     
-    for syn_ind in range(0,len(synapseList)):
+    oc.remove_component_dirs(dir_to_project_nml2="%s"%network.id,list_of_cell_ids=cell_model_list_final,extra_channel_tags=['cad'])
     
-        if 'Elect' not in synapseList[syn_ind]:
-
-           synapseList[syn_ind]=os.path.join(net_id,synapseList[syn_ind]+".synapse.nml")
-           
-        else:
-        
-           synapseList[syn_ind]=os.path.join(net_id,synapseList[syn_ind]+".nml")
-
     lems_file_name=oc.generate_lems_simulation(nml_doc, 
                                                network, 
                                                nml_file_name, 
                                                duration =duration, 
                                                dt =dt,
-                                               include_extra_lems_files=synapseList)
+                                               include_extra_lems_files=all_synapse_components)
                             
     oc.simulate_network(lems_file_name=lems_file_name,
                         simulator=simulator,
@@ -209,6 +295,6 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
 if __name__=="__main__":
 
-   RunColumnSimulation(which_models=['CG3D_L23PyrRS','CG3D_SupBask'])
+   RunColumnSimulation()
    
                                               

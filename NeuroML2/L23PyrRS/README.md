@@ -26,6 +26,6 @@
 
 ![Simulation](Dt_L23PyrRS.png)
 
-**Spike times versus spatial discretization**
+**Spike times versus spatial discretization: default value for the number of internal divs is 1042**
 
 ![Simulation](Dx_L23PyrRS.png)

@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-  FigA1RS:
-    expected:
-      spike times: [402.32, 434.26, 471.17, 512.53, 555.72, 600.14, 645.53, 691.72, 694.92]

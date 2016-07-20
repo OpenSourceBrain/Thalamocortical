@@ -26,6 +26,111 @@ import shutil
 import os
 
 ##############################################################################################################################
+def generate_nml2_plot(targets_to_plot,cols_rows_scale,show=False,save_to_file=None,NML2cellPath=None):
+    
+    colour='b'
+    subplot_titles=targets_to_plot['subplotTitles']
+
+    num_of_targets=len(targets_to_plot['NML2'])
+       
+    if (num_of_targets % 5) >= 1:
+       rows = max(1,int(math.ceil(num_of_targets/5)+1))
+    else:
+       rows=max(1,int(math.ceil(num_of_targets/5)))
+       
+    columns = min(5,num_of_targets)
+       
+    fig,ax = plt.subplots(rows,columns,sharex=False,figsize=(cols_rows_scale['cols']*columns,cols_rows_scale['rows']*rows))
+
+    if rows > 1 or columns > 1:
+       ax = ax.ravel()
+      
+    fig.canvas.set_window_title("Thalamocortical cell models: NeuroML2 specification")
+       
+    for target in range(0,num_of_targets):
+        cell=targets_to_plot['NML2'][target]
+        if num_of_targets > 1:
+           ax[target].set_xlabel('Time (s)')
+           ax[target].set_ylabel('Membrane potential (V)')
+           ax[target].xaxis.grid(True)
+           ax[target].yaxis.grid(True)
+        else:
+           ax.set_xlabel('Time (s)')
+           ax.set_ylabel('Membrane potential (V)')
+           ax.xaxis.grid(True)
+           ax.yaxis.grid(True)
+        
+        data=[]
+        time_array=[]
+        voltage_array=[]
+        data.append(time_array)
+        data.append(voltage_array)
+               
+        if not isinstance(cell,dict):
+               
+           if NML2cellPath==None:
+              cell_path=cell+'.dat'
+           else:
+              cell_path=os.path.join(NML2cellPath,cell+'.dat')
+               
+           for line in open(cell_path):
+               values=line.split() # for each line there is a time point and voltage value at that time point
+               for x in range(0,2):
+                   data[x].append(float(values[x]))
+           if num_of_targets >1:
+              ax[target].plot(data[0],data[1],color=colour)
+           else:
+              ax.plot(data[0],data[1],color=colour)
+           print("Adding trace for: %s"%subplot_titles[target])
+                  
+        else:
+               
+           if 'v' and 't' in cell.keys():
+                     
+               data[0]=cell['t']
+               data[1]=cell['v']
+                     
+               if num_of_targets >1:
+                  ax[target].plot(data[0],data[1],color=colour)
+               else:
+                  ax.plot(data[0],data[1],color=colour)
+               
+               print("Adding trace for: %s"%subplot_titles[target])
+  
+           
+        if num_of_targets >1:
+           ax[target].used = True
+           ax[target].set_title(subplot_titles[target],size=13)
+           ax[target].locator_params(tight=True, nbins=8)
+        else:
+           ax.used = True
+           ax.set_title(subplot_titles[target],size=13)
+           ax.locator_params(tight=True, nbins=8)
+           
+        if num_of_targets >1:
+           for tick in ax[target].xaxis.get_major_ticks():
+               tick.label.set_fontsize(9) 
+        else:
+           for tick in ax.xaxis.get_major_ticks():
+               tick.label.set_fontsize(9)
+                  
+    if num_of_targets != int(rows*columns):  
+       
+       for empty_plot in range(0,int(rows*columns)-num_of_targets):
+           x=-1-empty_plot
+           ax[x].axis("off")         
+             
+    plt.tight_layout()
+       
+    if save_to_file !=None:
+       
+       plt.savefig(save_to_file)
+       
+    if show:
+       
+       plt.show()
+          
+###############################################################################################################################
 def PlotNC_vs_NML2(targets_to_plot,cols_rows_scale,legend=False,show=False,save_to_file=None,nCcellPath=None,NML2cellPath=None):
     
     path={}
@@ -218,13 +323,7 @@ def generate_sims(configs,parentDir,dt,sharedTag=None):
                         SingleCellSim(sharedTag,dt,full_file_name2)
                      else:
                         SingleCellSim(file_name,dt,full_file_name2)
-                        
-#####################################################################################################
-def RunNeuroConstruct():
-
-    #TODO
-    pass                        
-           
+                                            
 ######################################################################################################
 def getSpikes(leftIdent,targetFile,scalingFactor=1,rightIdent=None):
 
@@ -534,7 +633,7 @@ def analyse_spiketime_vs_dx(lems_path_dict,
        for spike in range(0,num_of_spikes):
            linestyles.append('-')
            markers.append('x')
-           line_spxs.append(comp_values)
+           line_spxs.append(list(np.sort(comp_values)))
            spike_var=[]
            for comp_value in range(0,len(comp_values)):
                spike_var.append(spys[comp_value][spike])

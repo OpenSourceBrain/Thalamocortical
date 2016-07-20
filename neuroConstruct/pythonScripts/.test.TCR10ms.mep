@@ -1,6 +1,0 @@
-system: Testing a cell
-
-experiments:
-      TCR10ms:
-    expected:
-      spike times: [5.78]
