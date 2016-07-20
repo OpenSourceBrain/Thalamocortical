@@ -17,6 +17,8 @@ simulations
 *.dat
 
 neuroConstruct/cellMechanisms/Syn_*
+neuroConstruct/savedNetworks
+
 
 neuroConstruct/pythonScripts/testFiles/nrntraub
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/batchdata

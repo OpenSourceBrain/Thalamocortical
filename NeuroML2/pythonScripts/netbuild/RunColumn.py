@@ -20,8 +20,9 @@ import sys
 
 def RunColumnSimulation(net_id="TestRunColumn",
                         nml2_source_dir="../../../neuroConstruct/generatedNeuroML2/",
-                        scale_cortex=0.5,
-                        scale_thalamus=0.5,
+                        sim_config="TempSimConfig",
+                        scale_cortex=0.1,
+                        scale_thalamus=0.1,
                         default_synaptic_delay=0.05,
                         gaba_scaling=1.0,
                         l4ss_ampa_scaling=1.0,
@@ -215,34 +216,105 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     ############ for testing only; will add original specifications later ##############################################################
     
-    input_params={'CG3D_L23PyrRS':[{'InputType':'GeneratePoissonTrains',
-                  'TrainType':'transient',
-                  'Synapse':'Syn_AMPA_SupPyr_SupPyr',
-                  'AverageRateList':[200.0,150.0],
-                  'DurationList':[100.0,50.0],
-                  'DelayList':[50.0,200.0],
-                  'FractionToTarget':1.0,
-                  'LocationSpecific':False,
-                  'TargetDict':{'soma_group':1 }       }]              }
-                    
-    passed_inputs=oc_utils.check_inputs(input_params,popDict,dir_to_cells,dir_to_synapses)
-
-    if passed_inputs:
-    
-       opencortex.print_comment_v("Input parameters were specified correctly.")
+    if sim_config=="Testing1":
        
-       input_list_array_final, input_synapse_list=oc_utils.build_inputs(nml_doc=nml_doc,
-                                                                        net=network,
-                                                                        pop_params=pop_params,
-                                                                        input_params=input_params,
-                                                                        cached_dicts=cached_segment_dicts,
-                                                                        path_to_nml2=dir_nml2)
-       
-    else:
+       input_params={'CG3D_L23PyrRS':[{'InputType':'GeneratePoissonTrains',
+                          'InputName':'Poi_CG3D_L23PyrRS',
+                          'TrainType':'transient',
+                          'Synapse':'Syn_AMPA_SupPyr_SupPyr',
+                          'AverageRateList':[200.0,150.0],
+                          'RateUnits':'Hz',
+                          'TimeUnits':'ms',
+                          'DurationList':[100.0,50.0],
+                          'DelayList':[50.0,200.0],
+                          'FractionToTarget':1.0,
+                          'LocationSpecific':False,
+                          'TargetDict':{'soma_group':1 }       }]              }
+                       
+    ###################################################################################################################################
     
-      opencortex.print_comment_v("Input parameters were specified incorrectly; execution of RunColumn.py will terminate.")
-      
-      quit()
+    if sim_config=="Testing2":
+    
+       input_params={'CG3D_L23PyrRS':[{'InputType':'PulseGenerators',
+                     'InputName':"DepCurr_L23RS",
+                     'Noise':True,
+                     'SmallestAmplitudeList':[5.0E-5,1.0E-5],
+                     'LargestAmplitudeList':[1.0E-4,2.0E-5],
+                     'DurationList':[20000.0,20000.0],
+                     'DelayList':[0.0,20000.0],
+                     'TimeUnits':'ms',
+                     'AmplitudeUnits':'uA',
+                     'FractionToTarget':1.0,
+                     'LocationSpecific':False,
+                     'TargetDict':{'dendrite_group':1}             }]             } 
+                     
+    if sim_config=="TempSimConfig":
+    
+       input_params={'CG3D_L23PyrRS':[{'InputType':'PulseGenerators',
+                     'InputName':"DepCurr_L23RS",
+                     'Noise':True,
+                     'SmallestAmplitudeList':[5.0E-5],
+                     'LargestAmplitudeList':[1.0E-4],
+                     'DurationList':[20000.0],
+                     'DelayList':[0.0],
+                     'TimeUnits':'ms',
+                     'AmplitudeUnits':'uA',
+                     'FractionToTarget':1.0,
+                     'LocationSpecific':False,
+                     'UniversalTargetSegmentID':0,
+                     'UniversalFractionAlong':0.5}],
+                     
+                     'CG3D_TCR':[{'InputType':'GeneratePoissonTrains',
+                     'InputName':"EctopicStimTCR",
+                     'TrainType':'persistent',
+                     'Synapse':'SynForEctopicStimulation',
+                     'AverageRateList':[1.0],
+                     'RateUnits':'Hz',
+                     'FractionToTarget':1.0,
+                     'LocationSpecific':False,
+                     'UniversalTargetSegmentID':269,
+                     'UniversalFractionAlong':0.5}],  
+                     
+                     'CG3D_L23PyrFRB':[{'InputType':'GeneratePoissonTrains',
+                     'InputName':"EctopicStimL23FRB",
+                     'TrainType':'persistent',
+                     'Synapse':'SynForEctopicStimulation',
+                     'AverageRateList':[0.1],
+                     'RateUnits':'Hz',
+                     'FractionToTarget':1.0,
+                     'LocationSpecific':False,
+                     'UniversalTargetSegmentID':143,
+                     'UniversalFractionAlong':0.5}], 
+                     
+                     'CG3D_L6NonTuftRS':[{'InputType':'GeneratePoissonTrains',
+                     'InputName':"EctopicStimL6NT",
+                     'TrainType':'persistent',
+                     'Synapse':'SynForEctopicStimulation',
+                     'AverageRateList':[1.0],
+                     'RateUnits':'Hz',
+                     'FractionToTarget':1.0,
+                     'LocationSpecific':False,
+                     'UniversalTargetSegmentID':95,
+                     'UniversalFractionAlong':0.5}],
+                     
+                     'CG3D_L6NonTuftRS':[{'InputType':'GeneratePoissonTrains',
+                     'InputName':"EctopicStimL6NT",
+                     'TrainType':'persistent',
+                     'Synapse':'SynForEctopicStimulation',
+                     'AverageRateList':[1.0],
+                     'RateUnits':'Hz',
+                     'FractionToTarget':1.0,
+                     'LocationSpecific':False,
+                     'UniversalTargetSegmentID':95,
+                     'UniversalFractionAlong':0.5}],  } 
+                     
+    input_list_array_final, input_synapse_list=oc_utils.build_inputs(nml_doc=nml_doc,
+                                                                     net=network,
+                                                                     population_params=pop_params,
+                                                                     input_params=input_params,
+                                                                     cached_dicts=cached_segment_dicts,
+                                                                     path_to_cells=dir_to_cells,
+                                                                     path_to_synapses=dir_to_synapses)
     
     ####################################################################################################################################
     
@@ -295,6 +367,6 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
 if __name__=="__main__":
 
-   RunColumnSimulation()
+   RunColumnSimulation(sim_config="TempSimConfig")
    
                                               

@@ -4,13 +4,13 @@
 
 ### Original neuroConstruct config ID: Cell2-suppyrFRB-10ms
 
-**NeuroML2 model: simulations in NEURON**
+**NeuroML2 model: simulations in NEURON with dt=0.010000**
 
-![Simulation](NML2_Cell2-suppyrFRB-FigA1FRB.png)
+![Simulation](NML2_Cell2-suppyrFRB-10ms.png)
 
 ### Original neuroConstruct config ID: Cell2-suppyrFRB-FigA1FRB
 
-**NeuroML2 model: simulations in NEURON**
+**NeuroML2 model: simulations in NEURON with dt=0.010000**
 
 ![Simulation](NML2_Cell2-suppyrFRB-FigA1FRB.png)
 
