@@ -262,7 +262,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'FractionToTarget':1.0,
                      'LocationSpecific':False,
                      'UniversalTargetSegmentID':0,
-                     'UniversalFractionAlong':0.5}],
+                     'UniversalFractionAlong':0.5} ],
                      
                      'CG3D_TCR':[{'InputType':'GeneratePoissonTrains',
                      'InputName':"EctopicStimTCR",
@@ -325,17 +325,6 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'UniversalTargetSegmentID':0,
                      'UniversalFractionAlong':0.5} ],
                      
-                     'CG3D_L6NonTuftRS':[{'InputType':'GeneratePoissonTrains',
-                     'InputName':"EctopicStimL6NT",
-                     'TrainType':'persistent',
-                     'Synapse':'SynForEctopicStimulation',
-                     'AverageRateList':[1.0],
-                     'RateUnits':'Hz',
-                     'FractionToTarget':1.0,
-                     'LocationSpecific':False,
-                     'UniversalTargetSegmentID':95,
-                     'UniversalFractionAlong':0.5}],
-                     
                      'CG3D_L4SpinStell':[{'InputType':'PulseGenerators',
                      'InputName':"DepCurr_L4SS",
                      'Noise':True,
@@ -358,7 +347,9 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
                      'LocationSpecific':False,
-                     'TargetDict':{'dendrite_group':100} }] }
+                     'TargetDict':{'dendrite_group':100} },
+                     
+                     ] }
                      
     input_list_array_final, input_synapse_list=oc_utils.build_inputs(nml_doc=nml_doc,
                                                                      net=network,
