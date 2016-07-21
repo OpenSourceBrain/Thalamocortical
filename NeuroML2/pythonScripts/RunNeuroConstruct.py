@@ -194,7 +194,7 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
     
     os.chdir("../../neuroConstruct/pythonScripts")  
       
-    subprocess.call("%s/nC.%s -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py"%(os.environ["NC_HOME"],extension),shell=True)
+    subprocess.call("%s/nC.%s -python ../../neuroConstruct/pythonScripts/RegenerateNml2.py -f"%(os.environ["NC_HOME"],extension),shell=True)
     
     os.chdir("../../NeuroML2/pythonScripts")
     

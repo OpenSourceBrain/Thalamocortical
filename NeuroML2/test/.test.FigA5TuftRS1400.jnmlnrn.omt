@@ -1,15 +1,15 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
-target: Cell8-tuftRS-Fig5A-1400/Cell8-tuftRS-Fig5A-1400_default/LEMS_Target.xml 
+target: LEMS_tuftRSFig5A_1400.xml 
 engine: jNeuroML_NEURON
 
-mep: ./.test.tuftRSFig5A_1400.mep
+mep: .test.tuftRSFig5A_1400.mep
 experiments:
   tuftRSFig5A_1400:
     observables:
       spike times:
         file: 
-          path: Cell8-tuftRS-Fig5A-1400/Cell8-tuftRS-Fig5A-1400_default/Sim_Target.CGtuftRS.v.dat
+          path: Sim_Target.CGtuftRS.v.dat
           columns: [0,1]
           scaling: [1, 1]
         spike detection: 

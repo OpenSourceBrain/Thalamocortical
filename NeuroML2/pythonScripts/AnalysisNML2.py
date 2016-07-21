@@ -567,7 +567,8 @@ def analyse_spiketime_vs_dx(lems_path_dict,
                             verbose=False,
                             spike_threshold_mV = 0,
                             show_plot_already=True,
-                            save_figure_to=None):
+                            save_figure_to=None,
+                            num_of_last_spikes=None):
                                 
     from pyelectro.analysis import max_min
     
@@ -596,6 +597,11 @@ def analyse_spiketime_vs_dx(lems_path_dict,
     spys = []
     linestyles = []
     markers = []
+    colors=[]
+    spike_times_final=[]
+    array_of_num_of_spikes=[]
+    
+    comp_values=list(np.sort(comp_values))
     
     for num_of_comps in comp_values:
         t = all_results[num_of_comps]['t']
@@ -606,50 +612,92 @@ def analyse_spiketime_vs_dx(lems_path_dict,
         
         mm = max_min(v, t, delta=0, peak_threshold=spike_threshold_mV)
         spike_times = mm['maxima_times']
+        spike_times_final.append(spike_times)
+        array_of_num_of_spikes.append(len(spike_times))
+    
+    max_comps_spikes=spike_times_final[-1]
+    
+    bound_comps=[comp_values[0],comp_values[-1]]
+    
+    if num_of_last_spikes == None:
+    
+       num_of_spikes=array_of_num_of_spikes[-1]
+       
+    else:
+       
+       if array_of_num_of_spikes[-1] >=num_of_last_spikes:
+       
+          num_of_spikes=num_of_last_spikes
+          
+       else:
+       
+          num_of_spikes=array_of_num_of_spikes[-1]
+          
+    collecting_spikes=True
+       
+    last_spike_index=-1
+       
+    spike_counter=0
+    
+    while collecting_spikes:
+       
+       spike_time_values=[]
         
-
-        spxs_ = []
-        spys_ = []
-        for s in spike_times:
-            spys_.append(s)
-            spxs_.append(num_of_comps)
+       compartments=[]
         
-        spys.append(spys_)
-        spxs.append(spxs_)
-        linestyles.append('-')
-        markers.append('x')
+       for comp_value in range(0,len(comp_values)):
         
-    num_of_spikes=len(spys[0])
-    all_equal=True
-    for num_of_comps in range(0,len(comp_values)):
-        if len(spys[num_of_comps]) != num_of_spikes:
-           all_equal=False
-           break
-    if all_equal:
-       line_spxs=[]
-       line_spys=[]
-       linestyles=[]
-       markers=[]
-       for spike in range(0,num_of_spikes):
-           linestyles.append('-')
-           markers.append('x')
-           line_spxs.append(list(np.sort(comp_values)))
-           spike_var=[]
-           for comp_value in range(0,len(comp_values)):
-               spike_var.append(spys[comp_value][spike])
-           line_spys.append(spike_var)
-       spxs=line_spxs
-       spys=line_spys
-                   
+           if spike_times_final[comp_value] !=[]:
+           
+              if len(spike_times_final[comp_value]) > abs(last_spike_index)-1:
+             
+                 spike_time_values.append(spike_times_final[comp_value][last_spike_index])
+               
+                 compartments.append(comp_values[comp_value])       
+        
+       linestyles.append('-')
+               
+       markers.append('o')
+       
+       colors.append('b')
+       
+       spxs.append(compartments)
+       
+       spys.append(spike_time_values)
+       
+       vertical_line=[max_comps_spikes[last_spike_index],max_comps_spikes[last_spike_index] ]
+          
+       spxs.append(bound_comps)
+          
+       spys.append(vertical_line)
+          
+       linestyles.append('--')
+          
+       markers.append('')
+       
+       colors.append('k')
+       
+       last_spike_index-=1
+          
+       spike_counter+=1
+          
+       if spike_counter==num_of_spikes:
+          
+          collecting_spikes=False
+             
     pynml.generate_plot(spxs, 
           spys, 
           "Spike times vs spatial discretization",
+          colors=colors,
           linestyles = linestyles,
           markers = markers,
           xaxis = 'Number of compartments', 
           yaxis = 'Spike times (s)',
           show_plot_already=show_plot_already,
-          save_figure_to=save_figure_to) 
+          save_figure_to=save_figure_to)       
+    
+        
+    
 
         
     if verbose:
@@ -714,8 +762,7 @@ def generate_and_copy_dat(targetDir,targetFileDict,saveToParentDir):
                             print("moving to the %s"%save_to_path_config)
                             
                             shutil.copy(wtime,save_to_path_config)
-       
-                                               
+                            
 #####################################################################################################################                                    
                                     
 if __name__=="__main__":
@@ -736,7 +783,7 @@ if __name__=="__main__":
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Cell7-tuftIB-FigA4-1500/Cell7-tuftIB-FigA4-1500_default/")
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Cell8-tuftRS-Fig5A-1400/Cell8-tuftRS-Fig5A-1400_default/")
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
-  configs={"Default Simulation Configuration":"TestSeg_all",  
+  configs_all={"Default Simulation Configuration":"TestSeg_all",  
            "Cell1-supppyrRS-FigA1RS":"L23PyrRS",
            "Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
            "Cell3-supbask-FigA2a":"SupBasket",
@@ -776,7 +823,9 @@ if __name__=="__main__":
            "Cell14-nRT-FigA8-00":"nRT",
            "Cell14-nRT-FigA8-300":"nRT",
            "Cell14-nRT-FigA8-500":"nRT"}
-            
+           
+  configs= {"Default Simulation Configuration":"TestSeg_all"}  
+        
   generate_sims(configs,"../",0.01,'Target')
   
   

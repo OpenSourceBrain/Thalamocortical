@@ -1,0 +1,49 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="Target">
+    <notes>
+
+Network structure (NeuroML 2beta4) for project: Thalamocortical saved with neuroConstruct v1.7.1 on: 11:28:50, 21-Jul-16
+
+Cell Group: CGnRT contains 1 cells
+
+
+
+    </notes>
+    <include href="../channels/ar.channel.nml"></include>
+    <include href="../channels/ar__m00.channel.nml"></include>
+    <include href="../channels/cad.nml"></include>
+    <include href="../channels/cad__beta0_02__phi10400.nml"></include>
+    <include href="../channels/cad__beta0_05__phi260000.nml"></include>
+    <include href="../channels/cal.channel.nml"></include>
+    <include href="../channels/cat_a.channel.nml"></include>
+    <include href="../channels/k2.channel.nml"></include>
+    <include href="../channels/ka.channel.nml"></include>
+    <include href="../channels/kahp_slower.channel.nml"></include>
+    <include href="../channels/kc.channel.nml"></include>
+    <include href="../channels/kdr_fs.channel.nml"></include>
+    <include href="../channels/km.channel.nml"></include>
+    <include href="../channels/naf2.channel.nml"></include>
+    <include href="../channels/naf2__a0__b0__c0__d0__fastNa_shift0.channel.nml"></include>
+    <include href="../channels/naf2__a0__b0__c0__d0__fastNa_shift0.channel.nml"></include>
+    <include href="../channels/naf2__a0__b0__c0__d0__fastNa_shift0.channel.nml"></include>
+    <include href="../channels/napf.channel.nml"></include>
+    <include href="../channels/napf__a0__b0__c0__d0__fastNa_shift0.channel.nml"></include>
+    <include href="../channels/napf__a0__b0__c0__d0__fastNa_shift0.channel.nml"></include>
+    <include href="../cells/nRT.cell.nml"></include>
+    <include href="../channels/pas.channel.nml"></include>
+    <pulseGenerator id="Input_45" delay="0.0ms" duration="50.0ms" amplitude="-4.0E-4uA"/>
+    <pulseGenerator id="Input_45a" delay="50.0ms" duration="250.0ms" amplitude="0.0uA"/>
+    <network id="Target" type="networkWithTemperature" temperature="6.3 degC">
+        <population id="CGnRT" component="nRT" size="1" type="populationList">
+            <annotation/>
+            <instance id="0">
+                <location x="0." y="0." z="0."/>
+            </instance>
+        </population>
+        <inputList id="Input_45" population="CGnRT" component="Input_45">
+            <input id="0" target="../CGnRT/0/nRT" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_45a" population="CGnRT" component="Input_45a">
+            <input id="0" target="../CGnRT/0/nRT" destination="synapses"/>
+        </inputList>
+    </network>
+</neuroml>

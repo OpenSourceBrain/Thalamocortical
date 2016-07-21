@@ -1,0 +1,67 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.1.13 (libNeuroML v0.2.19)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="Sim_Target"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="FigA1FRB.net.nml"/>
+    <Include file="../channels/ar.channel.nml"/>
+    <Include file="../channels/ar__m00_25.channel.nml"/>
+    <Include file="../channels/ar__m00_25.channel.nml"/>
+    <Include file="../channels/cad.nml"/>
+    <Include file="../channels/cad__beta0_01__phi26000.nml"/>
+    <Include file="../channels/cad__beta0_05__phi52000.nml"/>
+    <Include file="../channels/cal.channel.nml"/>
+    <Include file="../channels/cat.channel.nml"/>
+    <Include file="../channels/k2.channel.nml"/>
+    <Include file="../channels/ka.channel.nml"/>
+    <Include file="../channels/kahp.channel.nml"/>
+    <Include file="../channels/kc.channel.nml"/>
+    <Include file="../channels/kdr.channel.nml"/>
+    <Include file="../channels/km.channel.nml"/>
+    <Include file="../cells/L23PyrFRB.cell.nml"/>
+    <Include file="../channels/ar__m00_25.channel.nml"/>
+    <Include file="../channels/cad__beta0_01__phi26000.nml"/>
+    <Include file="../channels/cad__beta0_05__phi52000.nml"/>
+    <Include file="../channels/cal.channel.nml"/>
+    <Include file="../channels/cat.channel.nml"/>
+    <Include file="../channels/k2.channel.nml"/>
+    <Include file="../channels/ka.channel.nml"/>
+    <Include file="../channels/kahp.channel.nml"/>
+    <Include file="../channels/kc.channel.nml"/>
+    <Include file="../channels/kdr.channel.nml"/>
+    <Include file="../channels/km.channel.nml"/>
+    <Include file="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
+    <Include file="../channels/nap.channel.nml"/>
+    <Include file="../channels/pas.channel.nml"/>
+    <Include file="../channels/naf.channel.nml"/>
+    <Include file="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
+    <Include file="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
+    <Include file="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
+    <Include file="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
+    <Include file="../channels/nap.channel.nml"/>
+    <Include file="../channels/pas.channel.nml"/>
+   
+    <Simulation id="Sim_Target" length="800.0ms" step="0.01ms" target="Target" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <Display id="DispPop__CGsuppyrFRB" title="Membrane potentials of cells in CGsuppyrFRB" timeScale="1ms" xmin="-80.0" xmax="880.0" ymin="-90" ymax="50">
+            <Line id="CGsuppyrFRB[0]: v" quantity="CGsuppyrFRB/0/L23PyrFRB/v" scale="1mV" color="#f7697f" timeScale="1ms"/>
+        </Display>
+        
+        <OutputFile id="Volts_file__CGsuppyrFRB" fileName="Sim_Target.CGsuppyrFRB.v.dat">
+            <OutputColumn id="v_CGsuppyrFRB_0_L23PyrFRB_v" quantity="CGsuppyrFRB/0/L23PyrFRB/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>

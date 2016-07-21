@@ -67,6 +67,10 @@ def use_NeuroConstruct(compare_to_neuroConstruct,regenerate_nml2,proj_string=Non
           nc_parameters['configsToGenerate']={}
           
           nc_parameters['ElecLenList']=elec_len_list
+          
+       else:
+       
+          nc_parameters['GenerateConfigs']=False
            
        if compare_to_neuroConstruct:
        
@@ -77,6 +81,10 @@ def use_NeuroConstruct(compare_to_neuroConstruct,regenerate_nml2,proj_string=Non
           nc_parameters['dt']=global_dt
           
           cell_models_to_compare=[]
+          
+       else:
+          
+          nc_parameters['CompareToNeuroConstruct']=False
            
        for cell_model in config_array.keys():
            
@@ -259,21 +267,21 @@ def dashboard_cells(net_id,
                   print("%s is a directory"%full_file_path)
                   print("will generate the IF curve for %s.cell.nml"%cellModel)
                   generate_current_vs_frequency_curve(os.path.join(full_file_path,cellModel+".cell.nml"), 
-                                        cellModel, 
-                                        start_amp_nA =     if_params['start_amp_nA'], 
-                                        end_amp_nA =       if_params['end_amp_nA'], 
-                                        step_nA =          if_params['step_nA'], 
-                                        analysis_duration =if_params['analysis_duration'], 
-                                        analysis_delay =   if_params['analysis_delay'],
-                                        dt=                if_params['dt'],
-                                        temperature=       if_params['temperature'],
-                                        plot_voltage_traces=if_params['plot_voltage_traces'],
-                                        plot_if=            if_params['plot_if'],
-                                        plot_iv=            if_params['plot_iv'],
-                                        show_plot_already=  show_plot_already,
-                                        save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
-                                        save_iv_figure_to='%s/IV_%s.png'%(save_to_path,cellModel),
-                                        simulator=         if_params['simulator'])
+                                       cellModel, 
+                                       start_amp_nA =     if_params['start_amp_nA'], 
+                                       end_amp_nA =       if_params['end_amp_nA'], 
+                                       step_nA =          if_params['step_nA'], 
+                                       analysis_duration =if_params['analysis_duration'], 
+                                       analysis_delay =   if_params['analysis_delay'],
+                                       dt=                if_params['dt'],
+                                       temperature=       if_params['temperature'],
+                                       plot_voltage_traces=if_params['plot_voltage_traces'],
+                                       plot_if=            if_params['plot_if'],
+                                       plot_iv=            if_params['plot_iv'],
+                                       show_plot_already=  show_plot_already,
+                                       save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
+                                       save_iv_figure_to='%s/IV_%s.png'%(save_to_path,cellModel),
+                                       simulator=         if_params['simulator'])
                                         
                   IFcurve="IF_%s"%cellModel
                   
@@ -303,12 +311,12 @@ def dashboard_cells(net_id,
                      print("will generate the comparison between the nC model and NeuroML2 model")
                
                      PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
-                                    'subplotTitles':['NeuroML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
-                                    {'cols':8,'rows':5},
-                                    legend=True,
-                                    show=False,
-                                    save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['Analysis']),
-                                    nCcellPath=os.path.join(save_to_path,config_array[cellModel]['Analysis'])   )
+                                     'subplotTitles':['NeuroML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
+                                     {'cols':8,'rows':5},
+                                     legend=True,
+                                     show=False,
+                                     save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['Analysis']),
+                                     nCcellPath=os.path.join(save_to_path,config_array[cellModel]['Analysis'])   )
                                     
                      analysis_string1="nC_vs_NML2_%s"%config_array[cellModel]['Analysis']
                      
@@ -339,7 +347,8 @@ def dashboard_cells(net_id,
                                           verbose=False,
                                           spike_threshold_mV = 0,
                                           show_plot_already=show_plot_already,
-                                          save_figure_to="%s/Dt_%s.png"%(save_to_path,cellModel))
+                                          save_figure_to="%s/Dt_%s.png"%(save_to_path,cellModel),
+                                          num_of_last_spikes=None)
                                           
                   dt_curve="Dt_%s"%cellModel
                   
@@ -366,7 +375,8 @@ def dashboard_cells(net_id,
                                       verbose=False,
                                       spike_threshold_mV = 0,
                                       show_plot_already=show_plot_already,
-                                      save_figure_to="%s/Dx_%s.png"%(save_to_path,cellModel)) 
+                                      save_figure_to="%s/Dx_%s.png"%(save_to_path,cellModel),
+                                      num_of_last_spikes=None) 
                
               dx_curve="Dx_%s"%cellModel
                 
@@ -393,14 +403,13 @@ def dashboard_cells(net_id,
                  print("will generate the comparison between the nC model and NeuroML2 model")
                
                  PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
-                              'subplotTitles':['NML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
-                              {'cols':8,'rows':5},
-                              legend=True,
-                              show=show_plot_already,
-                              save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']),
-                              nCcellPath=os.path.join(save_to_path,config_array[cellModel]['SpikeProfile'])   )
-                              
-                              
+                                 'subplotTitles':['NML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
+                                 {'cols':8,'rows':5},
+                                 legend=True,
+                                 show=show_plot_already,
+                                 save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']),
+                                 nCcellPath=os.path.join(save_to_path,config_array[cellModel]['SpikeProfile'])   )
+                               
                  analysis_string2="nC_vs_NML2_%s"%config_array[cellModel]['SpikeProfile']
            
                  analysis_header2="Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
@@ -447,11 +456,14 @@ def dashboard_cells(net_id,
 
 ![Simulation](%(IVcurve)s.png)
 
-**Spike times versus dt curve for the NeuroML2 model simulated in NEURON**
+**Spike times versus time step: the NeuroML2 model simulated in NEURON.
+Dashed black lines - spike times at the smallest dt; Green - spike times for all time steps.**
 
 ![Simulation](%(DtCurve)s.png)
 
-**Spike times versus spatial discretization: default value for the number of internal divs is %(default_divs)s**
+**Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON.
+Default value for the number of internal divs is %(default_divs)s.
+Dashed black lines - spike times at the maximum number of compartments; Blue - spike times for all discretization values.**
 
 ![Simulation](%(DxCurve)s.png)'''
 
@@ -498,11 +510,14 @@ def dashboard_cells(net_id,
 
 ![Simulation](%(IVcurve)s.png)
 
-**Spike times versus dt curve for the NeuroML2 model simulated in NEURON**
+**Spike times versus time step: the NeuroML2 model simulated in NEURON. **
+**Dashed black lines - spike times at the smallest dt; Green - spike times for all time steps**
 
 ![Simulation](%(DtCurve)s.png)
 
-**Spike times versus spatial discretization: default value for the number of internal divs is %(default_divs)s**
+**Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON. **
+** Default value for the number of internal divs is %(default_divs)s. **
+**Dashed black lines - spike times at the maximum number of compartments; Blue - spike times for all discretization values.**
 
 ![Simulation](%(DxCurve)s.png)'''
 

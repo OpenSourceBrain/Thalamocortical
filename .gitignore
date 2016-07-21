@@ -15,6 +15,9 @@ simulations
 *.bak
 *py.class
 *.dat
+*.mod
+*.hoc
+*_nrn.py
 
 neuroConstruct/cellMechanisms/Syn_*
 neuroConstruct/savedNetworks

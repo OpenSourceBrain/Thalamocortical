@@ -117,16 +117,19 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
               
                
             src_files = os.listdir("../generatedNeuroML2/")
+            
             for file_name in src_files:
                 full_file_name = os.path.join("../generatedNeuroML2/", file_name)
                 if (os.path.isfile(full_file_name)):
                    print("Moving generated NeuroML2 to files to %s"%cellpath)
                    shutil.copy(full_file_name, cellpath)
                       
-    with open("compSummary.json",'w') as fout:
-        json.dump(compSummary, fout)            
-    subprocess.call(["~/neuroConstruct/nC.sh -python RegenerateNml2.py"],shell=True)
-    subprocess.call(["cp compSummary.json ~/Thalamocortical/NeuroML2/"],shell=True)
+    #with open("compSummary.json",'w') as fout:
+        #json.dump(compSummary, fout)    
+                
+    subprocess.call(["~/neuroConstruct/nC.sh -python RegenerateNml2.py -f"],shell=True)
+    
+    #subprocess.call(["cp compSummary.json ~/Thalamocortical/NeuroML2/"],shell=True)
    
     quit()
 
@@ -176,13 +179,13 @@ if __name__=="__main__":
             "Cell14-nRT-FigA8-500":"nRT"}
             
             
-   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
+   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict=configs,ElecLenList=[-1,0.05,0.025, 0.01,0.005, 0.0025, 0.001,0.0005, 0.00025, 0.0001])
    
    
    
    ######### regenerate specific configs from above if needed ...
    #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all","Cell1-supppyrRS-FigA1RS":"L23PyrRS"},ElecLenList=[-1])
-   #SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
+   SingleCellNML2generator(projString="../Thalamocortical.ncx",ConfigDict={"Default Simulation Configuration":"TestSeg_all"},ElecLenList=[-1])
    
    
    
