@@ -1,0 +1,82 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.2.0 (libNeuroML v0.2.20)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="Sim_Target"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="ChannelTest.net.nml"/>
+    <Include file="../channels/ar.channel.nml"/>
+    <Include file="../channels/ar__m00_25.channel.nml"/>
+    <Include file="../channels/cad.nml"/>
+    <Include file="../channels/cad__beta0_03__phi300000.nml"/>
+    <Include file="../channels/cal.channel.nml"/>
+    <Include file="../channels/cat.channel.nml"/>
+    <Include file="../channels/cat_a.channel.nml"/>
+    <Include file="../channels/k2.channel.nml"/>
+    <Include file="../channels/ka.channel.nml"/>
+    <Include file="../channels/ka_ib.channel.nml"/>
+    <Include file="../channels/kahp.channel.nml"/>
+    <Include file="../channels/kahp_deeppyr.channel.nml"/>
+    <Include file="../channels/kahp_slower.channel.nml"/>
+    <Include file="../channels/kc.channel.nml"/>
+    <Include file="../channels/kc_fast.channel.nml"/>
+    <Include file="../channels/kdr.channel.nml"/>
+    <Include file="../channels/kdr_fs.channel.nml"/>
+    <Include file="../channels/km.channel.nml"/>
+    <Include file="../channels/naf.channel.nml"/>
+    <Include file="../channels/naf2.channel.nml"/>
+    <Include file="../channels/naf_tcr.channel.nml"/>
+    <Include file="../channels/nap.channel.nml"/>
+    <Include file="../channels/napf.channel.nml"/>
+    <Include file="../channels/napf_spinstell.channel.nml"/>
+    <Include file="../channels/napf_tcr.channel.nml"/>
+    <Include file="../channels/pas.channel.nml"/>
+    <Include file="../cells/TestSeg_all.cell.nml"/>
+    <Include file="../channels/ar__m00_25.channel.nml"/>
+    <Include file="../channels/cad__beta0_03__phi300000.nml"/>
+    <Include file="../channels/cal.channel.nml"/>
+    <Include file="../channels/cat.channel.nml"/>
+    <Include file="../channels/cat_a.channel.nml"/>
+    <Include file="../channels/k2.channel.nml"/>
+    <Include file="../channels/ka.channel.nml"/>
+    <Include file="../channels/ka_ib.channel.nml"/>
+    <Include file="../channels/kahp.channel.nml"/>
+    <Include file="../channels/kahp_deeppyr.channel.nml"/>
+    <Include file="../channels/kahp_slower.channel.nml"/>
+    <Include file="../channels/kc.channel.nml"/>
+    <Include file="../channels/kc_fast.channel.nml"/>
+    <Include file="../channels/kdr.channel.nml"/>
+    <Include file="../channels/kdr_fs.channel.nml"/>
+    <Include file="../channels/km.channel.nml"/>
+    <Include file="../channels/naf.channel.nml"/>
+    <Include file="../channels/naf2.channel.nml"/>
+    <Include file="../channels/naf_tcr.channel.nml"/>
+    <Include file="../channels/nap.channel.nml"/>
+    <Include file="../channels/napf.channel.nml"/>
+    <Include file="../channels/napf_spinstell.channel.nml"/>
+    <Include file="../channels/napf_tcr.channel.nml"/>
+    <Include file="../channels/pas.channel.nml"/>
+   
+    <Simulation id="Sim_Target" length="100.0ms" step="0.01ms" target="Target" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <Display id="DispPop__CG_CML" title="Membrane potentials of cells in CG_CML" timeScale="1ms" xmin="-10.0" xmax="110.0" ymin="-90" ymax="50">
+            <Line id="CG_CML[0]: v" quantity="CG_CML/0/TestSeg_all/v" scale="1mV" color="#f7697f" timeScale="1ms"/>
+        </Display>
+        
+        <OutputFile id="Volts_file__CG_CML" fileName="Sim_Target.CG_CML.v.dat">
+            <OutputColumn id="v_CG_CML_0_TestSeg_all_v" quantity="CG_CML/0/TestSeg_all/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>

@@ -824,7 +824,7 @@ if __name__=="__main__":
            "Cell14-nRT-FigA8-300":"nRT",
            "Cell14-nRT-FigA8-500":"nRT"}
            
-  configs= {"Default Simulation Configuration":"TestSeg_all"}  
+  configs= {"Default_Simulation_Configuration":"TestSeg_all"}  
         
   generate_sims(configs,"../",0.01,'Target')
   
@@ -844,11 +844,16 @@ if __name__=="__main__":
                    "nRT":{"DatTag":'CGnRT_min75init_0'},
                    "TCR":{"DatTag":'CGTCR_0'}}
    
-  generate_and_copy_dat("../simulations",targetFileDict,"../../NeuroML2/")
+  #generate_and_copy_dat("../simulations",targetFileDict,"../../NeuroML2/")
+  
+  plot=False
+  
+  
+  if plot:
    
-  PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_10ms.CGsuppyrRS.v','Sim_Cell2_suppyrFRB_10ms.CGsuppyrFRB.v',
-   'Sim_Cell3_supbask_10ms.CGsupbask.v','Sim_Cell4_supaxax_10ms.CGsupaxax.v','Sim_Cell5_supLTS_10ms.CGsupLTS.v','Sim_Cell7_tuftIB_10ms.CGtuftIB.v',
-   'Sim_Cell8_tuftRS_10ms.CGtuftRS.v','Sim_Cell9_nontuftRS_10ms.CGnontuftRS.v','Sim_Cell10_deepbask_10ms.CGdeepbask.v','Sim_Cell11_deepaxax_10ms.CGdeepaxax.v',
+     PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_10ms.CGsuppyrRS.v','Sim_Cell2_suppyrFRB_10ms.CGsuppyrFRB.v',
+     'Sim_Cell3_supbask_10ms.CGsupbask.v','Sim_Cell4_supaxax_10ms.CGsupaxax.v','Sim_Cell5_supLTS_10ms.CGsupLTS.v','Sim_Cell7_tuftIB_10ms.CGtuftIB.v',
+    'Sim_Cell8_tuftRS_10ms.CGtuftRS.v','Sim_Cell9_nontuftRS_10ms.CGnontuftRS.v','Sim_Cell10_deepbask_10ms.CGdeepbask.v','Sim_Cell11_deepaxax_10ms.CGdeepaxax.v',
 'Sim_Cell12_deepLTS_10ms.CGdeepLTS.v','Sim_Cell14_nRT_10ms.CGnRT_min75init.v'],
  
    'nC':['CGsupppyrRS_0_wtime','CGsuppyrFRB_0_wtime','CGsupbask_0_10ms_wtime',
@@ -859,7 +864,7 @@ if __name__=="__main__":
    
    
    
-  PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_FIgA1RS.CGsuppyrRS.v',
+     PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_FIgA1RS.CGsuppyrRS.v',
    'Sim_Cell2_suppyrFRB_FigA1FRB.CGsuppyrFRB.v','Sim_Test_Cell3_supbask_FigA2a.CGsupbask.v',
    'Sim_Cell4_supaxax_FigA2a.CGsupaxax.v','Sim_Cell5_supLTS_FigA2b.CGsupLTS.v','Sim_Cell7_tuftIB_FIgA4_900.CGtuftIB.v',
    'Sim_Cell7_tuftIB_FigA4_1100.CGtuftIB.v','Sim_Cell7_tuftIB_FigA4_1300.CGtuftIB.v','Sim_Cell7_tuftIB_FigA4_1500.CGtuftIB.v','Sim_Cell8_tuftRS_FigA5_800.CGtuftRS.v',
