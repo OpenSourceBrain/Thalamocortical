@@ -34,6 +34,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         duration=300,
                         dt=0.025,
                         max_memory='1000M',
+                        seed=1234,
                         simulator=None):
               
                         
@@ -47,7 +48,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
     popDictFull['CG3D_L5TuftIB'] = (800, 'L5','L5TuftedPyrIB')
     popDictFull['CG3D_L5TuftRS']= (200,'L5','L5TuftedPyrRS')          
     popDictFull['CG3D_L4SpinStell']= (240,'L4','L4SpinyStellate')
-    popDictFull['CG3D_L23PyrFRB']= (50,'L23','L23PyrFRB')
+    popDictFull['CG3D_L23PyrFRB']= (50,'L23','L23PyrFRB_varInit')
     popDictFull['CG3D_L6NonTuftRS']= (500,'L6','L6NonTuftedPyrRS')
     popDictFull['CG3D_DeepAxAx']= (100,'L6','DeepAxAx')
     popDictFull['CG3D_DeepBask']= (100,'L6','DeepBasket')
@@ -62,7 +63,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     cell_model_list=[]
     
-    nml_doc, network = oc.generate_network(net_id)
+    nml_doc, network = oc.generate_network(net_id,seed)
     
     for cell_population in popDictFull.keys():
     

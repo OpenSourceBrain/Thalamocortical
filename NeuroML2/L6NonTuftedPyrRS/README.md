@@ -1,35 +1,35 @@
  
          
-## Model: L23PyrRS
+## Model: L6NonTuftedPyrRS
 
-### Original neuroConstruct config ID: Cell1-supppyrRS-10ms
-
-**Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=0.010000**
-
-![Simulation](nC_vs_NML2_Cell1-supppyrRS-10ms.png)
-
-### Original neuroConstruct config ID: Cell1-supppyrRS-FigA1RS
+### Original neuroConstruct config ID: Cell9-nontuftRS-10ms
 
 **Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=0.010000**
 
-![Simulation](nC_vs_NML2_Cell1-supppyrRS-FigA1RS.png)
+![Simulation](nC_vs_NML2_Cell9-nontuftRS-10ms.png)
+
+### Original neuroConstruct config ID: Cell9-nontuftRS-FigA6-1000
+
+**Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=0.010000**
+
+![Simulation](nC_vs_NML2_Cell9-nontuftRS-FigA6-1000.png)
 
 **IF curve for the NeuroML2 model simulated in NEURON**
 
-![Simulation](IF_L23PyrRS.png)
+![Simulation](IF_L6NonTuftedPyrRS.png)
 
 **IV curve for the NeuroML2 model simulated in NEURON**
 
-![Simulation](IV_L23PyrRS.png)
+![Simulation](IV_L6NonTuftedPyrRS.png)
 
 **Spike times versus time step: the NeuroML2 model simulated in NEURON.
 Dashed black lines - spike times at the 0.005 ms time step; Green - spike times at the following time steps (in ms): [0.005, 0.01, 0.025].**
 
-![Simulation](Dt_L23PyrRS.png)
+![Simulation](Dt_L6NonTuftedPyrRS.png)
 
 **Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON.
-Default value for the number of internal divs is 1042.
-Dashed black lines - spike times at the 1042 internal divisions; Blue - spike times at the following values of internal divisions:
-[171, 329, 1042].**
+Default value for the number of internal divs is 1165.
+Dashed black lines - spike times at the 1165 internal divisions; Blue - spike times at the following values of internal divisions:
+[142, 252, 1165].**
 
-![Simulation](Dx_L23PyrRS.png)
+![Simulation](Dx_L6NonTuftedPyrRS.png)

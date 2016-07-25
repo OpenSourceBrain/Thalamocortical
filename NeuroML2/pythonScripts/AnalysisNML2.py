@@ -588,7 +588,6 @@ def analyse_spiketime_vs_dx(lems_path_dict,
              
         all_results[int(num_of_comps)] = results
         
-
     xs = []
     ys = []
     labels = []
@@ -611,9 +610,14 @@ def analyse_spiketime_vs_dx(lems_path_dict,
         labels.append(num_of_comps)
         
         mm = max_min(v, t, delta=0, peak_threshold=spike_threshold_mV)
+        
         spike_times = mm['maxima_times']
+        
         spike_times_final.append(spike_times)
+        
         array_of_num_of_spikes.append(len(spike_times))
+        
+    max_num_of_spikes=max(array_of_num_of_spikes)
     
     max_comps_spikes=spike_times_final[-1]
     
@@ -621,69 +625,69 @@ def analyse_spiketime_vs_dx(lems_path_dict,
     
     if num_of_last_spikes == None:
     
-       num_of_spikes=array_of_num_of_spikes[-1]
+       num_of_spikes=len(max_comps_spikes)
        
     else:
        
-       if array_of_num_of_spikes[-1] >=num_of_last_spikes:
+       if len(max_comps_spikes) >=num_of_last_spikes:
        
           num_of_spikes=num_of_last_spikes
           
        else:
        
-          num_of_spikes=array_of_num_of_spikes[-1]
+          num_of_spikes=len(max_comps_spikes)
           
-    collecting_spikes=True
-       
-    last_spike_index=-1
-       
-    spike_counter=0
+    spike_indices=[(-1)*ind for ind in range(1,num_of_spikes+1) ]
     
-    while collecting_spikes:
+    if len(max_comps_spikes) > abs(spike_indices[-1]):
+    
+       earliest_spike_time=max_comps_spikes[spike_indices[-1]-1]
        
-       spike_time_values=[]
+    else:
+     
+       earliest_spike_time=max_comps_spikes[spike_indices[-1]]
+       
+    for spike_ind in range(0,max_num_of_spikes):
+   
+        spike_time_values=[]
         
-       compartments=[]
+        compartments=[]
         
-       for comp_value in range(0,len(comp_values)):
+        for comp_value in range(0,len(comp_values)):
         
-           if spike_times_final[comp_value] !=[]:
+            if spike_times_final[comp_value] !=[]:
            
-              if len(spike_times_final[comp_value]) > abs(last_spike_index)-1:
+              if len(spike_times_final[comp_value]) >= spike_ind+1 :
+              
+                 if spike_times_final[comp_value][spike_ind] >= earliest_spike_time:
              
-                 spike_time_values.append(spike_times_final[comp_value][last_spike_index])
+                    spike_time_values.append(spike_times_final[comp_value][spike_ind])
                
-                 compartments.append(comp_values[comp_value])       
+                    compartments.append(comp_values[comp_value])       
         
-       linestyles.append('-')
+        linestyles.append('')
                
-       markers.append('o')
+        markers.append('o')
        
-       colors.append('b')
+        colors.append('b')
        
-       spxs.append(compartments)
+        spxs.append(compartments)
        
-       spys.append(spike_time_values)
+        spys.append(spike_time_values)
+    
+    for last_spike_index in spike_indices:
        
-       vertical_line=[max_comps_spikes[last_spike_index],max_comps_spikes[last_spike_index] ]
+        vertical_line=[max_comps_spikes[last_spike_index],max_comps_spikes[last_spike_index] ]
           
-       spxs.append(bound_comps)
+        spxs.append(bound_comps)
           
-       spys.append(vertical_line)
+        spys.append(vertical_line)
           
-       linestyles.append('--')
+        linestyles.append('--')
           
-       markers.append('')
+        markers.append('')
        
-       colors.append('k')
-       
-       last_spike_index-=1
-          
-       spike_counter+=1
-          
-       if spike_counter==num_of_spikes:
-          
-          collecting_spikes=False
+        colors.append('k')
              
     pynml.generate_plot(spxs, 
           spys, 
@@ -691,15 +695,11 @@ def analyse_spiketime_vs_dx(lems_path_dict,
           colors=colors,
           linestyles = linestyles,
           markers = markers,
-          xaxis = 'Number of compartments', 
+          xaxis = 'Number of internal divisions',
           yaxis = 'Spike times (s)',
           show_plot_already=show_plot_already,
           save_figure_to=save_figure_to)       
     
-        
-    
-
-        
     if verbose:
         pynml.generate_plot(xs, 
                   ys, 
@@ -847,7 +847,6 @@ if __name__=="__main__":
   #generate_and_copy_dat("../simulations",targetFileDict,"../../NeuroML2/")
   
   plot=False
-  
   
   if plot:
    

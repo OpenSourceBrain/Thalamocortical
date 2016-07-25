@@ -21,6 +21,7 @@ from AnalysisNML2 import PlotNC_vs_NML2
 from AnalysisNML2 import generate_nml2_plot
 from matplotlib import pyplot as plt
 import math
+import numpy as np
 import subprocess
 
 
@@ -241,6 +242,10 @@ def dashboard_cells(net_id,
            
            num_dx_configs=0
            
+           dx_array=[]
+           
+           found_all_compartmentalizations=False
+           
            dx_configs={}
         
            target_v=None
@@ -248,7 +253,9 @@ def dashboard_cells(net_id,
            found_default=False
            
            for file_name in src_files:
+           
                full_file_path=os.path.join(pathToConfig,file_name)
+               
                if (os.path.isdir(full_file_path)) and "_default" in file_name:
                
                   found_default=True
@@ -258,30 +265,32 @@ def dashboard_cells(net_id,
                   ###################################################################################
                   if -1 in elec_len_list and "-1" in cell_morph_summary.keys():
                   
-                     dx_configs[cell_morph_summary["-1"]["IntDivs"]]=original_LEMS_target
+                      dx_configs[cell_morph_summary["-1"]["IntDivs"]]=original_LEMS_target
                      
-                     default_num_of_comps=cell_morph_summary["-1"]["IntDivs"]
+                      default_num_of_comps=cell_morph_summary["-1"]["IntDivs"]
+                      
+                      dx_array.append(int(default_num_of_comps))
                      
-                     num_dx_configs+=1
+                      num_dx_configs+=1
                   ##################################################################################      
                   print("%s is a directory"%full_file_path)
                   print("will generate the IF curve for %s.cell.nml"%cellModel)
                   generate_current_vs_frequency_curve(os.path.join(full_file_path,cellModel+".cell.nml"), 
-                                       cellModel, 
-                                       start_amp_nA =     if_params['start_amp_nA'], 
-                                       end_amp_nA =       if_params['end_amp_nA'], 
-                                       step_nA =          if_params['step_nA'], 
-                                       analysis_duration =if_params['analysis_duration'], 
-                                       analysis_delay =   if_params['analysis_delay'],
-                                       dt=                if_params['dt'],
-                                       temperature=       if_params['temperature'],
-                                       plot_voltage_traces=if_params['plot_voltage_traces'],
-                                       plot_if=            if_params['plot_if'],
-                                       plot_iv=            if_params['plot_iv'],
-                                       show_plot_already=  show_plot_already,
-                                       save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
-                                       save_iv_figure_to='%s/IV_%s.png'%(save_to_path,cellModel),
-                                       simulator=         if_params['simulator'])
+                                      cellModel, 
+                                      start_amp_nA =     if_params['start_amp_nA'], 
+                                      end_amp_nA =       if_params['end_amp_nA'], 
+                                      step_nA =          if_params['step_nA'], 
+                                      analysis_duration =if_params['analysis_duration'], 
+                                      analysis_delay =   if_params['analysis_delay'],
+                                      dt=                if_params['dt'],
+                                      temperature=       if_params['temperature'],
+                                      plot_voltage_traces=if_params['plot_voltage_traces'],
+                                      plot_if=            if_params['plot_if'],
+                                      plot_iv=            if_params['plot_iv'],
+                                      show_plot_already=  show_plot_already,
+                                      save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
+                                      save_iv_figure_to='%s/IV_%s.png'%(save_to_path,cellModel),
+                                      simulator=         if_params['simulator'])
                                         
                   IFcurve="IF_%s"%cellModel
                   
@@ -333,8 +342,9 @@ def dashboard_cells(net_id,
                                             
                      analysis_string1="NML2_%s"%config_array[cellModel]['Analysis']
                      
-                     analysis_header1="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
-                              
+                     analysis_header1="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt     
+                     
+                  smallest_dt=min(dt_list)  
                               
                   ########################################################################################
                   print("will generate the spike times vs dt curve for %s.cell.nml"%cellModel)
@@ -352,23 +362,42 @@ def dashboard_cells(net_id,
                                           
                   dt_curve="Dt_%s"%cellModel
                   
-               for elecLen in range(0,len(elec_len_list)):
-               
-                   elec_len=str(elec_len_list[elecLen]) 
+               if not found_all_compartmentalizations:
                   
-                   if elec_len  in file_name and elec_len in cell_morph_summary.keys():
+                  for elecLen in range(0,len(elec_len_list)):
+               
+                      elec_len=str(elec_len_list[elecLen]) 
                       
-                      dx_configs[cell_morph_summary[elec_len]["IntDivs"]]=os.path.join(full_file_path,"LEMS_Target.xml")
+                      if elec_len != "-1":
+                  
+                         if (elec_len  in file_name) and (elec_len in cell_morph_summary.keys() ):
                       
-                      num_dx_configs+=1
+                            dx_configs[cell_morph_summary[elec_len]["IntDivs"]]=os.path.join(full_file_path,"LEMS_Target.xml")
+                      
+                            num_dx_configs+=1
+                         
+                            dx_array.append(int(cell_morph_summary[elec_len]["IntDivs"] ) )
+                      
+                            break
+                         
+               if num_dx_configs==len(elec_len_list):
+                  
+                  found_all_compartmentalizations=True 
                       
            if not found_default:
            
               print("default configuration for %s analysis is not found; execution will terminate; set regenerate_nml2 to True to generate target dirs."%cellModel)
+              
               quit()
                       
-           if num_dx_configs==len(elec_len_list):
+           if found_all_compartmentalizations:
+           
+              dx_array=list(np.sort(dx_array) )
+                  
+              maximum_int_divs=max(dx_array)
+           
               print("testing the presence of cell configs with different levels of spatial discretization")
+              
               analyse_spiketime_vs_dx(dx_configs, 
                                       if_params['simulator'],
                                       target_v,
@@ -457,13 +486,14 @@ def dashboard_cells(net_id,
 ![Simulation](%(IVcurve)s.png)
 
 **Spike times versus time step: the NeuroML2 model simulated in NEURON.
-Dashed black lines - spike times at the smallest dt; Green - spike times for all time steps.**
+Dashed black lines - spike times at the %(Smallest_dt)s ms time step; Green - spike times at the following time steps (in ms): %(DtArray)s.**
 
 ![Simulation](%(DtCurve)s.png)
 
 **Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON.
 Default value for the number of internal divs is %(default_divs)s.
-Dashed black lines - spike times at the maximum number of compartments; Blue - spike times for all discretization values.**
+Dashed black lines - spike times at the %(MaximumDivs)s internal divisions; Blue - spike times at the following values of internal divisions:
+%(IntDivsArray)s.**
 
 ![Simulation](%(DxCurve)s.png)'''
 
@@ -479,7 +509,11 @@ Dashed black lines - spike times at the maximum number of compartments; Blue - s
                                    "SpikeProfileCurve":analysis_string2,
                                    "AnalysisHeader2":analysis_header2,
                                    "default_divs":default_num_of_comps,
-                                   "SpikeProfile":config_array[cellModel]['SpikeProfile']}
+                                   "SpikeProfile":config_array[cellModel]['SpikeProfile'],
+                                   "Smallest_dt":smallest_dt,
+                                   "DtArray":dt_list,
+                                   "IntDivsArray":dx_array,
+                                   "MaximumDivs":maximum_int_divs}
                            
               readme_file.write(readme_final)
               readme_file.close()
@@ -510,14 +544,15 @@ Dashed black lines - spike times at the maximum number of compartments; Blue - s
 
 ![Simulation](%(IVcurve)s.png)
 
-**Spike times versus time step: the NeuroML2 model simulated in NEURON. **
-**Dashed black lines - spike times at the smallest dt; Green - spike times for all time steps**
+**Spike times versus time step: the NeuroML2 model simulated in NEURON.
+Dashed black lines - spike times at the %(Smallest_dt)s ms time step; Green - spike times for the following time steps (in ms): %(DtArray)s.**
 
 ![Simulation](%(DtCurve)s.png)
 
-**Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON. **
-** Default value for the number of internal divs is %(default_divs)s. **
-**Dashed black lines - spike times at the maximum number of compartments; Blue - spike times for all discretization values.**
+**Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON.
+Default value for the number of internal divs is %(default_divs)s.
+Dashed black lines - spike times at the %(MaximumDivs)s internal divisions; Blue - spike times at the following values of internal divisions:
+%(IntDivsArray)s.**
 
 ![Simulation](%(DxCurve)s.png)'''
 
@@ -531,7 +566,11 @@ Dashed black lines - spike times at the maximum number of compartments; Blue - s
                                    "DxCurve":dx_curve,
                                    "nC_vs_NML2Curve":analysis_string1,
                                    "AnalysisHeader1":analysis_header1,
-                                   "default_divs":default_num_of_comps}
+                                   "default_divs":default_num_of_comps,
+                                   "Smallest_dt":smallest_dt,
+                                   "DtArray":dt_list,
+                                   "IntDivsArray":dx_array,
+                                   "MaximumDivs":maximum_int_divs}
                            
               readme_file.write(readme_final)
               readme_file.close()

@@ -2,7 +2,7 @@ from dashboard_cells import *
 
 class generate_dashboards():
 
-   def __init__(self,testing_mode=True,generate_dashboards=True,regenerate_nml2=True,compare_to_neuroconstruct=True):
+   def __init__(self,testing_mode=True,generate_dashboards=True,regenerate_nml2=True,compare_to_neuroconstruct=True,specific_cell_models=None):
    
       self.testing_mode=testing_mode
       
@@ -12,17 +12,12 @@ class generate_dashboards():
       
       self.regenerate_nml2=regenerate_nml2
       
+      self.specific_cell_models=specific_cell_models
+      
    def set_simulations(self):
   
        print "testing a new script: dashboard_cells"
-
-       single_config={"L23PyrFRB":{"Analysis":"Cell2-suppyrFRB-FigA1FRB","SpikeProfile":"Cell2-suppyrFRB-10ms",'OriginalTag':'CGsuppyrFRB_0_wtime'} }
        
-       #### configs in too_long_strings_for_neuron should be included in all_cell_models when the issue with long names of cell mechanisms in NEURON is resolved
-       
-       too_long_strings_for_neuron={"L4SpinyStellate":{"Analysis":"Cell6-spinstell-FigA3-333","SpikeProfile":"Cell6-spinstell-10ms","OriginalTag":'CGspinstell_0_wtime'},
-                                    "TCR":{"Analysis":"Cell13-TCR-FigA7-600","SpikeProfile":"Cell13-TCR-10ms","OriginalTag":'CGTCR_0_wtime'} }
-  
        all_cell_models={"L23PyrRS":{'Analysis':"Cell1-supppyrRS-FigA1RS","SpikeProfile":"Cell1-supppyrRS-10ms",'OriginalTag':'CGsuppyrRS_0_wtime'},
                    "L23PyrFRB":{"Analysis":"Cell2-suppyrFRB-FigA1FRB","SpikeProfile":"Cell2-suppyrFRB-10ms",'OriginalTag':'CGsuppyrFRB_0_wtime'},
                    "SupBasket":{"Analysis":"Cell3-supbask-FigA2a","SpikeProfile":"Cell3-supbask-10ms","OriginalTag":'CGsupbask_0_wtime'},
@@ -34,13 +29,27 @@ class generate_dashboards():
                    "DeepBasket":{"Analysis":"Cell10-deepbask-10ms","SpikeProfile":"Cell10-deepbask-10ms","OriginalTag":'CGdeepbask_0_wtime'},
                    "DeepAxAx":{"Analysis":"Cell11-deepaxax-10ms","SpikeProfile":"Cell11-deepaxax-10ms","OriginalTag":'CGdeepaxax_0_wtime'},
                    "DeepLTSInter":{"Analysis":"Cell12-deepLTS-FigA2b","SpikeProfile":"Cell12-deepLTS-10ms","OriginalTag":'CGdeepLTS_0_wtime'},
-                   "nRT":{"Analysis":"Cell14-nRT-FigA8-00","SpikeProfile":"Cell14-nRT-10ms","OriginalTag":'CGnRT_min75init_0_wtime'} }
-               
+                   "nRT":{"Analysis":"Cell14-nRT-FigA8-00","SpikeProfile":"Cell14-nRT-10ms","OriginalTag":'CGnRT_min75init_0_wtime'},
+                   "L4SpinyStellate":{"Analysis":"Cell6-spinstell-FigA3-333","SpikeProfile":"Cell6-spinstell-10ms","OriginalTag":'CGspinstell_0_wtime'},
+                   "TCR":{"Analysis":"Cell13-TCR-FigA7-600","SpikeProfile":"Cell13-TCR-10ms","OriginalTag":'CGTCR_0_wtime'} }
+                   
+       if self.specific_cell_models==None:
+       
+          cell_models=all_cell_models
+          
+       else:
+       
+          cell_models={}
+          
+          for cell_model in self.specific_cell_models:
+          
+              cell_models[cell_model]=all_cell_models[cell_model]
+       
        if self.testing_mode:  
        
           start_amp=-0.2
           
-          end_amp=0.2
+          end_amp=0.4
           
           step=0.2    
           
@@ -82,7 +91,7 @@ class generate_dashboards():
        
        dashboard_cells(net_id='Target',
                        net_file_name='Thalamocortical',
-                       config_array=single_config,
+                       config_array=cell_models,
                        global_dt=0.01,
                        if_params=ifParams,
                        elec_len_list=ElecLenList,
@@ -95,5 +104,11 @@ class generate_dashboards():
        
 if __name__=="__main__":
   
-  gen=generate_dashboards(regenerate_nml2=False,testing_mode=False,generate_dashboards=True,compare_to_neuroconstruct=True) 
+  gen=generate_dashboards(regenerate_nml2=False,
+                          testing_mode=True,
+                          generate_dashboards=True,
+                          compare_to_neuroconstruct=True,
+                          specific_cell_models=["L23PyrFRB","SupAxAx","SupLTSInter","L5TuftedPyrIB",
+                          "DeepAxAx","nRT"] ) 
+  
   gen.set_simulations()
