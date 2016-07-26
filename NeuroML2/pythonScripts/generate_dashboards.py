@@ -66,7 +66,7 @@ class generate_dashboards():
        
           start_amp=-0.2
           
-          end_amp=0.4
+          end_amp=0.6
           
           step=0.02
           
@@ -106,9 +106,9 @@ class generate_dashboards():
 if __name__=="__main__":
   
   gen=generate_dashboards(regenerate_nml2=True,
-                          testing_mode=False,
+                          testing_mode=True,
                           generate_dashboards=True,
                           compare_to_neuroconstruct=True,
-                          specific_cell_models=None) 
+                          specific_cell_models=["SupAxAx"]) 
   
   gen.set_simulations()
