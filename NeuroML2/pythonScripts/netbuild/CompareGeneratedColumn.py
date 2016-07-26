@@ -98,41 +98,53 @@ class CompareGeneratedColumn():
        
         reference_net=self.reference_net_doc.networks[0]
        
-        reference_chem_proj_info={}
+        reference_chem_proj_info=[]
         
-        reference_elect_proj_info={}
+        reference_elect_proj_info=[]
+        
+        reference_elect_proj_ids=[]
+        
+        reference_chem_proj_ids=[]
         
         for elect_proj_counter in range(0,len(reference_net.electrical_projections)):
         
             proj=reference_net.electrical_projections[elect_proj_counter]
             
-            reference_elect_proj_info[proj.id]={}
+            reference_chem_proj_ids.append(proj.id)
             
-            reference_elect_proj_info[proj.id]['pre']=proj.presynaptic_population
+            proj_info={}
             
-            reference_elect_proj_info[proj.id]['post']=proj.postsynaptic_population
+            proj_info['id']=proj.id
             
-            reference_elect_proj_info[proj.id]['numConns']=len(proj.electrical_connections)
+            proj_info['pre']=proj.presynaptic_population
             
-            reference_elect_proj_info[proj.id]['synapse']=proj.electrical_connections[0].synapse
+            proj_info['post']=proj.postsynaptic_population
             
-        reference_elect_proj_ids=reference_elect_proj_info.keys()
+            proj_info['numConns']=len(proj.electrical_connections)
+            
+            proj_info['synapse']=proj.electrical_connections[0].synapse
+            
+            reference_elect_proj_info.append(proj_info)
         
         for chem_proj_counter in range(0,len(reference_net.projections)):
         
             proj=reference_net.projections[chem_proj_counter]
             
-            reference_chem_proj_info[proj.id]={}
+            reference_chem_proj_ids.append(proj.id)
             
-            reference_chem_proj_info[proj.id]['pre']=proj.presynaptic_population
+            proj_info={}
             
-            reference_chem_proj_info[proj.id]['post']=proj.postsynaptic_population
+            proj_info['id']=proj.id
             
-            reference_chem_proj_info[proj.id]['synapse']=proj.synapse
+            proj_info['pre']=proj.presynaptic_population
             
-            reference_chem_proj_info[proj.id]['numConns']=len(proj.connections)
+            proj_info['post']=proj.postsynaptic_population
             
-        reference_chem_proj_ids=reference_chem_proj_info.keys() 
+            proj_info['synapse']=proj.synapse
+            
+            proj_info['numConns']=len(proj.connections)
+            
+            reference_chem_proj_info.append(proj_info)
         
         found_target_proj_list=[]
         
@@ -144,27 +156,27 @@ class CompareGeneratedColumn():
             
             all_target_projs.append(target_proj.id)
             
-            for ref_proj_id in reference_chem_proj_info.keys():
+            for ref_proj_counter in range(0,len(reference_chem_proj_info) ):
             
-                check_pre_pop=target_proj.presynaptic_population == reference_chem_proj_info[ref_proj_id]['pre']
+                check_pre_pop=target_proj.presynaptic_population == reference_chem_proj_info[ref_proj_counter]['pre']
                 
-                check_post_pop=target_proj.postsynaptic_population == reference_chem_proj_info[ref_proj_id]['post']
+                check_post_pop=target_proj.postsynaptic_population == reference_chem_proj_info[ref_proj_counter]['post']
                 
-                check_syn=target_proj.synapse == reference_chem_proj_info[ref_proj_id]['synapse']
+                check_syn=target_proj.synapse == reference_chem_proj_info[ref_proj_counter]['synapse']
                 
                 if check_pre_pop and check_post_pop and check_syn:
-                
-                   reference_chem_proj_ids.remove(ref_proj_id)
-                
-                   found_target_proj_list.append(target_proj.id)
                    
-                   check_num_connections=len(target_proj.connection_wds) == reference_chem_proj_info[ref_proj_id]['numConns']
+                   check_num_connections=len(target_proj.connection_wds) == reference_chem_proj_info[ref_proj_counter]['numConns']
                    
                    if not check_num_connections:
             
                       print("Error in %s.net.nml: the projection id= %s has %d connections but the corresponding reference projection id = %s has %d connections."
                       %(target_net.id,target_proj.id,len(target_proj.connection_wds),ref_proj_id, reference_chem_proj_info[ref_proj_id]['numConns']))
                       self.error_counter+=1
+                   
+                   reference_chem_proj_ids.remove(reference_chem_proj_info[ref_proj_counter]['id'])
+                
+                   found_target_proj_list.append(target_proj.id)
                       
         if reference_chem_proj_ids !=[]:
         

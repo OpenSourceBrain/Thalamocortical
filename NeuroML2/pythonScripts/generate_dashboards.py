@@ -106,7 +106,7 @@ class generate_dashboards():
 if __name__=="__main__":
   
   gen=generate_dashboards(regenerate_nml2=True,
-                          testing_mode=True,
+                          testing_mode=False,
                           generate_dashboards=True,
                           compare_to_neuroconstruct=True,
                           specific_cell_models=None) 
