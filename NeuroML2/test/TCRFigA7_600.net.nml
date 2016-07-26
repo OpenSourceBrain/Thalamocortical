@@ -1,0 +1,51 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="Target">
+    <notes>
+
+Network structure (NeuroML 2beta4) for project: Thalamocortical saved with neuroConstruct v1.7.1 on: 11:31:05, 21-Jul-16
+
+Cell Group: CGTCR contains 1 cells
+
+
+
+    </notes>
+    <include href="../channels/ar.channel.nml"></include>
+    <include href="../channels/ar__m00_25.channel.nml"></include>
+    <include href="../channels/ar__m00_25.channel.nml"></include>
+    <include href="../channels/ar__m00_25.channel.nml"></include>
+    <include href="../channels/cad.nml"></include>
+    <include href="../channels/cad__beta0_02__phi52000.nml"></include>
+    <include href="../channels/cad__beta0_05__phi104000.nml"></include>
+    <include href="../channels/cal.channel.nml"></include>
+    <include href="../channels/cat.channel.nml"></include>
+    <include href="../channels/k2.channel.nml"></include>
+    <include href="../channels/ka.channel.nml"></include>
+    <include href="../channels/kahp_slower.channel.nml"></include>
+    <include href="../channels/kc.channel.nml"></include>
+    <include href="../channels/kdr.channel.nml"></include>
+    <include href="../channels/km.channel.nml"></include>
+    <include href="../channels/naf_tcr.channel.nml"></include>
+    <include href="../channels/naf_tcr__shift_hnafmin7__shift_mnaf_initmin3__shift_mnaf_runmin2_5.channel.nml"></include>
+    <include href="../channels/naf_tcr__shift_hnafmin7__shift_mnaf_initmin3__shift_mnaf_runmin2_5.channel.nml"></include>
+    <include href="../channels/naf_tcr__shift_hnafmin7__shift_mnaf_initmin3__shift_mnaf_runmin2_5.channel.nml"></include>
+    <include href="../channels/napf_tcr.channel.nml"></include>
+    <include href="../channels/napf_tcr__a0__b0__c0__d0__fastNa_shift7.channel.nml"></include>
+    <include href="../channels/napf_tcr__a0__b0__c0__d0__fastNa_shift7.channel.nml"></include>
+    <include href="../channels/pas.channel.nml"></include>
+    <include href="../cells/TCR.cell.nml"></include>
+    <pulseGenerator id="Input_42" delay="0.0ms" duration="300.0ms" amplitude="-9.0E-4uA"/>
+    <pulseGenerator id="Input_42d" delay="300.0ms" duration="1200.0ms" amplitude="6.0E-4uA"/>
+    <network id="Target" type="networkWithTemperature" temperature="6.3 degC">
+        <population id="CGTCR" component="TCR" size="1" type="populationList">
+            <annotation/>
+            <instance id="0">
+                <location x="0." y="0." z="0."/>
+            </instance>
+        </population>
+        <inputList id="Input_42" population="CGTCR" component="Input_42">
+            <input id="0" target="../CGTCR/0/TCR" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_42d" population="CGTCR" component="Input_42d">
+            <input id="0" target="../CGTCR/0/TCR" destination="synapses"/>
+        </inputList>
+    </network>
+</neuroml>

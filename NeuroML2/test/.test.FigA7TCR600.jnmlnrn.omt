@@ -1,6 +1,6 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
-target: Cell13-TCR-FigA7-600/Cell13-TCR-FigA7-600_default/LEMS_Target.xml 
+target: LEMS_TCRFigA7_600.xml 
 engine: jNeuroML_NEURON
 
 mep: ./.test.TCRFigA7_600.mep
@@ -9,7 +9,7 @@ experiments:
     observables:
       spike times:
         file: 
-          path: Cell13-TCR-FigA7-600/Cell13-TCR-FigA7-600_default/Sim_Target.CGTCR.v.dat
+          path: Sim_Target.CGTCR.v.dat
           columns: [0,1]
           scaling: [1, 1]
         spike detection: 

@@ -15,8 +15,13 @@ simulations
 *.bak
 *py.class
 *.dat
+*.mod
+*.hoc
+*_nrn.py
 
 neuroConstruct/cellMechanisms/Syn_*
+neuroConstruct/savedNetworks
+
 
 neuroConstruct/pythonScripts/testFiles/nrntraub
 neuroConstruct/pythonScripts/testFiles/nrntraub_rev/batchdata
@@ -38,9 +43,7 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/*-*
 /NeuroML2/*_*
 
-/NeuroML2/pythonScripts/*
 
-/NeuroML2/pythonScripts
 /NeuroML2/pythonScripts/*.json
 /NeuroML2/pythonScripts/*.mod
 /NeuroML2/pythonScripts/*.hoc

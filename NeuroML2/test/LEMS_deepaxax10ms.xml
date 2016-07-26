@@ -1,0 +1,65 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.1.13 (libNeuroML v0.2.19)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="Sim_Target"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="deepaxax10ms.net.nml"/>
+    <Include file="../channels/ar.channel.nml"/>
+    <Include file="../channels/ar__m00_25.channel.nml"/>
+    <Include file="../channels/cad.nml"/>
+    <Include file="../channels/cad__beta0_02__phi260000.nml"/>
+    <Include file="../channels/cad__beta0_05__phi520000.nml"/>
+    <Include file="../channels/cal.channel.nml"/>
+    <Include file="../channels/cat.channel.nml"/>
+    <Include file="../cells/DeepAxAx.cell.nml"/>
+    <Include file="../channels/ar__m00_25.channel.nml"/>
+    <Include file="../channels/cad__beta0_02__phi260000.nml"/>
+    <Include file="../channels/cad__beta0_05__phi520000.nml"/>
+    <Include file="../channels/cal.channel.nml"/>
+    <Include file="../channels/cat.channel.nml"/>
+    <Include file="../channels/k2.channel.nml"/>
+    <Include file="../channels/ka.channel.nml"/>
+    <Include file="../channels/kahp_slower.channel.nml"/>
+    <Include file="../channels/kc_fast.channel.nml"/>
+    <Include file="../channels/kdr_fs.channel.nml"/>
+    <Include file="../channels/km.channel.nml"/>
+    <Include file="../channels/naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml"/>
+    <Include file="../channels/nap.channel.nml"/>
+    <Include file="../channels/pas.channel.nml"/>
+    <Include file="../channels/k2.channel.nml"/>
+    <Include file="../channels/ka.channel.nml"/>
+    <Include file="../channels/kahp_slower.channel.nml"/>
+    <Include file="../channels/kc_fast.channel.nml"/>
+    <Include file="../channels/kdr_fs.channel.nml"/>
+    <Include file="../channels/km.channel.nml"/>
+    <Include file="../channels/naf2.channel.nml"/>
+    <Include file="../channels/naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml"/>
+    <Include file="../channels/naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml"/>
+    <Include file="../channels/naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml"/>
+    <Include file="../channels/nap.channel.nml"/>
+    <Include file="../channels/pas.channel.nml"/>
+   
+    <Simulation id="Sim_Target" length="10.0ms" step="0.01ms" target="Target" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <Display id="DispPop__CGdeepaxax" title="Membrane potentials of cells in CGdeepaxax" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CGdeepaxax[0]: v" quantity="CGdeepaxax/0/DeepAxAx/v" scale="1mV" color="#f7697f" timeScale="1ms"/>
+        </Display>
+        
+        <OutputFile id="Volts_file__CGdeepaxax" fileName="Sim_Target.CGdeepaxax.v.dat">
+            <OutputColumn id="v_CGdeepaxax_0_DeepAxAx_v" quantity="CGdeepaxax/0/DeepAxAx/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>

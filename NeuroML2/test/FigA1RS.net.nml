@@ -1,0 +1,49 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="Target">
+    <notes>
+
+Network structure (NeuroML 2beta4) for project: Thalamocortical saved with neuroConstruct v1.7.1 on: 11:26:35, 21-Jul-16
+
+Cell Group: CGsuppyrRS contains 1 cells
+
+
+
+    </notes>
+    <include href="../channels/ar.channel.nml"></include>
+    <include href="../channels/ar__m00_25.channel.nml"></include>
+    <include href="../channels/ar__m00_25.channel.nml"></include>
+    <include href="../channels/cad.nml"></include>
+    <include href="../channels/cad__beta0_01__phi26000.nml"></include>
+    <include href="../channels/cad__beta0_05__phi52000.nml"></include>
+    <include href="../channels/cal.channel.nml"></include>
+    <include href="../channels/cat.channel.nml"></include>
+    <include href="../channels/k2.channel.nml"></include>
+    <include href="../channels/ka.channel.nml"></include>
+    <include href="../channels/kahp.channel.nml"></include>
+    <include href="../channels/kc.channel.nml"></include>
+    <include href="../channels/kdr.channel.nml"></include>
+    <include href="../channels/km.channel.nml"></include>
+    <include href="../cells/L23PyrRS.cell.nml"></include>
+    <include href="../channels/naf.channel.nml"></include>
+    <include href="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"></include>
+    <include href="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"></include>
+    <include href="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"></include>
+    <include href="../channels/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"></include>
+    <include href="../channels/nap.channel.nml"></include>
+    <include href="../channels/pas.channel.nml"></include>
+    <pulseGenerator id="Input_8" delay="400.0ms" duration="300.0ms" amplitude="7.5E-4uA"/>
+    <pulseGenerator id="Input_7" delay="0.0ms" duration="400.0ms" amplitude="-4.0E-4uA"/>
+    <network id="Target" type="networkWithTemperature" temperature="6.3 degC">
+        <population id="CGsuppyrRS" component="L23PyrRS" size="1" type="populationList">
+            <annotation/>
+            <instance id="0">
+                <location x="41.628883000000002" y="22.794032999999999" z="74.077680000000001"/>
+            </instance>
+        </population>
+        <inputList id="Input_8" population="CGsuppyrRS" component="Input_8">
+            <input id="0" target="../CGsuppyrRS/0/L23PyrRS" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_7" population="CGsuppyrRS" component="Input_7">
+            <input id="0" target="../CGsuppyrRS/0/L23PyrRS" destination="synapses"/>
+        </inputList>
+    </network>
+</neuroml>

@@ -567,7 +567,8 @@ def analyse_spiketime_vs_dx(lems_path_dict,
                             verbose=False,
                             spike_threshold_mV = 0,
                             show_plot_already=True,
-                            save_figure_to=None):
+                            save_figure_to=None,
+                            num_of_last_spikes=None):
                                 
     from pyelectro.analysis import max_min
     
@@ -587,7 +588,6 @@ def analyse_spiketime_vs_dx(lems_path_dict,
              
         all_results[int(num_of_comps)] = results
         
-
     xs = []
     ys = []
     labels = []
@@ -596,6 +596,11 @@ def analyse_spiketime_vs_dx(lems_path_dict,
     spys = []
     linestyles = []
     markers = []
+    colors=[]
+    spike_times_final=[]
+    array_of_num_of_spikes=[]
+    
+    comp_values=list(np.sort(comp_values))
     
     for num_of_comps in comp_values:
         t = all_results[num_of_comps]['t']
@@ -605,53 +610,96 @@ def analyse_spiketime_vs_dx(lems_path_dict,
         labels.append(num_of_comps)
         
         mm = max_min(v, t, delta=0, peak_threshold=spike_threshold_mV)
+        
         spike_times = mm['maxima_times']
         
-
-        spxs_ = []
-        spys_ = []
-        for s in spike_times:
-            spys_.append(s)
-            spxs_.append(num_of_comps)
+        spike_times_final.append(spike_times)
         
-        spys.append(spys_)
-        spxs.append(spxs_)
-        linestyles.append('-')
-        markers.append('x')
+        array_of_num_of_spikes.append(len(spike_times))
         
-    num_of_spikes=len(spys[0])
-    all_equal=True
-    for num_of_comps in range(0,len(comp_values)):
-        if len(spys[num_of_comps]) != num_of_spikes:
-           all_equal=False
-           break
-    if all_equal:
-       line_spxs=[]
-       line_spys=[]
-       linestyles=[]
-       markers=[]
-       for spike in range(0,num_of_spikes):
-           linestyles.append('-')
-           markers.append('x')
-           line_spxs.append(list(np.sort(comp_values)))
-           spike_var=[]
-           for comp_value in range(0,len(comp_values)):
-               spike_var.append(spys[comp_value][spike])
-           line_spys.append(spike_var)
-       spxs=line_spxs
-       spys=line_spys
-                   
+    max_num_of_spikes=max(array_of_num_of_spikes)
+    
+    max_comps_spikes=spike_times_final[-1]
+    
+    bound_comps=[comp_values[0],comp_values[-1]]
+    
+    if num_of_last_spikes == None:
+    
+       num_of_spikes=len(max_comps_spikes)
+       
+    else:
+       
+       if len(max_comps_spikes) >=num_of_last_spikes:
+       
+          num_of_spikes=num_of_last_spikes
+          
+       else:
+       
+          num_of_spikes=len(max_comps_spikes)
+          
+    spike_indices=[(-1)*ind for ind in range(1,num_of_spikes+1) ]
+    
+    if len(max_comps_spikes) > abs(spike_indices[-1]):
+    
+       earliest_spike_time=max_comps_spikes[spike_indices[-1]-1]
+       
+    else:
+     
+       earliest_spike_time=max_comps_spikes[spike_indices[-1]]
+       
+    for spike_ind in range(0,max_num_of_spikes):
+   
+        spike_time_values=[]
+        
+        compartments=[]
+        
+        for comp_value in range(0,len(comp_values)):
+        
+            if spike_times_final[comp_value] !=[]:
+           
+              if len(spike_times_final[comp_value]) >= spike_ind+1 :
+              
+                 if spike_times_final[comp_value][spike_ind] >= earliest_spike_time:
+             
+                    spike_time_values.append(spike_times_final[comp_value][spike_ind])
+               
+                    compartments.append(comp_values[comp_value])       
+        
+        linestyles.append('')
+               
+        markers.append('o')
+       
+        colors.append('b')
+       
+        spxs.append(compartments)
+       
+        spys.append(spike_time_values)
+    
+    for last_spike_index in spike_indices:
+       
+        vertical_line=[max_comps_spikes[last_spike_index],max_comps_spikes[last_spike_index] ]
+          
+        spxs.append(bound_comps)
+          
+        spys.append(vertical_line)
+          
+        linestyles.append('--')
+          
+        markers.append('')
+       
+        colors.append('k')
+             
     pynml.generate_plot(spxs, 
           spys, 
           "Spike times vs spatial discretization",
+          colors=colors,
           linestyles = linestyles,
           markers = markers,
-          xaxis = 'Number of compartments', 
+          xaxis = 'Number of internal divisions',
           yaxis = 'Spike times (s)',
           show_plot_already=show_plot_already,
-          save_figure_to=save_figure_to) 
-
-        
+          save_figure_to=save_figure_to)       
+    
     if verbose:
         pynml.generate_plot(xs, 
                   ys, 
@@ -685,37 +733,38 @@ def generate_and_copy_dat(targetDir,targetFileDict,saveToParentDir):
                    if ".dat" in file2:
                       ###### strip off .dat from target dirs
                       file_name2=file2[0:-4]
+                      
+                      for tag in range(0,len(targetFileDict[cellModel]['DatTagList']) ):
+                      
+                          if file_name2==targetFileDict[cellModel]['DatTagList'][tag]:
                   
-                      if file_name2==targetFileDict[cellModel]['DatTag']:
-                  
-                         time_array=np.loadtxt(os.path.join(full_file_name,"time.dat"))
-                         voltage_array=np.loadtxt(os.path.join(full_file_name,"%s.dat"%file_name2))
+                             time_array=np.loadtxt(os.path.join(full_file_name,"time.dat"))
+                             voltage_array=np.loadtxt(os.path.join(full_file_name,"%s.dat"%file_name2))
 
-                         if len(time_array)==len(voltage_array):
+                             if len(time_array)==len(voltage_array):
 
-                            voltage_with_time=np.zeros([len(time_array),2])
+                                voltage_with_time=np.zeros([len(time_array),2])
 
-                            for i in range(0,len(time_array)):
-                                voltage_with_time[i,0]=time_array[i]/1000
-                                voltage_with_time[i,1]=voltage_array[i]/1000
+                             for i in range(0,len(time_array)):
+                                 voltage_with_time[i,0]=time_array[i]/1000
+                                 voltage_with_time[i,1]=voltage_array[i]/1000
                          
-                            wtime=os.path.join(full_file_name,"%s_wtime.dat"%(file_name2))
-                            print("will save %s_wtime.dat to the %s"%(file_name2,full_file_name))
-                            np.savetxt(wtime,voltage_with_time)
+                             wtime=os.path.join(full_file_name,"%s_wtime.dat"%(file_name2))
+                             print("will save %s_wtime.dat to the %s"%(file_name2,full_file_name))
+                             np.savetxt(wtime,voltage_with_time)
                             
-                            save_to_path_config=os.path.join(save_to_path,target_config)
+                             save_to_path_config=os.path.join(save_to_path,target_config)
                             
-                            if not os.path.exists(save_to_path_config):
-                               print("Creating a new directory %s"%save_to_path_config)
-                               os.makedirs(save_to_path_config)
-                            else:
-                               print("A directory %s already exists"%save_to_path_config)
+                             if not os.path.exists(save_to_path_config):
+                                print("Creating a new directory %s"%save_to_path_config)
+                                os.makedirs(save_to_path_config)
+                             else:
+                                print("A directory %s already exists"%save_to_path_config)
                             
-                            print("moving to the %s"%save_to_path_config)
+                             print("moving to the %s"%save_to_path_config)
                             
-                            shutil.copy(wtime,save_to_path_config)
-       
-                                               
+                             shutil.copy(wtime,save_to_path_config)
+                            
 #####################################################################################################################                                    
                                     
 if __name__=="__main__":
@@ -736,7 +785,7 @@ if __name__=="__main__":
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Cell7-tuftIB-FigA4-1500/Cell7-tuftIB-FigA4-1500_default/")
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Cell8-tuftRS-Fig5A-1400/Cell8-tuftRS-Fig5A-1400_default/")
   #SingleCellSim(simConfig="Target",dt=0.01,targetPath="../Default_Simulation_Configuration/Default_Simulation_Configuration_default/")
-  configs={"Default Simulation Configuration":"TestSeg_all",  
+  configs_all={"Default Simulation Configuration":"TestSeg_all",  
            "Cell1-supppyrRS-FigA1RS":"L23PyrRS",
            "Cell2-suppyrFRB-FigA1FRB":"L23PyrFRB",
            "Cell3-supbask-FigA2a":"SupBasket",
@@ -776,7 +825,9 @@ if __name__=="__main__":
            "Cell14-nRT-FigA8-00":"nRT",
            "Cell14-nRT-FigA8-300":"nRT",
            "Cell14-nRT-FigA8-500":"nRT"}
-            
+           
+  configs= {"Default_Simulation_Configuration":"TestSeg_all"}  
+        
   generate_sims(configs,"../",0.01,'Target')
   
   
@@ -795,11 +846,15 @@ if __name__=="__main__":
                    "nRT":{"DatTag":'CGnRT_min75init_0'},
                    "TCR":{"DatTag":'CGTCR_0'}}
    
-  generate_and_copy_dat("../simulations",targetFileDict,"../../NeuroML2/")
+  #generate_and_copy_dat("../simulations",targetFileDict,"../../NeuroML2/")
+  
+  plot=False
+  
+  if plot:
    
-  PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_10ms.CGsuppyrRS.v','Sim_Cell2_suppyrFRB_10ms.CGsuppyrFRB.v',
-   'Sim_Cell3_supbask_10ms.CGsupbask.v','Sim_Cell4_supaxax_10ms.CGsupaxax.v','Sim_Cell5_supLTS_10ms.CGsupLTS.v','Sim_Cell7_tuftIB_10ms.CGtuftIB.v',
-   'Sim_Cell8_tuftRS_10ms.CGtuftRS.v','Sim_Cell9_nontuftRS_10ms.CGnontuftRS.v','Sim_Cell10_deepbask_10ms.CGdeepbask.v','Sim_Cell11_deepaxax_10ms.CGdeepaxax.v',
+     PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_10ms.CGsuppyrRS.v','Sim_Cell2_suppyrFRB_10ms.CGsuppyrFRB.v',
+     'Sim_Cell3_supbask_10ms.CGsupbask.v','Sim_Cell4_supaxax_10ms.CGsupaxax.v','Sim_Cell5_supLTS_10ms.CGsupLTS.v','Sim_Cell7_tuftIB_10ms.CGtuftIB.v',
+    'Sim_Cell8_tuftRS_10ms.CGtuftRS.v','Sim_Cell9_nontuftRS_10ms.CGnontuftRS.v','Sim_Cell10_deepbask_10ms.CGdeepbask.v','Sim_Cell11_deepaxax_10ms.CGdeepaxax.v',
 'Sim_Cell12_deepLTS_10ms.CGdeepLTS.v','Sim_Cell14_nRT_10ms.CGnRT_min75init.v'],
  
    'nC':['CGsupppyrRS_0_wtime','CGsuppyrFRB_0_wtime','CGsupbask_0_10ms_wtime',
@@ -810,7 +865,7 @@ if __name__=="__main__":
    
    
    
-  PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_FIgA1RS.CGsuppyrRS.v',
+     PlotNC_vs_NML2({'NML2':['Sim_Cell1_supppyrRS_FIgA1RS.CGsuppyrRS.v',
    'Sim_Cell2_suppyrFRB_FigA1FRB.CGsuppyrFRB.v','Sim_Test_Cell3_supbask_FigA2a.CGsupbask.v',
    'Sim_Cell4_supaxax_FigA2a.CGsupaxax.v','Sim_Cell5_supLTS_FigA2b.CGsupLTS.v','Sim_Cell7_tuftIB_FIgA4_900.CGtuftIB.v',
    'Sim_Cell7_tuftIB_FigA4_1100.CGtuftIB.v','Sim_Cell7_tuftIB_FigA4_1300.CGtuftIB.v','Sim_Cell7_tuftIB_FigA4_1500.CGtuftIB.v','Sim_Cell8_tuftRS_FigA5_800.CGtuftRS.v',

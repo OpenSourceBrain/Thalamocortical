@@ -21,6 +21,7 @@ from AnalysisNML2 import PlotNC_vs_NML2
 from AnalysisNML2 import generate_nml2_plot
 from matplotlib import pyplot as plt
 import math
+import numpy as np
 import subprocess
 
 
@@ -67,6 +68,10 @@ def use_NeuroConstruct(compare_to_neuroConstruct,regenerate_nml2,proj_string=Non
           nc_parameters['configsToGenerate']={}
           
           nc_parameters['ElecLenList']=elec_len_list
+          
+       else:
+       
+          nc_parameters['GenerateConfigs']=False
            
        if compare_to_neuroConstruct:
        
@@ -77,6 +82,10 @@ def use_NeuroConstruct(compare_to_neuroConstruct,regenerate_nml2,proj_string=Non
           nc_parameters['dt']=global_dt
           
           cell_models_to_compare=[]
+          
+       else:
+          
+          nc_parameters['CompareToNeuroConstruct']=False
            
        for cell_model in config_array.keys():
            
@@ -135,20 +144,20 @@ def use_NeuroConstruct(compare_to_neuroConstruct,regenerate_nml2,proj_string=Non
        
        if compare_to_neuroConstruct:
        
-          targetFileDict={"L23PyrRS":{'DatTag':'CGsuppyrRS_0'},
-                   "L23PyrFRB":{'DatTag':'CGsuppyrFRB_0'},
-                   "SupBasket":{'DatTag':'CGsupbask_0'},
-                   "L4SpinyStellate":{'DatTag':'CGspinstell_0'},
-                   "SupAxAx":{'DatTag':'CGsupaxax_0'},
-                   "SupLTSInter":{'DatTag':'CGsupLTS_0'},
-                   "L5TuftedPyrIB":{'DatTag':'CGtuftIB_0'},
-                   "L5TuftedPyrRS":{'DatTag':'CGtuftRS_0'},
-                   "L6NonTuftedPyrRS":{'DatTag':'CGnontuftRS_0'},
-                   "DeepBasket":{"DatTag":'CGdeepbask_0'},
-                   "DeepAxAx":{"DatTag":'CGdeepaxax_0'},
-                   "DeepLTSInter":{'DatTag':'CGdeepLTS_0'},
-                   "nRT":{"DatTag":'CGnRT_min75init_0'},
-                   "TCR":{"DatTag":'CGTCR_0'} }
+          targetFileDict={"L23PyrRS":{'DatTagList':['CGsuppyrRS_0']},
+                   "L23PyrFRB":{'DatTagList':['CGsuppyrFRB_0']},
+                   "SupBasket":{'DatTagList':['CGsupbask_0']},
+                   "L4SpinyStellate":{'DatTagList':['CGspinstell_0']},
+                   "SupAxAx":{'DatTagList':['CGsupaxax_0']},
+                   "SupLTSInter":{'DatTagList':['CGsupLTS_0']},
+                   "L5TuftedPyrIB":{'DatTagList':['CGtuftIB_0']},
+                   "L5TuftedPyrRS":{'DatTagList':['CGtuftRS_0']},
+                   "L6NonTuftedPyrRS":{'DatTagList':['CGnontuftRS_0']},
+                   "DeepBasket":{"DatTagList":['CGdeepbask_0']},
+                   "DeepAxAx":{"DatTagList":['CGdeepaxax_0']},
+                   "DeepLTSInter":{'DatTagList':['CGdeepLTS_0']},
+                   "nRT":{"DatTagList":['CGnRT_min75init_0','CGnRT_0']},
+                   "TCR":{"DatTagList":['CGTCR_0']} }
                    
           required_cell_models={}
           
@@ -233,6 +242,10 @@ def dashboard_cells(net_id,
            
            num_dx_configs=0
            
+           dx_array=[]
+           
+           found_all_compartmentalizations=False
+           
            dx_configs={}
         
            target_v=None
@@ -240,7 +253,9 @@ def dashboard_cells(net_id,
            found_default=False
            
            for file_name in src_files:
+           
                full_file_path=os.path.join(pathToConfig,file_name)
+               
                if (os.path.isdir(full_file_path)) and "_default" in file_name:
                
                   found_default=True
@@ -250,30 +265,32 @@ def dashboard_cells(net_id,
                   ###################################################################################
                   if -1 in elec_len_list and "-1" in cell_morph_summary.keys():
                   
-                     dx_configs[cell_morph_summary["-1"]["IntDivs"]]=original_LEMS_target
+                      dx_configs[cell_morph_summary["-1"]["IntDivs"]]=original_LEMS_target
                      
-                     default_num_of_comps=cell_morph_summary["-1"]["IntDivs"]
+                      default_num_of_comps=cell_morph_summary["-1"]["IntDivs"]
+                      
+                      dx_array.append(int(default_num_of_comps))
                      
-                     num_dx_configs+=1
+                      num_dx_configs+=1
                   ##################################################################################      
                   print("%s is a directory"%full_file_path)
                   print("will generate the IF curve for %s.cell.nml"%cellModel)
                   generate_current_vs_frequency_curve(os.path.join(full_file_path,cellModel+".cell.nml"), 
-                                        cellModel, 
-                                        start_amp_nA =     if_params['start_amp_nA'], 
-                                        end_amp_nA =       if_params['end_amp_nA'], 
-                                        step_nA =          if_params['step_nA'], 
-                                        analysis_duration =if_params['analysis_duration'], 
-                                        analysis_delay =   if_params['analysis_delay'],
-                                        dt=                if_params['dt'],
-                                        temperature=       if_params['temperature'],
-                                        plot_voltage_traces=if_params['plot_voltage_traces'],
-                                        plot_if=            if_params['plot_if'],
-                                        plot_iv=            if_params['plot_iv'],
-                                        show_plot_already=  show_plot_already,
-                                        save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
-                                        save_iv_figure_to='%s/IV_%s.png'%(save_to_path,cellModel),
-                                        simulator=         if_params['simulator'])
+                                      cellModel, 
+                                      start_amp_nA =     if_params['start_amp_nA'], 
+                                      end_amp_nA =       if_params['end_amp_nA'], 
+                                      step_nA =          if_params['step_nA'], 
+                                      analysis_duration =if_params['analysis_duration'], 
+                                      analysis_delay =   if_params['analysis_delay'],
+                                      dt=                if_params['dt'],
+                                      temperature=       if_params['temperature'],
+                                      plot_voltage_traces=if_params['plot_voltage_traces'],
+                                      plot_if=            if_params['plot_if'],
+                                      plot_iv=            if_params['plot_iv'],
+                                      show_plot_already=  show_plot_already,
+                                      save_if_figure_to='%s/IF_%s.png'%(save_to_path,cellModel),
+                                      save_iv_figure_to='%s/IV_%s.png'%(save_to_path,cellModel),
+                                      simulator=         if_params['simulator'])
                                         
                   IFcurve="IF_%s"%cellModel
                   
@@ -301,14 +318,14 @@ def dashboard_cells(net_id,
                   if compare_to_neuroConstruct:
                   
                      print("will generate the comparison between the nC model and NeuroML2 model")
-               
+                     
                      PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
-                                    'subplotTitles':['NeuroML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
-                                    {'cols':8,'rows':5},
-                                    legend=True,
-                                    show=False,
-                                    save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['Analysis']),
-                                    nCcellPath=os.path.join(save_to_path,config_array[cellModel]['Analysis'])   )
+                                     'subplotTitles':['NeuroML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
+                                     {'cols':8,'rows':5},
+                                     legend=True,
+                                     show=False,
+                                     save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['Analysis']),
+                                     nCcellPath=os.path.join(save_to_path,config_array[cellModel]['Analysis'])   )
                                     
                      analysis_string1="nC_vs_NML2_%s"%config_array[cellModel]['Analysis']
                      
@@ -325,8 +342,9 @@ def dashboard_cells(net_id,
                                             
                      analysis_string1="NML2_%s"%config_array[cellModel]['Analysis']
                      
-                     analysis_header1="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
-                              
+                     analysis_header1="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt     
+                     
+                  smallest_dt=min(dt_list)  
                               
                   ########################################################################################
                   print("will generate the spike times vs dt curve for %s.cell.nml"%cellModel)
@@ -339,34 +357,55 @@ def dashboard_cells(net_id,
                                           verbose=False,
                                           spike_threshold_mV = 0,
                                           show_plot_already=show_plot_already,
-                                          save_figure_to="%s/Dt_%s.png"%(save_to_path,cellModel))
+                                          save_figure_to="%s/Dt_%s.png"%(save_to_path,cellModel),
+                                          num_of_last_spikes=None)
                                           
                   dt_curve="Dt_%s"%cellModel
                   
-               for elecLen in range(0,len(elec_len_list)):
-               
-                   elec_len=str(elec_len_list[elecLen]) 
+               if not found_all_compartmentalizations:
                   
-                   if elec_len  in file_name and elec_len in cell_morph_summary.keys():
+                  for elecLen in range(0,len(elec_len_list)):
+               
+                      elec_len=str(elec_len_list[elecLen]) 
                       
-                      dx_configs[cell_morph_summary[elec_len]["IntDivs"]]=os.path.join(full_file_path,"LEMS_Target.xml")
+                      if elec_len != "-1":
+                  
+                         if (elec_len  in file_name) and (elec_len in cell_morph_summary.keys() ):
                       
-                      num_dx_configs+=1
+                            dx_configs[cell_morph_summary[elec_len]["IntDivs"]]=os.path.join(full_file_path,"LEMS_Target.xml")
+                      
+                            num_dx_configs+=1
+                         
+                            dx_array.append(int(cell_morph_summary[elec_len]["IntDivs"] ) )
+                      
+                            break
+                         
+               if num_dx_configs==len(elec_len_list):
+                  
+                  found_all_compartmentalizations=True 
                       
            if not found_default:
            
               print("default configuration for %s analysis is not found; execution will terminate; set regenerate_nml2 to True to generate target dirs."%cellModel)
+              
               quit()
                       
-           if num_dx_configs==len(elec_len_list):
+           if found_all_compartmentalizations:
+           
+              dx_array=list(np.sort(dx_array) )
+                  
+              maximum_int_divs=max(dx_array)
+           
               print("testing the presence of cell configs with different levels of spatial discretization")
+              
               analyse_spiketime_vs_dx(dx_configs, 
                                       if_params['simulator'],
                                       target_v,
                                       verbose=False,
                                       spike_threshold_mV = 0,
                                       show_plot_already=show_plot_already,
-                                      save_figure_to="%s/Dx_%s.png"%(save_to_path,cellModel)) 
+                                      save_figure_to="%s/Dx_%s.png"%(save_to_path,cellModel),
+                                      num_of_last_spikes=None) 
                
               dx_curve="Dx_%s"%cellModel
                 
@@ -384,23 +423,34 @@ def dashboard_cells(net_id,
                  results = pynml.run_lems_with_jneuroml(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
               if if_params['simulator'] == 'jNeuroML_NEURON':
                  results = pynml.run_lems_with_jneuroml_neuron(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
+                
+              if 'SpikeProfileTag' in config_array[cellModel].keys():
+                 
+                  tag=config_array[cellModel]['SpikeProfileTag']+"_0_wtime"
+                 
+              else:
+                 
+                  tag=config_array[cellModel]['OriginalTag']
                   
+              if 'SpikeProfileCellTag' in config_array[cellModel].keys() and 'SpikeProfileTag' in config_array[cellModel].keys():
+                
+                 target_v="%s/0/%s/v"%(config_array[cellModel]['SpikeProfileTag'],config_array[cellModel]['SpikeProfileCellTag'])
+                    
               t = results['t']
               v = results[target_v]
         
               if compare_to_neuroConstruct:
                
                  print("will generate the comparison between the nC model and NeuroML2 model")
-               
-                 PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
-                              'subplotTitles':['NML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
-                              {'cols':8,'rows':5},
-                              legend=True,
-                              show=show_plot_already,
-                              save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']),
-                              nCcellPath=os.path.join(save_to_path,config_array[cellModel]['SpikeProfile'])   )
-                              
-                              
+                 
+                 PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[tag],
+                                 'subplotTitles':['NML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
+                                 {'cols':8,'rows':5},
+                                 legend=True,
+                                 show=show_plot_already,
+                                 save_to_file='%s/nC_vs_NML2_%s.png'%(save_to_path,config_array[cellModel]['SpikeProfile']),
+                                 nCcellPath=os.path.join(save_to_path,config_array[cellModel]['SpikeProfile'])   )
+                               
                  analysis_string2="nC_vs_NML2_%s"%config_array[cellModel]['SpikeProfile']
            
                  analysis_header2="Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
@@ -447,11 +497,15 @@ def dashboard_cells(net_id,
 
 ![Simulation](%(IVcurve)s.png)
 
-**Spike times versus dt curve for the NeuroML2 model simulated in NEURON**
+**Spike times versus time step: the NeuroML2 model simulated in NEURON.
+Dashed black lines - spike times at the %(Smallest_dt)s ms time step; Green - spike times at the following time steps (in ms): %(DtArray)s.**
 
 ![Simulation](%(DtCurve)s.png)
 
-**Spike times versus spatial discretization: default value for the number of internal divs is %(default_divs)s**
+**Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON.
+Default value for the number of internal divs is %(default_divs)s.
+Dashed black lines - spike times at the %(MaximumDivs)s internal divisions; Blue - spike times at the following values of internal divisions:
+%(IntDivsArray)s.**
 
 ![Simulation](%(DxCurve)s.png)'''
 
@@ -467,7 +521,11 @@ def dashboard_cells(net_id,
                                    "SpikeProfileCurve":analysis_string2,
                                    "AnalysisHeader2":analysis_header2,
                                    "default_divs":default_num_of_comps,
-                                   "SpikeProfile":config_array[cellModel]['SpikeProfile']}
+                                   "SpikeProfile":config_array[cellModel]['SpikeProfile'],
+                                   "Smallest_dt":smallest_dt,
+                                   "DtArray":dt_list,
+                                   "IntDivsArray":dx_array,
+                                   "MaximumDivs":maximum_int_divs}
                            
               readme_file.write(readme_final)
               readme_file.close()
@@ -498,11 +556,15 @@ def dashboard_cells(net_id,
 
 ![Simulation](%(IVcurve)s.png)
 
-**Spike times versus dt curve for the NeuroML2 model simulated in NEURON**
+**Spike times versus time step: the NeuroML2 model simulated in NEURON.
+Dashed black lines - spike times at the %(Smallest_dt)s ms time step; Green - spike times for the following time steps (in ms): %(DtArray)s.**
 
 ![Simulation](%(DtCurve)s.png)
 
-**Spike times versus spatial discretization: default value for the number of internal divs is %(default_divs)s**
+**Spike times versus spatial discretization: the NeuroML2 model simulated in NEURON.
+Default value for the number of internal divs is %(default_divs)s.
+Dashed black lines - spike times at the %(MaximumDivs)s internal divisions; Blue - spike times at the following values of internal divisions:
+%(IntDivsArray)s.**
 
 ![Simulation](%(DxCurve)s.png)'''
 
@@ -516,7 +578,11 @@ def dashboard_cells(net_id,
                                    "DxCurve":dx_curve,
                                    "nC_vs_NML2Curve":analysis_string1,
                                    "AnalysisHeader1":analysis_header1,
-                                   "default_divs":default_num_of_comps}
+                                   "default_divs":default_num_of_comps,
+                                   "Smallest_dt":smallest_dt,
+                                   "DtArray":dt_list,
+                                   "IntDivsArray":dx_array,
+                                   "MaximumDivs":maximum_int_divs}
                            
               readme_file.write(readme_final)
               readme_file.close()
