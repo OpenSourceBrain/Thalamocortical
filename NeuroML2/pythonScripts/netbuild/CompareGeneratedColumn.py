@@ -1,6 +1,6 @@
 from pyneuroml import pynml
 
-class TestGeneratedColumn():
+class CompareGeneratedColumn():
 
     def __init__(self,target_net_path,reference_net_path,test_populations=True,test_projections=True,test_inputs=True):
     
@@ -93,38 +93,90 @@ class TestGeneratedColumn():
            self.error_counter+=1   
         
     def check_projections(self):  
-    
-        pass
-        #TODO
-        #projDict={}
+         
+        target_net=self.target_net_doc.networks[0]
+       
+        reference_net=self.reference_net_doc.networks[0]
+       
+        reference_chem_proj_info={}
         
-        #for proj_counter in range(0,len(net.projections)):
+        reference_elect_proj_info={}
+        
+        for elect_proj_counter in range(0,len(reference_net.electrical_projections)):
+        
+            proj=reference_net.electrical_projections[elect_proj_counter]
             
-            #connections=[]
+            reference_elect_proj_info[proj.id]={}
             
-            #proj=net.projections[proj_counter]
-            #print proj.id
-            #for conn_counter in range(0,len(proj.connection_wds)):
-                #connection_dict={}
-                #connection=proj.connection_wds[conn_counter]
-                #print connection.id
-                #connection_dict['preCellId']=connection.pre_cell_id
-                #connection_dict['postCellId']=connection.post_cell_id
-                #if hasattr(connection,'post_segment_id'):
-                   #connection_dict['postSegmentId']=connection.post_segment_id
-                #if hasattr(connection,'pre_segment_id'):
-                  # connection_dict['preSegmentId']=connection.pre_segment_id
-                #if hasattr(connection,'pre_fraction_along'):
-                  # connection_dict['preFractionAlong']=connection.pre_fraction_along
-                #if hasattr(connection,'post_fraction_along'):
-                  # connection_dict['postFractionAlong']=connection.post_fraction_along
-                #if hasattr(connection,'delay'):
-                  # connection_dict['delay']=connection.delay
-                #if hasattr(connection,'weight'):
-                  # connection_dict['weight']=connection.weight
-                #connections.append(connection_dict)
+            reference_elect_proj_info[proj.id]['pre']=proj.presynaptic_population
+            
+            reference_elect_proj_info[proj.id]['post']=proj.postsynaptic_population
+            
+            reference_elect_proj_info[proj.id]['numConns']=len(proj.electrical_connections)
+            
+            reference_elect_proj_info[proj.id]['synapse']=proj.electrical_connections[0].synapse
+            
+        reference_elect_proj_ids=reference_elect_proj_info.keys()
+        
+        for chem_proj_counter in range(0,len(reference_net.projections)):
+        
+            proj=reference_net.projections[chem_proj_counter]
+            
+            reference_chem_proj_info[proj.id]={}
+            
+            reference_chem_proj_info[proj.id]['pre']=proj.presynaptic_population
+            
+            reference_chem_proj_info[proj.id]['post']=proj.postsynaptic_population
+            
+            reference_chem_proj_info[proj.id]['synapse']=proj.synapse
+            
+            reference_chem_proj_info[proj.id]['numConns']=len(proj.connections)
+            
+        reference_chem_proj_ids=reference_chem_proj_info.keys() 
+        
+        found_target_proj_list=[]
+        
+        all_target_projs=[]
+        
+        for chem_proj_counter in range(0,len(target_net.projections)):
+ 
+            target_proj=target_net.projections[chem_proj_counter]
+            
+            all_target_projs.append(target_proj.id)
+            
+            for ref_proj_id in reference_chem_proj_info.keys():
+            
+                check_pre_pop=target_proj.presynaptic_population == reference_chem_proj_info[ref_proj_id]['pre']
                 
-            #projDict[proj.id]=connections
+                check_post_pop=target_proj.postsynaptic_population == reference_chem_proj_info[ref_proj_id]['post']
+                
+                check_syn=target_proj.synapse == reference_chem_proj_info[ref_proj_id]['synapse']
+                
+                if check_pre_pop and check_post_pop and check_syn:
+                
+                   reference_chem_proj_ids.remove(ref_proj_id)
+                
+                   found_target_proj_list.append(target_proj.id)
+                   
+                   check_num_connections=len(target_proj.connection_wds) == reference_chem_proj_info[ref_proj_id]['numConns']
+                   
+                   if not check_num_connections:
+            
+                      print("Error in %s.net.nml: the projection id= %s has %d connections but the corresponding reference projection id = %s has %d connections."
+                      %(target_net.id,target_proj.id,len(target_proj.connection_wds),ref_proj_id, reference_chem_proj_info[ref_proj_id]['numConns']))
+                      self.error_counter+=1
+                      
+        if reference_chem_proj_ids !=[]:
+        
+           print("Error in %s.net.nml: reference projections %s from %s are are not found in the target network."%(target_net_id,reference_chem_proj_ids,self.reference_net_path))
+           self.error_counter+=1
+           
+        target_network_specific_projs=list(set(all_target_projs)-set(found_target_proj_list) ) 
+           
+        if target_network_specific_projs != []:
+        
+           print("Error in %s.net.nml: projections %s are not found in the reference network %s."%(target_net_id,target_network_specific_projs,self.reference_net_path))
+           self.error_counter+=1
             
     def check_inputs(self):
         #TODO
@@ -152,7 +204,7 @@ class TestGeneratedColumn():
   
 if __name__=="__main__":
 
-  testColumn=TestGeneratedColumn(target_net_path="TestRunColumn.net.nml",
+  testColumn=CompareGeneratedColumn(target_net_path="TestRunColumn.net.nml",
                                  reference_net_path="../../../neuroConstruct/generatedNeuroML2/LargeConns.net.nml")
   testColumn.tests()
                     

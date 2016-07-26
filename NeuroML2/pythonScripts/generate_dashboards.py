@@ -29,7 +29,8 @@ class generate_dashboards():
                    "DeepBasket":{"Analysis":"Cell10-deepbask-10ms","SpikeProfile":"Cell10-deepbask-10ms","OriginalTag":'CGdeepbask_0_wtime'},
                    "DeepAxAx":{"Analysis":"Cell11-deepaxax-10ms","SpikeProfile":"Cell11-deepaxax-10ms","OriginalTag":'CGdeepaxax_0_wtime'},
                    "DeepLTSInter":{"Analysis":"Cell12-deepLTS-FigA2b","SpikeProfile":"Cell12-deepLTS-10ms","OriginalTag":'CGdeepLTS_0_wtime'},
-                   "nRT":{"Analysis":"Cell14-nRT-FigA8-00","SpikeProfile":"Cell14-nRT-10ms","OriginalTag":'CGnRT_min75init_0_wtime'},
+                   "nRT":{"Analysis":"Cell14-nRT-FigA8-00","SpikeProfile":"Cell14-nRT-10ms","OriginalTag":'CGnRT_0_wtime',
+                   'SpikeProfileTag':'CGnRT_min75init','SpikeProfileCellTag':'nRT_minus75init'},
                    "L4SpinyStellate":{"Analysis":"Cell6-spinstell-FigA3-333","SpikeProfile":"Cell6-spinstell-10ms","OriginalTag":'CGspinstell_0_wtime'},
                    "TCR":{"Analysis":"Cell13-TCR-FigA7-600","SpikeProfile":"Cell13-TCR-10ms","OriginalTag":'CGTCR_0_wtime'} }
                    
@@ -104,11 +105,10 @@ class generate_dashboards():
        
 if __name__=="__main__":
   
-  gen=generate_dashboards(regenerate_nml2=False,
+  gen=generate_dashboards(regenerate_nml2=True,
                           testing_mode=True,
                           generate_dashboards=True,
                           compare_to_neuroconstruct=True,
-                          specific_cell_models=["L23PyrFRB","SupAxAx","SupLTSInter","L5TuftedPyrIB",
-                          "DeepAxAx","nRT"] ) 
+                          specific_cell_models=None) 
   
   gen.set_simulations()

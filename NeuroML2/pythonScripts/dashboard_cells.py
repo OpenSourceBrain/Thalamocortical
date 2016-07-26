@@ -144,20 +144,20 @@ def use_NeuroConstruct(compare_to_neuroConstruct,regenerate_nml2,proj_string=Non
        
        if compare_to_neuroConstruct:
        
-          targetFileDict={"L23PyrRS":{'DatTag':'CGsuppyrRS_0'},
-                   "L23PyrFRB":{'DatTag':'CGsuppyrFRB_0'},
-                   "SupBasket":{'DatTag':'CGsupbask_0'},
-                   "L4SpinyStellate":{'DatTag':'CGspinstell_0'},
-                   "SupAxAx":{'DatTag':'CGsupaxax_0'},
-                   "SupLTSInter":{'DatTag':'CGsupLTS_0'},
-                   "L5TuftedPyrIB":{'DatTag':'CGtuftIB_0'},
-                   "L5TuftedPyrRS":{'DatTag':'CGtuftRS_0'},
-                   "L6NonTuftedPyrRS":{'DatTag':'CGnontuftRS_0'},
-                   "DeepBasket":{"DatTag":'CGdeepbask_0'},
-                   "DeepAxAx":{"DatTag":'CGdeepaxax_0'},
-                   "DeepLTSInter":{'DatTag':'CGdeepLTS_0'},
-                   "nRT":{"DatTag":'CGnRT_min75init_0'},
-                   "TCR":{"DatTag":'CGTCR_0'} }
+          targetFileDict={"L23PyrRS":{'DatTagList':['CGsuppyrRS_0']},
+                   "L23PyrFRB":{'DatTagList':['CGsuppyrFRB_0']},
+                   "SupBasket":{'DatTagList':['CGsupbask_0']},
+                   "L4SpinyStellate":{'DatTagList':['CGspinstell_0']},
+                   "SupAxAx":{'DatTagList':['CGsupaxax_0']},
+                   "SupLTSInter":{'DatTagList':['CGsupLTS_0']},
+                   "L5TuftedPyrIB":{'DatTagList':['CGtuftIB_0']},
+                   "L5TuftedPyrRS":{'DatTagList':['CGtuftRS_0']},
+                   "L6NonTuftedPyrRS":{'DatTagList':['CGnontuftRS_0']},
+                   "DeepBasket":{"DatTagList":['CGdeepbask_0']},
+                   "DeepAxAx":{"DatTagList":['CGdeepaxax_0']},
+                   "DeepLTSInter":{'DatTagList':['CGdeepLTS_0']},
+                   "nRT":{"DatTagList":['CGnRT_min75init_0','CGnRT_0']},
+                   "TCR":{"DatTagList":['CGTCR_0']} }
                    
           required_cell_models={}
           
@@ -318,7 +318,7 @@ def dashboard_cells(net_id,
                   if compare_to_neuroConstruct:
                   
                      print("will generate the comparison between the nC model and NeuroML2 model")
-               
+                     
                      PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
                                      'subplotTitles':['NeuroML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
                                      {'cols':8,'rows':5},
@@ -423,15 +423,27 @@ def dashboard_cells(net_id,
                  results = pynml.run_lems_with_jneuroml(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
               if if_params['simulator'] == 'jNeuroML_NEURON':
                  results = pynml.run_lems_with_jneuroml_neuron(original_LEMS_target, nogui=True, load_saved_data=True, plot=False, verbose=False)
+                
+              if 'SpikeProfileTag' in config_array[cellModel].keys():
+                 
+                  tag=config_array[cellModel]['SpikeProfileTag']+"_0_wtime"
+                 
+              else:
+                 
+                  tag=config_array[cellModel]['OriginalTag']
                   
+              if 'SpikeProfileCellTag' in config_array[cellModel].keys() and 'SpikeProfileTag' in config_array[cellModel].keys():
+                
+                 target_v="%s/0/%s/v"%(config_array[cellModel]['SpikeProfileTag'],config_array[cellModel]['SpikeProfileCellTag'])
+                    
               t = results['t']
               v = results[target_v]
         
               if compare_to_neuroConstruct:
                
                  print("will generate the comparison between the nC model and NeuroML2 model")
-               
-                 PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[config_array[cellModel]['OriginalTag']],
+                 
+                 PlotNC_vs_NML2({'NML2':[{'t':t,'v':v}],'nC':[tag],
                                  'subplotTitles':['NML2 versus nC model: simulations in NEURON with dt=%f'%global_dt]},
                                  {'cols':8,'rows':5},
                                  legend=True,

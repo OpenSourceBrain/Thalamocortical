@@ -733,35 +733,37 @@ def generate_and_copy_dat(targetDir,targetFileDict,saveToParentDir):
                    if ".dat" in file2:
                       ###### strip off .dat from target dirs
                       file_name2=file2[0:-4]
+                      
+                      for tag in range(0,len(targetFileDict[cellModel]['DatTagList']) ):
+                      
+                          if file_name2==targetFileDict[cellModel]['DatTagList'][tag]:
                   
-                      if file_name2==targetFileDict[cellModel]['DatTag']:
-                  
-                         time_array=np.loadtxt(os.path.join(full_file_name,"time.dat"))
-                         voltage_array=np.loadtxt(os.path.join(full_file_name,"%s.dat"%file_name2))
+                             time_array=np.loadtxt(os.path.join(full_file_name,"time.dat"))
+                             voltage_array=np.loadtxt(os.path.join(full_file_name,"%s.dat"%file_name2))
 
-                         if len(time_array)==len(voltage_array):
+                             if len(time_array)==len(voltage_array):
 
-                            voltage_with_time=np.zeros([len(time_array),2])
+                                voltage_with_time=np.zeros([len(time_array),2])
 
-                            for i in range(0,len(time_array)):
-                                voltage_with_time[i,0]=time_array[i]/1000
-                                voltage_with_time[i,1]=voltage_array[i]/1000
+                             for i in range(0,len(time_array)):
+                                 voltage_with_time[i,0]=time_array[i]/1000
+                                 voltage_with_time[i,1]=voltage_array[i]/1000
                          
-                            wtime=os.path.join(full_file_name,"%s_wtime.dat"%(file_name2))
-                            print("will save %s_wtime.dat to the %s"%(file_name2,full_file_name))
-                            np.savetxt(wtime,voltage_with_time)
+                             wtime=os.path.join(full_file_name,"%s_wtime.dat"%(file_name2))
+                             print("will save %s_wtime.dat to the %s"%(file_name2,full_file_name))
+                             np.savetxt(wtime,voltage_with_time)
                             
-                            save_to_path_config=os.path.join(save_to_path,target_config)
+                             save_to_path_config=os.path.join(save_to_path,target_config)
                             
-                            if not os.path.exists(save_to_path_config):
-                               print("Creating a new directory %s"%save_to_path_config)
-                               os.makedirs(save_to_path_config)
-                            else:
-                               print("A directory %s already exists"%save_to_path_config)
+                             if not os.path.exists(save_to_path_config):
+                                print("Creating a new directory %s"%save_to_path_config)
+                                os.makedirs(save_to_path_config)
+                             else:
+                                print("A directory %s already exists"%save_to_path_config)
                             
-                            print("moving to the %s"%save_to_path_config)
+                             print("moving to the %s"%save_to_path_config)
                             
-                            shutil.copy(wtime,save_to_path_config)
+                             shutil.copy(wtime,save_to_path_config)
                             
 #####################################################################################################################                                    
                                     
