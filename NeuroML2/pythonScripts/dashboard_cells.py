@@ -51,15 +51,7 @@ def use_NeuroConstruct(compare_to_neuroConstruct,regenerate_nml2,proj_string=Non
           
        nc_parameters={}
        
-       lems_configs={}
-       
-       nc_parameters_path="nc_parameters.json"
-    
-       if not os.path.exists(nc_parameters_path):
-       
-          print("Creating a new directory %s"%nc_parameters_path)
-          
-          os.makedirs(nc_parameters_path)          
+       lems_configs={}        
                     
        if regenerate_nml2:
        
@@ -405,7 +397,7 @@ def dashboard_cells(net_id,
                                       spike_threshold_mV = 0,
                                       show_plot_already=show_plot_already,
                                       save_figure_to="%s/Dx_%s.png"%(save_to_path,cellModel),
-                                      num_of_last_spikes=None) 
+                                      num_of_last_spikes=3) 
                
               dx_curve="Dx_%s"%cellModel
                 
