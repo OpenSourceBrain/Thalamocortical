@@ -50,7 +50,7 @@ class generate_dashboards():
        
           start_amp=-0.2
           
-          end_amp=0.4
+          end_amp=0.6
           
           step=0.2    
           
@@ -103,15 +103,14 @@ class generate_dashboards():
                        proj_string_neuroConstruct="../../neuroConstruct/Thalamocortical.ncx")
        
 if __name__=="__main__":
-  #### except L4SpinyStellate and TCR for which NEURON strings are too long at the moment
-  cell_models=["L23PyrRS","L23PyrFRB","SupBasket","SupAxAx","SupLTSInter","L5TuftedPyrIB","L5TuftedPyrRS","L6NonTuftedPyrRS","DeepBasket","DeepAxAx","DeepLTSInter","nRT"]
-  
-  test=["L23PyrRS","L23PyrFRB"]
+
+  #### L4SpinyStellate and TCR are excluded because names of the cell mechanisms are too long for NEURON at the moment
   
   gen=generate_dashboards(regenerate_nml2=True,
                           testing_mode=True,
                           generate_dashboards=True,
                           compare_to_neuroconstruct=True,
-                          specific_cell_models=test)
+                          specific_cell_models=["L23PyrRS","L23PyrFRB","SupBasket","SupAxAx","SupLTSInter",
+                          "L5TuftedPyrIB","L5TuftedPyrRS","L6NonTuftedPyrRS","DeepBasket","DeepAxAx","DeepLTSInter","nRT"])
   
   gen.set_simulations()

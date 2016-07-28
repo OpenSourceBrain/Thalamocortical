@@ -197,6 +197,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                                                          pop_objects=pop_params,
                                                                                          path_to_cells=dir_to_cells,
                                                                                          full_path_to_conn_summary=full_path_to_connectivity,
+                                                                                         pre_segment_group_info=["distal_axon"],
                                                                                          synaptic_scaling_params=weight_params,
                                                                                          synaptic_delay_params=delay_params)   
                                                                                          
