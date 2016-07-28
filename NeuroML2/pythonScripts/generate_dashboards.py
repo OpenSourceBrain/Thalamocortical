@@ -16,7 +16,7 @@ class generate_dashboards():
       
    def set_simulations(self):
   
-       print "testing a new script: dashboard_cells"
+       print "running dashboard_cells.py"
        
        all_cell_models={"L23PyrRS":{'Analysis':"Cell1-supppyrRS-FigA1RS","SpikeProfile":"Cell1-supppyrRS-10ms",'OriginalTag':'CGsuppyrRS_0_wtime'},
                    "L23PyrFRB":{"Analysis":"Cell2-suppyrFRB-FigA1FRB","SpikeProfile":"Cell2-suppyrFRB-10ms",'OriginalTag':'CGsuppyrFRB_0_wtime'},
@@ -97,18 +97,21 @@ class generate_dashboards():
                        if_params=ifParams,
                        elec_len_list=ElecLenList,
                        dt_list=DtList,
-                       comp_summary="compSummary.json",
                        generate_dashboards=self.generate_dashboards,
                        compare_to_neuroConstruct=self.compare_to_neuroconstruct,
                        regenerate_nml2=self.regenerate_nml2,
                        proj_string_neuroConstruct="../../neuroConstruct/Thalamocortical.ncx")
        
 if __name__=="__main__":
+  #### except L4SpinyStellate and TCR for which NEURON strings are too long at the moment
+  cell_models=["L23PyrRS","L23PyrFRB","SupBasket","SupAxAx","SupLTSInter","L5TuftedPyrIB","L5TuftedPyrRS","L6NonTuftedPyrRS","DeepBasket","DeepAxAx","DeepLTSInter","nRT"]
+  
+  test=["L23PyrRS","L23PyrFRB"]
   
   gen=generate_dashboards(regenerate_nml2=True,
                           testing_mode=True,
                           generate_dashboards=True,
                           compare_to_neuroconstruct=True,
-                          specific_cell_models=["SupAxAx"]) 
+                          specific_cell_models=test)
   
   gen.set_simulations()

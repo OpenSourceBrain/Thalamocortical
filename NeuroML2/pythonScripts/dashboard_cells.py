@@ -171,7 +171,6 @@ def dashboard_cells(net_id,
                     if_params,
                     elec_len_list,
                     dt_list,
-                    comp_summary,
                     generate_dashboards=True,
                     compare_to_neuroConstruct=False,
                     regenerate_nml2=False,
@@ -209,14 +208,22 @@ def dashboard_cells(net_id,
     ############################################################################################################
         
     if generate_dashboards:    
-           
-       try:
-          with open(comp_summary,'r') as f:
-              comp_info=json.load(f)
-       except IOError:
-          print "cannot open file %s"%comp_info
+       
+       cell_id_list=[]
+       
+       config_list=[]
+       
+       analysis_header_list=[]
+       
+       nC_vs_NML2Curve_list=[]
+       
+       IFcurve_list=[]
        
        for cellModel in config_array.keys():
+       
+           cell_id_list.append(cellModel)
+           
+           config_list.append(config_array[cellModel]['Analysis'])
         
            save_to_path="../"+cellModel
         
@@ -228,6 +235,16 @@ def dashboard_cells(net_id,
            
            pathToConfig="../"+config_array[cellModel]['Analysis']
            
+           try:
+              
+              with open(os.path.join(pathToConfig,"compSummary.json"),'r') as f:
+              
+                   comp_info=json.load(f)
+                   
+           except IOError:
+           
+              print "cannot open file %s"%os.path.join(pathToConfig,"compSummary.json")
+              
            cell_morph_summary=comp_info[config_array[cellModel]['Analysis']]
            
            src_files = os.listdir(pathToConfig)
@@ -286,6 +303,8 @@ def dashboard_cells(net_id,
                                         
                   IFcurve="IF_%s"%cellModel
                   
+                  IFcurve_list.append(IFcurve)
+                  
                   IVcurve="IV_%s"%cellModel
                   
                   nml2_file_path=os.path.join(full_file_path,net_file_name+".net.nml")      
@@ -322,6 +341,10 @@ def dashboard_cells(net_id,
                      analysis_string1="nC_vs_NML2_%s"%config_array[cellModel]['Analysis']
                      
                      analysis_header1="Comparison between the original nC model and NeuroML2 model: simulations in NEURON with dt=%f"%global_dt
+                     
+                     analysis_header_list.append(analysis_header1)
+                     
+                     nC_vs_NML2Curve_list.append(analysis_string1)
                               
                   else:
                   
@@ -334,7 +357,11 @@ def dashboard_cells(net_id,
                                             
                      analysis_string1="NML2_%s"%config_array[cellModel]['Analysis']
                      
-                     analysis_header1="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt     
+                     analysis_header1="NeuroML2 model: simulations in NEURON with dt=%f"%global_dt    
+                     
+                     analysis_header_array.append(analysis_header1) 
+                     
+                     nC_vs_NML2Curve_array.append(analysis_string1)
                      
                   smallest_dt=min(dt_list)  
                               
@@ -502,6 +529,7 @@ Dashed black lines - spike times at the %(MaximumDivs)s internal divisions; Blue
 ![Simulation](%(DxCurve)s.png)'''
 
               readme_file = open('README.md','w')
+              
               readme_final=readme%{"CellID":cellModel,
                                    "IFcurve":IFcurve,
                                    "IVcurve":IVcurve,
@@ -520,6 +548,7 @@ Dashed black lines - spike times at the %(MaximumDivs)s internal divisions; Blue
                                    "MaximumDivs":maximum_int_divs}
                            
               readme_file.write(readme_final)
+              
               readme_file.close()
 
               os.chdir(cwd)
@@ -579,3 +608,44 @@ Dashed black lines - spike times at the %(MaximumDivs)s internal divisions; Blue
               readme_file.write(readme_final)
               readme_file.close()
               os.chdir(cwd)                                
+              
+       cwd=os.getcwd()
+               
+       os.chdir(os.path.dirname(cwd))
+        
+       readme = ''' 
+      
+## Conversion of Thalamocortical cell models to NeuroML2
+
+'''
+       readme_file = open('README.md','w')
+
+       for cell_index in range(0,len(cell_id_list)):
+       
+           readme_cell='''
+           
+## Model: %(CellID)s
+
+### Original neuroConstruct config ID: %(Config)s
+
+**%(AnalysisHeader)s**
+
+![Simulation](%(nC_vs_NML2Curve)s.png)
+
+**IF curve for the NeuroML2 model simulated in NEURON**
+
+![Simulation](%(IFcurve)s.png)'''
+
+           readme_cell=readme_cell%{"CellID":cell_id_list[cell_index],
+                                    "Config":config_list[cell_index],
+                                    "AnalysisHeader":analysis_header_list[cell_index],
+                                    "nC_vs_NML2Curve":os.path.join(cell_id_list[cell_index],nC_vs_NML2Curve_list[cell_index]),
+                                    "IFcurve":os.path.join(cell_id_list[cell_index],IFcurve_list[cell_index])}
+                                    
+           readme=readme+readme_cell
+                                
+       readme_file.write(readme)
+       readme_file.close()
+       os.chdir(cwd)     
+       
+           

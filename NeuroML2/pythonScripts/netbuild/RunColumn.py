@@ -118,7 +118,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         chemical_synapse_tags=['.synapse.'],
                         extra_channel_tags=['cad'])
                         
-       passed_includes_in_cells=oc_utils.check_includes_in_cells(os.path.join(dir_nml2,"cells"),cell_model_list_final,extra_channel_tags=['cad'])
+       passed_includes_in_cells=oc_utils.check_includes_in_cells(dir_to_cells,cell_model_list_final,extra_channel_tags=['cad'])
        
        if not passed_includes_in_cells:
        
