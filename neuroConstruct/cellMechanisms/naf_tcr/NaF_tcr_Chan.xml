@@ -71,9 +71,18 @@ J. Neurophysiol. 93, 2194-2232, 2005</meta:fullTitle>
         </meta:modelDBref>
         
         <parameters>
+            <!--
+            
+            Note parameters were renamed from shift_mnaf_init etc. to sh_m_i etc. as these long names 
+            resulted in a very long file/mechanism name in NML2, causing trouble for NEURON
+            
             <parameter name="shift_mnaf_init" value ="-3"/>  
             <parameter name="shift_mnaf_run" value ="-2.5"/>  
-            <parameter name="shift_hnaf" value ="-7"/> 
+            <parameter name="shift_hnaf" value ="-7"/> -->
+            
+            <parameter name="sh_m_i" value ="-3"/>  
+            <parameter name="sh_m_r" value ="-2.5"/>  
+            <parameter name="sh_h" value ="-7"/> 
         </parameters>
         
         <current_voltage_relation cond_law="ohmic" ion="na" default_gmax="187.5" default_erev="50">
@@ -85,10 +94,12 @@ J. Neurophysiol. 93, 2194-2232, 2005</meta:fullTitle>
                 
                      <!-- An *incorrect* initialisation value for this, in order to compare to original mod file. Normally ignored-->
                 <initialisation value="0"/>     
+                
+                
                      
-                <time_course name="tau" from="m0" to="m" expr_form="generic" expr="( v + shift_mnaf_init + shift_mnaf_run ) &lt; -30 ? 0.025 + 0.14 * ( exp ( ((v + shift_mnaf_init + shift_mnaf_run) + 30) / 10) ) : 0.02 + (0.145) * ( exp ( -1 * ((v + shift_mnaf_init + shift_mnaf_run) + 30) / 10) )" />
+                <time_course name="tau" from="m0" to="m" expr_form="generic" expr="( v + sh_m_i + sh_m_r ) &lt; -30 ? 0.025 + 0.14 * ( exp ( ((v + sh_m_i + sh_m_r) + 30) / 10) ) : 0.02 + (0.145) * ( exp ( -1 * ((v + sh_m_i + sh_m_r) + 30) / 10) )" />
                     
-                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr=" 1 / ( 1 + (exp ( ( -1 * (v + shift_mnaf_init + shift_mnaf_run) - 38) / 10)) ) " />
+                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr=" 1 / ( 1 + (exp ( ( -1 * (v + sh_m_i + sh_m_r) - 38) / 10)) ) " />
                     
             </gate>
         
@@ -99,7 +110,7 @@ J. Neurophysiol. 93, 2194-2232, 2005</meta:fullTitle>
                      
                 <time_course name="tau" from="h0" to="h" expr_form="generic" expr="0.15 + 1.15 / ( 1 + ( exp (( v + 37 ) / 15) ) )" />
                     
-                <steady_state name="inf" from="h0" to="h" expr_form="generic" expr="1 / ( 1 + (exp (( ( v + shift_hnaf ) + 62.9 ) / 10.7)) )" />
+                <steady_state name="inf" from="h0" to="h" expr_form="generic" expr="1 / ( 1 + (exp (( ( v + sh_h ) + 62.9 ) / 10.7)) )" />
                     
             </gate>
         </current_voltage_relation> 

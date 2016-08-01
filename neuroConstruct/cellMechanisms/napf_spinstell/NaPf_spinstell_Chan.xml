@@ -73,7 +73,9 @@ J. Neurophysiol. 93, 2194-2232, 2005</meta:fullTitle>
         
 
         <parameters>
-            <parameter name="fastNa_shift" value ="-2.5"/>
+            <!-- Note: parameter fastNa_shift was renamed to sh, as the original name produced 
+                 too long a filename for the mod file in NML2 -->
+            <parameter name="sh" value ="-2.5"/>
             <parameter name="a" value ="0"/>
             <parameter name="b" value ="0"/>
             <parameter name="c" value ="0"/>
@@ -90,9 +92,9 @@ J. Neurophysiol. 93, 2194-2232, 2005</meta:fullTitle>
                      <!-- An *incorrect* initialisation value for this, in order to compare to original mod file. Normally ignored-->
                 <initialisation value="0"/>  
                      
-                <time_course name="tau" from="m0" to="m" expr_form="generic" expr="( v + fastNa_shift ) &lt; -30 ? 0.025 + 0.14 * ( exp ( ((v + fastNa_shift) + 30) / 10) ) : 0.02 + a + (0.145 + b) * ( exp ( -1 * ((v + fastNa_shift + d) + 30) / (10 + c)) )" />
+                <time_course name="tau" from="m0" to="m" expr_form="generic" expr="( v + sh ) &lt; -30 ? 0.025 + 0.14 * ( exp ( ((v + sh) + 30) / 10) ) : 0.02 + a + (0.145 + b) * ( exp ( -1 * ((v + sh + d) + 30) / (10 + c)) )" />
                     
-                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr=" 1 / ( 1 + (exp ( ( -1 * (v + fastNa_shift) - 38) / 10)) ) " />
+                <steady_state name="inf" from="m0" to="m" expr_form="generic" expr=" 1 / ( 1 + (exp ( ( -1 * (v + sh) - 38) / 10)) ) " />
                     
             </gate>
         </current_voltage_relation> 

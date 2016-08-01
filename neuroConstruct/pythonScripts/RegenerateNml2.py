@@ -32,6 +32,7 @@ else:
     # This just pulls them from the repository, since they get wiped by the generateNeuroML2 function 
     extra_files = ['.test.*', 
                    'channel_summary', 
+                   'updateNML2.sh', 
                    'LEMS_SomaTest.xml', 
                    'Test.net.nml', 
                    'analyse_chans.sh', 

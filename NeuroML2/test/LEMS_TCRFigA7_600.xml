@@ -31,9 +31,7 @@
     <Include file="../channels/kdr.channel.nml"/>
     <Include file="../channels/km.channel.nml"/>
     <Include file="../channels/naf_tcr.channel.nml"/>
-    <Include file="../channels/naf_tcr__shift_hnafmin7__shift_mnaf_initmin3__shift_mnaf_runmin2_5.channel.nml"/>
-    <Include file="../channels/naf_tcr__shift_hnafmin7__shift_mnaf_initmin3__shift_mnaf_runmin2_5.channel.nml"/>
-    <Include file="../channels/naf_tcr__shift_hnafmin7__shift_mnaf_initmin3__shift_mnaf_runmin2_5.channel.nml"/>
+    <Include file="../channels/naf_tcr__sh_hmin7__sh_m_imin3__sh_m_rmin2_5.channel.nml"/>
     <Include file="../channels/napf_tcr.channel.nml"/>
     <Include file="../channels/napf_tcr__a0__b0__c0__d0__fastNa_shift7.channel.nml"/>
     <Include file="../channels/napf_tcr__a0__b0__c0__d0__fastNa_shift7.channel.nml"/>

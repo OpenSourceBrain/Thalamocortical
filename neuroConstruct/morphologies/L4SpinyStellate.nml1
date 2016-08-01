@@ -4,7 +4,8 @@
     <cells>
         <cell name="L4SpinyStellate">
 
-            <meta:notes>Cell: spinstell_0 exported from NEURON ModelView</meta:notes>
+            <meta:notes>Cell: spinstell_0 exported from NEURON ModelView. Note: parameter fastNa_shift was renamed to sh, as the original name produced 
+                 too long a filename for the mod file in NML2</meta:notes>
 
             <mml:segments>
 
@@ -1855,7 +1856,7 @@
 
                         <bio:group>mid_dist_dends</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="fastNa_shift" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>mid_dist_dends</bio:group>
                     </bio:parameter>
@@ -1881,7 +1882,7 @@
 
                         <bio:group>ModelViewParmSubset_14</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="fastNa_shift" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_14</bio:group>
                     </bio:parameter>
