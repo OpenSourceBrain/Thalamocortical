@@ -3,9 +3,9 @@
 target: LEMS_supbaskFigA2a.xml 
 engine: jNeuroML_NEURON
 
-mep: .test.supbaskFigA2a.mep
+mep: .test.axax_bask.mep
 experiments:
-  supbaskFigA2a:
+  AxAx_or_Basket:
     observables:
       spike times:
         file: 
@@ -15,4 +15,4 @@ experiments:
         spike detection: 
           method: threshold
           threshold: -0.02
-        tolerance: 0.001
+        tolerance: 0.007057

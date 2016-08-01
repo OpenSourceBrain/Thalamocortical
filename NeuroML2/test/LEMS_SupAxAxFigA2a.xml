@@ -50,7 +50,7 @@
     <Include file="../channels/nap.channel.nml"/>
     <Include file="../channels/pas.channel.nml"/>
    
-    <Simulation id="Sim_Target" length="300.0ms" step="0.01ms" target="Target" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="Sim_Target" length="300.0ms" step="0.005ms" target="Target" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         
         <Display id="DispPop__CGsupaxax" title="Membrane potentials of cells in CGsupaxax" timeScale="1ms" xmin="-30.0" xmax="330.0" ymin="-90" ymax="50">
             <Line id="CGsupaxax[0]: v" quantity="CGsupaxax/0/SupAxAx/v" scale="1mV" color="#f7697f" timeScale="1ms"/>
