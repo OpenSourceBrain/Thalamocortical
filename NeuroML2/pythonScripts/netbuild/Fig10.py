@@ -48,7 +48,7 @@ RunColumnSimulation(net_id=ref,
                     dir_nml2="../../",
                     duration=simDuration,
                     dt=simDt,
-                    max_memory='8000M',
+                    max_memory='4000M',
                     seed=neuroConstructSeed,
                     simulator=simulator)
 
