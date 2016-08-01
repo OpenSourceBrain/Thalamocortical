@@ -4,7 +4,8 @@
     <cells>
         <cell name="TCR">
 
-            <meta:notes>Cell: TCR_0 exported from NEURON ModelView</meta:notes>
+            <meta:notes>Cell: TCR_0 exported from NEURON ModelView. Note parameters were renamed from shift_mnaf_init etc. to sh_m_i etc. as these long names 
+            resulted in a very long file/mechanism name in NML2, causing trouble for NEURON</meta:notes>
 
             <mml:segments>
 
@@ -3688,15 +3689,15 @@
                     <bio:parameter name="gmax" value="100.0">
                         <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_hnaf" value="-7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_h" value="-7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_mnaf_init" value="-3.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_m_i" value="-3.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_mnaf_run" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_m_r" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>soma_prox_dends</bio:group>
                     </bio:parameter>
@@ -3706,15 +3707,15 @@
                     <bio:parameter name="gmax" value="400.0">
                         <bio:group>ModelViewParmSubset_3</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_hnaf" value="-7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_h" value="-7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_3</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_mnaf_init" value="-3.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_m_i" value="-3.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_3</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_mnaf_run" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_m_r" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_3</bio:group>
                     </bio:parameter>
@@ -3724,15 +3725,15 @@
                     <bio:parameter name="gmax" value="5.0">
                         <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_hnaf" value="-7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_h" value="-7.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_mnaf_init" value="-3.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_m_i" value="-3.0">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
-                    <bio:parameter name="shift_mnaf_run" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
+                    <bio:parameter name="sh_m_r" value="-2.5">    <!--Note: Units of extra parameters are not known, except if it's e!!-->
 
                         <bio:group>ModelViewParmSubset_4</bio:group>
                     </bio:parameter>
