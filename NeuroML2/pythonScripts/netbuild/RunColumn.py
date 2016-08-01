@@ -65,6 +65,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
     for cell_population in popDictFull.keys():
     
         include_cell_population=False
+        
+        cell_model=popDictFull[cell_population][2]
     
         if which_models=='all' or cell_model in which_models:
         
@@ -128,7 +130,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
              
     for cell_model in cell_model_list_final:
         
-        oc.add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model)
+        oc.add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model, use_prototypes=False)
         
     t1=-0
     t2=-250
@@ -183,8 +185,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
                    {'weight':pyr_ss_nmda_scaling,'synComp':'NMDA','synEndsWith':["_IN","_DeepIN","_SupIN","_SupFS","_DeepFS","_SupLTS","_DeepLTS","_nRT","_TCR"],
                    'targetCellGroup':[]}]
                    
-    delay_params=[{'delay':default_synaptic_delay,'synComp':'all'}] 
-    
+    delay_params=[{'delay':default_synaptic_delay,'synComp':'all'}]
+
     passed_weight_params=oc_utils.check_weight_params(weight_params)
     
     passed_delay_params=oc_utils.check_delay_params(delay_params)
