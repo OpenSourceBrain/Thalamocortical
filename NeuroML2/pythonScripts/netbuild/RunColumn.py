@@ -1,7 +1,4 @@
 ##############################################################
-### Subject to change without notice!!
-##############################################################
-##############################################################
 ### Author : Rokas Stanislovas
 ###
 ### GSoC 2016 project: Cortical Networks
@@ -15,8 +12,7 @@ import sys
 
 #### distribute cells for the sake of network visualization; no spatial dependence of connection probability at the moment;
 ###### larger networks exceed GitHub's file size limit of 100.00 MB;
-######Note: the below leads to Java out of memory errors when validating the final nml2 network file; use another format instead of nml; #TODO
-
+######Note: 100 % network leads to the Java out of memory errors when validating the final nml2 network file; use another format instead of nml; #TODO
 
 def RunColumnSimulation(net_id="TestRunColumn",
                         nml2_source_dir="../../../neuroConstruct/generatedNeuroML2/",
@@ -29,6 +25,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         l5pyr_gap_scaling =1.0,
 			in_nrt_tcr_nmda_scaling =1.0,
 			pyr_ss_nmda_scaling=1.0,
+			deep_bias_current=-1,
                         which_models='all',
                         dir_nml2="../../",
                         duration=300,
@@ -121,7 +118,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         chemical_synapse_tags=['.synapse.'],
                         extra_channel_tags=['cad'])
                         
-       passed_includes_in_cells=oc_utils.check_includes_in_cells(os.path.join(dir_nml2,"cells"),cell_model_list_final,extra_channel_tags=['cad'])
+       passed_includes_in_cells=oc_utils.check_includes_in_cells(dir_to_cells,cell_model_list_final,extra_channel_tags=['cad'])
        
        if not passed_includes_in_cells:
        
@@ -200,6 +197,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                                                          pop_objects=pop_params,
                                                                                          path_to_cells=dir_to_cells,
                                                                                          full_path_to_conn_summary=full_path_to_connectivity,
+                                                                                         pre_segment_group_info=["distal_axon"],
                                                                                          synaptic_scaling_params=weight_params,
                                                                                          synaptic_delay_params=delay_params)   
                                                                                          
@@ -236,22 +234,22 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     if sim_config=="Testing2":
     
-       input_params={'CG3D_L23PyrRS':[{'InputType':'PulseGenerators',
-                     'InputName':"DepCurr_L23RS",
-                     'Noise':True,
-                     'SmallestAmplitudeList':[5.0E-5,1.0E-5],
-                     'LargestAmplitudeList':[1.0E-4,2.0E-5],
-                     'DurationList':[20000.0,20000.0],
-                     'DelayList':[0.0,20000.0],
-                     'TimeUnits':'ms',
-                     'AmplitudeUnits':'uA',
-                     'FractionToTarget':1.0,
-                     'LocationSpecific':False,
-                     'TargetDict':{'dendrite_group':1}             }]             } 
+       input_params_final={'CG3D_L23PyrRS':[{'InputType':'PulseGenerators',
+                           'InputName':"DepCurr_L23RS",
+                           'Noise':True,
+                           'SmallestAmplitudeList':[5.0E-5,1.0E-5],
+                           'LargestAmplitudeList':[1.0E-4,2.0E-5],
+                           'DurationList':[20000.0,20000.0],
+                           'DelayList':[0.0,20000.0],
+                           'TimeUnits':'ms',
+                           'AmplitudeUnits':'uA',
+                           'FractionToTarget':1.0,
+                           'LocationSpecific':False,
+                           'TargetDict':{'dendrite_group':1}             }]             } 
                      
     if sim_config=="TempSimConfig":
     
-       input_params={'CG3D_L23PyrRS':[{'InputType':'PulseGenerators',
+       input_params ={'CG3D_L23PyrRS':[{'InputType':'PulseGenerators',
                      'InputName':"DepCurr_L23RS",
                      'Noise':True,
                      'SmallestAmplitudeList':[5.0E-5],
@@ -431,10 +429,40 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'UniversalTargetSegmentID':0,
                      'UniversalFractionAlong':0.5}  ]   }
                      
+       input_params_final={}
+       
+       for pop_id in pop_params.keys():
+          
+           if pop_id in input_params.keys():
+       
+              input_params_final[pop_id]=input_params[pop_id]
+                     
+       if deep_bias_current >= 0:
+    
+          for cell_group in input_params_final.keys():
+       
+              for input_group in range(0,len(input_params_final[cell_group])):
+              
+                  check_type=input_params_final[cell_group][input_group]['InputType']=="PulseGenerators"
+                  
+                  check_group_1= cell_group=="CG3D_L5TuftIB"
+                  
+                  check_group_2=cell_group =="CG3D_L5TuftRS"
+                  
+                  check_group_3= cell_group =="CG3D_L6NonTuftRS"
+           
+                  if check_type and (check_group_1 or check_group_2 or check_group_3):
+	    
+	             opencortex.print_comment_v("Changing offset current in 'PulseGenerators' for %s to %f"%(cell_group, deep_bias_current))
+	      
+	             input_params_final[cell_group][input_group]['SmallestAmplitudeList']=[ (deep_bias_current-0.05)/1000 ] 
+	              
+	             input_params_final[cell_group][input_group]['LargestAmplitudeList']=[ (deep_bias_current+0.05)/1000 ]
+                     
     input_list_array_final, input_synapse_list=oc_utils.build_inputs(nml_doc=nml_doc,
                                                                      net=network,
                                                                      population_params=pop_params,
-                                                                     input_params=input_params,
+                                                                     input_params=input_params_final,
                                                                      cached_dicts=cached_segment_dicts,
                                                                      path_to_cells=dir_to_cells,
                                                                      path_to_synapses=dir_to_synapses)
@@ -481,15 +509,16 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                duration =duration, 
                                                dt =dt,
                                                include_extra_lems_files=all_synapse_components)
+     
+    if simulator != None:                                          
+                                               
+       opencortex.print_comment_v("Starting simulation of %s.net.nml"%net_id)
                             
     oc.simulate_network(lems_file_name=lems_file_name,
                         simulator=simulator,
                         max_memory=max_memory)
     
-    
-    
 if __name__=="__main__":
 
    RunColumnSimulation(sim_config="TempSimConfig")
-   
                                               

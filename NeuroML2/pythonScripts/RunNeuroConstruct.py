@@ -93,22 +93,33 @@ def RunConfigs(projString,simConfigs,simDt,argv=None):
 ###################################################################################################################
  
 def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg=None,savingDir=None,shell=None):
-
-
+    
     projFile=File(os.getcwd(),projString)
+    
     pm=ProjectManager()
-    compSummary={}
+    
     for config in ConfigDict.keys():
     
         project=pm.loadProject(projFile)
         
         nmlfm = NeuroMLFileManager(project)
+        
+        compSummary={}
        
         compSummary[config]={}
+        
         if " " in config:
            configPath=config.replace(" ","_")
         else:
            configPath=config
+           
+        if savingDir !=None:
+        
+           full_path_to_config=r'../%s/%s'%(savingDir,configPath)
+           
+        else:
+        
+           full_path_to_config=r'../%s'%(configPath)
         
         for maxElecLen in ElecLenList:
             compSummary[config][str(maxElecLen)]={}
@@ -184,8 +195,8 @@ def SingleCellNML2generator(projString=" ",ConfigDict={},ElecLenList=[],somaNseg
                    print("Moving generated NeuroML2 to files to %s"%cellpath)
                    shutil.copy(full_file_name, cellpath)
                       
-    with open("compSummary.json",'w') as fout:
-        json.dump(compSummary, fout)          
+        with open(os.path.join(full_path_to_config,"compSummary.json"),'w') as fout:
+             json.dump(compSummary, fout)          
       
     if shell ==None:
        extension='sh'
