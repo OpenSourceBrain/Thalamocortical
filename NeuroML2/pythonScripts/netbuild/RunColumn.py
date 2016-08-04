@@ -199,7 +199,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                                                          pop_objects=pop_params,
                                                                                          path_to_cells=dir_to_cells,
                                                                                          full_path_to_conn_summary=full_path_to_connectivity,
-                                                                                         pre_segment_group_info=["distal_axon"],
+                                                                                         pre_segment_group_info=[{'PreSegGroup':"distal_axon",'ProjType':'Chem'}],
                                                                                          synaptic_scaling_params=weight_params,
                                                                                          synaptic_delay_params=delay_params)   
                                                                                          
@@ -523,4 +523,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
 if __name__=="__main__":
 
    RunColumnSimulation(sim_config="TempSimConfig")
+   
+   RunColumnSimulation(net_id="TestRunColumnSubstitution",
+                       sim_config="TempSimConfig",
+                       which_models=["L23PyrRS","L23PyrFRB_varInit"])
                                               
