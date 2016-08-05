@@ -13,7 +13,7 @@ simDuration =           800 # ms                                ##
 simDt =                 0.025 # ms
 neuroConstructSeed =    1333                                   ##
 
-simulator =             None   # "jNeuroML_NEURON"
+simulator =             "jNeuroML_NEURON"   # "jNeuroML_NEURON"
 
 defaultSynapticDelay =  0.05 
 
@@ -48,7 +48,7 @@ RunColumnSimulation(net_id=ref,
                     dir_nml2="../../",
                     duration=simDuration,
                     dt=simDt,
-                    max_memory='1000M',
+                    max_memory='4000M',
                     seed=neuroConstructSeed,
                     simulator=simulator)
 

@@ -65,6 +65,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
     for cell_population in popDictFull.keys():
     
         include_cell_population=False
+        
+        cell_model=popDictFull[cell_population][2]
     
         if which_models=='all' or cell_model in which_models:
         
@@ -128,7 +130,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
              
     for cell_model in cell_model_list_final:
         
-        oc.add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model)
+        oc.add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model, use_prototypes=False)
         
     t1=-0
     t2=-250
@@ -183,8 +185,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
                    {'weight':pyr_ss_nmda_scaling,'synComp':'NMDA','synEndsWith':["_IN","_DeepIN","_SupIN","_SupFS","_DeepFS","_SupLTS","_DeepLTS","_nRT","_TCR"],
                    'targetCellGroup':[]}]
                    
-    delay_params=[{'delay':default_synaptic_delay,'synComp':'all'}] 
-    
+    delay_params=[{'delay':default_synaptic_delay,'synComp':'all'}]
+
     passed_weight_params=oc_utils.check_weight_params(weight_params)
     
     passed_delay_params=oc_utils.check_delay_params(delay_params)
@@ -197,7 +199,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                                                          pop_objects=pop_params,
                                                                                          path_to_cells=dir_to_cells,
                                                                                          full_path_to_conn_summary=full_path_to_connectivity,
-                                                                                         pre_segment_group_info=["distal_axon"],
+                                                                                         pre_segment_group_info=[{'PreSegGroup':"distal_axon",'ProjType':'Chem'}],
                                                                                          synaptic_scaling_params=weight_params,
                                                                                          synaptic_delay_params=delay_params)   
                                                                                          
@@ -276,7 +278,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      {'InputType':'GeneratePoissonTrains',
                      'InputName':"EctopicStimL23RS",
                      'TrainType':'persistent',
-                     'Synapse':'SynForEctopicStimulation',
+                     'Synapse':'SynForEctStim',
                      'AverageRateList':[0.1],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
@@ -287,7 +289,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'CG3D_TCR':[{'InputType':'GeneratePoissonTrains',
                      'InputName':"EctopicStimTCR",
                      'TrainType':'persistent',
-                     'Synapse':'SynForEctopicStimulation',
+                     'Synapse':'SynForEctStim',
                      'AverageRateList':[1.0],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
@@ -308,7 +310,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'CG3D_L23PyrFRB':[{'InputType':'GeneratePoissonTrains',
                      'InputName':"EctopicStimL23FRB",
                      'TrainType':'persistent',
-                     'Synapse':'SynForEctopicStimulation',
+                     'Synapse':'SynForEctStim',
                      'AverageRateList':[0.1],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
@@ -333,7 +335,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'CG3D_L6NonTuftRS':[{'InputType':'GeneratePoissonTrains',
                      'InputName':"EctopicStimL6NT",
                      'TrainType':'persistent',
-                     'Synapse':'SynForEctopicStimulation',
+                     'Synapse':'SynForEctStim',
                      'AverageRateList':[1.0],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
@@ -382,7 +384,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      {'InputType':'GeneratePoissonTrains',
                      'InputName':"EctopicStimL5IB",
                      'TrainType':'persistent',
-                     'Synapse':'SynForEctopicStimulation',
+                     'Synapse':'SynForEctStim',
                      'AverageRateList':[1.0],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
@@ -407,7 +409,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'CG3D_L5TuftRS':[{'InputType':'GeneratePoissonTrains',
                      'InputName':"EctopicStimL5RS",
                      'TrainType':'persistent',
-                     'Synapse':'SynForEctopicStimulation',
+                     'Synapse':'SynForEctStim',
                      'AverageRateList':[1.0],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
@@ -521,4 +523,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
 if __name__=="__main__":
 
    RunColumnSimulation(sim_config="TempSimConfig")
+   
+   RunColumnSimulation(net_id="TestRunColumnSubstitution",
+                       sim_config="TempSimConfig",
+                       which_models=["L23PyrRS","L23PyrFRB_varInit"])
                                               
