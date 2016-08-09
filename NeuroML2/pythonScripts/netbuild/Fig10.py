@@ -9,11 +9,11 @@
 ref =                   "Figure10"
 
 simConfig=              "TempSimConfig"
-simDuration =           800 # ms                                ##
+simDuration =           300 # ms        original value 800                        ##
 simDt =                 0.025 # ms
 neuroConstructSeed =    1333                                   ##
 
-simulator =             "jNeuroML_NEURON"   # "jNeuroML_NEURON"
+simulator =             "jNeuroML_NEURON"  # "jNeuroML_NEURON"
 
 defaultSynapticDelay =  0.05 
 
