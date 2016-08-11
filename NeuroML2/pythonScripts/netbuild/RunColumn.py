@@ -159,6 +159,9 @@ def RunColumnSimulation(net_id="TestRunColumn",
     boundaries['L6']=[t1+t2+t3+t4+t5,t1+t2+t3+t4+t5+t6]
     boundaries['Thalamus']=[t1+t2+t3+t4+t5+t6+t7,t1+t2+t3+t4+t5+t6+t7+t8]
     
+    xs = [0,500]
+    zs = [0,500] 
+    
     passed_pops=oc_utils.check_pop_dict_and_layers(pop_dict=popDict,boundary_dict=boundaries)
     
     if passed_pops:
@@ -529,9 +532,9 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                
        opencortex.print_comment_v("Starting simulation of %s.net.nml"%net_id)
                             
-    oc.simulate_network(lems_file_name=lems_file_name,
-                        simulator=simulator,
-                        max_memory=max_memory)
+       oc.simulate_network(lems_file_name=lems_file_name,
+                           simulator=simulator,
+                           max_memory=max_memory)
     
 if __name__=="__main__":
 
