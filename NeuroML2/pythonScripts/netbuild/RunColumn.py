@@ -538,9 +538,11 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
 if __name__=="__main__":
 
-   RunColumnSimulation(sim_config="TempSimConfig",
-                       scale_cortex=0.7,
-                       scale_thalamus=0.7)
+   #RunColumnSimulation(sim_config="TempSimConfig",
+                       #scale_cortex=0.7,
+                       #scale_thalamus=0.7)
+                       
+   RunColumnSimulation()
    
    RunColumnSimulation(net_id="TestRunColumnSubstitution",
                        sim_config="TempSimConfig",
