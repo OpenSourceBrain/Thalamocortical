@@ -15,7 +15,7 @@ install:
 
 script:
     - pwd
-    - if [[ ${OMV_ENGINE} == "Py_neuroConstruct" ]]; then cd neuroConstruct/pythonScripts/netbuild/; ./makeSyns.sh ; cd -;  fi
+    - if [[ ${OMV_ENGINE} == "Py_neuroConstruct" ]]; then omv install Py_neuroConstruct; cd neuroConstruct/pythonScripts/netbuild/; ./makeSyns.sh ; cd -;  fi
     - omv all -V
     
     
