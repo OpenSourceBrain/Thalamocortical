@@ -8,12 +8,14 @@ env:
     - OMV_ENGINE=jNeuroML_NEURON
     - OMV_ENGINE=jNeuroML_validate
     - OMV_ENGINE=jNeuroML_validatev1
+    - OMV_ENGINE=Py_neuroConstruct
 
 install: 
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
 
 script:
     - pwd
+    - if [[ ${OMV_ENGINE} == "Py_neuroConstruct" ]]; then omv install Py_neuroConstruct; cd neuroConstruct/pythonScripts/netbuild/; ./makeSyns.sh ; cd -;  fi
     - omv all -V
     
     

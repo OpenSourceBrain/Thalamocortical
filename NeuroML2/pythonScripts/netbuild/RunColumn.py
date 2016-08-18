@@ -19,6 +19,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         sim_config="TempSimConfig",
                         scale_cortex=0.1,
                         scale_thalamus=0.1,
+                        cell_bodies_overlap=True,
+                        cylindrical=True,
                         default_synaptic_delay=0.05,
                         gaba_scaling=1.0,
                         l4ss_ampa_scaling=1.0,
@@ -32,33 +34,42 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         dt=0.025,
                         max_memory='1000M',
                         seed=1234,
-                        simulator=None):
+                        simulator=None,
+                        num_of_cylinder_sides=None):
               
                         
     popDictFull = {}
     
     ##############   Full model ##################################
     
-    popDictFull['CG3D_L23PyrRS'] = (1000, 'L23','L23PyrRS')
-    popDictFull['CG3D_SupBask'] = (90, 'L23','SupBasket')
-    popDictFull['CG3D_SupAxAx'] = (90, 'L23','SupAxAx')
-    popDictFull['CG3D_L5TuftIB'] = (800, 'L5','L5TuftedPyrIB')
-    popDictFull['CG3D_L5TuftRS']= (200,'L5','L5TuftedPyrRS')          
-    popDictFull['CG3D_L4SpinStell']= (240,'L4','L4SpinyStellate')
-    popDictFull['CG3D_L23PyrFRB']= (50,'L23','L23PyrFRB_varInit')
-    popDictFull['CG3D_L6NonTuftRS']= (500,'L6','L6NonTuftedPyrRS')
-    popDictFull['CG3D_DeepAxAx']= (100,'L6','DeepAxAx')
-    popDictFull['CG3D_DeepBask']= (100,'L6','DeepBasket')
-    popDictFull['CG3D_DeepLTS']= (100,'L6','DeepLTSInter')
-    popDictFull['CG3D_SupLTS']= (90,'L23','SupLTSInter')
-    popDictFull['CG3D_nRT']= (100,'Thalamus','nRT')
-    popDictFull['CG3D_TCR']= (100,'Thalamus','TCR')
+    popDictFull['CG3D_L23PyrRS'] = (1000, 'L23','L23PyrRS','multi')
+    popDictFull['CG3D_SupBask'] = (90, 'L23','SupBasket','multi')
+    popDictFull['CG3D_SupAxAx'] = (90, 'L23','SupAxAx','multi')
+    popDictFull['CG3D_L5TuftIB'] = (800, 'L5','L5TuftedPyrIB','multi')
+    popDictFull['CG3D_L5TuftRS']= (200,'L5','L5TuftedPyrRS','multi')          
+    popDictFull['CG3D_L4SpinStell']= (240,'L4','L4SpinyStellate','multi')
+    popDictFull['CG3D_L23PyrFRB']= (50,'L23','L23PyrFRB_varInit','multi')
+    popDictFull['CG3D_L6NonTuftRS']= (500,'L6','L6NonTuftedPyrRS','multi')
+    popDictFull['CG3D_DeepAxAx']= (100,'L6','DeepAxAx','multi')
+    popDictFull['CG3D_DeepBask']= (100,'L6','DeepBasket','multi')
+    popDictFull['CG3D_DeepLTS']= (100,'L6','DeepLTSInter','multi')
+    popDictFull['CG3D_SupLTS']= (90,'L23','SupLTSInter','multi')
+    popDictFull['CG3D_nRT']= (100,'Thalamus','nRT','multi')
+    popDictFull['CG3D_TCR']= (100,'Thalamus','TCR','multi')
     
     ###############################################################
+    
+    dir_to_cells=os.path.join(dir_nml2,"cells")
+    
+    dir_to_synapses=os.path.join(dir_nml2,"synapses")
+    
+    dir_to_gap_junctions=os.path.join(dir_nml2,"gapJunctions")
     
     popDict={}
     
     cell_model_list=[]
+    
+    cell_diameter_dict={}
     
     nml_doc, network = oc.generate_network(net_id,seed)
     
@@ -74,13 +85,19 @@ def RunColumnSimulation(net_id="TestRunColumn",
 
            if popDictFull[cell_population][1] !='Thalamus':
              
-              popDict[cell_population]=( int(round(scale_cortex*popDictFull[cell_population][0])), popDictFull[cell_population][1],popDictFull[cell_population][2])
+              popDict[cell_population]=(int(round(scale_cortex*popDictFull[cell_population][0])), 
+                                        popDictFull[cell_population][1],
+                                        popDictFull[cell_population][2],
+                                        popDictFull[cell_population][3])
                   
               cell_count=int(round(scale_cortex*popDictFull[cell_population][0]))
                 
            else:
              
-              popDict[cell_population]=( int(round(scale_thalamus*popDictFull[cell_population][0])),popDictFull[cell_population][1],popDictFull[cell_population][2])
+              popDict[cell_population]=(int(round(scale_thalamus*popDictFull[cell_population][0])),
+                                        popDictFull[cell_population][1],
+                                        popDictFull[cell_population][2],
+                                        popDictFull[cell_population][3])
                   
               cell_count=int(round(scale_thalamus*popDictFull[cell_population][0]))
            
@@ -91,16 +108,17 @@ def RunColumnSimulation(net_id="TestRunColumn",
         if include_cell_population:
         
            cell_model_list.append(popDictFull[cell_population][2])
-     
+           
+           cell_diameter=oc.get_soma_diameter(popDictFull[cell_population][2],dir_to_cell=dir_to_cells)
+           
+           if popDictFull[cell_population][2] not in cell_diameter_dict.keys():
+           
+              cell_diameter_dict[popDictFull[cell_population][2]]=cell_diameter
+           
+           
     cell_model_list_final=list(set(cell_model_list))
     
     opencortex.print_comment_v("This is a final list of cell model ids: %s"%cell_model_list_final)
-    
-    dir_to_cells=os.path.join(dir_nml2,"cells")
-    
-    dir_to_synapses=os.path.join(dir_nml2,"synapses")
-    
-    dir_to_gap_junctions=os.path.join(dir_nml2,"gapJunctions")
     
     copy_nml2_from_source=False
     
@@ -149,17 +167,24 @@ def RunColumnSimulation(net_id="TestRunColumn",
     boundaries['L5']=[t1+t2+t3+t4,t1+t2+t3+t4+t5]
     boundaries['L6']=[t1+t2+t3+t4+t5,t1+t2+t3+t4+t5+t6]
     boundaries['Thalamus']=[t1+t2+t3+t4+t5+t6+t7,t1+t2+t3+t4+t5+t6+t7+t8]
-
+    
     xs = [0,500]
     zs = [0,500] 
-
+    
     passed_pops=oc_utils.check_pop_dict_and_layers(pop_dict=popDict,boundary_dict=boundaries)
     
     if passed_pops:
     
-       opencortex.print_comment_v("Population parameters were specified correctly.")
-      
-       pop_params=oc_utils.add_populations_in_layers(network,boundaries,popDict,xs,zs)
+       opencortex.print_comment_v("Population parameters were specified correctly.") 
+       
+       if cylindrical:
+       
+          pop_params=oc_utils.add_populations_in_cylindrical_layers(network,boundaries,popDict,radiusOfCylinder=250,cellBodiesOverlap=cell_bodies_overlap,
+                                                                    cellDiameterArray=cell_diameter_dict,numOfSides=num_of_cylinder_sides)
+                                                                 
+       else:
+                                                                 
+          pop_params=oc_utils.add_populations_in_rectangular_layers(network,boundaries,popDict,xs,zs,cellBodiesOverlap=False,cellDiameterArray=cell_diameter_dict)
        
     else:
     
@@ -501,7 +526,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     nml_file_name = '%s.net.nml'%network.id
     
-    oc.save_network(nml_doc, nml_file_name, validate=True)
+    oc.save_network(nml_doc, nml_file_name, validate=True,max_memory=max_memory)
     
     oc.remove_component_dirs(dir_to_project_nml2="%s"%network.id,list_of_cell_ids=cell_model_list_final,extra_channel_tags=['cad'])
     
@@ -516,15 +541,23 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                
        opencortex.print_comment_v("Starting simulation of %s.net.nml"%net_id)
                             
-    oc.simulate_network(lems_file_name=lems_file_name,
-                        simulator=simulator,
-                        max_memory=max_memory)
+       oc.simulate_network(lems_file_name=lems_file_name,
+                           simulator=simulator,
+                           max_memory=max_memory)
     
 if __name__=="__main__":
 
-   RunColumnSimulation(sim_config="TempSimConfig")
+   RunColumnSimulation(net_id="TestRunColumn70",
+                       sim_config="TempSimConfig",
+                       scale_cortex=0.7,
+                       scale_thalamus=0.7,
+                       num_of_cylinder_sides=3)
+                       
+   RunColumnSimulation()
    
    RunColumnSimulation(net_id="TestRunColumnSubstitution",
                        sim_config="TempSimConfig",
                        which_models=["L23PyrRS","L23PyrFRB_varInit"])
+                       
+   
                                               
