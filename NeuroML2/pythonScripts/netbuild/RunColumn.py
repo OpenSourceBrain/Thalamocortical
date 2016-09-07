@@ -28,6 +28,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
 			in_nrt_tcr_nmda_scaling =1.0,
 			pyr_ss_nmda_scaling=1.0,
 			deep_bias_current=-1,
+                        include_gap_junctions=True,
                         which_models='all',
                         dir_nml2="../../",
                         duration=300,
@@ -219,6 +220,10 @@ def RunColumnSimulation(net_id="TestRunColumn",
     if passed_weight_params and passed_delay_params:    
     
        opencortex.print_comment_v("Synaptic weight and delay parameters were specified correctly.")     
+       
+       ignore_synapses = []
+       if not include_gap_junctions:
+           ignore_synapses = ['Syn_Elect_SupPyr_SupPyr','Syn_Elect_CortIN_CortIN','Syn_Elect_L4SS_L4SS','Syn_Elect_DeepPyr_DeepPyr','Syn_Elect_nRT_nRT']
     
        all_synapse_components,projArray,cached_segment_dicts=oc_utils.build_connectivity(net=network,
                                                                                          pop_objects=pop_params,
@@ -226,7 +231,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
                                                                                          full_path_to_conn_summary=full_path_to_connectivity,
                                                                                          pre_segment_group_info=[{'PreSegGroup':"distal_axon",'ProjType':'Chem'}],
                                                                                          synaptic_scaling_params=weight_params,
-                                                                                         synaptic_delay_params=delay_params)   
+                                                                                         synaptic_delay_params=delay_params,
+                                                                                         ignore_synapses=ignore_synapses)   
                                                                                          
     else:
        
