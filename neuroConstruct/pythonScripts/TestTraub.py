@@ -66,8 +66,13 @@ def testAll(argv=None):
             words = line.split()
             if len(words)>=6 and words[2].startswith("Syn_"):
                 synName = words[2]
-                cm = project.cellMechanismInfo.getCellMechanism(synName)
-                print "Checked syn %s"%cm.getInstanceName()
+                syn_dir = "../cellMechanisms/%s"%synName
+                if os.path.isdir(syn_dir):
+                    cm = project.cellMechanismInfo.getCellMechanism(synName)
+                    print "Checked syn %s"%cm.getInstanceName()
+                else:
+                    print("Problem finding directory: %s!! This is probably due to the synapses not having been generated \n"%syn_dir+ \
+                     "from netbuild/makeSyns.sh (they need to be generated loacally; too many to commit to repository)")
 
 
     netConnList = open("netbuild/netConnList", 'r')
