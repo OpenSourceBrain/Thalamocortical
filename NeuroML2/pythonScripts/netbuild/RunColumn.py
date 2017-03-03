@@ -29,8 +29,10 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         pyr_ss_nmda_scaling=1.0,
                         deep_bias_current=-1,
                         include_gap_junctions=True,
-                        which_models='all',
+                        which_cell_types_to_include='all',
                         dir_nml2="../../",
+                        backgroundL5Rate=30, # Hz
+                        backgroundL23Rate=30, # Hz
                         duration=300,
                         dt=0.025,
                         max_memory='1000M',
@@ -80,7 +82,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
         
         cell_model=popDictFull[cell_population][2]
     
-        if which_models=='all' or cell_model in which_models:
+        if which_cell_types_to_include=='all' or cell_model in which_cell_types_to_include:
         
            popDict[cell_population]=()
 
@@ -300,7 +302,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'InputName':"BackgroundL23RS",
                      'TrainType':'persistent',
                      'Synapse':'Syn_AMPA_SupPyr_SupPyr',
-                     'AverageRateList':[30.0],
+                     'AverageRateList':[float(backgroundL23Rate)],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
                      'LocationSpecific':False,
@@ -406,7 +408,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                      'InputName':"BackgroundL5",
                      'TrainType':'persistent',
                      'Synapse':'Syn_AMPA_L5RS_L5Pyr',
-                     'AverageRateList':[30.0],
+                     'AverageRateList':[float(backgroundL5Rate)],
                      'RateUnits':'Hz',
                      'FractionToTarget':1.0,
                      'LocationSpecific':False,
@@ -563,7 +565,7 @@ if __name__=="__main__":
    
    RunColumnSimulation(net_id="TestRunColumnSubstitution",
                        sim_config="TempSimConfig",
-                       which_models=["L23PyrRS","L23PyrFRB_varInit"])
+                       which_cell_types_to_include=["L23PyrRS","L23PyrFRB_varInit"])
                        
    
                                               
