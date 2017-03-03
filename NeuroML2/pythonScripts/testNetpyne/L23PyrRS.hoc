@@ -1,0 +1,2854 @@
+// Cell: L23PyrRS
+/*
+{
+  "id" : "L23PyrRS",
+  "sections" : [ {
+    "name" : "comp_1",
+    "id" : "comp_1",
+    "points3d" : [ "0.0, 0.0, 0.0, 16.0", "0.0, 7.5, 0.0, 16.0", "-0.0, 15.0, 0.0, 16.0" ],
+    "numberInternalDivisions" : 6
+  }, {
+    "name" : "comp_69",
+    "id" : "comp_69",
+    "points3d" : [ "0.0, 0.0, 0.0, 1.8", "-0.0, -12.5, 0.0, 1.8", "-0.0, -25.0, 0.0, 1.8" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 0.0,
+    "numberInternalDivisions" : 16
+  }, {
+    "name" : "comp_38",
+    "id" : "comp_38",
+    "points3d" : [ "-0.0, 15.0, 0.0, 8.0", "-0.0, 40.0, 0.0, 8.0", "-0.0, 65.0, 0.0, 8.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 5
+  }, {
+    "name" : "comp_9",
+    "id" : "comp_9",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "-0.0, -5.0, -15.0, 1.0", "0.0, -25.0, -30.0, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_8",
+    "id" : "comp_8",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "15.0, -5.0, 0.0, 1.0", "30.0, -25.0, 0.0, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_7",
+    "id" : "comp_7",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "-0.0, -5.0, 15.0, 1.0", "0.0, -25.0, 30.0, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_6",
+    "id" : "comp_6",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "-15.0, -5.0, 0.0, 1.0", "-30.0, -25.0, 0.0, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_5",
+    "id" : "comp_5",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "17.32051, 10.0, -17.32051, 1.0", "34.64102, 5.0, -34.64101, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_4",
+    "id" : "comp_4",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "17.32051, 10.0, 17.32051, 1.0", "34.64096, 5.0, 34.64099, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_3",
+    "id" : "comp_3",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "-17.32051, 10.0, -17.32051, 1.0", "-34.641, 5.0, -34.64101, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_2",
+    "id" : "comp_2",
+    "points3d" : [ "-0.0, 15.0, 0.0, 1.0", "-17.32051, 10.0, 17.32051, 1.0", "-34.64103, 5.0, 34.64107, 1.0" ],
+    "parent" : "comp_1",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_70",
+    "id" : "comp_70",
+    "points3d" : [ "-0.0, -25.0, 0.0, 1.4", "-0.0, -50.0, 0.0, 1.4", "-0.0, -75.0, 0.0, 1.4" ],
+    "parent" : "comp_69",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 36
+  }, {
+    "name" : "comp_39",
+    "id" : "comp_39",
+    "points3d" : [ "-0.0, 65.0, 0.0, 7.2", "-0.0, 90.0, 0.0, 7.2", "-0.0, 115.0, 0.0, 7.2" ],
+    "parent" : "comp_38",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 5
+  }, {
+    "name" : "comp_13",
+    "id" : "comp_13",
+    "points3d" : [ "-0.0, 65.0, 0.0, 1.0", "-0.0, 65.0, -25.0, 1.0", "-0.0, 65.0, -50.0, 1.0" ],
+    "parent" : "comp_38",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_12",
+    "id" : "comp_12",
+    "points3d" : [ "-0.0, 65.0, 0.0, 1.0", "25.0, 65.0, 0.0, 1.0", "50.0, 65.0, 0.0, 1.0" ],
+    "parent" : "comp_38",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_11",
+    "id" : "comp_11",
+    "points3d" : [ "-0.0, 65.0, 0.0, 1.0", "-0.0, 65.0, 25.0, 1.0", "0.0, 65.0, 50.0, 1.0" ],
+    "parent" : "comp_38",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_10",
+    "id" : "comp_10",
+    "points3d" : [ "-0.0, 65.0, 0.0, 1.0", "-25.0, 65.0, 0.0, 1.0", "-50.0, 65.0, 0.0, 1.0" ],
+    "parent" : "comp_38",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_21",
+    "id" : "comp_21",
+    "points3d" : [ "0.0, -25.0, -30.0, 1.0", "0.0, -45.0, -45.0, 1.0", "0.0, -65.0, -60.0, 1.0" ],
+    "parent" : "comp_9",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_20",
+    "id" : "comp_20",
+    "points3d" : [ "30.0, -25.0, 0.0, 1.0", "45.0, -45.0, 0.0, 1.0", "60.0, -65.0, 0.0, 1.0" ],
+    "parent" : "comp_8",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_19",
+    "id" : "comp_19",
+    "points3d" : [ "0.0, -25.0, 30.0, 1.0", "0.0, -45.0, 45.0, 1.0", "0.0, -65.0, 60.0, 1.0" ],
+    "parent" : "comp_7",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_18",
+    "id" : "comp_18",
+    "points3d" : [ "-30.0, -25.0, 0.0, 1.0", "-45.0, -45.0, 0.0, 1.0", "-60.0, -65.0, 0.0, 1.0" ],
+    "parent" : "comp_6",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_17",
+    "id" : "comp_17",
+    "points3d" : [ "34.64102, 5.0, -34.64101, 1.0", "51.96153, 0.0, -51.96152, 1.0", "69.28174, -5.0, -69.28177, 1.0" ],
+    "parent" : "comp_5",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_16",
+    "id" : "comp_16",
+    "points3d" : [ "34.64096, 5.0, 34.64099, 1.0", "51.96149, 0.0, 51.96153, 1.0", "69.28227, -5.0, 69.2822, 1.0" ],
+    "parent" : "comp_4",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_15",
+    "id" : "comp_15",
+    "points3d" : [ "-34.641, 5.0, -34.64101, 1.0", "-51.96149, 0.0, -51.96152, 1.0", "-69.2822, -5.0, -69.28233, 1.0" ],
+    "parent" : "comp_3",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_14",
+    "id" : "comp_14",
+    "points3d" : [ "-34.64103, 5.0, 34.64107, 1.0", "-51.96155, 0.0, 51.96156, 1.0", "-69.28198, -5.0, 69.282, 1.0" ],
+    "parent" : "comp_2",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_73",
+    "id" : "comp_73",
+    "points3d" : [ "-0.0, -75.0, 0.0, 1.0", "-9.735465, -98.0265, 0.0, 1.0", "-19.47089, -121.053, 0.0, 1.0" ],
+    "parent" : "comp_70",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 43
+  }, {
+    "name" : "comp_71",
+    "id" : "comp_71",
+    "points3d" : [ "-0.0, -75.0, 0.0, 1.0", "9.735455, -98.0265, 0.0, 1.0", "19.4709, -121.053, 0.0, 1.0" ],
+    "parent" : "comp_70",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 43
+  }, {
+    "name" : "comp_40",
+    "id" : "comp_40",
+    "points3d" : [ "-0.0, 115.0, 0.0, 6.4", "0.0, 140.0, 0.0, 6.4", "-0.0, 165.0, 0.0, 6.4" ],
+    "parent" : "comp_39",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 6
+  }, {
+    "name" : "comp_25",
+    "id" : "comp_25",
+    "points3d" : [ "-0.0, 65.0, -50.0, 1.0", "0.0, 65.0, -75.0, 1.0", "-0.0, 65.0, -100.0, 1.0" ],
+    "parent" : "comp_13",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_24",
+    "id" : "comp_24",
+    "points3d" : [ "50.0, 65.0, 0.0, 1.0", "75.0, 65.0, 0.0, 1.0", "100.0, 65.0, 0.0, 1.0" ],
+    "parent" : "comp_12",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_23",
+    "id" : "comp_23",
+    "points3d" : [ "0.0, 65.0, 50.0, 1.0", "0.0, 65.0, 75.0, 1.0", "0.0, 65.0, 100.0, 1.0" ],
+    "parent" : "comp_11",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_22",
+    "id" : "comp_22",
+    "points3d" : [ "-50.0, 65.0, 0.0, 1.0", "-75.0, 65.0, 0.0, 1.0", "-100.0, 65.0, 0.0, 1.0" ],
+    "parent" : "comp_10",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_33",
+    "id" : "comp_33",
+    "points3d" : [ "0.0, -65.0, -60.0, 1.0", "0.0, -85.0, -75.0, 1.0", "0.0, -105.0, -90.0, 1.0" ],
+    "parent" : "comp_21",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_32",
+    "id" : "comp_32",
+    "points3d" : [ "60.0, -65.0, 0.0, 1.0", "75.0, -85.0, 0.0, 1.0", "90.0, -105.0, 0.0, 1.0" ],
+    "parent" : "comp_20",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_31",
+    "id" : "comp_31",
+    "points3d" : [ "0.0, -65.0, 60.0, 1.0", "0.0, -85.0, 75.0, 1.0", "0.0, -105.0, 90.0, 1.0" ],
+    "parent" : "comp_19",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_30",
+    "id" : "comp_30",
+    "points3d" : [ "-60.0, -65.0, 0.0, 1.0", "-75.0, -85.0, 0.0, 1.0", "-90.0, -105.0, 0.0, 1.0" ],
+    "parent" : "comp_18",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_29",
+    "id" : "comp_29",
+    "points3d" : [ "69.28174, -5.0, -69.28177, 1.0", "86.60291, -10.0, -86.60286, 1.0", "103.9234, -15.0, -103.9233, 1.0" ],
+    "parent" : "comp_17",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_28",
+    "id" : "comp_28",
+    "points3d" : [ "69.28227, -5.0, 69.2822, 1.0", "86.60222, -10.0, 86.60239, 1.0", "103.923, -15.0, 103.9231, 1.0" ],
+    "parent" : "comp_16",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_27",
+    "id" : "comp_27",
+    "points3d" : [ "-69.2822, -5.0, -69.28233, 1.0", "-86.60249, -10.0, -86.60253, 1.0", "-103.9228, -15.0, -103.9227, 1.0" ],
+    "parent" : "comp_15",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_26",
+    "id" : "comp_26",
+    "points3d" : [ "-69.28198, -5.0, 69.282, 1.0", "-86.60266, -10.0, 86.6028, 1.0", "-103.923, -15.0, 103.923, 1.0" ],
+    "parent" : "comp_14",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_74",
+    "id" : "comp_74",
+    "points3d" : [ "-19.47089, -121.053, 0.0, 1.0", "-29.20639, -144.08, 0.0, 1.0", "-38.94189, -167.106, 0.0, 1.0" ],
+    "parent" : "comp_73",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 43
+  }, {
+    "name" : "comp_72",
+    "id" : "comp_72",
+    "points3d" : [ "19.4709, -121.053, 0.0, 1.0", "29.20641, -144.08, 0.0, 1.0", "38.94181, -167.106, 0.0, 1.0" ],
+    "parent" : "comp_71",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 43
+  }, {
+    "name" : "comp_42",
+    "id" : "comp_42",
+    "points3d" : [ "-0.0, 165.0, 0.0, 4.0", "9.734937, 188.0264, 0.0, 4.0", "19.47039, 211.053, 0.0, 4.0" ],
+    "parent" : "comp_40",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 7
+  }, {
+    "name" : "comp_41",
+    "id" : "comp_41",
+    "points3d" : [ "-0.0, 165.0, 0.0, 4.0", "-9.735199, 188.0264, 0.0, 4.0", "-19.4713, 211.0529, 0.0, 4.0" ],
+    "parent" : "comp_40",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 7
+  }, {
+    "name" : "comp_37",
+    "id" : "comp_37",
+    "points3d" : [ "-0.0, 65.0, -100.0, 1.0", "-0.0, 65.0, -125.0, 1.0", "-0.0, 65.0, -150.0, 1.0" ],
+    "parent" : "comp_25",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_36",
+    "id" : "comp_36",
+    "points3d" : [ "100.0, 65.0, 0.0, 1.0", "125.0, 65.0, 0.0, 1.0", "150.0, 65.0, 0.0, 1.0" ],
+    "parent" : "comp_24",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_35",
+    "id" : "comp_35",
+    "points3d" : [ "0.0, 65.0, 100.0, 1.0", "0.0, 65.0, 125.0, 1.0", "0.0, 65.0, 150.0, 1.0" ],
+    "parent" : "comp_23",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_34",
+    "id" : "comp_34",
+    "points3d" : [ "-100.0, 65.0, 0.0, 1.0", "-125.0, 65.0, 0.0, 1.0", "-150.0, 65.0, 0.0, 1.0" ],
+    "parent" : "comp_22",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 14
+  }, {
+    "name" : "comp_44",
+    "id" : "comp_44",
+    "points3d" : [ "19.47039, 211.053, 0.0, 4.0", "29.20583, 234.0796, 0.0, 4.0", "38.94128, 257.1061, 0.0, 4.0" ],
+    "parent" : "comp_42",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 7
+  }, {
+    "name" : "comp_43",
+    "id" : "comp_43",
+    "points3d" : [ "-19.4713, 211.0529, 0.0, 4.0", "-29.20599, 234.0795, 0.0, 4.0", "-38.9421, 257.106, 0.0, 4.0" ],
+    "parent" : "comp_41",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 7
+  }, {
+    "name" : "comp_52",
+    "id" : "comp_52",
+    "points3d" : [ "38.94128, 257.1061, 0.0, 1.6", "56.87567, 274.5242, 0.0, 1.6", "74.80936, 291.9416, 0.0, 1.6" ],
+    "parent" : "comp_44",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_51",
+    "id" : "comp_51",
+    "points3d" : [ "38.94128, 257.1061, 0.0, 1.6", "38.94128, 274.5242, -17.93439, 1.6", "38.94009, 291.9418, -35.86782, 1.6" ],
+    "parent" : "comp_44",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_50",
+    "id" : "comp_50",
+    "points3d" : [ "38.94128, 257.1061, 0.0, 1.6", "38.94128, 274.5242, 17.93439, 1.6", "38.94125, 291.9419, 35.86837, 1.6" ],
+    "parent" : "comp_44",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_49",
+    "id" : "comp_49",
+    "points3d" : [ "38.94128, 257.1061, 0.0, 1.6", "38.94185, 282.1057, 0.0, 1.6", "38.9417, 307.106, 0.0, 1.6" ],
+    "parent" : "comp_44",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_48",
+    "id" : "comp_48",
+    "points3d" : [ "-38.9421, 257.106, 0.0, 1.6", "-38.94153, 282.1056, 0.0, 1.6", "-38.94169, 307.1059, 0.0, 1.6" ],
+    "parent" : "comp_43",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_47",
+    "id" : "comp_47",
+    "points3d" : [ "-38.9421, 257.106, 0.0, 1.6", "-38.94128, 274.5242, 17.93439, 1.6", "-38.94131, 291.9419, 35.86829, 1.6" ],
+    "parent" : "comp_43",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_46",
+    "id" : "comp_46",
+    "points3d" : [ "-38.9421, 257.106, 0.0, 1.6", "-38.94128, 274.5242, -17.93439, 1.6", "-38.94071, 291.9423, -35.86874, 1.6" ],
+    "parent" : "comp_43",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_45",
+    "id" : "comp_45",
+    "points3d" : [ "-38.9421, 257.106, 0.0, 1.6", "-56.876, 274.5237, 0.0, 1.6", "-74.80988, 291.9413, 0.0, 1.6" ],
+    "parent" : "comp_43",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_60",
+    "id" : "comp_60",
+    "points3d" : [ "74.80936, 291.9416, 0.0, 1.6", "92.74303, 309.3591, 0.0, 1.6", "110.6774, 326.7772, 0.0, 1.6" ],
+    "parent" : "comp_52",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_59",
+    "id" : "comp_59",
+    "points3d" : [ "38.94009, 291.9418, -35.86782, 1.6", "38.93914, 309.36, -53.80198, 1.6", "38.93796, 326.7775, -71.7354, 1.6" ],
+    "parent" : "comp_51",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_58",
+    "id" : "comp_58",
+    "points3d" : [ "38.94125, 291.9419, 35.86837, 1.6", "38.94123, 309.3596, 53.8023, 1.6", "38.94122, 326.7772, 71.73624, 1.6" ],
+    "parent" : "comp_50",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_57",
+    "id" : "comp_57",
+    "points3d" : [ "38.9417, 307.106, 0.0, 1.6", "38.94226, 332.1057, 0.0, 1.6", "38.94211, 357.106, 0.0, 1.6" ],
+    "parent" : "comp_49",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_56",
+    "id" : "comp_56",
+    "points3d" : [ "-38.94169, 307.1059, 0.0, 1.6", "-38.94185, 332.1062, 0.0, 1.6", "-38.94127, 357.1058, 0.0, 1.6" ],
+    "parent" : "comp_48",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_55",
+    "id" : "comp_55",
+    "points3d" : [ "-38.94131, 291.9419, 35.86829, 1.6", "-38.94136, 309.3595, 53.80219, 1.6", "-38.9414, 326.7771, 71.73609, 1.6" ],
+    "parent" : "comp_47",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_54",
+    "id" : "comp_54",
+    "points3d" : [ "-38.94071, 291.9423, -35.86874, 1.6", "-38.93991, 309.3598, -53.80234, 1.6", "-38.9391, 326.7773, -71.73598, 1.6" ],
+    "parent" : "comp_46",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_53",
+    "id" : "comp_53",
+    "points3d" : [ "-74.80988, 291.9413, 0.0, 1.6", "-92.74378, 309.3591, 0.0, 1.6", "-110.6777, 326.7767, 0.0, 1.6" ],
+    "parent" : "comp_45",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_68",
+    "id" : "comp_68",
+    "points3d" : [ "110.6774, 326.7772, 0.0, 1.6", "128.6111, 344.1946, 0.0, 1.6", "146.5448, 361.612, 0.0, 1.6" ],
+    "parent" : "comp_60",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_67",
+    "id" : "comp_67",
+    "points3d" : [ "38.93796, 326.7775, -71.7354, 1.6", "38.93699, 344.1957, -89.66957, 1.6", "38.93581, 361.6132, -107.603, 1.6" ],
+    "parent" : "comp_59",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_66",
+    "id" : "comp_66",
+    "points3d" : [ "38.94122, 326.7772, 71.73624, 1.6", "38.9412, 344.1949, 89.67018, 1.6", "38.94118, 361.6126, 107.6042, 1.6" ],
+    "parent" : "comp_58",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_65",
+    "id" : "comp_65",
+    "points3d" : [ "38.94211, 357.106, 0.0, 1.6", "38.94194, 382.1062, 0.0, 1.6", "38.94252, 407.1058, 0.0, 1.6" ],
+    "parent" : "comp_57",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_64",
+    "id" : "comp_64",
+    "points3d" : [ "-38.94127, 357.1058, 0.0, 1.6", "-38.94145, 382.1061, 0.0, 1.6", "-38.94159, 407.1064, 0.0, 1.6" ],
+    "parent" : "comp_56",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_63",
+    "id" : "comp_63",
+    "points3d" : [ "-38.9414, 326.7771, 71.73609, 1.6", "-38.94093, 344.1942, 89.66936, 1.6", "-38.94098, 361.6119, 107.6032, 1.6" ],
+    "parent" : "comp_55",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_62",
+    "id" : "comp_62",
+    "points3d" : [ "-38.9391, 326.7773, -71.73598, 1.6", "-38.93853, 344.1955, -89.67031, 1.6", "-38.93773, 361.6129, -107.6039, 1.6" ],
+    "parent" : "comp_54",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  }, {
+    "name" : "comp_61",
+    "id" : "comp_61",
+    "points3d" : [ "-110.6777, 326.7767, 0.0, 1.6", "-128.6116, 344.1944, 0.0, 1.6", "-146.5455, 361.6121, 0.0, 1.6" ],
+    "parent" : "comp_53",
+    "fractionAlong" : 1.0,
+    "numberInternalDivisions" : 11
+  } ],
+  "groups" : [ {
+    "name" : "ModelViewParmSubset_1",
+    "groups" : [ ],
+    "sections" : [ "comp_1", "comp_38", "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_39", "comp_13", "comp_12", "comp_11", "comp_10", "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_40", "comp_25", "comp_24", "comp_23", "comp_22", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26", "comp_42", "comp_41", "comp_37", "comp_36", "comp_35", "comp_34", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "ModelViewParmSubset_3",
+    "groups" : [ ],
+    "sections" : [ "comp_1", "comp_69", "comp_70", "comp_73", "comp_71", "comp_74", "comp_72" ]
+  }, {
+    "name" : "ModelViewParmSubset_8",
+    "groups" : [ ],
+    "sections" : [ "comp_1", "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_39", "comp_13", "comp_12", "comp_11", "comp_10" ]
+  }, {
+    "name" : "OneSecGrp_SectionRef_1",
+    "groups" : [ ],
+    "sections" : [ "comp_1" ]
+  }, {
+    "name" : "soma_group",
+    "groups" : [ ],
+    "sections" : [ "comp_1" ]
+  }, {
+    "name" : "prox_dends_soma",
+    "groups" : [ ],
+    "sections" : [ "comp_1", "comp_38", "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_39" ]
+  }, {
+    "name" : "ModelViewParmSubset_2",
+    "groups" : [ ],
+    "sections" : [ "comp_69", "comp_70", "comp_73", "comp_71", "comp_74", "comp_72" ]
+  }, {
+    "name" : "axon_group",
+    "groups" : [ ],
+    "sections" : [ "comp_69", "comp_70", "comp_73", "comp_71", "comp_74", "comp_72" ]
+  }, {
+    "name" : "prox_axon",
+    "groups" : [ ],
+    "sections" : [ "comp_69" ]
+  }, {
+    "name" : "dendrite_group",
+    "groups" : [ ],
+    "sections" : [ "comp_38", "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_39", "comp_13", "comp_12", "comp_11", "comp_10", "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_40", "comp_25", "comp_24", "comp_23", "comp_22", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26", "comp_42", "comp_41", "comp_37", "comp_36", "comp_35", "comp_34", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "ModelViewParmSubset_4",
+    "groups" : [ ],
+    "sections" : [ "comp_38", "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_39", "comp_13", "comp_12", "comp_11", "comp_10", "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_40", "comp_25", "comp_24", "comp_23", "comp_22", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26", "comp_42", "comp_41", "comp_37", "comp_36", "comp_35", "comp_34", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "OneSecGrp_SectionRef_3",
+    "groups" : [ ],
+    "sections" : [ "comp_38" ]
+  }, {
+    "name" : "ModelViewParmSubset_5",
+    "groups" : [ ],
+    "sections" : [ "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_39", "comp_13", "comp_12", "comp_11", "comp_10", "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_40", "comp_25", "comp_24", "comp_23", "comp_22", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26", "comp_42", "comp_41", "comp_37", "comp_36", "comp_35", "comp_34", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "ModelViewParmSubset_7",
+    "groups" : [ ],
+    "sections" : [ "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_39", "comp_13", "comp_12", "comp_11", "comp_10" ]
+  }, {
+    "name" : "most_prox_bas_dend",
+    "groups" : [ ],
+    "sections" : [ "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2" ]
+  }, {
+    "name" : "basal_obl_dends",
+    "groups" : [ ],
+    "sections" : [ "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_13", "comp_12", "comp_11", "comp_10", "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_25", "comp_24", "comp_23", "comp_22", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26", "comp_37", "comp_36", "comp_35", "comp_34" ]
+  }, {
+    "name" : "basal_dends",
+    "groups" : [ ],
+    "sections" : [ "comp_9", "comp_8", "comp_7", "comp_6", "comp_5", "comp_4", "comp_3", "comp_2", "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26" ]
+  }, {
+    "name" : "mid_dist_apic_dend",
+    "groups" : [ ],
+    "sections" : [ "comp_39", "comp_13", "comp_12", "comp_11", "comp_10", "comp_40", "comp_25", "comp_24", "comp_23", "comp_22", "comp_42", "comp_41", "comp_37", "comp_36", "comp_35", "comp_34", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "ModelViewParmSubset_6",
+    "groups" : [ ],
+    "sections" : [ "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_40", "comp_25", "comp_24", "comp_23", "comp_22", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26", "comp_42", "comp_41", "comp_37", "comp_36", "comp_35", "comp_34", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "mid_dist_bas_dend",
+    "groups" : [ ],
+    "sections" : [ "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26" ]
+  }, {
+    "name" : "LTS_dends",
+    "groups" : [ ],
+    "sections" : [ "comp_21", "comp_20", "comp_19", "comp_18", "comp_17", "comp_16", "comp_15", "comp_14", "comp_40", "comp_25", "comp_24", "comp_23", "comp_22", "comp_33", "comp_32", "comp_31", "comp_30", "comp_29", "comp_28", "comp_27", "comp_26", "comp_42", "comp_41", "comp_37", "comp_36", "comp_35", "comp_34", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "mid_apic_dends",
+    "groups" : [ ],
+    "sections" : [ "comp_40", "comp_42", "comp_41", "comp_44", "comp_43", "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45" ]
+  }, {
+    "name" : "distal_axon",
+    "groups" : [ ],
+    "sections" : [ "comp_74", "comp_72" ]
+  }, {
+    "name" : "L6Pyr_dends",
+    "groups" : [ ],
+    "sections" : [ "comp_42", "comp_41", "comp_44", "comp_43" ]
+  }, {
+    "name" : "TCR_dends",
+    "groups" : [ ],
+    "sections" : [ "comp_52", "comp_51", "comp_50", "comp_49", "comp_48", "comp_47", "comp_46", "comp_45", "comp_60", "comp_59", "comp_58", "comp_57", "comp_56", "comp_55", "comp_54", "comp_53", "comp_68", "comp_67", "comp_66", "comp_65", "comp_64", "comp_63", "comp_62", "comp_61" ]
+  }, {
+    "name" : "all",
+    "sections" : [ "comp_1", "comp_1", "comp_69", "comp_69", "comp_38", "comp_38", "comp_9", "comp_9", "comp_8", "comp_8", "comp_7", "comp_7", "comp_6", "comp_6", "comp_5", "comp_5", "comp_4", "comp_4", "comp_3", "comp_3", "comp_2", "comp_2", "comp_70", "comp_70", "comp_39", "comp_39", "comp_13", "comp_13", "comp_12", "comp_12", "comp_11", "comp_11", "comp_10", "comp_10", "comp_21", "comp_21", "comp_20", "comp_20", "comp_19", "comp_19", "comp_18", "comp_18", "comp_17", "comp_17", "comp_16", "comp_16", "comp_15", "comp_15", "comp_14", "comp_14", "comp_73", "comp_73", "comp_71", "comp_71", "comp_40", "comp_40", "comp_25", "comp_25", "comp_24", "comp_24", "comp_23", "comp_23", "comp_22", "comp_22", "comp_33", "comp_33", "comp_32", "comp_32", "comp_31", "comp_31", "comp_30", "comp_30", "comp_29", "comp_29", "comp_28", "comp_28", "comp_27", "comp_27", "comp_26", "comp_26", "comp_74", "comp_74", "comp_72", "comp_72", "comp_42", "comp_42", "comp_41", "comp_41", "comp_37", "comp_37", "comp_36", "comp_36", "comp_35", "comp_35", "comp_34", "comp_34", "comp_44", "comp_44", "comp_43", "comp_43", "comp_52", "comp_52", "comp_51", "comp_51", "comp_50", "comp_50", "comp_49", "comp_49", "comp_48", "comp_48", "comp_47", "comp_47", "comp_46", "comp_46", "comp_45", "comp_45", "comp_60", "comp_60", "comp_59", "comp_59", "comp_58", "comp_58", "comp_57", "comp_57", "comp_56", "comp_56", "comp_55", "comp_55", "comp_54", "comp_54", "comp_53", "comp_53", "comp_68", "comp_68", "comp_67", "comp_67", "comp_66", "comp_66", "comp_65", "comp_65", "comp_64", "comp_64", "comp_63", "comp_63", "comp_62", "comp_62", "comp_61", "comp_61" ]
+  } ],
+  "specificCapacitance" : [ {
+    "group" : "ModelViewParmSubset_4",
+    "value" : "1.8"
+  }, {
+    "group" : "ModelViewParmSubset_3",
+    "value" : "0.9"
+  } ],
+  "initMembPotential" : [ {
+    "group" : "all",
+    "value" : "-70.0"
+  } ],
+  "resistivity" : [ {
+    "group" : "ModelViewParmSubset_2",
+    "value" : "100.0"
+  }, {
+    "group" : "ModelViewParmSubset_1",
+    "value" : "250.0"
+  } ],
+  "channelDensity" : [ {
+    "id" : "ar_OneSecGrp_SectionRef_1",
+    "ionChannel" : "ar__m00_25",
+    "ion" : "ar",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "2.4999998E-4",
+    "erev" : "-35.0"
+  }, {
+    "id" : "ar_ModelViewParmSubset_4",
+    "ionChannel" : "ar__m00_25",
+    "ion" : "ar",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "4.9999997E-4",
+    "erev" : "-35.0"
+  }, {
+    "id" : "cal_OneSecGrp_SectionRef_1",
+    "ionChannel" : "cal",
+    "ion" : "ca",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "9.999999E-4",
+    "erev" : "125.0"
+  }, {
+    "id" : "cal_ModelViewParmSubset_4",
+    "ionChannel" : "cal",
+    "ion" : "ca",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "0.0019999999",
+    "erev" : "125.0"
+  }, {
+    "id" : "cat_OneSecGrp_SectionRef_1",
+    "ionChannel" : "cat",
+    "ion" : "cat",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "1.0E-4",
+    "erev" : "125.0"
+  }, {
+    "id" : "cat_ModelViewParmSubset_4",
+    "ionChannel" : "cat",
+    "ion" : "cat",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "2.0E-4",
+    "erev" : "125.0"
+  }, {
+    "id" : "k2_ModelViewParmSubset_3",
+    "ionChannel" : "k2",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_3",
+    "condDens" : "1.0E-4",
+    "erev" : "-95.0"
+  }, {
+    "id" : "k2_ModelViewParmSubset_4",
+    "ionChannel" : "k2",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "2.0E-4",
+    "erev" : "-95.0"
+  }, {
+    "id" : "ka_ModelViewParmSubset_2",
+    "ionChannel" : "ka",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_2",
+    "condDens" : "0.0019999999",
+    "erev" : "-95.0"
+  }, {
+    "id" : "ka_OneSecGrp_SectionRef_1",
+    "ionChannel" : "ka",
+    "ion" : "k",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "0.03",
+    "erev" : "-95.0"
+  }, {
+    "id" : "ka_ModelViewParmSubset_5",
+    "ionChannel" : "ka",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_5",
+    "condDens" : "0.0039999997",
+    "erev" : "-95.0"
+  }, {
+    "id" : "ka_OneSecGrp_SectionRef_3",
+    "ionChannel" : "ka",
+    "ion" : "k",
+    "group" : "OneSecGrp_SectionRef_3",
+    "condDens" : "0.06",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kahp_OneSecGrp_SectionRef_1",
+    "ionChannel" : "kahp",
+    "ion" : "k",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "4.0E-5",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kahp_ModelViewParmSubset_4",
+    "ionChannel" : "kahp",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "8.0E-5",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kc_OneSecGrp_SectionRef_1",
+    "ionChannel" : "kc",
+    "ion" : "k",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "0.012",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kc_ModelViewParmSubset_4",
+    "ionChannel" : "kc",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "0.024",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kdr_OneSecGrp_SectionRef_1",
+    "ionChannel" : "kdr",
+    "ion" : "k",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "0.125",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kdr_ModelViewParmSubset_6",
+    "ionChannel" : "kdr",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_6",
+    "condDens" : "0.012499999",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kdr_ModelViewParmSubset_7",
+    "ionChannel" : "kdr",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_7",
+    "condDens" : "0.1875",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kdr_OneSecGrp_SectionRef_3",
+    "ionChannel" : "kdr",
+    "ion" : "k",
+    "group" : "OneSecGrp_SectionRef_3",
+    "condDens" : "0.25",
+    "erev" : "-95.0"
+  }, {
+    "id" : "kdr_ModelViewParmSubset_2",
+    "ionChannel" : "kdr",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_2",
+    "condDens" : "0.39999998",
+    "erev" : "-95.0"
+  }, {
+    "id" : "km_ModelViewParmSubset_4",
+    "ionChannel" : "km",
+    "ion" : "k",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "0.015",
+    "erev" : "-95.0"
+  }, {
+    "id" : "km_OneSecGrp_SectionRef_1",
+    "ionChannel" : "km",
+    "ion" : "k",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "0.0075",
+    "erev" : "-95.0"
+  }, {
+    "id" : "naf_ModelViewParmSubset_8",
+    "ionChannel" : "naf__a0__b0__c0__d0__fastNa_shiftmin3_5",
+    "ion" : "na",
+    "group" : "ModelViewParmSubset_8",
+    "condDens" : "0.1875",
+    "erev" : "50.0"
+  }, {
+    "id" : "naf_OneSecGrp_SectionRef_3",
+    "ionChannel" : "naf__a0__b0__c0__d0__fastNa_shiftmin3_5",
+    "ion" : "na",
+    "group" : "OneSecGrp_SectionRef_3",
+    "condDens" : "0.25",
+    "erev" : "50.0"
+  }, {
+    "id" : "naf_ModelViewParmSubset_6",
+    "ionChannel" : "naf__a0__b0__c0__d0__fastNa_shiftmin3_5",
+    "ion" : "na",
+    "group" : "ModelViewParmSubset_6",
+    "condDens" : "0.024999999",
+    "erev" : "50.0"
+  }, {
+    "id" : "naf_ModelViewParmSubset_2",
+    "ionChannel" : "naf__a0__b0__c0__d0__fastNa_shiftmin3_5",
+    "ion" : "na",
+    "group" : "ModelViewParmSubset_2",
+    "condDens" : "0.39999998",
+    "erev" : "50.0"
+  }, {
+    "id" : "nap_ModelViewParmSubset_8",
+    "ionChannel" : "nap",
+    "ion" : "na",
+    "group" : "ModelViewParmSubset_8",
+    "condDens" : "1.20000004E-4",
+    "erev" : "50.0"
+  }, {
+    "id" : "nap_ModelViewParmSubset_6",
+    "ionChannel" : "nap",
+    "ion" : "na",
+    "group" : "ModelViewParmSubset_6",
+    "condDens" : "1.6E-5",
+    "erev" : "50.0"
+  }, {
+    "id" : "nap_OneSecGrp_SectionRef_3",
+    "ionChannel" : "nap",
+    "ion" : "na",
+    "group" : "OneSecGrp_SectionRef_3",
+    "condDens" : "1.6E-4",
+    "erev" : "50.0"
+  }, {
+    "id" : "pas_ModelViewParmSubset_2",
+    "ionChannel" : "pas_nml2",
+    "ion" : "non_specific",
+    "group" : "ModelViewParmSubset_2",
+    "condDens" : "9.999999E-4",
+    "erev" : "-70.0"
+  }, {
+    "id" : "pas_OneSecGrp_SectionRef_1",
+    "ionChannel" : "pas_nml2",
+    "ion" : "non_specific",
+    "group" : "OneSecGrp_SectionRef_1",
+    "condDens" : "2.0E-5",
+    "erev" : "-70.0"
+  }, {
+    "id" : "pas_ModelViewParmSubset_4",
+    "ionChannel" : "pas_nml2",
+    "ion" : "non_specific",
+    "group" : "ModelViewParmSubset_4",
+    "condDens" : "4.0E-5",
+    "erev" : "-70.0"
+  } ],
+  "species" : [ {
+    "id" : "ca",
+    "ion" : "ca",
+    "concentrationModel" : "cad__beta0_05__phi52000",
+    "group" : "ModelViewParmSubset_4",
+    "initialConcentration" : "0.01",
+    "initialExtConcentration" : "2.0"
+  }, {
+    "id" : "ca",
+    "ion" : "ca",
+    "concentrationModel" : "cad__beta0_01__phi26000",
+    "group" : "OneSecGrp_SectionRef_1",
+    "initialConcentration" : "0.01",
+    "initialExtConcentration" : "2.0"
+  } ]
+}
+*/
+
+load_file("subiter.hoc")
+
+begintemplate L23PyrRS
+
+public init, topol, basic_shape, subsets, geom, memb
+public x, y, z, position
+
+
+//  Some methods for referencing the cells
+
+public toString, netInfo, set_initial_v, set_initial_ion_properties, synlist
+
+
+// Section: comp_1, id: comp_1, parent: $s.parent
+create comp_1
+public comp_1
+// Section: comp_69, id: comp_69, parent: comp_1
+create comp_69
+public comp_69
+// Section: comp_38, id: comp_38, parent: comp_1
+create comp_38
+public comp_38
+// Section: comp_9, id: comp_9, parent: comp_1
+create comp_9
+public comp_9
+// Section: comp_8, id: comp_8, parent: comp_1
+create comp_8
+public comp_8
+// Section: comp_7, id: comp_7, parent: comp_1
+create comp_7
+public comp_7
+// Section: comp_6, id: comp_6, parent: comp_1
+create comp_6
+public comp_6
+// Section: comp_5, id: comp_5, parent: comp_1
+create comp_5
+public comp_5
+// Section: comp_4, id: comp_4, parent: comp_1
+create comp_4
+public comp_4
+// Section: comp_3, id: comp_3, parent: comp_1
+create comp_3
+public comp_3
+// Section: comp_2, id: comp_2, parent: comp_1
+create comp_2
+public comp_2
+// Section: comp_70, id: comp_70, parent: comp_69
+create comp_70
+public comp_70
+// Section: comp_39, id: comp_39, parent: comp_38
+create comp_39
+public comp_39
+// Section: comp_13, id: comp_13, parent: comp_38
+create comp_13
+public comp_13
+// Section: comp_12, id: comp_12, parent: comp_38
+create comp_12
+public comp_12
+// Section: comp_11, id: comp_11, parent: comp_38
+create comp_11
+public comp_11
+// Section: comp_10, id: comp_10, parent: comp_38
+create comp_10
+public comp_10
+// Section: comp_21, id: comp_21, parent: comp_9
+create comp_21
+public comp_21
+// Section: comp_20, id: comp_20, parent: comp_8
+create comp_20
+public comp_20
+// Section: comp_19, id: comp_19, parent: comp_7
+create comp_19
+public comp_19
+// Section: comp_18, id: comp_18, parent: comp_6
+create comp_18
+public comp_18
+// Section: comp_17, id: comp_17, parent: comp_5
+create comp_17
+public comp_17
+// Section: comp_16, id: comp_16, parent: comp_4
+create comp_16
+public comp_16
+// Section: comp_15, id: comp_15, parent: comp_3
+create comp_15
+public comp_15
+// Section: comp_14, id: comp_14, parent: comp_2
+create comp_14
+public comp_14
+// Section: comp_73, id: comp_73, parent: comp_70
+create comp_73
+public comp_73
+// Section: comp_71, id: comp_71, parent: comp_70
+create comp_71
+public comp_71
+// Section: comp_40, id: comp_40, parent: comp_39
+create comp_40
+public comp_40
+// Section: comp_25, id: comp_25, parent: comp_13
+create comp_25
+public comp_25
+// Section: comp_24, id: comp_24, parent: comp_12
+create comp_24
+public comp_24
+// Section: comp_23, id: comp_23, parent: comp_11
+create comp_23
+public comp_23
+// Section: comp_22, id: comp_22, parent: comp_10
+create comp_22
+public comp_22
+// Section: comp_33, id: comp_33, parent: comp_21
+create comp_33
+public comp_33
+// Section: comp_32, id: comp_32, parent: comp_20
+create comp_32
+public comp_32
+// Section: comp_31, id: comp_31, parent: comp_19
+create comp_31
+public comp_31
+// Section: comp_30, id: comp_30, parent: comp_18
+create comp_30
+public comp_30
+// Section: comp_29, id: comp_29, parent: comp_17
+create comp_29
+public comp_29
+// Section: comp_28, id: comp_28, parent: comp_16
+create comp_28
+public comp_28
+// Section: comp_27, id: comp_27, parent: comp_15
+create comp_27
+public comp_27
+// Section: comp_26, id: comp_26, parent: comp_14
+create comp_26
+public comp_26
+// Section: comp_74, id: comp_74, parent: comp_73
+create comp_74
+public comp_74
+// Section: comp_72, id: comp_72, parent: comp_71
+create comp_72
+public comp_72
+// Section: comp_42, id: comp_42, parent: comp_40
+create comp_42
+public comp_42
+// Section: comp_41, id: comp_41, parent: comp_40
+create comp_41
+public comp_41
+// Section: comp_37, id: comp_37, parent: comp_25
+create comp_37
+public comp_37
+// Section: comp_36, id: comp_36, parent: comp_24
+create comp_36
+public comp_36
+// Section: comp_35, id: comp_35, parent: comp_23
+create comp_35
+public comp_35
+// Section: comp_34, id: comp_34, parent: comp_22
+create comp_34
+public comp_34
+// Section: comp_44, id: comp_44, parent: comp_42
+create comp_44
+public comp_44
+// Section: comp_43, id: comp_43, parent: comp_41
+create comp_43
+public comp_43
+// Section: comp_52, id: comp_52, parent: comp_44
+create comp_52
+public comp_52
+// Section: comp_51, id: comp_51, parent: comp_44
+create comp_51
+public comp_51
+// Section: comp_50, id: comp_50, parent: comp_44
+create comp_50
+public comp_50
+// Section: comp_49, id: comp_49, parent: comp_44
+create comp_49
+public comp_49
+// Section: comp_48, id: comp_48, parent: comp_43
+create comp_48
+public comp_48
+// Section: comp_47, id: comp_47, parent: comp_43
+create comp_47
+public comp_47
+// Section: comp_46, id: comp_46, parent: comp_43
+create comp_46
+public comp_46
+// Section: comp_45, id: comp_45, parent: comp_43
+create comp_45
+public comp_45
+// Section: comp_60, id: comp_60, parent: comp_52
+create comp_60
+public comp_60
+// Section: comp_59, id: comp_59, parent: comp_51
+create comp_59
+public comp_59
+// Section: comp_58, id: comp_58, parent: comp_50
+create comp_58
+public comp_58
+// Section: comp_57, id: comp_57, parent: comp_49
+create comp_57
+public comp_57
+// Section: comp_56, id: comp_56, parent: comp_48
+create comp_56
+public comp_56
+// Section: comp_55, id: comp_55, parent: comp_47
+create comp_55
+public comp_55
+// Section: comp_54, id: comp_54, parent: comp_46
+create comp_54
+public comp_54
+// Section: comp_53, id: comp_53, parent: comp_45
+create comp_53
+public comp_53
+// Section: comp_68, id: comp_68, parent: comp_60
+create comp_68
+public comp_68
+// Section: comp_67, id: comp_67, parent: comp_59
+create comp_67
+public comp_67
+// Section: comp_66, id: comp_66, parent: comp_58
+create comp_66
+public comp_66
+// Section: comp_65, id: comp_65, parent: comp_57
+create comp_65
+public comp_65
+// Section: comp_64, id: comp_64, parent: comp_56
+create comp_64
+public comp_64
+// Section: comp_63, id: comp_63, parent: comp_55
+create comp_63
+public comp_63
+// Section: comp_62, id: comp_62, parent: comp_54
+create comp_62
+public comp_62
+// Section: comp_61, id: comp_61, parent: comp_53
+create comp_61
+public comp_61
+
+// Group: {name=ModelViewParmSubset_1, groups=[], sections=[comp_1, comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref ModelViewParmSubset_1
+// Group: {name=ModelViewParmSubset_3, groups=[], sections=[comp_1, comp_69, comp_70, comp_73, comp_71, comp_74, comp_72]}
+objref ModelViewParmSubset_3
+// Group: {name=ModelViewParmSubset_8, groups=[], sections=[comp_1, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10]}
+objref ModelViewParmSubset_8
+// Group: {name=OneSecGrp_SectionRef_1, groups=[], sections=[comp_1]}
+objref OneSecGrp_SectionRef_1
+// Group: {name=soma_group, groups=[], sections=[comp_1]}
+objref soma_group
+// Group: {name=prox_dends_soma, groups=[], sections=[comp_1, comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39]}
+objref prox_dends_soma
+// Group: {name=ModelViewParmSubset_2, groups=[], sections=[comp_69, comp_70, comp_73, comp_71, comp_74, comp_72]}
+objref ModelViewParmSubset_2
+// Group: {name=axon_group, groups=[], sections=[comp_69, comp_70, comp_73, comp_71, comp_74, comp_72]}
+objref axon_group
+// Group: {name=prox_axon, groups=[], sections=[comp_69]}
+objref prox_axon
+// Group: {name=dendrite_group, groups=[], sections=[comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref dendrite_group
+// Group: {name=ModelViewParmSubset_4, groups=[], sections=[comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref ModelViewParmSubset_4
+// Group: {name=OneSecGrp_SectionRef_3, groups=[], sections=[comp_38]}
+objref OneSecGrp_SectionRef_3
+// Group: {name=ModelViewParmSubset_5, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref ModelViewParmSubset_5
+// Group: {name=ModelViewParmSubset_7, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10]}
+objref ModelViewParmSubset_7
+// Group: {name=most_prox_bas_dend, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2]}
+objref most_prox_bas_dend
+// Group: {name=basal_obl_dends, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_37, comp_36, comp_35, comp_34]}
+objref basal_obl_dends
+// Group: {name=basal_dends, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26]}
+objref basal_dends
+// Group: {name=mid_dist_apic_dend, groups=[], sections=[comp_39, comp_13, comp_12, comp_11, comp_10, comp_40, comp_25, comp_24, comp_23, comp_22, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref mid_dist_apic_dend
+// Group: {name=ModelViewParmSubset_6, groups=[], sections=[comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref ModelViewParmSubset_6
+// Group: {name=mid_dist_bas_dend, groups=[], sections=[comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26]}
+objref mid_dist_bas_dend
+// Group: {name=LTS_dends, groups=[], sections=[comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref LTS_dends
+// Group: {name=mid_apic_dends, groups=[], sections=[comp_40, comp_42, comp_41, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45]}
+objref mid_apic_dends
+// Group: {name=distal_axon, groups=[], sections=[comp_74, comp_72]}
+objref distal_axon
+// Group: {name=L6Pyr_dends, groups=[], sections=[comp_42, comp_41, comp_44, comp_43]}
+objref L6Pyr_dends
+// Group: {name=TCR_dends, groups=[], sections=[comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+objref TCR_dends
+// Group: {name=all, sections=[comp_1, comp_1, comp_69, comp_69, comp_38, comp_38, comp_9, comp_9, comp_8, comp_8, comp_7, comp_7, comp_6, comp_6, comp_5, comp_5, comp_4, comp_4, comp_3, comp_3, comp_2, comp_2, comp_70, comp_70, comp_39, comp_39, comp_13, comp_13, comp_12, comp_12, comp_11, comp_11, comp_10, comp_10, comp_21, comp_21, comp_20, comp_20, comp_19, comp_19, comp_18, comp_18, comp_17, comp_17, comp_16, comp_16, comp_15, comp_15, comp_14, comp_14, comp_73, comp_73, comp_71, comp_71, comp_40, comp_40, comp_25, comp_25, comp_24, comp_24, comp_23, comp_23, comp_22, comp_22, comp_33, comp_33, comp_32, comp_32, comp_31, comp_31, comp_30, comp_30, comp_29, comp_29, comp_28, comp_28, comp_27, comp_27, comp_26, comp_26, comp_74, comp_74, comp_72, comp_72, comp_42, comp_42, comp_41, comp_41, comp_37, comp_37, comp_36, comp_36, comp_35, comp_35, comp_34, comp_34, comp_44, comp_44, comp_43, comp_43, comp_52, comp_52, comp_51, comp_51, comp_50, comp_50, comp_49, comp_49, comp_48, comp_48, comp_47, comp_47, comp_46, comp_46, comp_45, comp_45, comp_60, comp_60, comp_59, comp_59, comp_58, comp_58, comp_57, comp_57, comp_56, comp_56, comp_55, comp_55, comp_54, comp_54, comp_53, comp_53, comp_68, comp_68, comp_67, comp_67, comp_66, comp_66, comp_65, comp_65, comp_64, comp_64, comp_63, comp_63, comp_62, comp_62, comp_61, comp_61]}
+objref all
+
+objref synlist
+
+proc init() {
+    topol()
+    geom_nseg()
+    subsets()
+    subsets_inhomogeneous()
+    biophys()
+    biophys_inhomogeneous()
+    synlist = new List()
+    x = y = z = 0
+
+}
+
+proc set_initial_v() {
+    // Taken from the initMembPotential value
+    forsec all v = -70.0  // units: mV
+}
+
+
+proc set_initial_ion_properties() {
+    // From species
+    // Ion: ca on group: ModelViewParmSubset_4, with concentration model: cad__beta0_05__phi52000
+    forsec ModelViewParmSubset_4 {
+        cai = 0.01  // units: mM
+        cao = 2.0  // units: mM
+    }
+    // Ion: ca on group: OneSecGrp_SectionRef_1, with concentration model: cad__beta0_01__phi26000
+    forsec OneSecGrp_SectionRef_1 {
+        cai = 0.01  // units: mM
+        cao = 2.0  // units: mM
+    }
+}
+
+
+proc topol() {
+    basic_shape()
+    connect comp_69(0), comp_1(0.0)
+    connect comp_38(0), comp_1(1.0)
+    connect comp_9(0), comp_1(1.0)
+    connect comp_8(0), comp_1(1.0)
+    connect comp_7(0), comp_1(1.0)
+    connect comp_6(0), comp_1(1.0)
+    connect comp_5(0), comp_1(1.0)
+    connect comp_4(0), comp_1(1.0)
+    connect comp_3(0), comp_1(1.0)
+    connect comp_2(0), comp_1(1.0)
+    connect comp_70(0), comp_69(1.0)
+    connect comp_39(0), comp_38(1.0)
+    connect comp_13(0), comp_38(1.0)
+    connect comp_12(0), comp_38(1.0)
+    connect comp_11(0), comp_38(1.0)
+    connect comp_10(0), comp_38(1.0)
+    connect comp_21(0), comp_9(1.0)
+    connect comp_20(0), comp_8(1.0)
+    connect comp_19(0), comp_7(1.0)
+    connect comp_18(0), comp_6(1.0)
+    connect comp_17(0), comp_5(1.0)
+    connect comp_16(0), comp_4(1.0)
+    connect comp_15(0), comp_3(1.0)
+    connect comp_14(0), comp_2(1.0)
+    connect comp_73(0), comp_70(1.0)
+    connect comp_71(0), comp_70(1.0)
+    connect comp_40(0), comp_39(1.0)
+    connect comp_25(0), comp_13(1.0)
+    connect comp_24(0), comp_12(1.0)
+    connect comp_23(0), comp_11(1.0)
+    connect comp_22(0), comp_10(1.0)
+    connect comp_33(0), comp_21(1.0)
+    connect comp_32(0), comp_20(1.0)
+    connect comp_31(0), comp_19(1.0)
+    connect comp_30(0), comp_18(1.0)
+    connect comp_29(0), comp_17(1.0)
+    connect comp_28(0), comp_16(1.0)
+    connect comp_27(0), comp_15(1.0)
+    connect comp_26(0), comp_14(1.0)
+    connect comp_74(0), comp_73(1.0)
+    connect comp_72(0), comp_71(1.0)
+    connect comp_42(0), comp_40(1.0)
+    connect comp_41(0), comp_40(1.0)
+    connect comp_37(0), comp_25(1.0)
+    connect comp_36(0), comp_24(1.0)
+    connect comp_35(0), comp_23(1.0)
+    connect comp_34(0), comp_22(1.0)
+    connect comp_44(0), comp_42(1.0)
+    connect comp_43(0), comp_41(1.0)
+    connect comp_52(0), comp_44(1.0)
+    connect comp_51(0), comp_44(1.0)
+    connect comp_50(0), comp_44(1.0)
+    connect comp_49(0), comp_44(1.0)
+    connect comp_48(0), comp_43(1.0)
+    connect comp_47(0), comp_43(1.0)
+    connect comp_46(0), comp_43(1.0)
+    connect comp_45(0), comp_43(1.0)
+    connect comp_60(0), comp_52(1.0)
+    connect comp_59(0), comp_51(1.0)
+    connect comp_58(0), comp_50(1.0)
+    connect comp_57(0), comp_49(1.0)
+    connect comp_56(0), comp_48(1.0)
+    connect comp_55(0), comp_47(1.0)
+    connect comp_54(0), comp_46(1.0)
+    connect comp_53(0), comp_45(1.0)
+    connect comp_68(0), comp_60(1.0)
+    connect comp_67(0), comp_59(1.0)
+    connect comp_66(0), comp_58(1.0)
+    connect comp_65(0), comp_57(1.0)
+    connect comp_64(0), comp_56(1.0)
+    connect comp_63(0), comp_55(1.0)
+    connect comp_62(0), comp_54(1.0)
+    connect comp_61(0), comp_53(1.0)
+
+}
+
+
+proc basic_shape() {
+
+    // Section: comp_1, id: comp_1, parent: $s.parent (entry count 0/100)
+    comp_1 { pt3dclear() }
+    comp_1 { pt3dadd( 0.0, 0.0, 0.0, 16.0 ) }
+    comp_1 { pt3dadd( 0.0, 7.5, 0.0, 16.0 ) }
+    comp_1 { pt3dadd( -0.0, 15.0, 0.0, 16.0 ) }
+    // Section: comp_69, id: comp_69, parent: comp_1 (entry count 3/100)
+    comp_69 { pt3dclear() }
+    comp_69 { pt3dadd( 0.0, 0.0, 0.0, 1.8 ) }
+    comp_69 { pt3dadd( -0.0, -12.5, 0.0, 1.8 ) }
+    comp_69 { pt3dadd( -0.0, -25.0, 0.0, 1.8 ) }
+    // Section: comp_38, id: comp_38, parent: comp_1 (entry count 6/100)
+    comp_38 { pt3dclear() }
+    comp_38 { pt3dadd( -0.0, 15.0, 0.0, 8.0 ) }
+    comp_38 { pt3dadd( -0.0, 40.0, 0.0, 8.0 ) }
+    comp_38 { pt3dadd( -0.0, 65.0, 0.0, 8.0 ) }
+    // Section: comp_9, id: comp_9, parent: comp_1 (entry count 9/100)
+    comp_9 { pt3dclear() }
+    comp_9 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_9 { pt3dadd( -0.0, -5.0, -15.0, 1.0 ) }
+    comp_9 { pt3dadd( 0.0, -25.0, -30.0, 1.0 ) }
+    // Section: comp_8, id: comp_8, parent: comp_1 (entry count 12/100)
+    comp_8 { pt3dclear() }
+    comp_8 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_8 { pt3dadd( 15.0, -5.0, 0.0, 1.0 ) }
+    comp_8 { pt3dadd( 30.0, -25.0, 0.0, 1.0 ) }
+    // Section: comp_7, id: comp_7, parent: comp_1 (entry count 15/100)
+    comp_7 { pt3dclear() }
+    comp_7 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_7 { pt3dadd( -0.0, -5.0, 15.0, 1.0 ) }
+    comp_7 { pt3dadd( 0.0, -25.0, 30.0, 1.0 ) }
+    // Section: comp_6, id: comp_6, parent: comp_1 (entry count 18/100)
+    comp_6 { pt3dclear() }
+    comp_6 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_6 { pt3dadd( -15.0, -5.0, 0.0, 1.0 ) }
+    comp_6 { pt3dadd( -30.0, -25.0, 0.0, 1.0 ) }
+    // Section: comp_5, id: comp_5, parent: comp_1 (entry count 21/100)
+    comp_5 { pt3dclear() }
+    comp_5 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_5 { pt3dadd( 17.32051, 10.0, -17.32051, 1.0 ) }
+    comp_5 { pt3dadd( 34.64102, 5.0, -34.64101, 1.0 ) }
+    // Section: comp_4, id: comp_4, parent: comp_1 (entry count 24/100)
+    comp_4 { pt3dclear() }
+    comp_4 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_4 { pt3dadd( 17.32051, 10.0, 17.32051, 1.0 ) }
+    comp_4 { pt3dadd( 34.64096, 5.0, 34.64099, 1.0 ) }
+    // Section: comp_3, id: comp_3, parent: comp_1 (entry count 27/100)
+    comp_3 { pt3dclear() }
+    comp_3 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_3 { pt3dadd( -17.32051, 10.0, -17.32051, 1.0 ) }
+    comp_3 { pt3dadd( -34.641, 5.0, -34.64101, 1.0 ) }
+    // Section: comp_2, id: comp_2, parent: comp_1 (entry count 30/100)
+    comp_2 { pt3dclear() }
+    comp_2 { pt3dadd( -0.0, 15.0, 0.0, 1.0 ) }
+    comp_2 { pt3dadd( -17.32051, 10.0, 17.32051, 1.0 ) }
+    comp_2 { pt3dadd( -34.64103, 5.0, 34.64107, 1.0 ) }
+    // Section: comp_70, id: comp_70, parent: comp_69 (entry count 33/100)
+    comp_70 { pt3dclear() }
+    comp_70 { pt3dadd( -0.0, -25.0, 0.0, 1.4 ) }
+    comp_70 { pt3dadd( -0.0, -50.0, 0.0, 1.4 ) }
+    comp_70 { pt3dadd( -0.0, -75.0, 0.0, 1.4 ) }
+    // Section: comp_39, id: comp_39, parent: comp_38 (entry count 36/100)
+    comp_39 { pt3dclear() }
+    comp_39 { pt3dadd( -0.0, 65.0, 0.0, 7.2 ) }
+    comp_39 { pt3dadd( -0.0, 90.0, 0.0, 7.2 ) }
+    comp_39 { pt3dadd( -0.0, 115.0, 0.0, 7.2 ) }
+    // Section: comp_13, id: comp_13, parent: comp_38 (entry count 39/100)
+    comp_13 { pt3dclear() }
+    comp_13 { pt3dadd( -0.0, 65.0, 0.0, 1.0 ) }
+    comp_13 { pt3dadd( -0.0, 65.0, -25.0, 1.0 ) }
+    comp_13 { pt3dadd( -0.0, 65.0, -50.0, 1.0 ) }
+    // Section: comp_12, id: comp_12, parent: comp_38 (entry count 42/100)
+    comp_12 { pt3dclear() }
+    comp_12 { pt3dadd( -0.0, 65.0, 0.0, 1.0 ) }
+    comp_12 { pt3dadd( 25.0, 65.0, 0.0, 1.0 ) }
+    comp_12 { pt3dadd( 50.0, 65.0, 0.0, 1.0 ) }
+    // Section: comp_11, id: comp_11, parent: comp_38 (entry count 45/100)
+    comp_11 { pt3dclear() }
+    comp_11 { pt3dadd( -0.0, 65.0, 0.0, 1.0 ) }
+    comp_11 { pt3dadd( -0.0, 65.0, 25.0, 1.0 ) }
+    comp_11 { pt3dadd( 0.0, 65.0, 50.0, 1.0 ) }
+    // Section: comp_10, id: comp_10, parent: comp_38 (entry count 48/100)
+    comp_10 { pt3dclear() }
+    comp_10 { pt3dadd( -0.0, 65.0, 0.0, 1.0 ) }
+    comp_10 { pt3dadd( -25.0, 65.0, 0.0, 1.0 ) }
+    comp_10 { pt3dadd( -50.0, 65.0, 0.0, 1.0 ) }
+    // Section: comp_21, id: comp_21, parent: comp_9 (entry count 51/100)
+    comp_21 { pt3dclear() }
+    comp_21 { pt3dadd( 0.0, -25.0, -30.0, 1.0 ) }
+    comp_21 { pt3dadd( 0.0, -45.0, -45.0, 1.0 ) }
+    comp_21 { pt3dadd( 0.0, -65.0, -60.0, 1.0 ) }
+    // Section: comp_20, id: comp_20, parent: comp_8 (entry count 54/100)
+    comp_20 { pt3dclear() }
+    comp_20 { pt3dadd( 30.0, -25.0, 0.0, 1.0 ) }
+    comp_20 { pt3dadd( 45.0, -45.0, 0.0, 1.0 ) }
+    comp_20 { pt3dadd( 60.0, -65.0, 0.0, 1.0 ) }
+    // Section: comp_19, id: comp_19, parent: comp_7 (entry count 57/100)
+    comp_19 { pt3dclear() }
+    comp_19 { pt3dadd( 0.0, -25.0, 30.0, 1.0 ) }
+    comp_19 { pt3dadd( 0.0, -45.0, 45.0, 1.0 ) }
+    comp_19 { pt3dadd( 0.0, -65.0, 60.0, 1.0 ) }
+    // Section: comp_18, id: comp_18, parent: comp_6 (entry count 60/100)
+    comp_18 { pt3dclear() }
+    comp_18 { pt3dadd( -30.0, -25.0, 0.0, 1.0 ) }
+    comp_18 { pt3dadd( -45.0, -45.0, 0.0, 1.0 ) }
+    comp_18 { pt3dadd( -60.0, -65.0, 0.0, 1.0 ) }
+    // Section: comp_17, id: comp_17, parent: comp_5 (entry count 63/100)
+    comp_17 { pt3dclear() }
+    comp_17 { pt3dadd( 34.64102, 5.0, -34.64101, 1.0 ) }
+    comp_17 { pt3dadd( 51.96153, 0.0, -51.96152, 1.0 ) }
+    comp_17 { pt3dadd( 69.28174, -5.0, -69.28177, 1.0 ) }
+    // Section: comp_16, id: comp_16, parent: comp_4 (entry count 66/100)
+    comp_16 { pt3dclear() }
+    comp_16 { pt3dadd( 34.64096, 5.0, 34.64099, 1.0 ) }
+    comp_16 { pt3dadd( 51.96149, 0.0, 51.96153, 1.0 ) }
+    comp_16 { pt3dadd( 69.28227, -5.0, 69.2822, 1.0 ) }
+    // Section: comp_15, id: comp_15, parent: comp_3 (entry count 69/100)
+    comp_15 { pt3dclear() }
+    comp_15 { pt3dadd( -34.641, 5.0, -34.64101, 1.0 ) }
+    comp_15 { pt3dadd( -51.96149, 0.0, -51.96152, 1.0 ) }
+    comp_15 { pt3dadd( -69.2822, -5.0, -69.28233, 1.0 ) }
+    // Section: comp_14, id: comp_14, parent: comp_2 (entry count 72/100)
+    comp_14 { pt3dclear() }
+    comp_14 { pt3dadd( -34.64103, 5.0, 34.64107, 1.0 ) }
+    comp_14 { pt3dadd( -51.96155, 0.0, 51.96156, 1.0 ) }
+    comp_14 { pt3dadd( -69.28198, -5.0, 69.282, 1.0 ) }
+    // Section: comp_73, id: comp_73, parent: comp_70 (entry count 75/100)
+    comp_73 { pt3dclear() }
+    comp_73 { pt3dadd( -0.0, -75.0, 0.0, 1.0 ) }
+    comp_73 { pt3dadd( -9.735465, -98.0265, 0.0, 1.0 ) }
+    comp_73 { pt3dadd( -19.47089, -121.053, 0.0, 1.0 ) }
+    // Section: comp_71, id: comp_71, parent: comp_70 (entry count 78/100)
+    comp_71 { pt3dclear() }
+    comp_71 { pt3dadd( -0.0, -75.0, 0.0, 1.0 ) }
+    comp_71 { pt3dadd( 9.735455, -98.0265, 0.0, 1.0 ) }
+    comp_71 { pt3dadd( 19.4709, -121.053, 0.0, 1.0 ) }
+    // Section: comp_40, id: comp_40, parent: comp_39 (entry count 81/100)
+    comp_40 { pt3dclear() }
+    comp_40 { pt3dadd( -0.0, 115.0, 0.0, 6.4 ) }
+    comp_40 { pt3dadd( 0.0, 140.0, 0.0, 6.4 ) }
+    comp_40 { pt3dadd( -0.0, 165.0, 0.0, 6.4 ) }
+    // Section: comp_25, id: comp_25, parent: comp_13 (entry count 84/100)
+    comp_25 { pt3dclear() }
+    comp_25 { pt3dadd( -0.0, 65.0, -50.0, 1.0 ) }
+    comp_25 { pt3dadd( 0.0, 65.0, -75.0, 1.0 ) }
+    comp_25 { pt3dadd( -0.0, 65.0, -100.0, 1.0 ) }
+    // Section: comp_24, id: comp_24, parent: comp_12 (entry count 87/100)
+    comp_24 { pt3dclear() }
+    comp_24 { pt3dadd( 50.0, 65.0, 0.0, 1.0 ) }
+    comp_24 { pt3dadd( 75.0, 65.0, 0.0, 1.0 ) }
+    comp_24 { pt3dadd( 100.0, 65.0, 0.0, 1.0 ) }
+    // Section: comp_23, id: comp_23, parent: comp_11 (entry count 90/100)
+    comp_23 { pt3dclear() }
+    comp_23 { pt3dadd( 0.0, 65.0, 50.0, 1.0 ) }
+    comp_23 { pt3dadd( 0.0, 65.0, 75.0, 1.0 ) }
+    comp_23 { pt3dadd( 0.0, 65.0, 100.0, 1.0 ) }
+    // Section: comp_22, id: comp_22, parent: comp_10 (entry count 93/100)
+    comp_22 { pt3dclear() }
+    comp_22 { pt3dadd( -50.0, 65.0, 0.0, 1.0 ) }
+    comp_22 { pt3dadd( -75.0, 65.0, 0.0, 1.0 ) }
+    comp_22 { pt3dadd( -100.0, 65.0, 0.0, 1.0 ) }
+    // Section: comp_33, id: comp_33, parent: comp_21 (entry count 96/100)
+    comp_33 { pt3dclear() }
+    comp_33 { pt3dadd( 0.0, -65.0, -60.0, 1.0 ) }
+    comp_33 { pt3dadd( 0.0, -85.0, -75.0, 1.0 ) }
+    comp_33 { pt3dadd( 0.0, -105.0, -90.0, 1.0 ) }
+    // Section: comp_32, id: comp_32, parent: comp_20 (entry count 99/100)
+    comp_32 { pt3dclear() }
+    comp_32 { pt3dadd( 60.0, -65.0, 0.0, 1.0 ) }
+
+    // Procedure too big; splitting & calling another procedure...
+    basic_shape_0()
+}
+
+proc basic_shape_0() {
+    comp_32 { pt3dadd( 75.0, -85.0, 0.0, 1.0 ) }
+    comp_32 { pt3dadd( 90.0, -105.0, 0.0, 1.0 ) }
+    // Section: comp_31, id: comp_31, parent: comp_19 (entry count 2/100)
+    comp_31 { pt3dclear() }
+    comp_31 { pt3dadd( 0.0, -65.0, 60.0, 1.0 ) }
+    comp_31 { pt3dadd( 0.0, -85.0, 75.0, 1.0 ) }
+    comp_31 { pt3dadd( 0.0, -105.0, 90.0, 1.0 ) }
+    // Section: comp_30, id: comp_30, parent: comp_18 (entry count 5/100)
+    comp_30 { pt3dclear() }
+    comp_30 { pt3dadd( -60.0, -65.0, 0.0, 1.0 ) }
+    comp_30 { pt3dadd( -75.0, -85.0, 0.0, 1.0 ) }
+    comp_30 { pt3dadd( -90.0, -105.0, 0.0, 1.0 ) }
+    // Section: comp_29, id: comp_29, parent: comp_17 (entry count 8/100)
+    comp_29 { pt3dclear() }
+    comp_29 { pt3dadd( 69.28174, -5.0, -69.28177, 1.0 ) }
+    comp_29 { pt3dadd( 86.60291, -10.0, -86.60286, 1.0 ) }
+    comp_29 { pt3dadd( 103.9234, -15.0, -103.9233, 1.0 ) }
+    // Section: comp_28, id: comp_28, parent: comp_16 (entry count 11/100)
+    comp_28 { pt3dclear() }
+    comp_28 { pt3dadd( 69.28227, -5.0, 69.2822, 1.0 ) }
+    comp_28 { pt3dadd( 86.60222, -10.0, 86.60239, 1.0 ) }
+    comp_28 { pt3dadd( 103.923, -15.0, 103.9231, 1.0 ) }
+    // Section: comp_27, id: comp_27, parent: comp_15 (entry count 14/100)
+    comp_27 { pt3dclear() }
+    comp_27 { pt3dadd( -69.2822, -5.0, -69.28233, 1.0 ) }
+    comp_27 { pt3dadd( -86.60249, -10.0, -86.60253, 1.0 ) }
+    comp_27 { pt3dadd( -103.9228, -15.0, -103.9227, 1.0 ) }
+    // Section: comp_26, id: comp_26, parent: comp_14 (entry count 17/100)
+    comp_26 { pt3dclear() }
+    comp_26 { pt3dadd( -69.28198, -5.0, 69.282, 1.0 ) }
+    comp_26 { pt3dadd( -86.60266, -10.0, 86.6028, 1.0 ) }
+    comp_26 { pt3dadd( -103.923, -15.0, 103.923, 1.0 ) }
+    // Section: comp_74, id: comp_74, parent: comp_73 (entry count 20/100)
+    comp_74 { pt3dclear() }
+    comp_74 { pt3dadd( -19.47089, -121.053, 0.0, 1.0 ) }
+    comp_74 { pt3dadd( -29.20639, -144.08, 0.0, 1.0 ) }
+    comp_74 { pt3dadd( -38.94189, -167.106, 0.0, 1.0 ) }
+    // Section: comp_72, id: comp_72, parent: comp_71 (entry count 23/100)
+    comp_72 { pt3dclear() }
+    comp_72 { pt3dadd( 19.4709, -121.053, 0.0, 1.0 ) }
+    comp_72 { pt3dadd( 29.20641, -144.08, 0.0, 1.0 ) }
+    comp_72 { pt3dadd( 38.94181, -167.106, 0.0, 1.0 ) }
+    // Section: comp_42, id: comp_42, parent: comp_40 (entry count 26/100)
+    comp_42 { pt3dclear() }
+    comp_42 { pt3dadd( -0.0, 165.0, 0.0, 4.0 ) }
+    comp_42 { pt3dadd( 9.734937, 188.0264, 0.0, 4.0 ) }
+    comp_42 { pt3dadd( 19.47039, 211.053, 0.0, 4.0 ) }
+    // Section: comp_41, id: comp_41, parent: comp_40 (entry count 29/100)
+    comp_41 { pt3dclear() }
+    comp_41 { pt3dadd( -0.0, 165.0, 0.0, 4.0 ) }
+    comp_41 { pt3dadd( -9.735199, 188.0264, 0.0, 4.0 ) }
+    comp_41 { pt3dadd( -19.4713, 211.0529, 0.0, 4.0 ) }
+    // Section: comp_37, id: comp_37, parent: comp_25 (entry count 32/100)
+    comp_37 { pt3dclear() }
+    comp_37 { pt3dadd( -0.0, 65.0, -100.0, 1.0 ) }
+    comp_37 { pt3dadd( -0.0, 65.0, -125.0, 1.0 ) }
+    comp_37 { pt3dadd( -0.0, 65.0, -150.0, 1.0 ) }
+    // Section: comp_36, id: comp_36, parent: comp_24 (entry count 35/100)
+    comp_36 { pt3dclear() }
+    comp_36 { pt3dadd( 100.0, 65.0, 0.0, 1.0 ) }
+    comp_36 { pt3dadd( 125.0, 65.0, 0.0, 1.0 ) }
+    comp_36 { pt3dadd( 150.0, 65.0, 0.0, 1.0 ) }
+    // Section: comp_35, id: comp_35, parent: comp_23 (entry count 38/100)
+    comp_35 { pt3dclear() }
+    comp_35 { pt3dadd( 0.0, 65.0, 100.0, 1.0 ) }
+    comp_35 { pt3dadd( 0.0, 65.0, 125.0, 1.0 ) }
+    comp_35 { pt3dadd( 0.0, 65.0, 150.0, 1.0 ) }
+    // Section: comp_34, id: comp_34, parent: comp_22 (entry count 41/100)
+    comp_34 { pt3dclear() }
+    comp_34 { pt3dadd( -100.0, 65.0, 0.0, 1.0 ) }
+    comp_34 { pt3dadd( -125.0, 65.0, 0.0, 1.0 ) }
+    comp_34 { pt3dadd( -150.0, 65.0, 0.0, 1.0 ) }
+    // Section: comp_44, id: comp_44, parent: comp_42 (entry count 44/100)
+    comp_44 { pt3dclear() }
+    comp_44 { pt3dadd( 19.47039, 211.053, 0.0, 4.0 ) }
+    comp_44 { pt3dadd( 29.20583, 234.0796, 0.0, 4.0 ) }
+    comp_44 { pt3dadd( 38.94128, 257.1061, 0.0, 4.0 ) }
+    // Section: comp_43, id: comp_43, parent: comp_41 (entry count 47/100)
+    comp_43 { pt3dclear() }
+    comp_43 { pt3dadd( -19.4713, 211.0529, 0.0, 4.0 ) }
+    comp_43 { pt3dadd( -29.20599, 234.0795, 0.0, 4.0 ) }
+    comp_43 { pt3dadd( -38.9421, 257.106, 0.0, 4.0 ) }
+    // Section: comp_52, id: comp_52, parent: comp_44 (entry count 50/100)
+    comp_52 { pt3dclear() }
+    comp_52 { pt3dadd( 38.94128, 257.1061, 0.0, 1.6 ) }
+    comp_52 { pt3dadd( 56.87567, 274.5242, 0.0, 1.6 ) }
+    comp_52 { pt3dadd( 74.80936, 291.9416, 0.0, 1.6 ) }
+    // Section: comp_51, id: comp_51, parent: comp_44 (entry count 53/100)
+    comp_51 { pt3dclear() }
+    comp_51 { pt3dadd( 38.94128, 257.1061, 0.0, 1.6 ) }
+    comp_51 { pt3dadd( 38.94128, 274.5242, -17.93439, 1.6 ) }
+    comp_51 { pt3dadd( 38.94009, 291.9418, -35.86782, 1.6 ) }
+    // Section: comp_50, id: comp_50, parent: comp_44 (entry count 56/100)
+    comp_50 { pt3dclear() }
+    comp_50 { pt3dadd( 38.94128, 257.1061, 0.0, 1.6 ) }
+    comp_50 { pt3dadd( 38.94128, 274.5242, 17.93439, 1.6 ) }
+    comp_50 { pt3dadd( 38.94125, 291.9419, 35.86837, 1.6 ) }
+    // Section: comp_49, id: comp_49, parent: comp_44 (entry count 59/100)
+    comp_49 { pt3dclear() }
+    comp_49 { pt3dadd( 38.94128, 257.1061, 0.0, 1.6 ) }
+    comp_49 { pt3dadd( 38.94185, 282.1057, 0.0, 1.6 ) }
+    comp_49 { pt3dadd( 38.9417, 307.106, 0.0, 1.6 ) }
+    // Section: comp_48, id: comp_48, parent: comp_43 (entry count 62/100)
+    comp_48 { pt3dclear() }
+    comp_48 { pt3dadd( -38.9421, 257.106, 0.0, 1.6 ) }
+    comp_48 { pt3dadd( -38.94153, 282.1056, 0.0, 1.6 ) }
+    comp_48 { pt3dadd( -38.94169, 307.1059, 0.0, 1.6 ) }
+    // Section: comp_47, id: comp_47, parent: comp_43 (entry count 65/100)
+    comp_47 { pt3dclear() }
+    comp_47 { pt3dadd( -38.9421, 257.106, 0.0, 1.6 ) }
+    comp_47 { pt3dadd( -38.94128, 274.5242, 17.93439, 1.6 ) }
+    comp_47 { pt3dadd( -38.94131, 291.9419, 35.86829, 1.6 ) }
+    // Section: comp_46, id: comp_46, parent: comp_43 (entry count 68/100)
+    comp_46 { pt3dclear() }
+    comp_46 { pt3dadd( -38.9421, 257.106, 0.0, 1.6 ) }
+    comp_46 { pt3dadd( -38.94128, 274.5242, -17.93439, 1.6 ) }
+    comp_46 { pt3dadd( -38.94071, 291.9423, -35.86874, 1.6 ) }
+    // Section: comp_45, id: comp_45, parent: comp_43 (entry count 71/100)
+    comp_45 { pt3dclear() }
+    comp_45 { pt3dadd( -38.9421, 257.106, 0.0, 1.6 ) }
+    comp_45 { pt3dadd( -56.876, 274.5237, 0.0, 1.6 ) }
+    comp_45 { pt3dadd( -74.80988, 291.9413, 0.0, 1.6 ) }
+    // Section: comp_60, id: comp_60, parent: comp_52 (entry count 74/100)
+    comp_60 { pt3dclear() }
+    comp_60 { pt3dadd( 74.80936, 291.9416, 0.0, 1.6 ) }
+    comp_60 { pt3dadd( 92.74303, 309.3591, 0.0, 1.6 ) }
+    comp_60 { pt3dadd( 110.6774, 326.7772, 0.0, 1.6 ) }
+    // Section: comp_59, id: comp_59, parent: comp_51 (entry count 77/100)
+    comp_59 { pt3dclear() }
+    comp_59 { pt3dadd( 38.94009, 291.9418, -35.86782, 1.6 ) }
+    comp_59 { pt3dadd( 38.93914, 309.36, -53.80198, 1.6 ) }
+    comp_59 { pt3dadd( 38.93796, 326.7775, -71.7354, 1.6 ) }
+    // Section: comp_58, id: comp_58, parent: comp_50 (entry count 80/100)
+    comp_58 { pt3dclear() }
+    comp_58 { pt3dadd( 38.94125, 291.9419, 35.86837, 1.6 ) }
+    comp_58 { pt3dadd( 38.94123, 309.3596, 53.8023, 1.6 ) }
+    comp_58 { pt3dadd( 38.94122, 326.7772, 71.73624, 1.6 ) }
+    // Section: comp_57, id: comp_57, parent: comp_49 (entry count 83/100)
+    comp_57 { pt3dclear() }
+    comp_57 { pt3dadd( 38.9417, 307.106, 0.0, 1.6 ) }
+    comp_57 { pt3dadd( 38.94226, 332.1057, 0.0, 1.6 ) }
+    comp_57 { pt3dadd( 38.94211, 357.106, 0.0, 1.6 ) }
+    // Section: comp_56, id: comp_56, parent: comp_48 (entry count 86/100)
+    comp_56 { pt3dclear() }
+    comp_56 { pt3dadd( -38.94169, 307.1059, 0.0, 1.6 ) }
+    comp_56 { pt3dadd( -38.94185, 332.1062, 0.0, 1.6 ) }
+    comp_56 { pt3dadd( -38.94127, 357.1058, 0.0, 1.6 ) }
+    // Section: comp_55, id: comp_55, parent: comp_47 (entry count 89/100)
+    comp_55 { pt3dclear() }
+    comp_55 { pt3dadd( -38.94131, 291.9419, 35.86829, 1.6 ) }
+    comp_55 { pt3dadd( -38.94136, 309.3595, 53.80219, 1.6 ) }
+    comp_55 { pt3dadd( -38.9414, 326.7771, 71.73609, 1.6 ) }
+    // Section: comp_54, id: comp_54, parent: comp_46 (entry count 92/100)
+    comp_54 { pt3dclear() }
+    comp_54 { pt3dadd( -38.94071, 291.9423, -35.86874, 1.6 ) }
+    comp_54 { pt3dadd( -38.93991, 309.3598, -53.80234, 1.6 ) }
+    comp_54 { pt3dadd( -38.9391, 326.7773, -71.73598, 1.6 ) }
+    // Section: comp_53, id: comp_53, parent: comp_45 (entry count 95/100)
+    comp_53 { pt3dclear() }
+    comp_53 { pt3dadd( -74.80988, 291.9413, 0.0, 1.6 ) }
+    comp_53 { pt3dadd( -92.74378, 309.3591, 0.0, 1.6 ) }
+    comp_53 { pt3dadd( -110.6777, 326.7767, 0.0, 1.6 ) }
+    // Section: comp_68, id: comp_68, parent: comp_60 (entry count 98/100)
+    comp_68 { pt3dclear() }
+    comp_68 { pt3dadd( 110.6774, 326.7772, 0.0, 1.6 ) }
+    comp_68 { pt3dadd( 128.6111, 344.1946, 0.0, 1.6 ) }
+
+    // Procedure too big; splitting & calling another procedure...
+    basic_shape_1()
+}
+
+proc basic_shape_1() {
+    comp_68 { pt3dadd( 146.5448, 361.612, 0.0, 1.6 ) }
+    // Section: comp_67, id: comp_67, parent: comp_59 (entry count 1/100)
+    comp_67 { pt3dclear() }
+    comp_67 { pt3dadd( 38.93796, 326.7775, -71.7354, 1.6 ) }
+    comp_67 { pt3dadd( 38.93699, 344.1957, -89.66957, 1.6 ) }
+    comp_67 { pt3dadd( 38.93581, 361.6132, -107.603, 1.6 ) }
+    // Section: comp_66, id: comp_66, parent: comp_58 (entry count 4/100)
+    comp_66 { pt3dclear() }
+    comp_66 { pt3dadd( 38.94122, 326.7772, 71.73624, 1.6 ) }
+    comp_66 { pt3dadd( 38.9412, 344.1949, 89.67018, 1.6 ) }
+    comp_66 { pt3dadd( 38.94118, 361.6126, 107.6042, 1.6 ) }
+    // Section: comp_65, id: comp_65, parent: comp_57 (entry count 7/100)
+    comp_65 { pt3dclear() }
+    comp_65 { pt3dadd( 38.94211, 357.106, 0.0, 1.6 ) }
+    comp_65 { pt3dadd( 38.94194, 382.1062, 0.0, 1.6 ) }
+    comp_65 { pt3dadd( 38.94252, 407.1058, 0.0, 1.6 ) }
+    // Section: comp_64, id: comp_64, parent: comp_56 (entry count 10/100)
+    comp_64 { pt3dclear() }
+    comp_64 { pt3dadd( -38.94127, 357.1058, 0.0, 1.6 ) }
+    comp_64 { pt3dadd( -38.94145, 382.1061, 0.0, 1.6 ) }
+    comp_64 { pt3dadd( -38.94159, 407.1064, 0.0, 1.6 ) }
+    // Section: comp_63, id: comp_63, parent: comp_55 (entry count 13/100)
+    comp_63 { pt3dclear() }
+    comp_63 { pt3dadd( -38.9414, 326.7771, 71.73609, 1.6 ) }
+    comp_63 { pt3dadd( -38.94093, 344.1942, 89.66936, 1.6 ) }
+    comp_63 { pt3dadd( -38.94098, 361.6119, 107.6032, 1.6 ) }
+    // Section: comp_62, id: comp_62, parent: comp_54 (entry count 16/100)
+    comp_62 { pt3dclear() }
+    comp_62 { pt3dadd( -38.9391, 326.7773, -71.73598, 1.6 ) }
+    comp_62 { pt3dadd( -38.93853, 344.1955, -89.67031, 1.6 ) }
+    comp_62 { pt3dadd( -38.93773, 361.6129, -107.6039, 1.6 ) }
+    // Section: comp_61, id: comp_61, parent: comp_53 (entry count 19/100)
+    comp_61 { pt3dclear() }
+    comp_61 { pt3dadd( -110.6777, 326.7767, 0.0, 1.6 ) }
+    comp_61 { pt3dadd( -128.6116, 344.1944, 0.0, 1.6 ) }
+    comp_61 { pt3dadd( -146.5455, 361.6121, 0.0, 1.6 ) }
+
+}
+
+
+proc subsets() { local i
+
+    // Group: {name=ModelViewParmSubset_1, groups=[], sections=[comp_1, comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    ModelViewParmSubset_1 = new SectionList()
+    comp_1 ModelViewParmSubset_1.append()
+    comp_38 ModelViewParmSubset_1.append()
+    comp_9 ModelViewParmSubset_1.append()
+    comp_8 ModelViewParmSubset_1.append()
+    comp_7 ModelViewParmSubset_1.append()
+    comp_6 ModelViewParmSubset_1.append()
+    comp_5 ModelViewParmSubset_1.append()
+    comp_4 ModelViewParmSubset_1.append()
+    comp_3 ModelViewParmSubset_1.append()
+    comp_2 ModelViewParmSubset_1.append()
+    comp_39 ModelViewParmSubset_1.append()
+    comp_13 ModelViewParmSubset_1.append()
+    comp_12 ModelViewParmSubset_1.append()
+    comp_11 ModelViewParmSubset_1.append()
+    comp_10 ModelViewParmSubset_1.append()
+    comp_21 ModelViewParmSubset_1.append()
+    comp_20 ModelViewParmSubset_1.append()
+    comp_19 ModelViewParmSubset_1.append()
+    comp_18 ModelViewParmSubset_1.append()
+    comp_17 ModelViewParmSubset_1.append()
+    comp_16 ModelViewParmSubset_1.append()
+    comp_15 ModelViewParmSubset_1.append()
+    comp_14 ModelViewParmSubset_1.append()
+    comp_40 ModelViewParmSubset_1.append()
+    comp_25 ModelViewParmSubset_1.append()
+    comp_24 ModelViewParmSubset_1.append()
+    comp_23 ModelViewParmSubset_1.append()
+    comp_22 ModelViewParmSubset_1.append()
+    comp_33 ModelViewParmSubset_1.append()
+    comp_32 ModelViewParmSubset_1.append()
+    comp_31 ModelViewParmSubset_1.append()
+    comp_30 ModelViewParmSubset_1.append()
+    comp_29 ModelViewParmSubset_1.append()
+    comp_28 ModelViewParmSubset_1.append()
+    comp_27 ModelViewParmSubset_1.append()
+    comp_26 ModelViewParmSubset_1.append()
+    comp_42 ModelViewParmSubset_1.append()
+    comp_41 ModelViewParmSubset_1.append()
+    comp_37 ModelViewParmSubset_1.append()
+    comp_36 ModelViewParmSubset_1.append()
+    comp_35 ModelViewParmSubset_1.append()
+    comp_34 ModelViewParmSubset_1.append()
+    comp_44 ModelViewParmSubset_1.append()
+    comp_43 ModelViewParmSubset_1.append()
+    comp_52 ModelViewParmSubset_1.append()
+    comp_51 ModelViewParmSubset_1.append()
+    comp_50 ModelViewParmSubset_1.append()
+    comp_49 ModelViewParmSubset_1.append()
+    comp_48 ModelViewParmSubset_1.append()
+    comp_47 ModelViewParmSubset_1.append()
+    comp_46 ModelViewParmSubset_1.append()
+    comp_45 ModelViewParmSubset_1.append()
+    comp_60 ModelViewParmSubset_1.append()
+    comp_59 ModelViewParmSubset_1.append()
+    comp_58 ModelViewParmSubset_1.append()
+    comp_57 ModelViewParmSubset_1.append()
+    comp_56 ModelViewParmSubset_1.append()
+    comp_55 ModelViewParmSubset_1.append()
+    comp_54 ModelViewParmSubset_1.append()
+    comp_53 ModelViewParmSubset_1.append()
+    comp_68 ModelViewParmSubset_1.append()
+    comp_67 ModelViewParmSubset_1.append()
+    comp_66 ModelViewParmSubset_1.append()
+    comp_65 ModelViewParmSubset_1.append()
+    comp_64 ModelViewParmSubset_1.append()
+    comp_63 ModelViewParmSubset_1.append()
+    comp_62 ModelViewParmSubset_1.append()
+    comp_61 ModelViewParmSubset_1.append()
+
+    // Group: {name=ModelViewParmSubset_3, groups=[], sections=[comp_1, comp_69, comp_70, comp_73, comp_71, comp_74, comp_72]}
+    ModelViewParmSubset_3 = new SectionList()
+    comp_1 ModelViewParmSubset_3.append()
+    comp_69 ModelViewParmSubset_3.append()
+    comp_70 ModelViewParmSubset_3.append()
+    comp_73 ModelViewParmSubset_3.append()
+    comp_71 ModelViewParmSubset_3.append()
+    comp_74 ModelViewParmSubset_3.append()
+    comp_72 ModelViewParmSubset_3.append()
+
+    // Group: {name=ModelViewParmSubset_8, groups=[], sections=[comp_1, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10]}
+    ModelViewParmSubset_8 = new SectionList()
+    comp_1 ModelViewParmSubset_8.append()
+    comp_9 ModelViewParmSubset_8.append()
+    comp_8 ModelViewParmSubset_8.append()
+    comp_7 ModelViewParmSubset_8.append()
+    comp_6 ModelViewParmSubset_8.append()
+    comp_5 ModelViewParmSubset_8.append()
+    comp_4 ModelViewParmSubset_8.append()
+    comp_3 ModelViewParmSubset_8.append()
+    comp_2 ModelViewParmSubset_8.append()
+    comp_39 ModelViewParmSubset_8.append()
+    comp_13 ModelViewParmSubset_8.append()
+    comp_12 ModelViewParmSubset_8.append()
+    comp_11 ModelViewParmSubset_8.append()
+    comp_10 ModelViewParmSubset_8.append()
+
+    // Group: {name=OneSecGrp_SectionRef_1, groups=[], sections=[comp_1]}
+    OneSecGrp_SectionRef_1 = new SectionList()
+    comp_1 OneSecGrp_SectionRef_1.append()
+
+    // Group: {name=soma_group, groups=[], sections=[comp_1]}
+    soma_group = new SectionList()
+    comp_1 soma_group.append()
+
+    // Group: {name=prox_dends_soma, groups=[], sections=[comp_1, comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39]}
+    prox_dends_soma = new SectionList()
+    comp_1 prox_dends_soma.append()
+    comp_38 prox_dends_soma.append()
+    comp_9 prox_dends_soma.append()
+    comp_8 prox_dends_soma.append()
+    comp_7 prox_dends_soma.append()
+    comp_6 prox_dends_soma.append()
+    comp_5 prox_dends_soma.append()
+    comp_4 prox_dends_soma.append()
+    comp_3 prox_dends_soma.append()
+
+    // Procedure too big; splitting & calling another procedure...
+    subsets_0()
+}
+
+proc subsets_0() {
+    comp_2 prox_dends_soma.append()
+    comp_39 prox_dends_soma.append()
+
+    // Group: {name=ModelViewParmSubset_2, groups=[], sections=[comp_69, comp_70, comp_73, comp_71, comp_74, comp_72]}
+    ModelViewParmSubset_2 = new SectionList()
+    comp_69 ModelViewParmSubset_2.append()
+    comp_70 ModelViewParmSubset_2.append()
+    comp_73 ModelViewParmSubset_2.append()
+    comp_71 ModelViewParmSubset_2.append()
+    comp_74 ModelViewParmSubset_2.append()
+    comp_72 ModelViewParmSubset_2.append()
+
+    // Group: {name=axon_group, groups=[], sections=[comp_69, comp_70, comp_73, comp_71, comp_74, comp_72]}
+    axon_group = new SectionList()
+    comp_69 axon_group.append()
+    comp_70 axon_group.append()
+    comp_73 axon_group.append()
+    comp_71 axon_group.append()
+    comp_74 axon_group.append()
+    comp_72 axon_group.append()
+
+    // Group: {name=prox_axon, groups=[], sections=[comp_69]}
+    prox_axon = new SectionList()
+    comp_69 prox_axon.append()
+
+    // Group: {name=dendrite_group, groups=[], sections=[comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    dendrite_group = new SectionList()
+    comp_38 dendrite_group.append()
+    comp_9 dendrite_group.append()
+    comp_8 dendrite_group.append()
+    comp_7 dendrite_group.append()
+    comp_6 dendrite_group.append()
+    comp_5 dendrite_group.append()
+    comp_4 dendrite_group.append()
+    comp_3 dendrite_group.append()
+    comp_2 dendrite_group.append()
+    comp_39 dendrite_group.append()
+    comp_13 dendrite_group.append()
+    comp_12 dendrite_group.append()
+    comp_11 dendrite_group.append()
+    comp_10 dendrite_group.append()
+    comp_21 dendrite_group.append()
+    comp_20 dendrite_group.append()
+    comp_19 dendrite_group.append()
+    comp_18 dendrite_group.append()
+    comp_17 dendrite_group.append()
+    comp_16 dendrite_group.append()
+    comp_15 dendrite_group.append()
+    comp_14 dendrite_group.append()
+    comp_40 dendrite_group.append()
+    comp_25 dendrite_group.append()
+    comp_24 dendrite_group.append()
+    comp_23 dendrite_group.append()
+    comp_22 dendrite_group.append()
+    comp_33 dendrite_group.append()
+    comp_32 dendrite_group.append()
+    comp_31 dendrite_group.append()
+    comp_30 dendrite_group.append()
+    comp_29 dendrite_group.append()
+    comp_28 dendrite_group.append()
+    comp_27 dendrite_group.append()
+    comp_26 dendrite_group.append()
+    comp_42 dendrite_group.append()
+    comp_41 dendrite_group.append()
+    comp_37 dendrite_group.append()
+    comp_36 dendrite_group.append()
+    comp_35 dendrite_group.append()
+    comp_34 dendrite_group.append()
+    comp_44 dendrite_group.append()
+    comp_43 dendrite_group.append()
+    comp_52 dendrite_group.append()
+    comp_51 dendrite_group.append()
+    comp_50 dendrite_group.append()
+    comp_49 dendrite_group.append()
+    comp_48 dendrite_group.append()
+    comp_47 dendrite_group.append()
+    comp_46 dendrite_group.append()
+    comp_45 dendrite_group.append()
+    comp_60 dendrite_group.append()
+    comp_59 dendrite_group.append()
+    comp_58 dendrite_group.append()
+    comp_57 dendrite_group.append()
+    comp_56 dendrite_group.append()
+    comp_55 dendrite_group.append()
+    comp_54 dendrite_group.append()
+    comp_53 dendrite_group.append()
+    comp_68 dendrite_group.append()
+    comp_67 dendrite_group.append()
+    comp_66 dendrite_group.append()
+    comp_65 dendrite_group.append()
+    comp_64 dendrite_group.append()
+    comp_63 dendrite_group.append()
+    comp_62 dendrite_group.append()
+    comp_61 dendrite_group.append()
+
+    // Group: {name=ModelViewParmSubset_4, groups=[], sections=[comp_38, comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    ModelViewParmSubset_4 = new SectionList()
+    comp_38 ModelViewParmSubset_4.append()
+    comp_9 ModelViewParmSubset_4.append()
+    comp_8 ModelViewParmSubset_4.append()
+    comp_7 ModelViewParmSubset_4.append()
+    comp_6 ModelViewParmSubset_4.append()
+    comp_5 ModelViewParmSubset_4.append()
+    comp_4 ModelViewParmSubset_4.append()
+    comp_3 ModelViewParmSubset_4.append()
+    comp_2 ModelViewParmSubset_4.append()
+    comp_39 ModelViewParmSubset_4.append()
+    comp_13 ModelViewParmSubset_4.append()
+    comp_12 ModelViewParmSubset_4.append()
+    comp_11 ModelViewParmSubset_4.append()
+    comp_10 ModelViewParmSubset_4.append()
+    comp_21 ModelViewParmSubset_4.append()
+    comp_20 ModelViewParmSubset_4.append()
+    comp_19 ModelViewParmSubset_4.append()
+    comp_18 ModelViewParmSubset_4.append()
+
+    // Procedure too big; splitting & calling another procedure...
+    subsets_1()
+}
+
+proc subsets_1() {
+    comp_17 ModelViewParmSubset_4.append()
+    comp_16 ModelViewParmSubset_4.append()
+    comp_15 ModelViewParmSubset_4.append()
+    comp_14 ModelViewParmSubset_4.append()
+    comp_40 ModelViewParmSubset_4.append()
+    comp_25 ModelViewParmSubset_4.append()
+    comp_24 ModelViewParmSubset_4.append()
+    comp_23 ModelViewParmSubset_4.append()
+    comp_22 ModelViewParmSubset_4.append()
+    comp_33 ModelViewParmSubset_4.append()
+    comp_32 ModelViewParmSubset_4.append()
+    comp_31 ModelViewParmSubset_4.append()
+    comp_30 ModelViewParmSubset_4.append()
+    comp_29 ModelViewParmSubset_4.append()
+    comp_28 ModelViewParmSubset_4.append()
+    comp_27 ModelViewParmSubset_4.append()
+    comp_26 ModelViewParmSubset_4.append()
+    comp_42 ModelViewParmSubset_4.append()
+    comp_41 ModelViewParmSubset_4.append()
+    comp_37 ModelViewParmSubset_4.append()
+    comp_36 ModelViewParmSubset_4.append()
+    comp_35 ModelViewParmSubset_4.append()
+    comp_34 ModelViewParmSubset_4.append()
+    comp_44 ModelViewParmSubset_4.append()
+    comp_43 ModelViewParmSubset_4.append()
+    comp_52 ModelViewParmSubset_4.append()
+    comp_51 ModelViewParmSubset_4.append()
+    comp_50 ModelViewParmSubset_4.append()
+    comp_49 ModelViewParmSubset_4.append()
+    comp_48 ModelViewParmSubset_4.append()
+    comp_47 ModelViewParmSubset_4.append()
+    comp_46 ModelViewParmSubset_4.append()
+    comp_45 ModelViewParmSubset_4.append()
+    comp_60 ModelViewParmSubset_4.append()
+    comp_59 ModelViewParmSubset_4.append()
+    comp_58 ModelViewParmSubset_4.append()
+    comp_57 ModelViewParmSubset_4.append()
+    comp_56 ModelViewParmSubset_4.append()
+    comp_55 ModelViewParmSubset_4.append()
+    comp_54 ModelViewParmSubset_4.append()
+    comp_53 ModelViewParmSubset_4.append()
+    comp_68 ModelViewParmSubset_4.append()
+    comp_67 ModelViewParmSubset_4.append()
+    comp_66 ModelViewParmSubset_4.append()
+    comp_65 ModelViewParmSubset_4.append()
+    comp_64 ModelViewParmSubset_4.append()
+    comp_63 ModelViewParmSubset_4.append()
+    comp_62 ModelViewParmSubset_4.append()
+    comp_61 ModelViewParmSubset_4.append()
+
+    // Group: {name=OneSecGrp_SectionRef_3, groups=[], sections=[comp_38]}
+    OneSecGrp_SectionRef_3 = new SectionList()
+    comp_38 OneSecGrp_SectionRef_3.append()
+
+    // Group: {name=ModelViewParmSubset_5, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    ModelViewParmSubset_5 = new SectionList()
+    comp_9 ModelViewParmSubset_5.append()
+    comp_8 ModelViewParmSubset_5.append()
+    comp_7 ModelViewParmSubset_5.append()
+    comp_6 ModelViewParmSubset_5.append()
+    comp_5 ModelViewParmSubset_5.append()
+    comp_4 ModelViewParmSubset_5.append()
+    comp_3 ModelViewParmSubset_5.append()
+    comp_2 ModelViewParmSubset_5.append()
+    comp_39 ModelViewParmSubset_5.append()
+    comp_13 ModelViewParmSubset_5.append()
+    comp_12 ModelViewParmSubset_5.append()
+    comp_11 ModelViewParmSubset_5.append()
+    comp_10 ModelViewParmSubset_5.append()
+    comp_21 ModelViewParmSubset_5.append()
+    comp_20 ModelViewParmSubset_5.append()
+    comp_19 ModelViewParmSubset_5.append()
+    comp_18 ModelViewParmSubset_5.append()
+    comp_17 ModelViewParmSubset_5.append()
+    comp_16 ModelViewParmSubset_5.append()
+    comp_15 ModelViewParmSubset_5.append()
+    comp_14 ModelViewParmSubset_5.append()
+    comp_40 ModelViewParmSubset_5.append()
+    comp_25 ModelViewParmSubset_5.append()
+    comp_24 ModelViewParmSubset_5.append()
+    comp_23 ModelViewParmSubset_5.append()
+    comp_22 ModelViewParmSubset_5.append()
+    comp_33 ModelViewParmSubset_5.append()
+    comp_32 ModelViewParmSubset_5.append()
+    comp_31 ModelViewParmSubset_5.append()
+    comp_30 ModelViewParmSubset_5.append()
+    comp_29 ModelViewParmSubset_5.append()
+    comp_28 ModelViewParmSubset_5.append()
+    comp_27 ModelViewParmSubset_5.append()
+    comp_26 ModelViewParmSubset_5.append()
+    comp_42 ModelViewParmSubset_5.append()
+    comp_41 ModelViewParmSubset_5.append()
+    comp_37 ModelViewParmSubset_5.append()
+    comp_36 ModelViewParmSubset_5.append()
+    comp_35 ModelViewParmSubset_5.append()
+    comp_34 ModelViewParmSubset_5.append()
+    comp_44 ModelViewParmSubset_5.append()
+    comp_43 ModelViewParmSubset_5.append()
+    comp_52 ModelViewParmSubset_5.append()
+    comp_51 ModelViewParmSubset_5.append()
+    comp_50 ModelViewParmSubset_5.append()
+    comp_49 ModelViewParmSubset_5.append()
+    comp_48 ModelViewParmSubset_5.append()
+    comp_47 ModelViewParmSubset_5.append()
+    comp_46 ModelViewParmSubset_5.append()
+    comp_45 ModelViewParmSubset_5.append()
+
+    // Procedure too big; splitting & calling another procedure...
+    subsets_2()
+}
+
+proc subsets_2() {
+    comp_60 ModelViewParmSubset_5.append()
+    comp_59 ModelViewParmSubset_5.append()
+    comp_58 ModelViewParmSubset_5.append()
+    comp_57 ModelViewParmSubset_5.append()
+    comp_56 ModelViewParmSubset_5.append()
+    comp_55 ModelViewParmSubset_5.append()
+    comp_54 ModelViewParmSubset_5.append()
+    comp_53 ModelViewParmSubset_5.append()
+    comp_68 ModelViewParmSubset_5.append()
+    comp_67 ModelViewParmSubset_5.append()
+    comp_66 ModelViewParmSubset_5.append()
+    comp_65 ModelViewParmSubset_5.append()
+    comp_64 ModelViewParmSubset_5.append()
+    comp_63 ModelViewParmSubset_5.append()
+    comp_62 ModelViewParmSubset_5.append()
+    comp_61 ModelViewParmSubset_5.append()
+
+    // Group: {name=ModelViewParmSubset_7, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_39, comp_13, comp_12, comp_11, comp_10]}
+    ModelViewParmSubset_7 = new SectionList()
+    comp_9 ModelViewParmSubset_7.append()
+    comp_8 ModelViewParmSubset_7.append()
+    comp_7 ModelViewParmSubset_7.append()
+    comp_6 ModelViewParmSubset_7.append()
+    comp_5 ModelViewParmSubset_7.append()
+    comp_4 ModelViewParmSubset_7.append()
+    comp_3 ModelViewParmSubset_7.append()
+    comp_2 ModelViewParmSubset_7.append()
+    comp_39 ModelViewParmSubset_7.append()
+    comp_13 ModelViewParmSubset_7.append()
+    comp_12 ModelViewParmSubset_7.append()
+    comp_11 ModelViewParmSubset_7.append()
+    comp_10 ModelViewParmSubset_7.append()
+
+    // Group: {name=most_prox_bas_dend, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2]}
+    most_prox_bas_dend = new SectionList()
+    comp_9 most_prox_bas_dend.append()
+    comp_8 most_prox_bas_dend.append()
+    comp_7 most_prox_bas_dend.append()
+    comp_6 most_prox_bas_dend.append()
+    comp_5 most_prox_bas_dend.append()
+    comp_4 most_prox_bas_dend.append()
+    comp_3 most_prox_bas_dend.append()
+    comp_2 most_prox_bas_dend.append()
+
+    // Group: {name=basal_obl_dends, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_13, comp_12, comp_11, comp_10, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_37, comp_36, comp_35, comp_34]}
+    basal_obl_dends = new SectionList()
+    comp_9 basal_obl_dends.append()
+    comp_8 basal_obl_dends.append()
+    comp_7 basal_obl_dends.append()
+    comp_6 basal_obl_dends.append()
+    comp_5 basal_obl_dends.append()
+    comp_4 basal_obl_dends.append()
+    comp_3 basal_obl_dends.append()
+    comp_2 basal_obl_dends.append()
+    comp_13 basal_obl_dends.append()
+    comp_12 basal_obl_dends.append()
+    comp_11 basal_obl_dends.append()
+    comp_10 basal_obl_dends.append()
+    comp_21 basal_obl_dends.append()
+    comp_20 basal_obl_dends.append()
+    comp_19 basal_obl_dends.append()
+    comp_18 basal_obl_dends.append()
+    comp_17 basal_obl_dends.append()
+    comp_16 basal_obl_dends.append()
+    comp_15 basal_obl_dends.append()
+    comp_14 basal_obl_dends.append()
+    comp_25 basal_obl_dends.append()
+    comp_24 basal_obl_dends.append()
+    comp_23 basal_obl_dends.append()
+    comp_22 basal_obl_dends.append()
+    comp_33 basal_obl_dends.append()
+    comp_32 basal_obl_dends.append()
+    comp_31 basal_obl_dends.append()
+    comp_30 basal_obl_dends.append()
+    comp_29 basal_obl_dends.append()
+    comp_28 basal_obl_dends.append()
+    comp_27 basal_obl_dends.append()
+    comp_26 basal_obl_dends.append()
+    comp_37 basal_obl_dends.append()
+    comp_36 basal_obl_dends.append()
+    comp_35 basal_obl_dends.append()
+    comp_34 basal_obl_dends.append()
+
+    // Group: {name=basal_dends, groups=[], sections=[comp_9, comp_8, comp_7, comp_6, comp_5, comp_4, comp_3, comp_2, comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26]}
+    basal_dends = new SectionList()
+    comp_9 basal_dends.append()
+    comp_8 basal_dends.append()
+    comp_7 basal_dends.append()
+    comp_6 basal_dends.append()
+    comp_5 basal_dends.append()
+    comp_4 basal_dends.append()
+    comp_3 basal_dends.append()
+    comp_2 basal_dends.append()
+    comp_21 basal_dends.append()
+    comp_20 basal_dends.append()
+    comp_19 basal_dends.append()
+    comp_18 basal_dends.append()
+    comp_17 basal_dends.append()
+    comp_16 basal_dends.append()
+    comp_15 basal_dends.append()
+    comp_14 basal_dends.append()
+    comp_33 basal_dends.append()
+    comp_32 basal_dends.append()
+    comp_31 basal_dends.append()
+    comp_30 basal_dends.append()
+    comp_29 basal_dends.append()
+    comp_28 basal_dends.append()
+    comp_27 basal_dends.append()
+    comp_26 basal_dends.append()
+
+    // Group: {name=mid_dist_apic_dend, groups=[], sections=[comp_39, comp_13, comp_12, comp_11, comp_10, comp_40, comp_25, comp_24, comp_23, comp_22, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    mid_dist_apic_dend = new SectionList()
+    comp_39 mid_dist_apic_dend.append()
+    comp_13 mid_dist_apic_dend.append()
+    comp_12 mid_dist_apic_dend.append()
+
+    // Procedure too big; splitting & calling another procedure...
+    subsets_3()
+}
+
+proc subsets_3() {
+    comp_11 mid_dist_apic_dend.append()
+    comp_10 mid_dist_apic_dend.append()
+    comp_40 mid_dist_apic_dend.append()
+    comp_25 mid_dist_apic_dend.append()
+    comp_24 mid_dist_apic_dend.append()
+    comp_23 mid_dist_apic_dend.append()
+    comp_22 mid_dist_apic_dend.append()
+    comp_42 mid_dist_apic_dend.append()
+    comp_41 mid_dist_apic_dend.append()
+    comp_37 mid_dist_apic_dend.append()
+    comp_36 mid_dist_apic_dend.append()
+    comp_35 mid_dist_apic_dend.append()
+    comp_34 mid_dist_apic_dend.append()
+    comp_44 mid_dist_apic_dend.append()
+    comp_43 mid_dist_apic_dend.append()
+    comp_52 mid_dist_apic_dend.append()
+    comp_51 mid_dist_apic_dend.append()
+    comp_50 mid_dist_apic_dend.append()
+    comp_49 mid_dist_apic_dend.append()
+    comp_48 mid_dist_apic_dend.append()
+    comp_47 mid_dist_apic_dend.append()
+    comp_46 mid_dist_apic_dend.append()
+    comp_45 mid_dist_apic_dend.append()
+    comp_60 mid_dist_apic_dend.append()
+    comp_59 mid_dist_apic_dend.append()
+    comp_58 mid_dist_apic_dend.append()
+    comp_57 mid_dist_apic_dend.append()
+    comp_56 mid_dist_apic_dend.append()
+    comp_55 mid_dist_apic_dend.append()
+    comp_54 mid_dist_apic_dend.append()
+    comp_53 mid_dist_apic_dend.append()
+    comp_68 mid_dist_apic_dend.append()
+    comp_67 mid_dist_apic_dend.append()
+    comp_66 mid_dist_apic_dend.append()
+    comp_65 mid_dist_apic_dend.append()
+    comp_64 mid_dist_apic_dend.append()
+    comp_63 mid_dist_apic_dend.append()
+    comp_62 mid_dist_apic_dend.append()
+    comp_61 mid_dist_apic_dend.append()
+
+    // Group: {name=ModelViewParmSubset_6, groups=[], sections=[comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    ModelViewParmSubset_6 = new SectionList()
+    comp_21 ModelViewParmSubset_6.append()
+    comp_20 ModelViewParmSubset_6.append()
+    comp_19 ModelViewParmSubset_6.append()
+    comp_18 ModelViewParmSubset_6.append()
+    comp_17 ModelViewParmSubset_6.append()
+    comp_16 ModelViewParmSubset_6.append()
+    comp_15 ModelViewParmSubset_6.append()
+    comp_14 ModelViewParmSubset_6.append()
+    comp_40 ModelViewParmSubset_6.append()
+    comp_25 ModelViewParmSubset_6.append()
+    comp_24 ModelViewParmSubset_6.append()
+    comp_23 ModelViewParmSubset_6.append()
+    comp_22 ModelViewParmSubset_6.append()
+    comp_33 ModelViewParmSubset_6.append()
+    comp_32 ModelViewParmSubset_6.append()
+    comp_31 ModelViewParmSubset_6.append()
+    comp_30 ModelViewParmSubset_6.append()
+    comp_29 ModelViewParmSubset_6.append()
+    comp_28 ModelViewParmSubset_6.append()
+    comp_27 ModelViewParmSubset_6.append()
+    comp_26 ModelViewParmSubset_6.append()
+    comp_42 ModelViewParmSubset_6.append()
+    comp_41 ModelViewParmSubset_6.append()
+    comp_37 ModelViewParmSubset_6.append()
+    comp_36 ModelViewParmSubset_6.append()
+    comp_35 ModelViewParmSubset_6.append()
+    comp_34 ModelViewParmSubset_6.append()
+    comp_44 ModelViewParmSubset_6.append()
+    comp_43 ModelViewParmSubset_6.append()
+    comp_52 ModelViewParmSubset_6.append()
+    comp_51 ModelViewParmSubset_6.append()
+    comp_50 ModelViewParmSubset_6.append()
+    comp_49 ModelViewParmSubset_6.append()
+    comp_48 ModelViewParmSubset_6.append()
+    comp_47 ModelViewParmSubset_6.append()
+    comp_46 ModelViewParmSubset_6.append()
+    comp_45 ModelViewParmSubset_6.append()
+    comp_60 ModelViewParmSubset_6.append()
+    comp_59 ModelViewParmSubset_6.append()
+    comp_58 ModelViewParmSubset_6.append()
+    comp_57 ModelViewParmSubset_6.append()
+    comp_56 ModelViewParmSubset_6.append()
+    comp_55 ModelViewParmSubset_6.append()
+    comp_54 ModelViewParmSubset_6.append()
+    comp_53 ModelViewParmSubset_6.append()
+    comp_68 ModelViewParmSubset_6.append()
+    comp_67 ModelViewParmSubset_6.append()
+    comp_66 ModelViewParmSubset_6.append()
+    comp_65 ModelViewParmSubset_6.append()
+    comp_64 ModelViewParmSubset_6.append()
+    comp_63 ModelViewParmSubset_6.append()
+    comp_62 ModelViewParmSubset_6.append()
+    comp_61 ModelViewParmSubset_6.append()
+
+    // Group: {name=mid_dist_bas_dend, groups=[], sections=[comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26]}
+    mid_dist_bas_dend = new SectionList()
+    comp_21 mid_dist_bas_dend.append()
+    comp_20 mid_dist_bas_dend.append()
+    comp_19 mid_dist_bas_dend.append()
+    comp_18 mid_dist_bas_dend.append()
+    comp_17 mid_dist_bas_dend.append()
+    comp_16 mid_dist_bas_dend.append()
+    comp_15 mid_dist_bas_dend.append()
+    comp_14 mid_dist_bas_dend.append()
+
+    // Procedure too big; splitting & calling another procedure...
+    subsets_4()
+}
+
+proc subsets_4() {
+    comp_33 mid_dist_bas_dend.append()
+    comp_32 mid_dist_bas_dend.append()
+    comp_31 mid_dist_bas_dend.append()
+    comp_30 mid_dist_bas_dend.append()
+    comp_29 mid_dist_bas_dend.append()
+    comp_28 mid_dist_bas_dend.append()
+    comp_27 mid_dist_bas_dend.append()
+    comp_26 mid_dist_bas_dend.append()
+
+    // Group: {name=LTS_dends, groups=[], sections=[comp_21, comp_20, comp_19, comp_18, comp_17, comp_16, comp_15, comp_14, comp_40, comp_25, comp_24, comp_23, comp_22, comp_33, comp_32, comp_31, comp_30, comp_29, comp_28, comp_27, comp_26, comp_42, comp_41, comp_37, comp_36, comp_35, comp_34, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    LTS_dends = new SectionList()
+    comp_21 LTS_dends.append()
+    comp_20 LTS_dends.append()
+    comp_19 LTS_dends.append()
+    comp_18 LTS_dends.append()
+    comp_17 LTS_dends.append()
+    comp_16 LTS_dends.append()
+    comp_15 LTS_dends.append()
+    comp_14 LTS_dends.append()
+    comp_40 LTS_dends.append()
+    comp_25 LTS_dends.append()
+    comp_24 LTS_dends.append()
+    comp_23 LTS_dends.append()
+    comp_22 LTS_dends.append()
+    comp_33 LTS_dends.append()
+    comp_32 LTS_dends.append()
+    comp_31 LTS_dends.append()
+    comp_30 LTS_dends.append()
+    comp_29 LTS_dends.append()
+    comp_28 LTS_dends.append()
+    comp_27 LTS_dends.append()
+    comp_26 LTS_dends.append()
+    comp_42 LTS_dends.append()
+    comp_41 LTS_dends.append()
+    comp_37 LTS_dends.append()
+    comp_36 LTS_dends.append()
+    comp_35 LTS_dends.append()
+    comp_34 LTS_dends.append()
+    comp_44 LTS_dends.append()
+    comp_43 LTS_dends.append()
+    comp_52 LTS_dends.append()
+    comp_51 LTS_dends.append()
+    comp_50 LTS_dends.append()
+    comp_49 LTS_dends.append()
+    comp_48 LTS_dends.append()
+    comp_47 LTS_dends.append()
+    comp_46 LTS_dends.append()
+    comp_45 LTS_dends.append()
+    comp_60 LTS_dends.append()
+    comp_59 LTS_dends.append()
+    comp_58 LTS_dends.append()
+    comp_57 LTS_dends.append()
+    comp_56 LTS_dends.append()
+    comp_55 LTS_dends.append()
+    comp_54 LTS_dends.append()
+    comp_53 LTS_dends.append()
+    comp_68 LTS_dends.append()
+    comp_67 LTS_dends.append()
+    comp_66 LTS_dends.append()
+    comp_65 LTS_dends.append()
+    comp_64 LTS_dends.append()
+    comp_63 LTS_dends.append()
+    comp_62 LTS_dends.append()
+    comp_61 LTS_dends.append()
+
+    // Group: {name=mid_apic_dends, groups=[], sections=[comp_40, comp_42, comp_41, comp_44, comp_43, comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45]}
+    mid_apic_dends = new SectionList()
+    comp_40 mid_apic_dends.append()
+    comp_42 mid_apic_dends.append()
+    comp_41 mid_apic_dends.append()
+    comp_44 mid_apic_dends.append()
+    comp_43 mid_apic_dends.append()
+    comp_52 mid_apic_dends.append()
+    comp_51 mid_apic_dends.append()
+    comp_50 mid_apic_dends.append()
+    comp_49 mid_apic_dends.append()
+    comp_48 mid_apic_dends.append()
+    comp_47 mid_apic_dends.append()
+    comp_46 mid_apic_dends.append()
+    comp_45 mid_apic_dends.append()
+
+    // Group: {name=distal_axon, groups=[], sections=[comp_74, comp_72]}
+    distal_axon = new SectionList()
+    comp_74 distal_axon.append()
+    comp_72 distal_axon.append()
+
+    // Group: {name=L6Pyr_dends, groups=[], sections=[comp_42, comp_41, comp_44, comp_43]}
+    L6Pyr_dends = new SectionList()
+    comp_42 L6Pyr_dends.append()
+    comp_41 L6Pyr_dends.append()
+    comp_44 L6Pyr_dends.append()
+    comp_43 L6Pyr_dends.append()
+
+    // Group: {name=TCR_dends, groups=[], sections=[comp_52, comp_51, comp_50, comp_49, comp_48, comp_47, comp_46, comp_45, comp_60, comp_59, comp_58, comp_57, comp_56, comp_55, comp_54, comp_53, comp_68, comp_67, comp_66, comp_65, comp_64, comp_63, comp_62, comp_61]}
+    TCR_dends = new SectionList()
+    comp_52 TCR_dends.append()
+    comp_51 TCR_dends.append()
+    comp_50 TCR_dends.append()
+    comp_49 TCR_dends.append()
+    comp_48 TCR_dends.append()
+    comp_47 TCR_dends.append()
+    comp_46 TCR_dends.append()
+    comp_45 TCR_dends.append()
+    comp_60 TCR_dends.append()
+    comp_59 TCR_dends.append()
+    comp_58 TCR_dends.append()
+    comp_57 TCR_dends.append()
+    comp_56 TCR_dends.append()
+    comp_55 TCR_dends.append()
+    comp_54 TCR_dends.append()
+    comp_53 TCR_dends.append()
+    comp_68 TCR_dends.append()
+    comp_67 TCR_dends.append()
+    comp_66 TCR_dends.append()
+    comp_65 TCR_dends.append()
+
+    // Procedure too big; splitting & calling another procedure...
+    subsets_5()
+}
+
+proc subsets_5() {
+    comp_64 TCR_dends.append()
+    comp_63 TCR_dends.append()
+    comp_62 TCR_dends.append()
+    comp_61 TCR_dends.append()
+
+    // Group: {name=all, sections=[comp_1, comp_1, comp_69, comp_69, comp_38, comp_38, comp_9, comp_9, comp_8, comp_8, comp_7, comp_7, comp_6, comp_6, comp_5, comp_5, comp_4, comp_4, comp_3, comp_3, comp_2, comp_2, comp_70, comp_70, comp_39, comp_39, comp_13, comp_13, comp_12, comp_12, comp_11, comp_11, comp_10, comp_10, comp_21, comp_21, comp_20, comp_20, comp_19, comp_19, comp_18, comp_18, comp_17, comp_17, comp_16, comp_16, comp_15, comp_15, comp_14, comp_14, comp_73, comp_73, comp_71, comp_71, comp_40, comp_40, comp_25, comp_25, comp_24, comp_24, comp_23, comp_23, comp_22, comp_22, comp_33, comp_33, comp_32, comp_32, comp_31, comp_31, comp_30, comp_30, comp_29, comp_29, comp_28, comp_28, comp_27, comp_27, comp_26, comp_26, comp_74, comp_74, comp_72, comp_72, comp_42, comp_42, comp_41, comp_41, comp_37, comp_37, comp_36, comp_36, comp_35, comp_35, comp_34, comp_34, comp_44, comp_44, comp_43, comp_43, comp_52, comp_52, comp_51, comp_51, comp_50, comp_50, comp_49, comp_49, comp_48, comp_48, comp_47, comp_47, comp_46, comp_46, comp_45, comp_45, comp_60, comp_60, comp_59, comp_59, comp_58, comp_58, comp_57, comp_57, comp_56, comp_56, comp_55, comp_55, comp_54, comp_54, comp_53, comp_53, comp_68, comp_68, comp_67, comp_67, comp_66, comp_66, comp_65, comp_65, comp_64, comp_64, comp_63, comp_63, comp_62, comp_62, comp_61, comp_61]}
+    all = new SectionList()
+    comp_1 all.append()
+    comp_1 all.append()
+    comp_69 all.append()
+    comp_69 all.append()
+    comp_38 all.append()
+    comp_38 all.append()
+    comp_9 all.append()
+    comp_9 all.append()
+    comp_8 all.append()
+    comp_8 all.append()
+    comp_7 all.append()
+    comp_7 all.append()
+    comp_6 all.append()
+    comp_6 all.append()
+    comp_5 all.append()
+    comp_5 all.append()
+    comp_4 all.append()
+    comp_4 all.append()
+    comp_3 all.append()
+    comp_3 all.append()
+    comp_2 all.append()
+    comp_2 all.append()
+    comp_70 all.append()
+    comp_70 all.append()
+    comp_39 all.append()
+    comp_39 all.append()
+    comp_13 all.append()
+    comp_13 all.append()
+    comp_12 all.append()
+    comp_12 all.append()
+    comp_11 all.append()
+    comp_11 all.append()
+    comp_10 all.append()
+    comp_10 all.append()
+    comp_21 all.append()
+    comp_21 all.append()
+    comp_20 all.append()
+    comp_20 all.append()
+    comp_19 all.append()
+    comp_19 all.append()
+    comp_18 all.append()
+    comp_18 all.append()
+    comp_17 all.append()
+    comp_17 all.append()
+    comp_16 all.append()
+    comp_16 all.append()
+    comp_15 all.append()
+    comp_15 all.append()
+    comp_14 all.append()
+    comp_14 all.append()
+    comp_73 all.append()
+    comp_73 all.append()
+    comp_71 all.append()
+    comp_71 all.append()
+    comp_40 all.append()
+    comp_40 all.append()
+    comp_25 all.append()
+    comp_25 all.append()
+    comp_24 all.append()
+    comp_24 all.append()
+    comp_23 all.append()
+    comp_23 all.append()
+    comp_22 all.append()
+    comp_22 all.append()
+    comp_33 all.append()
+    comp_33 all.append()
+    comp_32 all.append()
+    comp_32 all.append()
+    comp_31 all.append()
+    comp_31 all.append()
+    comp_30 all.append()
+    comp_30 all.append()
+    comp_29 all.append()
+    comp_29 all.append()
+    comp_28 all.append()
+    comp_28 all.append()
+    comp_27 all.append()
+    comp_27 all.append()
+    comp_26 all.append()
+    comp_26 all.append()
+    comp_74 all.append()
+    comp_74 all.append()
+    comp_72 all.append()
+    comp_72 all.append()
+    comp_42 all.append()
+    comp_42 all.append()
+    comp_41 all.append()
+    comp_41 all.append()
+    comp_37 all.append()
+    comp_37 all.append()
+    comp_36 all.append()
+    comp_36 all.append()
+    comp_35 all.append()
+    comp_35 all.append()
+    comp_34 all.append()
+    comp_34 all.append()
+
+    // Procedure too big; splitting & calling another procedure...
+    subsets_6()
+}
+
+proc subsets_6() {
+    comp_44 all.append()
+    comp_44 all.append()
+    comp_43 all.append()
+    comp_43 all.append()
+    comp_52 all.append()
+    comp_52 all.append()
+    comp_51 all.append()
+    comp_51 all.append()
+    comp_50 all.append()
+    comp_50 all.append()
+    comp_49 all.append()
+    comp_49 all.append()
+    comp_48 all.append()
+    comp_48 all.append()
+    comp_47 all.append()
+    comp_47 all.append()
+    comp_46 all.append()
+    comp_46 all.append()
+    comp_45 all.append()
+    comp_45 all.append()
+    comp_60 all.append()
+    comp_60 all.append()
+    comp_59 all.append()
+    comp_59 all.append()
+    comp_58 all.append()
+    comp_58 all.append()
+    comp_57 all.append()
+    comp_57 all.append()
+    comp_56 all.append()
+    comp_56 all.append()
+    comp_55 all.append()
+    comp_55 all.append()
+    comp_54 all.append()
+    comp_54 all.append()
+    comp_53 all.append()
+    comp_53 all.append()
+    comp_68 all.append()
+    comp_68 all.append()
+    comp_67 all.append()
+    comp_67 all.append()
+    comp_66 all.append()
+    comp_66 all.append()
+    comp_65 all.append()
+    comp_65 all.append()
+    comp_64 all.append()
+    comp_64 all.append()
+    comp_63 all.append()
+    comp_63 all.append()
+    comp_62 all.append()
+    comp_62 all.append()
+    comp_61 all.append()
+    comp_61 all.append()
+
+}
+
+
+proc subsets_inhomogeneous() {
+}
+
+proc biophys() {
+
+    // Specific capacitance
+    forsec ModelViewParmSubset_4 cm = 1.8  // units: uF/cm2
+    forsec ModelViewParmSubset_3 cm = 0.9  // units: uF/cm2
+
+    // Specific axial resistance/resistivity
+    forsec ModelViewParmSubset_2 Ra = 100.0  // units: ohm cm
+    forsec ModelViewParmSubset_1 Ra = 250.0  // units: ohm cm
+
+    // Channel densities
+    forsec OneSecGrp_SectionRef_1 {
+        insert ar__m00_25
+        gmax_ar__m00_25 = 2.4999998E-4  // units: S cm-2
+        ear = -35.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert ar__m00_25
+        gmax_ar__m00_25 = 4.9999997E-4  // units: S cm-2
+        ear = -35.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert cal
+        gmax_cal = 9.999999E-4  // units: S cm-2
+        eca = 125.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert cal
+        gmax_cal = 0.0019999999  // units: S cm-2
+        eca = 125.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert cat
+        gmax_cat = 1.0E-4  // units: S cm-2
+        ecat = 125.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert cat
+        gmax_cat = 2.0E-4  // units: S cm-2
+        ecat = 125.0  // units: mV
+    }
+    forsec ModelViewParmSubset_3 {
+        insert k2
+        gmax_k2 = 1.0E-4  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert k2
+        gmax_k2 = 2.0E-4  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_2 {
+        insert ka
+        gmax_ka = 0.0019999999  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert ka
+        gmax_ka = 0.03  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_5 {
+        insert ka
+        gmax_ka = 0.0039999997  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_3 {
+        insert ka
+        gmax_ka = 0.06  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert kahp
+        gmax_kahp = 4.0E-5  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert kahp
+        gmax_kahp = 8.0E-5  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert kc
+        gmax_kc = 0.012  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert kc
+        gmax_kc = 0.024  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert kdr
+        gmax_kdr = 0.125  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_6 {
+        insert kdr
+        gmax_kdr = 0.012499999  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_7 {
+        insert kdr
+        gmax_kdr = 0.1875  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_3 {
+        insert kdr
+        gmax_kdr = 0.25  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_2 {
+        insert kdr
+        gmax_kdr = 0.39999998  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert km
+        gmax_km = 0.015  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert km
+        gmax_km = 0.0075  // units: S cm-2
+        ek = -95.0  // units: mV
+    }
+    forsec ModelViewParmSubset_8 {
+        insert naf__a0__b0__c0__d0__fastNa_shiftmin3_5
+        gmax_naf__a0__b0__c0__d0__fastNa_shiftmin3_5 = 0.1875  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_3 {
+        insert naf__a0__b0__c0__d0__fastNa_shiftmin3_5
+        gmax_naf__a0__b0__c0__d0__fastNa_shiftmin3_5 = 0.25  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec ModelViewParmSubset_6 {
+        insert naf__a0__b0__c0__d0__fastNa_shiftmin3_5
+        gmax_naf__a0__b0__c0__d0__fastNa_shiftmin3_5 = 0.024999999  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec ModelViewParmSubset_2 {
+        insert naf__a0__b0__c0__d0__fastNa_shiftmin3_5
+        gmax_naf__a0__b0__c0__d0__fastNa_shiftmin3_5 = 0.39999998  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec ModelViewParmSubset_8 {
+        insert nap
+        gmax_nap = 1.20000004E-4  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec ModelViewParmSubset_6 {
+        insert nap
+        gmax_nap = 1.6E-5  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_3 {
+        insert nap
+        gmax_nap = 1.6E-4  // units: S cm-2
+        ena = 50.0  // units: mV
+    }
+    forsec ModelViewParmSubset_2 {
+        insert pas_nml2
+        gmax_pas_nml2 = 9.999999E-4  // units: S cm-2
+        e_pas_nml2 = -70.0  // units: mV
+    }
+    forsec OneSecGrp_SectionRef_1 {
+        insert pas_nml2
+        gmax_pas_nml2 = 2.0E-5  // units: S cm-2
+        e_pas_nml2 = -70.0  // units: mV
+    }
+    forsec ModelViewParmSubset_4 {
+        insert pas_nml2
+        gmax_pas_nml2 = 4.0E-5  // units: S cm-2
+        e_pas_nml2 = -70.0  // units: mV
+    }
+
+    // Concentration models for species
+    // Ion: ca on group: ModelViewParmSubset_4, with concentration model: cad__beta0_05__phi52000
+    forsec ModelViewParmSubset_4 {
+        insert cad__beta0_05__phi52000
+    }
+    // Ion: ca on group: OneSecGrp_SectionRef_1, with concentration model: cad__beta0_01__phi26000
+    forsec OneSecGrp_SectionRef_1 {
+        insert cad__beta0_01__phi26000
+    }
+
+}
+
+func H() { // Heaviside function
+    if ($1>=0) return 1
+    if ($1==0) return 0.5
+    return 0
+}
+
+proc biophys_inhomogeneous() {
+}
+
+proc geom_nseg() {
+    // All sections not mentioned here have nseg = 1
+    comp_1 nseg = 6
+    comp_69 nseg = 16
+    comp_38 nseg = 5
+    comp_9 nseg = 14
+    comp_8 nseg = 14
+    comp_7 nseg = 14
+    comp_6 nseg = 14
+    comp_5 nseg = 14
+    comp_4 nseg = 14
+    comp_3 nseg = 14
+    comp_2 nseg = 14
+    comp_70 nseg = 36
+    comp_39 nseg = 5
+    comp_13 nseg = 14
+    comp_12 nseg = 14
+    comp_11 nseg = 14
+    comp_10 nseg = 14
+    comp_21 nseg = 14
+    comp_20 nseg = 14
+    comp_19 nseg = 14
+    comp_18 nseg = 14
+    comp_17 nseg = 14
+    comp_16 nseg = 14
+    comp_15 nseg = 14
+    comp_14 nseg = 14
+    comp_73 nseg = 43
+    comp_71 nseg = 43
+    comp_40 nseg = 6
+    comp_25 nseg = 14
+    comp_24 nseg = 14
+    comp_23 nseg = 14
+    comp_22 nseg = 14
+    comp_33 nseg = 14
+    comp_32 nseg = 14
+    comp_31 nseg = 14
+    comp_30 nseg = 14
+    comp_29 nseg = 14
+    comp_28 nseg = 14
+    comp_27 nseg = 14
+    comp_26 nseg = 14
+    comp_74 nseg = 43
+    comp_72 nseg = 43
+    comp_42 nseg = 7
+    comp_41 nseg = 7
+    comp_37 nseg = 14
+    comp_36 nseg = 14
+    comp_35 nseg = 14
+    comp_34 nseg = 14
+    comp_44 nseg = 7
+    comp_43 nseg = 7
+    comp_52 nseg = 11
+    comp_51 nseg = 11
+    comp_50 nseg = 11
+    comp_49 nseg = 11
+    comp_48 nseg = 11
+    comp_47 nseg = 11
+    comp_46 nseg = 11
+    comp_45 nseg = 11
+    comp_60 nseg = 11
+    comp_59 nseg = 11
+    comp_58 nseg = 11
+    comp_57 nseg = 11
+    comp_56 nseg = 11
+    comp_55 nseg = 11
+    comp_54 nseg = 11
+    comp_53 nseg = 11
+    comp_68 nseg = 11
+    comp_67 nseg = 11
+    comp_66 nseg = 11
+    comp_65 nseg = 11
+    comp_64 nseg = 11
+    comp_63 nseg = 11
+    comp_62 nseg = 11
+    comp_61 nseg = 11
+}
+
+
+proc position() { local i
+    forsec all {
+        for i = 0, n3d()-1 {
+            pt3dchange(i, $1+x3d(i), $2+y3d(i), $3+z3d(i), diam3d(i))
+        }
+    }
+    x = $1  y = $2  z = $3
+}
+
+
+endtemplate L23PyrRS
+
+

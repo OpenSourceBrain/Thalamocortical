@@ -52,12 +52,13 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/pythonScripts/*.xml
 /NeuroML2/pythonScripts/*.nml
 /NeuroML2/Test/
-/NeuroML2/pythonScripts/netbuild/*
-!/NeuroML2/pythonScripts/netbuild/*.py
+
 /NeuroML2/pythonScripts/netbuild/*_nrn.py
 /NeuroML2/pythonScripts/netbuild/*.net.nml
 /NeuroML2/pythonScripts/netbuild/*.xml
-!/NeuroML2/pythonScripts/netbuild/netConnList
+/NeuroML2/pythonScripts/netbuild/Test*/*
+/NeuroML2/pythonScripts/netbuild/Figure*/*
+
 /NeuroML2/pythonScripts/netbuild/LEMS_TestSmall_netpyne.py
 /NeuroML2/test/LEMS_supbaskFigA2a_netpyne.py
 /NeuroML2/test/LEMS_supbaskFigA2a_netpyne.py_main.json
