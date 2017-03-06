@@ -18,7 +18,7 @@ simulator =             None
 
 defaultSynapticDelay =  0.05 
 
-scaleCortex =             0.05                           ##
+scaleCortex =             0.02                           ##
 scaleThalamus =           0                                  ##
 
 gabaScaling =             1                               ##
