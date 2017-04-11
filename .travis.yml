@@ -18,6 +18,10 @@ script:
     - pwd
     - if [[ ${OMV_ENGINE} == "Py_neuroConstruct" ]]; then omv install Py_neuroConstruct; cd neuroConstruct/pythonScripts/netbuild/; ./makeSyns.sh ; cd -;  fi
     - omv all -V
+    - cd NeuroML2/test
+    - pwd
+    - ls -alt
+    - if [[ ${OMV_ENGINE} == "jNeuroML_NetPyNE" ]]; then python LEMS_supbaskFigA2a_netpyne.py ; fi
     
     
     
