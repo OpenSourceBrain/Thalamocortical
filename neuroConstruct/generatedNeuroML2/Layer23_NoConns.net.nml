@@ -22,7 +22,7 @@ Cell Group: CG_C04_Bask_sm contains 10 cells
 
 
     
-    <network id="network_Thalamocortical6" type="networkWithTemperature" temperature="6.3 degC">
+    <network id="Layer23_NoConns" type="networkWithTemperature" temperature="6.3 degC">
 
         
 

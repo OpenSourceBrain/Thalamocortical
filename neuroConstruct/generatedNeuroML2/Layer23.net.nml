@@ -201,7 +201,7 @@ Network connection: RS_RS_sm contains 900 individual synaptic connections
     
     <pulseGenerator id="Input_0__9" delay="0.0s" duration="100.0s" amplitude="3.402091E-11A"/>
     
-    <network id="network_t3" type="networkWithTemperature" temperature="6.3 degC">
+    <network id="Layer23" type="networkWithTemperature" temperature="6.3 degC">
 
         
 

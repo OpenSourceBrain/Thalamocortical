@@ -51,7 +51,7 @@ Network connection: NC3D_L23PyrFRB_L23PyrFRB contains 25 individual synaptic con
     
     <pulseGenerator id="DepCurr_L23FRB__4" delay="0.0s" duration="20.0s" amplitude="2.783019E-10A"/>
     
-    <network id="network_t3" type="networkWithTemperature" temperature="6.3 degC">
+    <network id="Medium" type="networkWithTemperature" temperature="6.3 degC">
 
         
 
