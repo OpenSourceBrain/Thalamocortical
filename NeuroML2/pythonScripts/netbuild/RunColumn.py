@@ -6,7 +6,10 @@
 
 import opencortex
 import opencortex.utils as oc_utils
-import opencortex.build as oc
+import opencortex.build as oc_build
+import opencortex.core as oc
+import opencortex.utils.color as occ
+
 import os
 import sys
 
@@ -45,20 +48,26 @@ def RunColumnSimulation(net_id="TestRunColumn",
     
     ##############   Full model ##################################
     
-    popDictFull['CG3D_L23PyrRS'] = (1000, 'L23','L23PyrRS','multi')
-    popDictFull['CG3D_SupBask'] = (90, 'L23','SupBasket','multi')
-    popDictFull['CG3D_SupAxAx'] = (90, 'L23','SupAxAx','multi')
-    popDictFull['CG3D_L5TuftIB'] = (800, 'L5','L5TuftedPyrIB','multi')
-    popDictFull['CG3D_L5TuftRS']= (200,'L5','L5TuftedPyrRS','multi')          
-    popDictFull['CG3D_L4SpinStell']= (240,'L4','L4SpinyStellate','multi')
-    popDictFull['CG3D_L23PyrFRB']= (50,'L23','L23PyrFRB_varInit','multi')
-    popDictFull['CG3D_L6NonTuftRS']= (500,'L6','L6NonTuftedPyrRS','multi')
-    popDictFull['CG3D_DeepAxAx']= (100,'L6','DeepAxAx','multi')
-    popDictFull['CG3D_DeepBask']= (100,'L6','DeepBasket','multi')
-    popDictFull['CG3D_DeepLTS']= (100,'L6','DeepLTSInter','multi')
-    popDictFull['CG3D_SupLTS']= (90,'L23','SupLTSInter','multi')
-    popDictFull['CG3D_nRT']= (100,'Thalamus','nRT','multi')
-    popDictFull['CG3D_TCR']= (100,'Thalamus','TCR','multi')
+    popDictFull['CG3D_L23PyrRS'] = (1000, 'L23','L23PyrRS','multi', occ.L23_PRINCIPAL_CELL)
+    popDictFull['CG3D_L23PyrFRB']= (50,'L23','L23PyrFRB_varInit','multi', occ.L23_PRINCIPAL_CELL_2)
+    
+    popDictFull['CG3D_SupBask'] = (90, 'L23','SupBasket','multi', occ.L23_INTERNEURON)  # over both l23 & l4
+    popDictFull['CG3D_SupAxAx'] = (90, 'L23','SupAxAx','multi', occ.L23_INTERNEURON_2)  # over both l23 & l4
+    popDictFull['CG3D_SupLTS']= (90,'L23','SupLTSInter','multi', occ.L4_INTERNEURON)    # over both l23 & l4
+    
+    popDictFull['CG3D_L4SpinStell']= (240,'L4','L4SpinyStellate','multi', occ.L4_PRINCIPAL_CELL)
+    
+    popDictFull['CG3D_L5TuftIB'] = (800, 'L5','L5TuftedPyrIB','multi', occ.L5_PRINCIPAL_CELL)
+    popDictFull['CG3D_L5TuftRS']= (200,'L5','L5TuftedPyrRS','multi', occ.L5_PRINCIPAL_CELL_2)     
+    
+    popDictFull['CG3D_L6NonTuftRS']= (500,'L6','L6NonTuftedPyrRS','multi', occ.L6_PRINCIPAL_CELL)
+    
+    popDictFull['CG3D_DeepAxAx']= (100,'L6','DeepAxAx','multi', occ.L5_INTERNEURON)     # over both l5 & l6
+    popDictFull['CG3D_DeepBask']= (100,'L6','DeepBasket','multi', occ.L5_INTERNEURON_2)   # over both l5 & l6
+    popDictFull['CG3D_DeepLTS']= (100,'L6','DeepLTSInter','multi', occ.L6_INTERNEURON)  # over both l5 & l6
+    
+    popDictFull['CG3D_nRT']= (100,'Thalamus','nRT','multi', occ.THALAMUS_1)
+    popDictFull['CG3D_TCR']= (100,'Thalamus','TCR','multi', occ.THALAMUS_2)
     
     ###############################################################
     
@@ -91,7 +100,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
               popDict[cell_population]=(int(round(scale_cortex*popDictFull[cell_population][0])), 
                                         popDictFull[cell_population][1],
                                         popDictFull[cell_population][2],
-                                        popDictFull[cell_population][3])
+                                        popDictFull[cell_population][3],
+                                        popDictFull[cell_population][4])
                   
               cell_count=int(round(scale_cortex*popDictFull[cell_population][0]))
                 
@@ -100,7 +110,8 @@ def RunColumnSimulation(net_id="TestRunColumn",
               popDict[cell_population]=(int(round(scale_thalamus*popDictFull[cell_population][0])),
                                         popDictFull[cell_population][1],
                                         popDictFull[cell_population][2],
-                                        popDictFull[cell_population][3])
+                                        popDictFull[cell_population][3],
+                                        popDictFull[cell_population][4])
                   
               cell_count=int(round(scale_thalamus*popDictFull[cell_population][0]))
            
@@ -112,7 +123,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
         
            cell_model_list.append(popDictFull[cell_population][2])
            
-           cell_diameter=oc.get_soma_diameter(popDictFull[cell_population][2],dir_to_cell=dir_to_cells)
+           cell_diameter=oc_build.get_soma_diameter(popDictFull[cell_population][2],dir_to_cell=dir_to_cells)
            
            if popDictFull[cell_population][2] not in cell_diameter_dict.keys():
            
@@ -135,7 +146,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
            
     if copy_nml2_from_source:
        
-       oc.copy_nml2_source(dir_to_project_nml2=dir_nml2,
+       oc_build.copy_nml2_source(dir_to_project_nml2=dir_nml2,
                         primary_nml2_dir=nml2_source_dir,
                         electrical_synapse_tags=['Elect'],
                         chemical_synapse_tags=['.synapse.'],
@@ -151,7 +162,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
              
     for cell_model in cell_model_list_final:
         
-        oc.add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model, use_prototypes=False)
+        oc_build._add_cell_and_channels(nml_doc, os.path.join(dir_to_cells,"%s.cell.nml"%cell_model), cell_model, use_prototypes=False)
         
     t1=-0
     t2=-250
@@ -528,15 +539,15 @@ def RunColumnSimulation(net_id="TestRunColumn",
         
            all_synapse_components[syn_ind]=os.path.join(net_id,all_synapse_components[syn_ind]+".nml")
            
-    oc.add_synapses(nml_doc,dir_to_synapses,synapse_list,synapse_tag=True)
+    oc_build.add_synapses(nml_doc,dir_to_synapses,synapse_list,synapse_tag=True)
     
-    oc.add_synapses(nml_doc,dir_to_gap_junctions,gap_junction_list,synapse_tag=False)
+    oc_build.add_synapses(nml_doc,dir_to_gap_junctions,gap_junction_list,synapse_tag=False)
     
     nml_file_name = '%s.net.nml'%network.id
     
     oc.save_network(nml_doc, nml_file_name, validate=True,max_memory=max_memory)
     
-    oc.remove_component_dirs(dir_to_project_nml2="%s"%network.id,list_of_cell_ids=cell_model_list_final,extra_channel_tags=['cad'])
+    oc_build.remove_component_dirs(dir_to_project_nml2="%s"%network.id,list_of_cell_ids=cell_model_list_final,extra_channel_tags=['cad'])
     
     lems_file_name=oc.generate_lems_simulation(nml_doc, 
                                                network, 
