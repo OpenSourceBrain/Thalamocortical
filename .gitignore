@@ -68,3 +68,9 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/pythonScripts/netbuild/*.py_main.json
 /NeuroML2/pythonScripts/netbuild/*.png
 /NeuroML2/pythonScripts/netbuild/LEMS_TestMedium_netpyne.py
+/NeuroML2/pythonScripts/netbuild/*.cell.json
+/NeuroML2/pythonScripts/netbuild/*.input.json
+/NeuroML2/pythonScripts/netbuild/LEMS_*_netpyne.py
+/NeuroML2/pythonScripts/netbuild/Syn*.synapse.json
+/NeuroML2/pythonScripts/netbuild/jsbml.log
+/NeuroML2/pythonScripts/netbuild/libjhdf5.so

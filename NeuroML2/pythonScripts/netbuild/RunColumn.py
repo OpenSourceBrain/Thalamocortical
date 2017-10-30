@@ -41,6 +41,7 @@ def RunColumnSimulation(net_id="TestRunColumn",
                         max_memory='1000M',
                         seed=1234,
                         simulator=None,
+                        save_format='xml',
                         num_of_cylinder_sides=None):
               
                         
@@ -544,8 +545,13 @@ def RunColumnSimulation(net_id="TestRunColumn",
     oc_build.add_synapses(nml_doc,dir_to_gap_junctions,gap_junction_list,synapse_tag=False)
     
     nml_file_name = '%s.net.nml'%network.id
+    validate=True
+    if save_format=='hdf5':
+        nml_file_name += '.h5'
+        validate=False
+        
     
-    oc.save_network(nml_doc, nml_file_name, validate=True,max_memory=max_memory)
+    oc.save_network(nml_doc, nml_file_name, validate=validate,max_memory=max_memory, format=save_format)
     
     oc_build.remove_component_dirs(dir_to_project_nml2="%s"%network.id,list_of_cell_ids=cell_model_list_final,extra_channel_tags=['cad'])
     
