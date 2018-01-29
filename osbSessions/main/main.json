@@ -1,0 +1,200 @@
+{
+  "id": 435,
+  "name": "thalamocortical",
+  "experiments": [
+    {
+      "id": 759,
+      "aspectConfigurations": [
+        {
+          "id": 751,
+          "instance": "TestSmall",
+          "watchedVariables": [
+            
+          ],
+          "modelParameters": [
+            
+          ],
+          "simulatorConfiguration": {
+            "id": 740,
+            "simulatorId": "neuronSimulator",
+            "timestep": 2.5e-5,
+            "length": 0.3,
+            "parameters": {
+              "target": "TestSmall"
+            }
+          }
+        }
+      ],
+      "name": "TestSmall - net",
+      "creationDate": 1517232930000,
+      "lastModified": 1517232930000,
+      "status": "DESIGN",
+      "simulationResults": [
+        
+      ],
+      "script": "\/script.js",
+      "isPublic": false,
+      "view": {
+        "id": 580,
+        "viewStates": {
+          "views": {
+            "Popup1": {
+              "widgetType": 1,
+              "isWidget": true,
+              "transparentBackground": false,
+              "name": "Popup1",
+              "size": {
+                "height": 180.8,
+                "width": 439.8
+              },
+              "position": {
+                "left": 1452,
+                "top": 192.5
+              },
+              "dataType": "string",
+               "data": "You are viewing 1% of the full network.<br><a target='_blank' href='http://opensourcebrain.org/projects/thalamocortical?explorer=https%253A%252F%252Fraw.githubusercontent.com%252FOpenSourceBrain%252FThalamocortical%252Fmaster%252FNeuroML2%252FpythonScripts%252Fnetbuild%252FTestMedium.net.nml'>Click here</a> for larger network (10% of full network, Figure 4a-d).<br><a target='_blank' href='http://www.opensourcebrain.org/projects/thalamocortical/models?explorer=https%253A%252F%252Fraw.githubusercontent.com%252FOpenSourceBrain%252FThalamocortical%252Fmaster%252FNeuroML2%252FpythonScripts%252FtestNetpyne%252FTestL23.net.nml'>Click here</a>for model with Ca2+.",
+              "componentSpecific": {
+                "customHandlers": [
+                  
+                ]
+              }
+            },
+            "Popup2": {
+              "widgetType": 1,
+              "isWidget": true,
+              "showHistoryNavigationBar": true,
+              "transparentBackground": false,
+              "name": "Model Description - TestSmall",
+              "size": {
+                "height": 394,
+                "width": 490
+              },
+              "position": {
+                "left": 111,
+                "top": 85
+              },
+              "dataType": "object",
+              "data": [
+                "Model.neuroml.TestSmall",
+                [
+                  "HTMLType"
+                ]
+              ],
+              "componentSpecific": {
+                "customHandlers": [
+                  {
+                    "funct": "function customHandler(node, path, widget) {\n            var n;\n            try {\n                n = eval(path);\n                var metaType = n.getMetaType();\n                if (metaType == GEPPETTO.Resources.VARIABLE_NODE) {\n                    \/\/A plot function inside a channel\n                    G.addWidget(Widgets.PLOT).then(function (w) {\n                        return w.plotFunctionNode(n);\n                    });\n                } else if (metaType == GEPPETTO.Resources.VISUAL_GROUP_NODE) {\n                    \/\/A visual group\n                    n.show(true);\n                } else if (metaType == GEPPETTO.Resources.COMPOSITE_TYPE_NODE) {\n                    \/\/Another composite\n                    widget.setName('Information for ' + n.getId()).setData(n, [GEPPETTO.Resources.HTML_TYPE]);\n                }\n            } catch (ex) {\n                node = undefined;\n            }\n        }",
+                    "event": "click"
+                  }
+                ]
+              }
+            },
+            "Tutorial1": {
+              "widgetType": "TUTORIAL",
+              "isWidget": true,
+              "dataType": "array",
+              "data": [
+                
+              ],
+              "componentSpecific": {
+                "activeTutorial": "Open Source Brain Tutorial",
+                "currentStep": 0
+              },
+              "size": {
+                "height": 300,
+                "width": 350
+              },
+              "position": {
+                "left": "50%",
+                "top": "50%"
+              }
+            },
+            "Console1": {
+              "widgetType": "CONSOLE",
+              "isWidget": false
+            },
+            "Canvas1": {
+              "widgetType": "CANVAS",
+              "isWidget": false,
+              "dataType": "instances",
+              "data": [
+                "TestSmall"
+              ],
+              "componentSpecific": {
+                "cameraPosition": {
+                  "x": 5.874,
+                  "y": -484.385,
+                  "z": 1912.269
+                },
+                "cameraRotation": {
+                  "rx": 0,
+                  "ry": 0,
+                  "rz": 0,
+                  "radius": 1887.934
+                },
+                "colorMap": {
+                  "TestSmall.CG3D_SupAxAx": "#ff9999",
+                  "TestSmall.CG3D_L4SpinStell": "#004080",
+                  "TestSmall.CG3D_L23PyrRS": "#990000",
+                  "TestSmall.CG3D_L6NonTuftRS": "#ff9933",
+                  "TestSmall.CG3D_SupBask": "#ff6666",
+                  "TestSmall.CG3D_L5TuftRS": "#00cc66",
+                  "TestSmall.CG3D_L23PyrFRB": "#ff3333",
+                  "TestSmall.CG3D_L5TuftIB": "#006600",
+                  "TestSmall.CG3D_DeepAxAx": "#ccffcc",
+                  "TestSmall.CG3D_SupLTS": "#ccb3ff",
+                  "TestSmall.CG3D_DeepBask": "#ccff99",
+                  "TestSmall.CG3D_DeepLTS": "#ffcccc"
+                },
+                "opacityMap": {
+                  
+                },
+                "geometryTypeMap": {
+                  
+                },
+                "backgroundColor": "0x101010"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "activeExperimentId": 759,
+  "geppettoModel": {
+    "id": 1317,
+    "url": "\/TestSmall_MODEL2044059eb07d672b256e579a820dbd17.xmi",
+    "type": "GEPPETTO_PROJECT"
+  },
+  "isPublic": false,
+  "isReadOnly": false,
+  "view": {
+    "id": 578,
+    "viewStates": {
+      "views": {
+        "Canvas1": {
+          "widgetType": "CANVAS",
+          "componentSpecific": {
+            "radiusMap": {
+              
+            },
+            "colorMap": {
+              "TestSmall.CG3D_SupAxAx": "#ff9999",
+              "TestSmall.CG3D_L4SpinStell": "#004080",
+              "TestSmall.CG3D_L23PyrRS": "#990000",
+              "TestSmall.CG3D_L6NonTuftRS": "#ff9933",
+              "TestSmall.CG3D_SupBask": "#ff6666",
+              "TestSmall.CG3D_L5TuftRS": "#00cc66",
+              "TestSmall.CG3D_L23PyrFRB": "#ff3333",
+              "TestSmall.CG3D_L5TuftIB": "#006600",
+              "TestSmall.CG3D_DeepAxAx": "#ccffcc",
+              "TestSmall.CG3D_SupLTS": "#ccb3ff",
+              "TestSmall.CG3D_DeepBask": "#ccff99",
+              "TestSmall.CG3D_DeepLTS": "#ffcccc"
+            }
+          }
+        }
+      }
+    }
+  }
+}
