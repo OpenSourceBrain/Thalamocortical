@@ -44,7 +44,7 @@
               "transparentBackground": false,
               "name": "Info",
               "size": {
-                "height": 180.8,
+                "height": 206.8,
                 "width": 439.8
               },
               "position": {
@@ -52,7 +52,7 @@
                 "top": 192.5
               },
               "dataType": "string",
-               "data": "You are viewing 1% of the full network.<br><a target='_blank' href='http://opensourcebrain.org/projects/thalamocortical?explorer=https%253A%252F%252Fraw.githubusercontent.com%252FOpenSourceBrain%252FThalamocortical%252Fmaster%252FNeuroML2%252FpythonScripts%252Fnetbuild%252FTestMedium.net.nml'>Click here</a> for larger network (10% of full network, Figure 4a-d).<br><a target='_blank' href='http://www.opensourcebrain.org/projects/thalamocortical/models?explorer=https%253A%252F%252Fraw.githubusercontent.com%252FOpenSourceBrain%252FThalamocortical%252Fmaster%252FNeuroML2%252FpythonScripts%252FtestNetpyne%252FTestL23.net.nml'>Click here</a> for model with Ca2+.",
+               "data": "<h4>You are viewing 1% of the full network.<br><br><a target='_blank' href='http://opensourcebrain.org/projects/thalamocortical?explorer=https%253A%252F%252Fraw.githubusercontent.com%252FOpenSourceBrain%252FThalamocortical%252Fmaster%252FNeuroML2%252FpythonScripts%252Fnetbuild%252FTestMedium.net.nml'>Click here</a> for larger network (10% of full network, Figure 4a-d).<br><br><a target='_blank' href='http://www.opensourcebrain.org/projects/thalamocortical/models?explorer=https%253A%252F%252Fraw.githubusercontent.com%252FOpenSourceBrain%252FThalamocortical%252Fmaster%252FNeuroML2%252FpythonScripts%252FtestNetpyne%252FTestL23.net.nml'>Click here</a> for model with Ca2+.</h4>",
               "componentSpecific": {
                 "customHandlers": [
                   
