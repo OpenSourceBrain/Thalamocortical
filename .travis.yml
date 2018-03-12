@@ -11,6 +11,7 @@ addons:
     - python-numpy 
     - python-scipy 
     - python-lxml
+    - python-tornado
     - libhdf5-7
     - python-tables
 
