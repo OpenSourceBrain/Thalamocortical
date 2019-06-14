@@ -1,0 +1,369 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.3.16 (libNeuroML v0.2.47)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="Sim_TestMid"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="TestMid/Syn_AMPA_L4SS_IN.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L4SS_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L4SS_Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_L5Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5IB_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_L5Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L5RS_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_L5Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_L6NT_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_L5Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_AMPA_SupPyr_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepAxAx_Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepBask_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepBask_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepBask_L5Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepBask_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepFS_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_L5IB.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_L5RS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_DeepLTS_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupAxAx_DeepPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupAxAx_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupAxAx_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupBask_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupBask_SupAxAx.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupBask_SupBask.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupBask_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupBask_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupLTS_FS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupLTS_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupLTS_L5Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupLTS_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupLTS_LTS.synapse.nml"/>
+    <Include file="TestMid/Syn_GABAA_SupLTS_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_FRBPyr_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_FRBPyr_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_FRBPyr_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L4SS_IN.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L4SS_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L4SS_Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5IB_DeepPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5IB_IN.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5IB_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5IB_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5RS_DeepIN.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5RS_DeepPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5RS_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5RS_SupIN.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L5RS_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L6NT_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L6NT_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L6NT_DeepPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L6NT_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L6NT_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L6NT_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_L6NT_SupPyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_RSPyr_DeepLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_RSPyr_SupFS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_RSPyr_SupLTS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_SupPyr_DeepFS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_SupPyr_L4SS.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_SupPyr_L5Pyr.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_SupPyr_L6NT.synapse.nml"/>
+    <Include file="TestMid/Syn_NMDA_SupPyr_SupPyr.synapse.nml"/>
+    <Include file="TestMid/SynForEctStim.synapse.nml"/>
+    <Include file="TestMid/DeepLTSInter.cell.nml"/>
+    <Include file="TestMid/ar__m00_25.channel.nml"/>
+    <Include file="TestMid/cad__beta0_02__phi260000.nml"/>
+    <Include file="TestMid/cad__beta0_05__phi520000.nml"/>
+    <Include file="TestMid/cal.channel.nml"/>
+    <Include file="TestMid/cat_a.channel.nml"/>
+    <Include file="TestMid/k2.channel.nml"/>
+    <Include file="TestMid/ka.channel.nml"/>
+    <Include file="TestMid/kahp_slower.channel.nml"/>
+    <Include file="TestMid/kc_fast.channel.nml"/>
+    <Include file="TestMid/kdr_fs.channel.nml"/>
+    <Include file="TestMid/km.channel.nml"/>
+    <Include file="TestMid/naf2__a0__b0__c0__d0__fastNa_shiftmin2_5.channel.nml"/>
+    <Include file="TestMid/nap.channel.nml"/>
+    <Include file="TestMid/pas.channel.nml"/>
+    <Include file="TestMid/SupBasket.cell.nml"/>
+    <Include file="TestMid/cat.channel.nml"/>
+    <Include file="TestMid/L4SpinyStellate.cell.nml"/>
+    <Include file="TestMid/ar__m00.channel.nml"/>
+    <Include file="TestMid/cad__beta0_05__phi260000.nml"/>
+    <Include file="TestMid/napf_spinstell__a0__b0__c0__d0__shmin2_5.channel.nml"/>
+    <Include file="TestMid/L6NonTuftedPyrRS.cell.nml"/>
+    <Include file="TestMid/cad__beta0_01__phi13000.nml"/>
+    <Include file="TestMid/cad__beta0_05__phi65000.nml"/>
+    <Include file="TestMid/kahp_deeppyr.channel.nml"/>
+    <Include file="TestMid/kc.channel.nml"/>
+    <Include file="TestMid/kdr.channel.nml"/>
+    <Include file="TestMid/naf__a0__b0__c0__d0__fastNa_shiftmin3_5.channel.nml"/>
+    <Include file="TestMid/DeepBasket.cell.nml"/>
+    <Include file="TestMid/L23PyrRS.cell.nml"/>
+    <Include file="TestMid/cad__beta0_01__phi26000.nml"/>
+    <Include file="TestMid/cad__beta0_05__phi52000.nml"/>
+    <Include file="TestMid/kahp.channel.nml"/>
+    <Include file="TestMid/L5TuftedPyrIB.cell.nml"/>
+    <Include file="TestMid/cad__beta0_01__phi4333_33.nml"/>
+    <Include file="TestMid/cad__beta0_02__phi86666_7.nml"/>
+    <Include file="TestMid/cad__beta0_075__phi86666_7.nml"/>
+    <Include file="TestMid/ka_ib.channel.nml"/>
+    <Include file="TestMid/SupLTSInter.cell.nml"/>
+    <Include file="TestMid/L5TuftedPyrRS.cell.nml"/>
+    <Include file="TestMid/L23PyrFRB_varInit.cell.nml"/>
+    <Include file="TestMid/DeepAxAx.cell.nml"/>
+    <Include file="TestMid/SupAxAx.cell.nml"/>
+    <Include file="TestMid.net.nml"/>
+   
+    <Simulation id="Sim_TestMid" length="10ms" step="0.025ms" target="TestMid" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <Display id="DispPop__CG3D_DeepAxAx" title="Membrane potentials of cells in CG3D_DeepAxAx" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_DeepAxAx[0]: v" quantity="CG3D_DeepAxAx/0/DeepAxAx/v" scale="1mV" color="#6aa799" timeScale="1ms"/>
+            <Line id="CG3D_DeepAxAx[1]: v" quantity="CG3D_DeepAxAx/1/DeepAxAx/v" scale="1mV" color="#029a72" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_DeepLTS" title="Membrane potentials of cells in CG3D_DeepLTS" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_DeepLTS[0]: v" quantity="CG3D_DeepLTS/0/DeepLTSInter/v" scale="1mV" color="#d340bb" timeScale="1ms"/>
+            <Line id="CG3D_DeepLTS[1]: v" quantity="CG3D_DeepLTS/1/DeepLTSInter/v" scale="1mV" color="#4c73a9" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_L4SpinStell" title="Membrane potentials of cells in CG3D_L4SpinStell" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_L4SpinStell[0]: v" quantity="CG3D_L4SpinStell/0/L4SpinyStellate/v" scale="1mV" color="#5e503a" timeScale="1ms"/>
+            <Line id="CG3D_L4SpinStell[1]: v" quantity="CG3D_L4SpinStell/1/L4SpinyStellate/v" scale="1mV" color="#3193ca" timeScale="1ms"/>
+            <Line id="CG3D_L4SpinStell[2]: v" quantity="CG3D_L4SpinStell/2/L4SpinyStellate/v" scale="1mV" color="#90e5e9" timeScale="1ms"/>
+            <Line id="CG3D_L4SpinStell[3]: v" quantity="CG3D_L4SpinStell/3/L4SpinyStellate/v" scale="1mV" color="#29645f" timeScale="1ms"/>
+            <Line id="CG3D_L4SpinStell[4]: v" quantity="CG3D_L4SpinStell/4/L4SpinyStellate/v" scale="1mV" color="#1fcff4" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_L5TuftIB" title="Membrane potentials of cells in CG3D_L5TuftIB" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_L5TuftIB[0]: v" quantity="CG3D_L5TuftIB/0/L5TuftedPyrIB/v" scale="1mV" color="#6ed4e9" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[1]: v" quantity="CG3D_L5TuftIB/1/L5TuftedPyrIB/v" scale="1mV" color="#8fe460" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[2]: v" quantity="CG3D_L5TuftIB/2/L5TuftedPyrIB/v" scale="1mV" color="#2ca1c7" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[3]: v" quantity="CG3D_L5TuftIB/3/L5TuftedPyrIB/v" scale="1mV" color="#8d9fe5" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[4]: v" quantity="CG3D_L5TuftIB/4/L5TuftedPyrIB/v" scale="1mV" color="#5adad1" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[5]: v" quantity="CG3D_L5TuftIB/5/L5TuftedPyrIB/v" scale="1mV" color="#f543bb" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[6]: v" quantity="CG3D_L5TuftIB/6/L5TuftedPyrIB/v" scale="1mV" color="#175f0c" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[7]: v" quantity="CG3D_L5TuftIB/7/L5TuftedPyrIB/v" scale="1mV" color="#fa8826" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[8]: v" quantity="CG3D_L5TuftIB/8/L5TuftedPyrIB/v" scale="1mV" color="#6980a8" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[9]: v" quantity="CG3D_L5TuftIB/9/L5TuftedPyrIB/v" scale="1mV" color="#8101e8" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[10]: v" quantity="CG3D_L5TuftIB/10/L5TuftedPyrIB/v" scale="1mV" color="#25ece8" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[11]: v" quantity="CG3D_L5TuftIB/11/L5TuftedPyrIB/v" scale="1mV" color="#b80e3b" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[12]: v" quantity="CG3D_L5TuftIB/12/L5TuftedPyrIB/v" scale="1mV" color="#30a1f6" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[13]: v" quantity="CG3D_L5TuftIB/13/L5TuftedPyrIB/v" scale="1mV" color="#577081" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[14]: v" quantity="CG3D_L5TuftIB/14/L5TuftedPyrIB/v" scale="1mV" color="#06057c" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftIB[15]: v" quantity="CG3D_L5TuftIB/15/L5TuftedPyrIB/v" scale="1mV" color="#56eaa3" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_L23PyrFRB" title="Membrane potentials of cells in CG3D_L23PyrFRB" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_L23PyrFRB[0]: v" quantity="CG3D_L23PyrFRB/0/L23PyrFRB_varInit/v" scale="1mV" color="#f7acee" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_L6NonTuftRS" title="Membrane potentials of cells in CG3D_L6NonTuftRS" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_L6NonTuftRS[0]: v" quantity="CG3D_L6NonTuftRS/0/L6NonTuftedPyrRS/v" scale="1mV" color="#fa9289" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[1]: v" quantity="CG3D_L6NonTuftRS/1/L6NonTuftedPyrRS/v" scale="1mV" color="#be9985" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[2]: v" quantity="CG3D_L6NonTuftRS/2/L6NonTuftedPyrRS/v" scale="1mV" color="#00e266" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[3]: v" quantity="CG3D_L6NonTuftRS/3/L6NonTuftedPyrRS/v" scale="1mV" color="#f0b378" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[4]: v" quantity="CG3D_L6NonTuftRS/4/L6NonTuftedPyrRS/v" scale="1mV" color="#deea95" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[5]: v" quantity="CG3D_L6NonTuftRS/5/L6NonTuftedPyrRS/v" scale="1mV" color="#c55566" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[6]: v" quantity="CG3D_L6NonTuftRS/6/L6NonTuftedPyrRS/v" scale="1mV" color="#2dcaab" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[7]: v" quantity="CG3D_L6NonTuftRS/7/L6NonTuftedPyrRS/v" scale="1mV" color="#1978ce" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[8]: v" quantity="CG3D_L6NonTuftRS/8/L6NonTuftedPyrRS/v" scale="1mV" color="#6a1ecc" timeScale="1ms"/>
+            <Line id="CG3D_L6NonTuftRS[9]: v" quantity="CG3D_L6NonTuftRS/9/L6NonTuftedPyrRS/v" scale="1mV" color="#e2b284" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_DeepBask" title="Membrane potentials of cells in CG3D_DeepBask" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_DeepBask[0]: v" quantity="CG3D_DeepBask/0/DeepBasket/v" scale="1mV" color="#93fd72" timeScale="1ms"/>
+            <Line id="CG3D_DeepBask[1]: v" quantity="CG3D_DeepBask/1/DeepBasket/v" scale="1mV" color="#bc90a6" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_L23PyrRS" title="Membrane potentials of cells in CG3D_L23PyrRS" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_L23PyrRS[0]: v" quantity="CG3D_L23PyrRS/0/L23PyrRS/v" scale="1mV" color="#3b8d0e" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[1]: v" quantity="CG3D_L23PyrRS/1/L23PyrRS/v" scale="1mV" color="#860a7d" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[2]: v" quantity="CG3D_L23PyrRS/2/L23PyrRS/v" scale="1mV" color="#b59a59" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[3]: v" quantity="CG3D_L23PyrRS/3/L23PyrRS/v" scale="1mV" color="#d32851" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[4]: v" quantity="CG3D_L23PyrRS/4/L23PyrRS/v" scale="1mV" color="#ce9fb6" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[5]: v" quantity="CG3D_L23PyrRS/5/L23PyrRS/v" scale="1mV" color="#3b788b" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[6]: v" quantity="CG3D_L23PyrRS/6/L23PyrRS/v" scale="1mV" color="#df8960" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[7]: v" quantity="CG3D_L23PyrRS/7/L23PyrRS/v" scale="1mV" color="#3764b5" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[8]: v" quantity="CG3D_L23PyrRS/8/L23PyrRS/v" scale="1mV" color="#cd4944" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[9]: v" quantity="CG3D_L23PyrRS/9/L23PyrRS/v" scale="1mV" color="#8e1a11" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[10]: v" quantity="CG3D_L23PyrRS/10/L23PyrRS/v" scale="1mV" color="#2f9272" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[11]: v" quantity="CG3D_L23PyrRS/11/L23PyrRS/v" scale="1mV" color="#96af0d" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[12]: v" quantity="CG3D_L23PyrRS/12/L23PyrRS/v" scale="1mV" color="#84ab56" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[13]: v" quantity="CG3D_L23PyrRS/13/L23PyrRS/v" scale="1mV" color="#f56ae7" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[14]: v" quantity="CG3D_L23PyrRS/14/L23PyrRS/v" scale="1mV" color="#0aa250" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[15]: v" quantity="CG3D_L23PyrRS/15/L23PyrRS/v" scale="1mV" color="#2a04f7" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[16]: v" quantity="CG3D_L23PyrRS/16/L23PyrRS/v" scale="1mV" color="#fbb911" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[17]: v" quantity="CG3D_L23PyrRS/17/L23PyrRS/v" scale="1mV" color="#d50b61" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[18]: v" quantity="CG3D_L23PyrRS/18/L23PyrRS/v" scale="1mV" color="#267841" timeScale="1ms"/>
+            <Line id="CG3D_L23PyrRS[19]: v" quantity="CG3D_L23PyrRS/19/L23PyrRS/v" scale="1mV" color="#3aa725" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_SupAxAx" title="Membrane potentials of cells in CG3D_SupAxAx" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_SupAxAx[0]: v" quantity="CG3D_SupAxAx/0/SupAxAx/v" scale="1mV" color="#8a04f7" timeScale="1ms"/>
+            <Line id="CG3D_SupAxAx[1]: v" quantity="CG3D_SupAxAx/1/SupAxAx/v" scale="1mV" color="#282fe5" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_L5TuftRS" title="Membrane potentials of cells in CG3D_L5TuftRS" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_L5TuftRS[0]: v" quantity="CG3D_L5TuftRS/0/L5TuftedPyrRS/v" scale="1mV" color="#52e1fb" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftRS[1]: v" quantity="CG3D_L5TuftRS/1/L5TuftedPyrRS/v" scale="1mV" color="#0ca02f" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftRS[2]: v" quantity="CG3D_L5TuftRS/2/L5TuftedPyrRS/v" scale="1mV" color="#b6307b" timeScale="1ms"/>
+            <Line id="CG3D_L5TuftRS[3]: v" quantity="CG3D_L5TuftRS/3/L5TuftedPyrRS/v" scale="1mV" color="#141cb0" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_SupLTS" title="Membrane potentials of cells in CG3D_SupLTS" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_SupLTS[0]: v" quantity="CG3D_SupLTS/0/SupLTSInter/v" scale="1mV" color="#fe9e62" timeScale="1ms"/>
+            <Line id="CG3D_SupLTS[1]: v" quantity="CG3D_SupLTS/1/SupLTSInter/v" scale="1mV" color="#ebaa77" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="DispPop__CG3D_SupBask" title="Membrane potentials of cells in CG3D_SupBask" timeScale="1ms" xmin="-1.0" xmax="11.0" ymin="-90" ymax="50">
+            <Line id="CG3D_SupBask[0]: v" quantity="CG3D_SupBask/0/SupBasket/v" scale="1mV" color="#c9f0b0" timeScale="1ms"/>
+            <Line id="CG3D_SupBask[1]: v" quantity="CG3D_SupBask/1/SupBasket/v" scale="1mV" color="#c5bc64" timeScale="1ms"/>
+        </Display>
+        
+        <OutputFile id="Volts_file__CG3D_DeepAxAx" fileName="Sim_TestMid.CG3D_DeepAxAx.v.dat">
+            <OutputColumn id="v_CG3D_DeepAxAx_0_DeepAxAx_v" quantity="CG3D_DeepAxAx/0/DeepAxAx/v"/> 
+            <OutputColumn id="v_CG3D_DeepAxAx_1_DeepAxAx_v" quantity="CG3D_DeepAxAx/1/DeepAxAx/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_DeepLTS" fileName="Sim_TestMid.CG3D_DeepLTS.v.dat">
+            <OutputColumn id="v_CG3D_DeepLTS_0_DeepLTSInter_v" quantity="CG3D_DeepLTS/0/DeepLTSInter/v"/> 
+            <OutputColumn id="v_CG3D_DeepLTS_1_DeepLTSInter_v" quantity="CG3D_DeepLTS/1/DeepLTSInter/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_L4SpinStell" fileName="Sim_TestMid.CG3D_L4SpinStell.v.dat">
+            <OutputColumn id="v_CG3D_L4SpinStell_0_L4SpinyStellate_v" quantity="CG3D_L4SpinStell/0/L4SpinyStellate/v"/> 
+            <OutputColumn id="v_CG3D_L4SpinStell_1_L4SpinyStellate_v" quantity="CG3D_L4SpinStell/1/L4SpinyStellate/v"/> 
+            <OutputColumn id="v_CG3D_L4SpinStell_2_L4SpinyStellate_v" quantity="CG3D_L4SpinStell/2/L4SpinyStellate/v"/> 
+            <OutputColumn id="v_CG3D_L4SpinStell_3_L4SpinyStellate_v" quantity="CG3D_L4SpinStell/3/L4SpinyStellate/v"/> 
+            <OutputColumn id="v_CG3D_L4SpinStell_4_L4SpinyStellate_v" quantity="CG3D_L4SpinStell/4/L4SpinyStellate/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_L5TuftIB" fileName="Sim_TestMid.CG3D_L5TuftIB.v.dat">
+            <OutputColumn id="v_CG3D_L5TuftIB_0_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/0/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_1_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/1/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_2_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/2/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_3_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/3/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_4_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/4/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_5_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/5/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_6_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/6/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_7_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/7/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_8_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/8/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_9_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/9/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_10_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/10/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_11_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/11/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_12_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/12/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_13_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/13/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_14_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/14/L5TuftedPyrIB/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftIB_15_L5TuftedPyrIB_v" quantity="CG3D_L5TuftIB/15/L5TuftedPyrIB/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_L23PyrFRB" fileName="Sim_TestMid.CG3D_L23PyrFRB.v.dat">
+            <OutputColumn id="v_CG3D_L23PyrFRB_0_L23PyrFRB_varInit_v" quantity="CG3D_L23PyrFRB/0/L23PyrFRB_varInit/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_L6NonTuftRS" fileName="Sim_TestMid.CG3D_L6NonTuftRS.v.dat">
+            <OutputColumn id="v_CG3D_L6NonTuftRS_0_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/0/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_1_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/1/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_2_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/2/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_3_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/3/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_4_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/4/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_5_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/5/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_6_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/6/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_7_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/7/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_8_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/8/L6NonTuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L6NonTuftRS_9_L6NonTuftedPyrRS_v" quantity="CG3D_L6NonTuftRS/9/L6NonTuftedPyrRS/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_DeepBask" fileName="Sim_TestMid.CG3D_DeepBask.v.dat">
+            <OutputColumn id="v_CG3D_DeepBask_0_DeepBasket_v" quantity="CG3D_DeepBask/0/DeepBasket/v"/> 
+            <OutputColumn id="v_CG3D_DeepBask_1_DeepBasket_v" quantity="CG3D_DeepBask/1/DeepBasket/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_L23PyrRS" fileName="Sim_TestMid.CG3D_L23PyrRS.v.dat">
+            <OutputColumn id="v_CG3D_L23PyrRS_0_L23PyrRS_v" quantity="CG3D_L23PyrRS/0/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_1_L23PyrRS_v" quantity="CG3D_L23PyrRS/1/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_2_L23PyrRS_v" quantity="CG3D_L23PyrRS/2/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_3_L23PyrRS_v" quantity="CG3D_L23PyrRS/3/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_4_L23PyrRS_v" quantity="CG3D_L23PyrRS/4/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_5_L23PyrRS_v" quantity="CG3D_L23PyrRS/5/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_6_L23PyrRS_v" quantity="CG3D_L23PyrRS/6/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_7_L23PyrRS_v" quantity="CG3D_L23PyrRS/7/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_8_L23PyrRS_v" quantity="CG3D_L23PyrRS/8/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_9_L23PyrRS_v" quantity="CG3D_L23PyrRS/9/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_10_L23PyrRS_v" quantity="CG3D_L23PyrRS/10/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_11_L23PyrRS_v" quantity="CG3D_L23PyrRS/11/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_12_L23PyrRS_v" quantity="CG3D_L23PyrRS/12/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_13_L23PyrRS_v" quantity="CG3D_L23PyrRS/13/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_14_L23PyrRS_v" quantity="CG3D_L23PyrRS/14/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_15_L23PyrRS_v" quantity="CG3D_L23PyrRS/15/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_16_L23PyrRS_v" quantity="CG3D_L23PyrRS/16/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_17_L23PyrRS_v" quantity="CG3D_L23PyrRS/17/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_18_L23PyrRS_v" quantity="CG3D_L23PyrRS/18/L23PyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L23PyrRS_19_L23PyrRS_v" quantity="CG3D_L23PyrRS/19/L23PyrRS/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_SupAxAx" fileName="Sim_TestMid.CG3D_SupAxAx.v.dat">
+            <OutputColumn id="v_CG3D_SupAxAx_0_SupAxAx_v" quantity="CG3D_SupAxAx/0/SupAxAx/v"/> 
+            <OutputColumn id="v_CG3D_SupAxAx_1_SupAxAx_v" quantity="CG3D_SupAxAx/1/SupAxAx/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_L5TuftRS" fileName="Sim_TestMid.CG3D_L5TuftRS.v.dat">
+            <OutputColumn id="v_CG3D_L5TuftRS_0_L5TuftedPyrRS_v" quantity="CG3D_L5TuftRS/0/L5TuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftRS_1_L5TuftedPyrRS_v" quantity="CG3D_L5TuftRS/1/L5TuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftRS_2_L5TuftedPyrRS_v" quantity="CG3D_L5TuftRS/2/L5TuftedPyrRS/v"/> 
+            <OutputColumn id="v_CG3D_L5TuftRS_3_L5TuftedPyrRS_v" quantity="CG3D_L5TuftRS/3/L5TuftedPyrRS/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_SupLTS" fileName="Sim_TestMid.CG3D_SupLTS.v.dat">
+            <OutputColumn id="v_CG3D_SupLTS_0_SupLTSInter_v" quantity="CG3D_SupLTS/0/SupLTSInter/v"/> 
+            <OutputColumn id="v_CG3D_SupLTS_1_SupLTSInter_v" quantity="CG3D_SupLTS/1/SupLTSInter/v"/> 
+        </OutputFile>
+        
+        <OutputFile id="Volts_file__CG3D_SupBask" fileName="Sim_TestMid.CG3D_SupBask.v.dat">
+            <OutputColumn id="v_CG3D_SupBask_0_SupBasket_v" quantity="CG3D_SupBask/0/SupBasket/v"/> 
+            <OutputColumn id="v_CG3D_SupBask_1_SupBasket_v" quantity="CG3D_SupBask/1/SupBasket/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>
