@@ -56,9 +56,7 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/Test/
 
 /NeuroML2/pythonScripts/netbuild/*_nrn.py
-/NeuroML2/pythonScripts/netbuild/*.net.nml
 /NeuroML2/pythonScripts/netbuild/*.xml
-/NeuroML2/pythonScripts/netbuild/Test*/*
 /NeuroML2/pythonScripts/netbuild/Figure*/*
 
 /NeuroML2/pythonScripts/netbuild/LEMS_TestSmall_netpyne.py
