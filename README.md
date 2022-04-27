@@ -1,3 +1,7 @@
+## Thalamocortical network model of Traub et al. 2005
+
+[![Continuous build using OMV](https://github.com/OpenSourceBrain/Thalamocortical/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/Thalamocortical/actions/workflows/omv-ci.yml)
+
 This is a project implementing cells from the thalamocortical network model of [Traub et al. 2005](https://www.ncbi.nlm.nih.gov/pubmed?holding=modeldb&term=15525801) in NeuroML. 
 
 Based on the NEURON implementation from: http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=45539.
@@ -10,8 +14,6 @@ This project was contributed to by [Rokas Stanislovas](https://github.com/RokasS
 [2016 Google Summer of Code](https://summerofcode.withgoogle.com/projects/#53374629015715840). He worked on the conversion 
 and testing of cell models to NeuroML2 and the creation of Python scripts to generate versions of the column. 
 See [here](https://github.com/OpenSourceBrain/Thalamocortical/tree/master/NeuroML2) for more details.
-
-[![Build Status](https://travis-ci.org/OpenSourceBrain/Thalamocortical.svg?branch=master)](https://travis-ci.org/OpenSourceBrain/Thalamocortical)
 
 [![DOI](https://www.zenodo.org/badge/4960904.svg)](https://www.zenodo.org/badge/latestdoi/4960904)
 
