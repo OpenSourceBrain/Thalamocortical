@@ -1,17 +1,17 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
-target: LEMS_L23PyrFRB.xml
+target: LEMS_SupAxAx.xml
 engine: jNeuroML_EDEN
-mep: ../../NeuroML2/test/.test.l23frb.mep
+mep: ../../NeuroML2/test/.test.supaxax.mep
 experiments:
-  L23FRB:
+  SupAxAx:
     observables:
       spike times:
         file:
-          path: CGsuppyrFRB_0.0.dat
+          path: CGsupaxax_0.0.dat
           columns: [0,1]
           scaling: [1, 1]
         spike detection:
           method: threshold
           threshold: 0
-        tolerance: 0.008459154078549956
+        tolerance: 0.01234941277282111
