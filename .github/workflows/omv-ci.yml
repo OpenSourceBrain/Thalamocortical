@@ -15,39 +15,39 @@ jobs:
       fail-fast: false
       matrix:
         python-version: [ 3.7, 3.9 ]
-        engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_NetPyNE, jNeuroML_validate, jNeuroML_validatev1, Py_neuroConstruct ]
+        engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_NetPyNE, jNeuroML_EDEN, jNeuroML_validate, jNeuroML_validatev1, Py_neuroConstruct ]
 
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Set up Python  ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
         python-version:  ${{ matrix.python-version }}
-        
+
     - name: Install OMV
       run: |
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
         pip install scipy sympy matplotlib cython pandas tables
-        
+
     - name: Make neuroConstruct synapses
       if: ${{ matrix.engine == 'Py_neuroConstruct' }}
       run: |
         omv install Py_neuroConstruct
         cd neuroConstruct/pythonScripts/netbuild/
         ./makeSyns.sh
-        
+
     - name: Run OMV tests on engine ${{ matrix.engine }}
       run: |
         omv all -V --engine=${{ matrix.engine }}
-     
+
     - name: Test more NetPyNE
       if: ${{ matrix.engine == 'jNeuroML_NetPyNE' }}
       run: |
           cd NeuroML2/test
           python LEMS_supbaskFigA2a_netpyne.py
-      
-      
+
+
     - name: OMV final version info
       run: |
         omv list -V # list installed engines

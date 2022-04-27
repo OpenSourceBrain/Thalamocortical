@@ -76,3 +76,6 @@ neuroConstruct/generatedNeuroML2/html
 /NeuroML2/pythonScripts/netbuild/*.gv.pdf
 /neuroConstruct/generatedNeuroML2/*.gv
 /neuroConstruct/generatedNeuroML2/*.gv.pdf
+*code.gen.c
+*code.gen.so
+*_eden.py
