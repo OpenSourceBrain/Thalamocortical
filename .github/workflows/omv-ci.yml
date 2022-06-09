@@ -16,7 +16,7 @@ jobs:
       matrix:
         python-version: [ 3.9 ]
         runs-on: [ ubuntu-latest, macos-latest ]
-        engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_NetPyNE, jNeuroML_EDEN, jNeuroML_validate, jNeuroML_validatev1, Py_neuroConstruct ]
+        engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_NetPyNE, jNeuroML_validate, jNeuroML_validatev1, Py_neuroConstruct ]
 
     steps:
     - uses: actions/checkout@v2
