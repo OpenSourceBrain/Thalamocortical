@@ -10,7 +10,7 @@ ref =                   "TestL23"
 
 simConfig=              "TempSimConfig"
 
-simDuration =           100 # ms          original duration 1000 ms                      ##
+simDuration =           20 # ms          original duration 1000 ms                      ##
 simDt =                 0.025 # ms
 seed =    134344                                  ##
 
@@ -18,7 +18,7 @@ simulator =             None
 
 defaultSynapticDelay =  0.05 
 
-scaleCortex =             0.02                           ##
+scaleCortex =             0.01                           ##
 scaleThalamus =           0                                  ##
 
 gabaScaling =             1                               ##

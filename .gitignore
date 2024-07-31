@@ -80,3 +80,4 @@ neuroConstruct/generatedNeuroML2/html
 *code.gen.so
 *_eden.py
 arm64
+/neuroConstruct/generatedNeuroML2/*netpyne.py
