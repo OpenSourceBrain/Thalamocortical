@@ -1,7 +1,7 @@
 # Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
 target: LEMS_L23PyrFRB.xml
-engine: jNeuroML_NEURON
+engine: jNeuroML_NetPyNE
 mep: ../../NeuroML2/test/.test.l23frb.mep
 experiments:
   L23FRB:
@@ -14,4 +14,4 @@ experiments:
         spike detection: 
           method: threshold
           threshold: 0
-        tolerance: 0.006042296072507726
+        tolerance: 0.0060422960725075164
