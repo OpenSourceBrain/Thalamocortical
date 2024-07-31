@@ -10,7 +10,7 @@ ref =                   "TestL23"
 
 simConfig=              "TempSimConfig"
 
-simDuration =           20 # ms          original duration 1000 ms                      ##
+simDuration =           200 # ms          original duration 1000 ms                      ##
 simDt =                 0.025 # ms
 seed =    134344                                  ##
 
@@ -46,7 +46,7 @@ RunColumnSimulation(net_id=ref,
                     deep_bias_current=deepBiasCurrent,
                     which_cell_types_to_include=['L23PyrRS','SupBasket','SupAxAx','SupLTSInter'],
                     include_gap_junctions=False,
-                    backgroundL23Rate=100,
+                    backgroundL23Rate=1000,
                     dir_nml2="../../",
                     duration=simDuration,
                     dt=simDt,
