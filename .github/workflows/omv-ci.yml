@@ -14,8 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ 3.9 ]
-        runs-on: [ ubuntu-latest, macos-latest ]
+        python-version: [ "3.12" ]
+        runs-on: [ ubuntu-22.04, macos-latest ]
         engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_NetPyNE, jNeuroML_EDEN, jNeuroML_validate, jNeuroML_validatev1, Py_neuroConstruct ]
         exclude:
           - runs-on: macos-latest
@@ -39,6 +39,7 @@ jobs:
       run: |
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
         pip install scipy sympy matplotlib cython pandas tables
+        pip install setuptools
 
     - name: Make neuroConstruct synapses
       if: ${{ matrix.engine == 'Py_neuroConstruct' }}

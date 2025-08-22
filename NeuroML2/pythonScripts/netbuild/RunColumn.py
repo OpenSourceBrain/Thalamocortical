@@ -500,11 +500,11 @@ def RunColumnSimulation(net_id="TestRunColumn",
            
                   if check_type and (check_group_1 or check_group_2 or check_group_3):
 	    
-	             opencortex.print_comment_v("Changing offset current in 'PulseGenerators' for %s to %f"%(cell_group, deep_bias_current))
-	      
-	             input_params_final[cell_group][input_group]['SmallestAmplitudeList']=[ (deep_bias_current-0.05)/1000 ] 
-	              
-	             input_params_final[cell_group][input_group]['LargestAmplitudeList']=[ (deep_bias_current+0.05)/1000 ]
+                     opencortex.print_comment_v("Changing offset current in 'PulseGenerators' for %s to %f"%(cell_group, deep_bias_current))
+               
+                     input_params_final[cell_group][input_group]['SmallestAmplitudeList']=[ (deep_bias_current-0.05)/1000 ] 
+                     
+                     input_params_final[cell_group][input_group]['LargestAmplitudeList']=[ (deep_bias_current+0.05)/1000 ]
                      
     input_list_array_final, input_synapse_list=oc_utils.build_inputs(nml_doc=nml_doc,
                                                                      net=network,
